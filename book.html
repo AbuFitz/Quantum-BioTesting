@@ -1,458 +1,550 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book a Test | Quantum BioTesting — Secure Online Booking</title>
-  <meta name="description" content="Book your Quantum Premium BioTest online. Choose from 40+ UK clinic locations. 300+ biomarkers, results in 48–72 hours, GP consultation included. £995 all-inclusive.">
-  <link rel="canonical" href="https://quantumbiotesting.co.uk/book.html">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23005EB8'/%3E%3Cpath d='M16 6c-2.8 0-5 2.3-5 5.2C11 16 16 22 16 22s5-6 5-10.8C21 8.3 18.8 6 16 6z' fill='%23007F3B'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Book Your Test — Quantum BioTesting | £995 All-Inclusive</title>
+  <meta name="description" content="Book your Quantum BioTesting premium blood test. £995 all-inclusive: 300+ biomarkers, phlebotomy, physician review, and GP consultation. 40+ UK clinic locations.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<!-- ── Header ─────────────────────────────────────────────── -->
-<header class="site-header" role="banner">
-  <div class="header-inner">
-    <a href="index.html" class="header-logo" aria-label="Quantum BioTesting — return to homepage">
-      <div class="logo-tile" aria-hidden="true">
-        <svg viewBox="0 0 26 26" fill="none">
-          <circle cx="13" cy="13" r="13" fill="#005EB8"/>
-          <path d="M13 4C10.2 4 8 6.3 8 9.2C8 14 13 20 13 20C13 20 18 14 18 9.2C18 6.3 15.8 4 13 4Z" fill="#007F3B"/>
-          <circle cx="13" cy="9.5" r="2" fill="white" opacity="0.5"/>
-        </svg>
-      </div>
-      <div class="logo-text-wrap">
-        <span class="logo-name">Quantum BioTesting</span>
-        <span class="logo-sub">Private Health Diagnostics</span>
-      </div>
-    </a>
-
-    <nav class="header-nav" role="navigation" aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="testing.html">What We Test</a>
-      <a href="book.html" class="active">Book a Test</a>
-      <a href="index.html#about">About Us</a>
-    </nav>
-
-    <div class="header-actions">
-      <a href="tel:08001234567" class="header-phone">0800 123 4567</a>
-      <a href="book.html" class="btn-book-header">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        Book a test
-      </a>
-      <button class="header-hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
-        <span class="ham-bar"></span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<nav class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation" aria-hidden="true">
-  <a href="index.html">Home</a>
-  <a href="testing.html">What We Test</a>
-  <a href="book.html">Book a Test</a>
-  <a href="index.html#about">About Us</a>
-  <a href="book.html" class="mob-book">Book a test — from £995</a>
-</nav>
-
-<main id="main-content">
-
-  <!-- ── Page Hero ────────────────────────────────────────── -->
-  <div class="page-hero" aria-labelledby="page-heading">
-    <div class="container">
-      <h1 id="page-heading">Book your test</h1>
-      <p>Select your preferred clinic location, date, and time below. You'll receive a confirmation email within minutes.</p>
-      <div class="page-hero-meta">
-        <span>Appointments within 7 days</span>
-        <span>40+ UK clinic locations</span>
-        <span>Free cancellation (72+ hours notice)</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── Breadcrumb ────────────────────────────────────────── -->
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <div class="breadcrumb-inner">
-      <div class="bc-item"><a href="index.html">Home</a></div>
-      <span class="bc-sep">›</span>
-      <div class="bc-item" aria-current="page">Book a Test</div>
-    </div>
-  </nav>
-
-  <!-- ── Booking Content ──────────────────────────────────── -->
-  <section class="section" aria-labelledby="booking-heading">
-    <div class="container">
-      <div class="booking-grid">
-
-        <!-- Form Column -->
-        <div>
-          <h2 id="booking-heading" style="font-size:1.25rem;font-weight:700;color:var(--nhs-black);margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid var(--nhs-border)">Your appointment details</h2>
-
-          <!-- Booking success message (hidden, shown on JS submit) -->
-          <div class="booking-success" id="booking-success" role="alert" aria-live="polite">
-            <div class="success-icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <h3>Appointment request received</h3>
-            <p>Thank you for booking with Quantum BioTesting. A confirmation email has been sent to the address you provided. A member of our clinical team will contact you within 24 hours to confirm your appointment.</p>
-            <div class="next-steps">
-              <h4>What happens next</h4>
-              <ul>
-                <li>Check your inbox for a confirmation email (and spam folder)</li>
-                <li>Our team will call to confirm your appointment time</li>
-                <li>Fast for 8–12 hours before your appointment (water only)</li>
-                <li>Bring a photo ID to your clinic visit</li>
-                <li>Results are available in your secure portal within 48–72 hours</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Booking form -->
-          <form id="booking-form" novalidate aria-label="Appointment booking form">
-
-            <fieldset style="border:none;padding:0;margin-bottom:32px">
-              <legend class="form-section-head">Personal details</legend>
-
-              <div class="form-row-2">
-                <div class="form-group">
-                  <label class="form-label" for="first-name">First name</label>
-                  <input type="text" id="first-name" name="first_name" class="form-control" autocomplete="given-name" required>
-                  <span class="form-error-msg" id="first-name-error">Please enter your first name</span>
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="last-name">Last name</label>
-                  <input type="text" id="last-name" name="last_name" class="form-control" autocomplete="family-name" required>
-                  <span class="form-error-msg" id="last-name-error">Please enter your last name</span>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="email">Email address</label>
-                <span class="form-hint">Confirmation and results notification will be sent here</span>
-                <input type="email" id="email" name="email" class="form-control" autocomplete="email" required placeholder="e.g. example@email.co.uk">
-                <span class="form-error-msg" id="email-error">Please enter a valid email address</span>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="phone">Phone number</label>
-                <span class="form-hint">UK mobile or landline — our team will call to confirm</span>
-                <input type="tel" id="phone" name="phone" class="form-control" autocomplete="tel" required placeholder="e.g. 07700 900000">
-                <span class="form-error-msg" id="phone-error">Please enter a valid UK phone number</span>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="dob">Date of birth</label>
-                <input type="date" id="dob" name="dob" class="form-control" autocomplete="bday" required>
-                <span class="form-error-msg" id="dob-error">Please enter your date of birth</span>
-              </div>
-            </fieldset>
-
-            <fieldset style="border:none;padding:0;margin-bottom:32px">
-              <legend class="form-section-head">Appointment preference</legend>
-
-              <div class="form-group">
-                <label class="form-label" for="location">Preferred clinic location</label>
-                <span class="form-hint">We have 40+ clinics across England, Scotland, and Wales</span>
-                <select id="location" name="location" class="form-control" required>
-                  <option value="" disabled selected>Select a clinic location</option>
-                  <optgroup label="London">
-                    <option>Harley Street, London W1</option>
-                    <option>Chelsea, London SW3</option>
-                    <option>Canary Wharf, London E14</option>
-                    <option>Wimbledon, London SW19</option>
-                    <option>Hampstead, London NW3</option>
-                  </optgroup>
-                  <optgroup label="South East England">
-                    <option>Brighton</option>
-                    <option>Guildford</option>
-                    <option>Canterbury</option>
-                    <option>Oxford</option>
-                    <option>Reading</option>
-                    <option>Sevenoaks</option>
-                    <option>Tunbridge Wells</option>
-                  </optgroup>
-                  <optgroup label="South West England">
-                    <option>Bristol</option>
-                    <option>Bath</option>
-                    <option>Exeter</option>
-                    <option>Plymouth</option>
-                    <option>Cheltenham</option>
-                  </optgroup>
-                  <optgroup label="Midlands">
-                    <option>Birmingham</option>
-                    <option>Nottingham</option>
-                    <option>Leicester</option>
-                    <option>Derby</option>
-                    <option>Coventry</option>
-                    <option>Stratford-upon-Avon</option>
-                  </optgroup>
-                  <optgroup label="North of England">
-                    <option>Manchester</option>
-                    <option>Liverpool</option>
-                    <option>Leeds</option>
-                    <option>Sheffield</option>
-                    <option>Newcastle upon Tyne</option>
-                    <option>Harrogate</option>
-                    <option>Chester</option>
-                    <option>York</option>
-                  </optgroup>
-                  <optgroup label="East of England">
-                    <option>Cambridge</option>
-                    <option>Norwich</option>
-                    <option>Ipswich</option>
-                    <option>Peterborough</option>
-                  </optgroup>
-                  <optgroup label="Scotland">
-                    <option>Edinburgh</option>
-                    <option>Glasgow</option>
-                    <option>Aberdeen</option>
-                    <option>Inverness</option>
-                  </optgroup>
-                  <optgroup label="Wales">
-                    <option>Cardiff</option>
-                    <option>Swansea</option>
-                  </optgroup>
-                </select>
-                <span class="form-error-msg" id="location-error">Please select a clinic location</span>
-              </div>
-
-              <div class="form-row-2">
-                <div class="form-group">
-                  <label class="form-label" for="appt-date">Preferred date</label>
-                  <span class="form-hint">Earliest available: next working day</span>
-                  <input type="date" id="appt-date" name="appt_date" class="form-control" required>
-                  <span class="form-error-msg" id="date-error">Please select an appointment date</span>
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="appt-time">Preferred time</label>
-                  <span class="form-hint">Morning recommended if fasting</span>
-                  <select id="appt-time" name="appt_time" class="form-control" required>
-                    <option value="" disabled selected>Select a time</option>
-                    <option value="0730">07:30</option>
-                    <option value="0800">08:00</option>
-                    <option value="0830">08:30</option>
-                    <option value="0900">09:00</option>
-                    <option value="0930">09:30</option>
-                    <option value="1000">10:00</option>
-                    <option value="1030">10:30</option>
-                    <option value="1100">11:00</option>
-                    <option value="1130">11:30</option>
-                    <option value="1200">12:00</option>
-                    <option value="1300">13:00</option>
-                    <option value="1400">14:00</option>
-                    <option value="1500">15:00</option>
-                    <option value="1600">16:00</option>
-                    <option value="1700">17:00</option>
-                  </select>
-                  <span class="form-error-msg" id="time-error">Please select a preferred time</span>
-                </div>
-              </div>
-            </fieldset>
-
-            <fieldset style="border:none;padding:0;margin-bottom:32px">
-              <legend class="form-section-head">Medical information (optional)</legend>
-
-              <div class="form-group">
-                <label class="form-label" for="medications">Current medications or supplements</label>
-                <span class="form-hint">Including any HRT, contraceptive pill, or prescribed blood thinners</span>
-                <textarea id="medications" name="medications" class="form-control" placeholder="Leave blank if none"></textarea>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="notes">Any other information for the clinical team</label>
-                <span class="form-hint">E.g. specific concerns, conditions, or questions about your results</span>
-                <textarea id="notes" name="notes" class="form-control" placeholder="Leave blank if not applicable"></textarea>
-              </div>
-            </fieldset>
-
-            <fieldset style="border:none;padding:0;margin-bottom:8px">
-              <legend class="form-section-head">Consent &amp; confirmation</legend>
-
-              <div class="inset-text" style="margin-bottom:24px">
-                <p>By submitting this form you are requesting an appointment only. Payment of £995 is taken by card on the day of your clinic visit. No payment information is collected through this form.</p>
-              </div>
-
-              <div class="form-group">
-                <div class="form-checkbox-row">
-                  <input type="checkbox" id="consent-terms" class="form-checkbox" required>
-                  <label class="form-checkbox-lbl" for="consent-terms">
-                    I have read and agree to the <a href="terms.html" target="_blank">Terms &amp; Conditions</a> and <a href="privacy.html" target="_blank">Privacy Policy</a>.
-                  </label>
-                </div>
-                <span class="form-error-msg" id="consent-error">You must agree to the terms and conditions to proceed</span>
-              </div>
-
-              <div class="form-group">
-                <div class="form-checkbox-row">
-                  <input type="checkbox" id="consent-data" class="form-checkbox" required>
-                  <label class="form-checkbox-lbl" for="consent-data">
-                    I consent to Quantum BioTesting processing my personal and health data to arrange and deliver my test and results, in accordance with the Privacy Policy and UK GDPR.
-                  </label>
-                </div>
-                <span class="form-error-msg" id="data-error">You must give consent to process health data to continue</span>
-              </div>
-
-              <div class="form-group">
-                <div class="form-checkbox-row">
-                  <input type="checkbox" id="consent-age" class="form-checkbox" required>
-                  <label class="form-checkbox-lbl" for="consent-age">
-                    I confirm that I am 18 years of age or older.
-                  </label>
-                </div>
-                <span class="form-error-msg" id="age-error">You must be 18 or older to use this service</span>
-              </div>
-            </fieldset>
-
-            <button type="submit" class="form-submit" id="form-submit">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              Request appointment
-            </button>
-
-            <p style="font-size:0.8125rem;color:var(--nhs-m-grey);margin-top:16px;line-height:1.55">
-              Your information is encrypted and processed securely in accordance with UK GDPR. We will never share your data with third parties for marketing purposes.
-            </p>
-          </form>
+  <!-- ── Header ─────────────────────────────────────────────── -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo" aria-label="Quantum BioTesting — Home">
+        <div class="logo-mark">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="10" cy="10" r="7" stroke="#07090F" stroke-width="1.5"/>
+            <path d="M7 10h6M10 7v6" stroke="#07090F" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
         </div>
-
-        <!-- Sidebar Column -->
-        <aside class="booking-sidebar" aria-label="Booking information">
-
-          <div class="sidebar-box">
-            <h3>Package summary</h3>
-            <ul class="sidebar-items">
-              <li>Quantum Premium BioTest</li>
-              <li>300+ biomarkers analysed</li>
-              <li>Personalised health report</li>
-              <li>30-minute GP consultation</li>
-              <li>Secure results portal access</li>
-              <li>Priority clinic appointment</li>
-            </ul>
-            <div class="sidebar-price-row">
-              <span>All-inclusive price</span>
-              <strong>£995</strong>
-            </div>
-            <p style="font-size:0.8125rem;color:var(--nhs-m-grey);margin-top:10px">Payment taken on the day of your clinic visit by card. No payment required online.</p>
-          </div>
-
-          <div class="sidebar-box">
-            <h3>Before your appointment</h3>
-            <ul class="sidebar-items">
-              <li>Fast for 8–12 hours (water is fine)</li>
-              <li>Stay well hydrated — drink plenty of water</li>
-              <li>Continue all prescribed medications</li>
-              <li>No alcohol for 24 hours beforehand</li>
-              <li>No strenuous exercise for 24 hours</li>
-              <li>Bring a photo ID to the clinic</li>
-            </ul>
-            <div style="margin-top:12px">
-              <a href="index.html#preparation" class="action-link" style="font-size:0.9rem">Full preparation guide</a>
-            </div>
-          </div>
-
-          <div class="sidebar-box blue">
-            <h3>Need help booking?</h3>
-            <p>Our clinical team is available Monday to Friday, 8am–6pm, to answer any questions about the test, preparation, or your results.</p>
-            <a href="tel:08001234567" class="phone-big" aria-label="Call 0800 123 4567">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.62 4.86 2 2 0 0 1 3.59 2.68h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 10a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.5 17.5z"/></svg>
-              0800 123 4567
-            </a>
-            <a href="https://wa.me/447001234567?text=Hi%2C%20I%27d%20like%20help%20booking%20a%20Quantum%20BioTest." class="wa-cta" target="_blank" rel="noopener noreferrer">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-              Chat on WhatsApp
-            </a>
-          </div>
-
-          <div class="sidebar-box">
-            <h3>Cancellation policy</h3>
-            <p style="font-size:0.875rem;color:var(--nhs-m-grey);line-height:1.6">Free cancellation or rescheduling up to <strong>72 hours</strong> before your appointment. Cancellations within 72 hours may incur a £50 administrative charge.</p>
-            <p style="font-size:0.875rem;color:var(--nhs-m-grey);line-height:1.6;margin-top:8px">To cancel or reschedule, email <a href="mailto:hello@quantumbiotesting.co.uk">hello@quantumbiotesting.co.uk</a> or call 0800 123 4567.</p>
-          </div>
-
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── CTA ──────────────────────────────────────────────── -->
-  <section class="cta-section" aria-labelledby="cta-heading">
-    <div class="container cta-inner">
-      <h2 id="cta-heading">Questions about the test?</h2>
-      <p>Our clinical team is happy to answer any questions before you book. Call us or view our biomarker list for more detail on what's included.</p>
-      <div class="cta-btns">
-        <a href="tel:08001234567" class="btn btn-green btn-lg">Call 0800 123 4567</a>
-        <a href="testing.html" class="btn btn-outline-w">What we test</a>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- ── Footer ─────────────────────────────────────────────── -->
-<footer class="site-footer" role="contentinfo">
-  <div class="footer-top">
-    <div>
-      <p class="footer-col-head">Navigate</p>
-      <nav class="footer-links">
+        <div class="logo-text">
+          <span class="logo-name">Quantum BioTesting</span>
+          <span class="logo-sub">Premium Private Diagnostics</span>
+        </div>
+      </a>
+      <nav class="header-nav" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="testing.html">What We Test</a>
-        <a href="book.html">Book a Test</a>
-        <a href="index.html#about">About Us</a>
-        <a href="index.html#how-it-works">How It Works</a>
-        <a href="index.html#preparation">Preparation Guide</a>
+        <a href="book.html" class="active">Book a Test</a>
       </nav>
-    </div>
-    <div>
-      <p class="footer-col-head">Contact</p>
-      <div class="footer-contact-row">
-        <span class="row-lbl">Phone</span>
-        <a href="tel:08001234567">0800 123 4567</a>
-      </div>
-      <div class="footer-contact-row">
-        <span class="row-lbl">Email</span>
-        <a href="mailto:hello@quantumbiotesting.co.uk">hello@quantumbiotesting.co.uk</a>
-      </div>
-      <div class="footer-contact-row">
-        <span class="row-lbl">Opening hours</span>
-        <span>Mon–Fri, 8am–6pm</span>
+      <div class="header-actions">
+        <a href="tel:+441234567890" class="header-phone">0123 456 7890</a>
+        <a href="book.html" class="btn-book-header">
+          <span>Book Now</span>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <button class="header-hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+          <span class="ham-bar"></span>
+        </button>
       </div>
     </div>
-    <div>
-      <p class="footer-col-head">Legal</p>
-      <nav class="footer-links">
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms &amp; Conditions</a>
-        <a href="#">Cookie Policy</a>
-        <a href="#">Accessibility Statement</a>
-      </nav>
-    </div>
-    <div>
-      <p class="footer-col-head">Accreditations</p>
-      <div class="footer-links">
-        <span style="color:rgba(255,255,255,0.6);font-size:0.875rem">UKAS Accredited Laboratories</span>
-        <span style="color:rgba(255,255,255,0.6);font-size:0.875rem">CQC Registered Provider</span>
-        <span style="color:rgba(255,255,255,0.6);font-size:0.875rem">ISO 15189 Certified</span>
-        <span style="color:rgba(255,255,255,0.6);font-size:0.875rem">GMC Registered Clinicians</span>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© <span id="footer-year">2026</span> Quantum BioTesting Ltd. Registered in England &amp; Wales No. 12345678.</p>
-    <p>Registered address: 1 Harley Street, London W1G 9QD</p>
-  </div>
-  <div class="footer-disclaimer">
-    <p>Quantum BioTesting is a private diagnostic service and is not part of the NHS. Our services should not be used as a substitute for NHS care or emergency medical treatment. If you are experiencing a medical emergency, call 999 immediately. If you need urgent medical advice, call NHS 111.</p>
-  </div>
-</footer>
+  </header>
 
-<a href="https://wa.me/447001234567?text=Hi%2C%20I%27d%20like%20help%20booking%20a%20Quantum%20BioTest." class="wa-float" aria-label="Contact us on WhatsApp" target="_blank" rel="noopener noreferrer">
-  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
-  </svg>
-</a>
+  <!-- Mobile nav -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+    <a href="index.html">Home</a>
+    <a href="testing.html">What We Test</a>
+    <a href="book.html">Book a Test</a>
+    <a href="book.html" class="mob-cta">Book Now — £995</a>
+  </nav>
 
-<script src="assets/js/main.js" defer></script>
+  <!-- ── Page Hero ───────────────────────────────────────────── -->
+  <section class="page-hero" aria-label="Page introduction">
+    <div class="page-hero-inner">
+      <div style="margin-bottom:20px;">
+        <span class="bc-item"><a href="index.html" style="color:var(--t2);text-decoration:none;font-size:0.8125rem;">Home</a></span>
+        <span style="color:var(--t3);font-size:0.75rem;margin:0 6px;">›</span>
+        <span style="color:var(--t3);font-size:0.8125rem;">Book a Test</span>
+      </div>
+      <span class="label">Secure Booking</span>
+      <h1>Book your Quantum<br><em class="text-gold" style="font-style:italic;">Premium BioTest</em></h1>
+      <p class="lead" style="margin-top:16px;">Complete the form below to secure your appointment. You'll receive confirmation within minutes, along with your pre-test preparation guide.</p>
+      <div class="page-hero-meta">
+        <span>£995 all-inclusive</span>
+        <span>300+ biomarkers</span>
+        <span>Secure payment via Stripe</span>
+        <span>7-day cancellation</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Booking Main ────────────────────────────────────────── -->
+  <main>
+    <section class="section section-dark" aria-label="Booking form">
+      <div class="container">
+        <div class="booking-wrap">
+
+          <!-- FORM COLUMN -->
+          <div>
+            <!-- Success message (hidden by default) -->
+            <div class="booking-success" id="booking-success" aria-live="polite" role="status">
+              <div class="success-icon" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3>Booking request received.</h3>
+              <p>Thank you for booking with Quantum BioTesting. We'll contact you within 2 working hours (Mon–Fri, 8am–6pm) to confirm your appointment details and process payment securely.</p>
+              <div class="next-steps-box">
+                <h4>What happens next</h4>
+                <ul>
+                  <li>A member of our clinical team will call to confirm your date and location.</li>
+                  <li>You'll receive a secure payment link via email (Stripe — PCI compliant).</li>
+                  <li>Your preparation guide will be emailed before your appointment.</li>
+                  <li>Results are available in your secure portal within 48 hours of your blood draw.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Booking form -->
+            <form id="booking-form" novalidate aria-label="Booking enquiry form">
+
+              <!-- Personal details section -->
+              <p class="form-sec-head">Personal details</p>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="first-name">First name <span aria-hidden="true" style="color:var(--red)">*</span></label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    id="first-name"
+                    name="first_name"
+                    autocomplete="given-name"
+                    required
+                    aria-required="true"
+                    aria-describedby="first-name-err"
+                    placeholder="e.g. James"
+                  >
+                  <span class="form-err" id="first-name-err" role="alert">Please enter your first name.</span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="last-name">Last name <span aria-hidden="true" style="color:var(--red)">*</span></label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    id="last-name"
+                    name="last_name"
+                    autocomplete="family-name"
+                    required
+                    aria-required="true"
+                    aria-describedby="last-name-err"
+                    placeholder="e.g. Carter"
+                  >
+                  <span class="form-err" id="last-name-err" role="alert">Please enter your last name.</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="email">Email address <span aria-hidden="true" style="color:var(--red)">*</span></label>
+                <input
+                  class="form-control"
+                  type="email"
+                  id="email"
+                  name="email"
+                  autocomplete="email"
+                  required
+                  aria-required="true"
+                  aria-describedby="email-err"
+                  placeholder="your@email.com"
+                >
+                <span class="form-err" id="email-err" role="alert">Please enter a valid email address.</span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="phone">Phone number <span aria-hidden="true" style="color:var(--red)">*</span></label>
+                <input
+                  class="form-control"
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  autocomplete="tel"
+                  required
+                  aria-required="true"
+                  aria-describedby="phone-err"
+                  placeholder="07700 000000"
+                >
+                <span class="form-err" id="phone-err" role="alert">Please enter a valid phone number.</span>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="dob">Date of birth <span aria-hidden="true" style="color:var(--red)">*</span></label>
+                  <input
+                    class="form-control"
+                    type="date"
+                    id="dob"
+                    name="dob"
+                    required
+                    aria-required="true"
+                    aria-describedby="dob-err"
+                  >
+                  <span class="form-err" id="dob-err" role="alert">Please enter your date of birth.</span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="sex">Biological sex <span aria-hidden="true" style="color:var(--red)">*</span></label>
+                  <span class="form-hint">Used to set reference ranges</span>
+                  <select
+                    class="form-control"
+                    id="sex"
+                    name="sex"
+                    required
+                    aria-required="true"
+                    aria-describedby="sex-err"
+                  >
+                    <option value="" disabled selected>Select…</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="intersex">Intersex</option>
+                  </select>
+                  <span class="form-err" id="sex-err" role="alert">Please select your biological sex.</span>
+                </div>
+              </div>
+
+              <!-- Appointment section -->
+              <p class="form-sec-head" style="margin-top:20px;">Appointment preferences</p>
+
+              <div class="form-group">
+                <label class="form-label" for="preferred-location">Preferred location <span aria-hidden="true" style="color:var(--red)">*</span></label>
+                <select
+                  class="form-control"
+                  id="preferred-location"
+                  name="preferred_location"
+                  required
+                  aria-required="true"
+                  aria-describedby="location-err"
+                >
+                  <option value="" disabled selected>Select a city or region…</option>
+                  <optgroup label="London">
+                    <option value="london-city">London City</option>
+                    <option value="london-west">London West End</option>
+                    <option value="london-south">London South</option>
+                    <option value="london-east">London East</option>
+                    <option value="london-north">London North</option>
+                  </optgroup>
+                  <optgroup label="South East">
+                    <option value="brighton">Brighton</option>
+                    <option value="oxford">Oxford</option>
+                    <option value="reading">Reading</option>
+                    <option value="cambridge">Cambridge</option>
+                  </optgroup>
+                  <optgroup label="Midlands">
+                    <option value="birmingham">Birmingham</option>
+                    <option value="coventry">Coventry</option>
+                    <option value="nottingham">Nottingham</option>
+                    <option value="leicester">Leicester</option>
+                  </optgroup>
+                  <optgroup label="North West">
+                    <option value="manchester">Manchester</option>
+                    <option value="liverpool">Liverpool</option>
+                    <option value="chester">Chester</option>
+                  </optgroup>
+                  <optgroup label="North East & Yorkshire">
+                    <option value="leeds">Leeds</option>
+                    <option value="sheffield">Sheffield</option>
+                    <option value="newcastle">Newcastle</option>
+                  </optgroup>
+                  <optgroup label="Scotland">
+                    <option value="edinburgh">Edinburgh</option>
+                    <option value="glasgow">Glasgow</option>
+                  </optgroup>
+                  <optgroup label="Wales">
+                    <option value="cardiff">Cardiff</option>
+                  </optgroup>
+                  <optgroup label="South West">
+                    <option value="bristol">Bristol</option>
+                    <option value="exeter">Exeter</option>
+                  </optgroup>
+                </select>
+                <span class="form-err" id="location-err" role="alert">Please select a preferred location.</span>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="preferred-date">Preferred date <span aria-hidden="true" style="color:var(--red)">*</span></label>
+                  <input
+                    class="form-control"
+                    type="date"
+                    id="preferred-date"
+                    name="preferred_date"
+                    required
+                    aria-required="true"
+                    aria-describedby="date-err"
+                  >
+                  <span class="form-err" id="date-err" role="alert">Please select a preferred date.</span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="preferred-time">Preferred time</label>
+                  <select class="form-control" id="preferred-time" name="preferred_time">
+                    <option value="">No preference</option>
+                    <option value="morning">Early morning (8–10am)</option>
+                    <option value="mid-morning">Mid-morning (10am–12pm)</option>
+                    <option value="afternoon">Afternoon (12–4pm)</option>
+                    <option value="evening">Late (4–6pm)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Medical section -->
+              <p class="form-sec-head" style="margin-top:20px;">Medical information</p>
+
+              <div class="form-group">
+                <label class="form-label" for="medications">Current medications (optional)</label>
+                <span class="form-hint">List any prescription or over-the-counter medications. This helps us interpret your results accurately.</span>
+                <textarea
+                  class="form-control"
+                  id="medications"
+                  name="medications"
+                  rows="3"
+                  placeholder="e.g. Levothyroxine 75mcg, Atorvastatin 20mg…"
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="health-concerns">Health concerns or goals (optional)</label>
+                <span class="form-hint">Tell us what prompted your enquiry — this helps our physician tailor their review.</span>
+                <textarea
+                  class="form-control"
+                  id="health-concerns"
+                  name="health_concerns"
+                  rows="3"
+                  placeholder="e.g. Persistent fatigue, family history of heart disease, general health optimisation…"
+                ></textarea>
+              </div>
+
+              <!-- How did you hear -->
+              <div class="form-group">
+                <label class="form-label" for="how-heard">How did you hear about us?</label>
+                <select class="form-control" id="how-heard" name="how_heard">
+                  <option value="">Select…</option>
+                  <option value="google">Google / Search</option>
+                  <option value="social">Social media</option>
+                  <option value="friend">Friend or colleague</option>
+                  <option value="gp">GP referral</option>
+                  <option value="press">Press / media</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <!-- Consent & legal -->
+              <p class="form-sec-head" style="margin-top:20px;">Consent</p>
+
+              <div class="form-group">
+                <div class="form-check-row">
+                  <input
+                    type="checkbox"
+                    class="form-check"
+                    id="consent-terms"
+                    name="consent_terms"
+                    required
+                    aria-required="true"
+                    aria-describedby="consent-err"
+                  >
+                  <label class="form-check-lbl" for="consent-terms">
+                    I have read and agree to the <a href="terms.html" target="_blank" rel="noopener">Terms &amp; Conditions</a> and <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>. I understand this is an enquiry, and payment will be collected via a secure link once my appointment is confirmed. <span aria-hidden="true" style="color:var(--red)">*</span>
+                  </label>
+                </div>
+                <span class="form-err" id="consent-err" role="alert">You must agree to the terms to proceed.</span>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check-row">
+                  <input
+                    type="checkbox"
+                    class="form-check"
+                    id="consent-age"
+                    name="consent_age"
+                    required
+                    aria-required="true"
+                    aria-describedby="age-err"
+                  >
+                  <label class="form-check-lbl" for="consent-age">
+                    I confirm I am 18 years of age or older, or I am completing this form on behalf of an 18+ adult with their consent. <span aria-hidden="true" style="color:var(--red)">*</span>
+                  </label>
+                </div>
+                <span class="form-err" id="age-err" role="alert">You must confirm your age to proceed.</span>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check-row">
+                  <input type="checkbox" class="form-check" id="consent-marketing" name="consent_marketing">
+                  <label class="form-check-lbl" for="consent-marketing">
+                    I'd like to receive health tips, test updates, and relevant news from Quantum BioTesting by email. I can unsubscribe at any time.
+                  </label>
+                </div>
+              </div>
+
+              <button type="submit" class="form-submit" id="form-submit">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22C17.523 22 22 17.523 22 12S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Submit Booking Enquiry
+              </button>
+
+              <div class="callout-info" style="margin-top:20px;">
+                <p><strong>No payment today.</strong> This form submits a booking enquiry. Our team will contact you within 2 working hours to confirm availability and process payment securely via Stripe. Your data is handled in accordance with our <a href="privacy.html">Privacy Policy</a>.</p>
+              </div>
+
+            </form>
+          </div>
+
+          <!-- SIDEBAR COLUMN -->
+          <aside class="sidebar">
+            <div class="sidebar-box gold-bdr fade-up">
+              <p class="sidebar-box-head">Quantum Premium BioTest</p>
+              <div class="sidebar-price-row" style="margin-top:0;padding-top:0;border-top:none;margin-bottom:20px;">
+                <span>All-inclusive</span>
+                <strong>£995</strong>
+              </div>
+              <ul class="sidebar-list">
+                <li>300+ biomarker blood panel</li>
+                <li>Venous draw at clinic</li>
+                <li>ISO 15189 certified lab analysis</li>
+                <li>Physician result review</li>
+                <li>20-min GP video consultation</li>
+                <li>Secure online results portal</li>
+                <li>90 days portal access</li>
+                <li>Referral letters if required</li>
+              </ul>
+            </div>
+
+            <div class="sidebar-box fade-up">
+              <p class="sidebar-box-head">What to expect</p>
+              <div class="steps" style="border:none;">
+                <div class="step" style="padding:12px 0;">
+                  <div class="step-num" style="width:26px;height:26px;font-size:0.75rem;">1</div>
+                  <div class="step-body">
+                    <h3 style="font-size:0.875rem;">Submit your enquiry</h3>
+                    <p style="font-size:0.8125rem;">No payment yet. We confirm availability first.</p>
+                  </div>
+                </div>
+                <div class="step" style="padding:12px 0;">
+                  <div class="step-num" style="width:26px;height:26px;font-size:0.75rem;">2</div>
+                  <div class="step-body">
+                    <h3 style="font-size:0.875rem;">We contact you within 2 hours</h3>
+                    <p style="font-size:0.8125rem;">Monday–Friday 8am–6pm, Saturday 9am–2pm.</p>
+                  </div>
+                </div>
+                <div class="step" style="padding:12px 0;">
+                  <div class="step-num" style="width:26px;height:26px;font-size:0.75rem;">3</div>
+                  <div class="step-body">
+                    <h3 style="font-size:0.875rem;">Secure payment via Stripe</h3>
+                    <p style="font-size:0.8125rem;">PCI-compliant. Card or bank transfer accepted.</p>
+                  </div>
+                </div>
+                <div class="step" style="padding:12px 0;border-bottom:none;">
+                  <div class="step-num" style="width:26px;height:26px;font-size:0.75rem;">4</div>
+                  <div class="step-body">
+                    <h3 style="font-size:0.875rem;">Attend &amp; receive results</h3>
+                    <p style="font-size:0.8125rem;">Results and GP consultation within 48 hours.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sidebar-box fade-up">
+              <p class="sidebar-box-head">Prefer to call?</p>
+              <div class="sidebar-contact-row">
+                <span class="sc-lbl">Speak to our team</span>
+                <a href="tel:+441234567890" class="sidebar-phone">0123 456 7890</a>
+              </div>
+              <p style="font-size:0.8125rem;color:var(--t3);line-height:1.6;margin-bottom:12px;">Mon–Fri 8am–6pm · Sat 9am–2pm</p>
+              <a href="https://wa.me/441234567890" class="wa-btn" rel="noopener noreferrer" target="_blank">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.136.559 4.14 1.535 5.874L.057 23.4a.6.6 0 0 0 .732.732l5.527-1.479A11.934 11.934 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22.001c-2.004 0-3.868-.555-5.462-1.514l-.392-.234-4.079 1.092 1.092-4.08-.234-.391A9.97 9.97 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10.001-10 10.001z"/></svg>
+                WhatsApp Us
+              </a>
+            </div>
+
+            <div class="sidebar-box fade-up">
+              <p class="sidebar-box-head">Accreditations</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                <span class="footer-accred-pill">UKAS</span>
+                <span class="footer-accred-pill">CQC</span>
+                <span class="footer-accred-pill">ISO 15189</span>
+                <span class="footer-accred-pill">GMC</span>
+              </div>
+              <p style="font-size:0.8125rem;color:var(--t3);line-height:1.65;margin-top:14px;margin-bottom:0;">All samples processed in UKAS-accredited labs. Results signed off by a GMC-registered physician before release to your portal.</p>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── Footer ──────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          <div class="logo-mark" style="width:30px;height:30px;">
+            <svg viewBox="0 0 20 20" fill="none" width="16" height="16" aria-hidden="true"><circle cx="10" cy="10" r="7" stroke="#07090F" stroke-width="1.5"/><path d="M7 10h6M10 7v6" stroke="#07090F" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="logo-text">
+            <span class="logo-name" style="font-size:0.875rem;">Quantum BioTesting</span>
+          </div>
+        </a>
+        <p class="footer-brand-desc">Premium private health diagnostics. 300+ biomarkers, physician-reviewed results, and a GP consultation — in a single appointment.</p>
+        <div class="footer-accreds">
+          <span class="footer-accred-pill">UKAS</span>
+          <span class="footer-accred-pill">CQC</span>
+          <span class="footer-accred-pill">ISO 15189</span>
+          <span class="footer-accred-pill">GMC</span>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-head">Navigate</p>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="testing.html">What We Test</a>
+          <a href="book.html">Book a Test</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms &amp; Conditions</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-head">The Test</p>
+        <div class="footer-links">
+          <a href="testing.html#cardiac">Cardiac &amp; Lipids</a>
+          <a href="testing.html#hormones">Hormones</a>
+          <a href="testing.html#thyroid">Thyroid</a>
+          <a href="testing.html#nutrients">Vitamins</a>
+          <a href="testing.html#immune">Immune</a>
+          <a href="testing.html#metabolic">Metabolic</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-head">Contact</p>
+        <div>
+          <div class="footer-contact-item">
+            <span class="fc-lbl">Phone</span>
+            <a href="tel:+441234567890">0123 456 7890</a>
+          </div>
+          <div class="footer-contact-item">
+            <span class="fc-lbl">Email</span>
+            <a href="mailto:info@quantumbiotesting.co.uk">info@quantumbiotesting.co.uk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Quantum BioTesting Ltd. All rights reserved.</p>
+      <p>
+        <a href="privacy.html" style="color:var(--t3);font-size:0.75rem;margin-right:16px;">Privacy Policy</a>
+        <a href="terms.html" style="color:var(--t3);font-size:0.75rem;">Terms &amp; Conditions</a>
+      </p>
+    </div>
+    <div class="footer-disclaimer">
+      <p>This booking form submits an enquiry only. Payment is processed separately via Stripe once your appointment is confirmed. Quantum BioTesting Ltd. Registered in England &amp; Wales. CQC registered.</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/441234567890" class="wa-float" aria-label="Chat on WhatsApp" rel="noopener noreferrer" target="_blank">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.559 4.14 1.535 5.874L.057 23.4a.6.6 0 0 0 .732.732l5.527-1.479A11.934 11.934 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22.001c-2.004 0-3.868-.555-5.462-1.514l-.392-.234-4.079 1.092 1.092-4.08-.234-.391A9.97 9.97 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10.001-10 10.001z"/></svg>
+  </a>
+
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
