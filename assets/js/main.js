@@ -1,46 +1,69 @@
 (function () {
   "use strict";
 
-  var menuToggle = document.getElementById("menu-toggle");
-  var mobileNav = document.getElementById("mobile-nav");
-
-  if (menuToggle && mobileNav) {
-    menuToggle.addEventListener("click", function () {
-      var open = mobileNav.classList.toggle("open");
-      menuToggle.setAttribute("aria-expanded", String(open));
-    });
-  }
-
-  if ("IntersectionObserver" in window) {
-    var revealEls = document.querySelectorAll(".reveal");
-    var io = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("on");
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-    revealEls.forEach(function (el) {
-      io.observe(el);
-    });
-  }
-
   var BASKET_KEY = "qbBasket";
   var PACKAGE_DATA = {
     name: "Premium BioTesting Package",
     price: 995,
-    quantity: 1,
+    quantity: 1
   };
+
+  function closeMobileNav() {
+    var nav = document.getElementById("mobile-nav");
+    var btn = document.getElementById("menu-toggle");
+    if (!nav || !btn) return;
+    nav.classList.remove("open");
+    btn.setAttribute("aria-expanded", "false");
+  }
+
+  (function mobileNav() {
+    var menuToggle = document.getElementById("menu-toggle");
+    var mobileNav = document.getElementById("mobile-nav");
+    if (!menuToggle || !mobileNav) return;
+
+    menuToggle.addEventListener("click", function () {
+      var open = mobileNav.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(open));
+    });
+
+    mobileNav.querySelectorAll("a, button").forEach(function (item) {
+      item.addEventListener("click", function () {
+        closeMobileNav();
+      });
+    });
+  })();
+
+  (function revealAnimations() {
+    var items = document.querySelectorAll(".reveal");
+    if (!items.length || !("IntersectionObserver" in window)) {
+      items.forEach(function (item) {
+        item.classList.add("revealed");
+      });
+      return;
+    }
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    items.forEach(function (item) {
+      observer.observe(item);
+    });
+  })();
 
   function getBasket() {
     try {
       var raw = localStorage.getItem(BASKET_KEY);
       return raw ? JSON.parse(raw) : null;
-    } catch (err) {
+    } catch (e) {
       return null;
     }
   }
@@ -57,20 +80,20 @@
     var basket = getBasket();
     var status = document.getElementById("cart-status");
     var section = document.getElementById("booking-form-section");
-    var basketName = document.getElementById("basket-name");
-    var basketPrice = document.getElementById("basket-price");
+    var name = document.getElementById("basket-name");
+    var price = document.getElementById("basket-price");
 
     if (status) {
       status.className = "cart-pill " + (basket ? "full" : "empty");
       status.textContent = basket ? "Basket ready" : "Basket empty";
     }
 
-    if (basketName) {
-      basketName.textContent = basket ? basket.name : "No package selected";
+    if (name) {
+      name.textContent = basket ? basket.name : "No package selected";
     }
 
-    if (basketPrice) {
-      basketPrice.textContent = basket ? "GBP " + basket.price.toFixed(2) : "GBP 0.00";
+    if (price) {
+      price.textContent = basket ? "GBP " + basket.price.toFixed(2) : "GBP 0.00";
     }
 
     if (section) {
@@ -78,15 +101,67 @@
     }
   }
 
-  var addButtons = document.querySelectorAll("[data-add-basket]");
-  addButtons.forEach(function (btn) {
+  function openModal(name) {
+    var modal = document.getElementById("modal-" + name);
+    if (!modal) return;
+    document.body.classList.add("modal-open");
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+  }
+
+  function closeModal(name) {
+    var modal = document.getElementById("modal-" + name);
+    if (!modal) return;
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+    if (!document.querySelector(".modal.open")) {
+      document.body.classList.remove("modal-open");
+    }
+  }
+
+  (function modalSystem() {
+    document.querySelectorAll("[data-open-modal]").forEach(function (trigger) {
+      trigger.addEventListener("click", function () {
+        var name = trigger.getAttribute("data-open-modal");
+        openModal(name);
+      });
+    });
+
+    document.querySelectorAll("[data-close-modal]").forEach(function (trigger) {
+      trigger.addEventListener("click", function () {
+        var name = trigger.getAttribute("data-close-modal");
+        closeModal(name);
+      });
+    });
+
+    document.querySelectorAll(".modal").forEach(function (overlay) {
+      overlay.addEventListener("click", function (event) {
+        if (event.target === overlay) {
+          overlay.classList.remove("open");
+          overlay.setAttribute("aria-hidden", "true");
+          if (!document.querySelector(".modal.open")) {
+            document.body.classList.remove("modal-open");
+          }
+        }
+      });
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        document.querySelectorAll(".modal.open").forEach(function (open) {
+          open.classList.remove("open");
+          open.setAttribute("aria-hidden", "true");
+        });
+        document.body.classList.remove("modal-open");
+        closeMobileNav();
+      }
+    });
+  })();
+
+  document.querySelectorAll("[data-add-basket]").forEach(function (btn) {
     btn.addEventListener("click", function () {
       setBasket(PACKAGE_DATA);
       updateBasketUI();
-
-      if (btn.getAttribute("data-redirect") === "book") {
-        window.location.href = "book.html#booking-form-section";
-      }
     });
   });
 
@@ -98,15 +173,6 @@
     });
   }
 
-  if (window.location.search.indexOf("basket=1") > -1) {
-    setBasket(PACKAGE_DATA);
-  }
-
-  updateBasketUI();
-
-  var bookingForm = document.getElementById("booking-form");
-  var successBox = document.getElementById("booking-success");
-
   function markInvalid(el, invalid) {
     el.classList.toggle("invalid", invalid);
     var wrapper = el.closest(".field");
@@ -114,6 +180,9 @@
       wrapper.classList.toggle("has-error", invalid);
     }
   }
+
+  var bookingForm = document.getElementById("booking-form");
+  var successBox = document.getElementById("booking-success");
 
   if (bookingForm) {
     var dateField = document.getElementById("appointment-date");
@@ -135,14 +204,10 @@
           invalid = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value.trim());
         }
         markInvalid(field, invalid);
-        if (invalid) {
-          ok = false;
-        }
+        if (invalid) ok = false;
       });
 
-      if (!ok) {
-        return;
-      }
+      if (!ok) return;
 
       bookingForm.reset();
       if (successBox) {
@@ -150,4 +215,16 @@
       }
     });
   }
+
+  var params = new URLSearchParams(window.location.search);
+  if (params.get("basket") === "1") {
+    setBasket(PACKAGE_DATA);
+  }
+
+  var modalParam = params.get("modal");
+  if (modalParam) {
+    openModal(modalParam);
+  }
+
+  updateBasketUI();
 })();

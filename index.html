@@ -3,47 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quantum BioTesting | Premium One-Package Blood Testing</title>
-  <meta name="description" content="One premium blood testing package at GBP 995, with 40 UK clinics, advanced biomarkers, and clear clinical reporting.">
+  <title>Quantum BioTesting | One Product, Full Signal</title>
+  <meta name="description" content="One premium package at GBP 995. One booking flow. One complete private blood testing experience.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <div class="notice-bar">
     <div class="container notice-inner">
-      <p>One premium package model for clarity, consistency, and better clinical conversations.</p>
-      <a href="book.html">Start booking</a>
+      <p>Single product architecture: less noise, stronger results, cleaner decisions.</p>
+      <button data-open-modal="booking" style="border:0;background:transparent;color:#d0ff53;font-weight:700;cursor:pointer;font:inherit;">Book package</button>
     </div>
   </div>
 
-  <header class="site-header">
+  <header class="site-header" id="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="Quantum BioTesting home">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-copy">
-          <strong>Quantum BioTesting</strong>
-          <span>Private diagnostics, structured clearly</span>
-        </span>
+        <strong>Quantum BioTesting</strong>
+        <span>One Product Platform</span>
       </a>
 
       <nav class="main-nav" aria-label="Primary navigation">
-        <a class="active" href="index.html">Home</a>
-        <a href="testing.html">What we test</a>
-        <a href="book.html">Book now</a>
+        <a class="active" href="#">Home</a>
+        <button data-open-modal="coverage">What is tested</button>
+        <button data-open-modal="locations">Locations</button>
+        <button data-open-modal="booking">Book now</button>
       </nav>
 
       <div class="header-right">
         <a class="top-phone" href="tel:+441234567890">0123 456 7890</a>
-        <a class="btn btn-light" href="book.html?basket=1">Add package</a>
+        <button class="btn btn-light" data-add-basket>Add package</button>
         <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
       </div>
     </div>
     <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
-      <a href="index.html">Home</a>
-      <a href="testing.html">What we test</a>
-      <a href="book.html">Book now</a>
+      <button data-open-modal="coverage">What is tested</button>
+      <button data-open-modal="locations">Locations</button>
+      <button data-open-modal="booking">Book now</button>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
     </nav>
   </header>
 
@@ -51,44 +51,35 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="reveal">
-          <span class="eyebrow">Single package strategy</span>
-          <h1>A more professional way to buy private blood testing.</h1>
+          <span class="eyebrow">One product. No tier maze.</span>
+          <h1>Designed like a flagship product, not a clinic brochure.</h1>
           <p>
-            Quantum BioTesting was built to avoid the usual "choose your plan" confusion. We offer one complete package at GBP 995,
-            with broad biomarker coverage, UK clinic access, and report output designed for real decisions.
+            Quantum BioTesting runs on a single offer: Premium BioTesting Package at GBP 995.
+            No confusing comparison cards. No diluted plans. One complete route from booking to result interpretation.
           </p>
           <div class="hero-actions">
-            <button class="btn btn-primary" data-add-basket data-redirect="book">Add package to basket</button>
-            <a class="btn btn-outline" href="testing.html">See biomarker scope</a>
+            <button class="btn btn-primary" data-add-basket data-open-modal="booking">Add package and book</button>
+            <button class="btn btn-outline" data-open-modal="coverage">Open biomarker coverage</button>
           </div>
           <div class="hero-points">
-            <span>40+ UK clinic options</span>
-            <span>300+ biomarkers reviewed</span>
-            <span>8 to 12 hour fasting protocol</span>
-            <span>One clear report structure</span>
+            <span>40+ UK clinic locations</span>
+            <span>300+ biomarkers grouped clearly</span>
+            <span>Fasting protocol 8 to 12 hours</span>
+            <span>One report built for decision-making</span>
           </div>
           <div class="metrics">
-            <article class="metric-item">
-              <strong>GBP 995</strong>
-              <span>Single package</span>
-            </article>
-            <article class="metric-item">
-              <strong>40+</strong>
-              <span>Clinic locations</span>
-            </article>
-            <article class="metric-item">
-              <strong>300+</strong>
-              <span>Markers profiled</span>
-            </article>
+            <article class="metric-item"><strong>GBP 995</strong><span>Single package</span></article>
+            <article class="metric-item"><strong>40+</strong><span>Locations</span></article>
+            <article class="metric-item"><strong>300+</strong><span>Markers</span></article>
           </div>
         </div>
 
         <article class="hero-card reveal">
-          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80" alt="Healthcare professional reviewing patient chart in a modern clinic" loading="eager" width="1200" height="900">
+          <img src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=1200&q=80" alt="Editorial style workspace with tablet and notebook" loading="eager" width="1200" height="900">
           <div class="hero-card-copy">
-            <h3>Premium BioTesting Package</h3>
+            <h3>Built for clarity-first clients</h3>
             <p>
-              A complete pathway from clinic appointment to actionable report. No fragmented testing stacks and no upsell maze.
+              Everything in this experience is structured around one core idea: complete data, clean interpretation, and no purchasing confusion.
             </p>
           </div>
         </article>
@@ -98,21 +89,21 @@
     <section class="section">
       <div class="container">
         <div class="section-title reveal">
-          <h2>Why this model works</h2>
-          <p class="muted">Designed to feel like a professional service, not a shopping cart of random tests.</p>
+          <h2>What makes this different</h2>
+          <p class="muted">A product system, not a page collection.</p>
         </div>
         <div class="grid-3">
           <article class="card-soft reveal">
-            <h3>One pathway, less friction</h3>
-            <p>Single-package architecture removes indecision and keeps operations consistent across clients.</p>
+            <h3>Single-offer architecture</h3>
+            <p>One package keeps quality and operations consistent for every client journey.</p>
           </article>
           <article class="card-soft reveal">
-            <h3>Clinical readability first</h3>
-            <p>Results are grouped by physiological systems to make trends and outliers easier to interpret.</p>
+            <h3>Popup-first interface</h3>
+            <p>Everything essential opens in focused overlays, so users stay in one conversion flow.</p>
           </article>
           <article class="card-soft reveal">
-            <h3>Better booking discipline</h3>
-            <p>Basket-first flow ensures only properly scoped requests reach the booking queue.</p>
+            <h3>Non-clinical brand language</h3>
+            <p>Visual direction is editorial and product-led, not a generic healthcare template.</p>
           </article>
         </div>
       </div>
@@ -122,24 +113,24 @@
       <div class="container package-panel reveal">
         <article class="package-copy">
           <div class="section-title">
-            <h2>What the package includes</h2>
+            <h2>The package includes</h2>
           </div>
-          <p class="muted">Everything required for one complete diagnostic cycle.</p>
+          <p class="muted">Everything needed for one full test cycle, already inside the same price.</p>
           <ul class="feature-list">
-            <li>Private clinic appointment selection across the UK network</li>
-            <li>Professional blood draw with secure lab chain-of-handling</li>
-            <li>Comprehensive analysis across cardiovascular, metabolic, hormonal, immune, and nutrient systems</li>
-            <li>Structured report designed for clarity and follow-up conversations</li>
-            <li>Prep guidance included before your appointment date</li>
+            <li>Clinic selection and booking support across the UK network</li>
+            <li>Professional blood draw and lab processing</li>
+            <li>Comprehensive marker review across key body systems</li>
+            <li>Structured report with practical interpretation notes</li>
+            <li>Prep protocol guidance before appointment</li>
           </ul>
         </article>
 
         <aside class="package-price">
           <p class="small">Premium BioTesting Package</p>
           <p class="price">GBP 995</p>
-          <p>One payment. One complete package. No extra tier upgrades.</p>
-          <button class="btn btn-primary" data-add-basket data-redirect="book" style="margin-top: 1rem; width: 100%;">Add to basket</button>
-          <p class="small" style="margin-top: 0.8rem; color: #c9e5e2;">Booking form activates once your basket is confirmed.</p>
+          <p>No hidden tiers. No add-on ladder.</p>
+          <button class="btn btn-primary" data-add-basket data-open-modal="booking" style="margin-top: 1rem; width: 100%;">Add to basket</button>
+          <p class="small" style="margin-top: 0.8rem; color: #d2e9b4;">Booking form unlocks after package confirmation.</p>
         </aside>
       </div>
     </section>
@@ -147,73 +138,34 @@
     <section class="section">
       <div class="container">
         <div class="section-title reveal">
-          <h2>Journey from booking to report</h2>
-          <p class="muted">Four clear stages, each with explicit expectations.</p>
+          <h2>End-to-end workflow</h2>
+          <p class="muted">Four clear steps from product confirmation to report delivery.</p>
         </div>
 
         <div class="pathway">
-          <article class="path-step reveal">
-            <span class="step-index">1</span>
-            <h3>Confirm package</h3>
-            <p>Add the single package to basket and move into verified booking flow.</p>
-          </article>
-          <article class="path-step reveal">
-            <span class="step-index">2</span>
-            <h3>Prep correctly</h3>
-            <p>Fast for 8 to 12 hours and remain hydrated before your appointment.</p>
-          </article>
-          <article class="path-step reveal">
-            <span class="step-index">3</span>
-            <h3>Attend clinic</h3>
-            <p>Blood draw completed by trained teams in established private clinics.</p>
-          </article>
-          <article class="path-step reveal">
-            <span class="step-index">4</span>
-            <h3>Review report</h3>
-            <p>Receive structured findings and practical guidance for next actions.</p>
-          </article>
+          <article class="path-step reveal"><span class="step-index">1</span><h3>Add package</h3><p>Confirm the one offer and enter the booking flow.</p></article>
+          <article class="path-step reveal"><span class="step-index">2</span><h3>Prepare</h3><p>Follow fasting and hydration protocol before test day.</p></article>
+          <article class="path-step reveal"><span class="step-index">3</span><h3>Attend clinic</h3><p>Complete blood draw at your selected location.</p></article>
+          <article class="path-step reveal"><span class="step-index">4</span><h3>Review report</h3><p>Receive structured output with next-step guidance.</p></article>
         </div>
 
-        <div class="clinic-banner reveal">
-          <p><strong>Nationwide clinic access:</strong> London, Manchester, Birmingham, Leeds, Bristol, Glasgow, Edinburgh, Cardiff, and more.</p>
-          <a class="btn btn-outline" href="book.html">Go to booking page</a>
+        <div class="cta-band reveal">
+          <p><strong>Need legal details first?</strong> Privacy and terms remain standalone pages for full transparency.</p>
+          <div style="display:flex; gap:0.6rem; flex-wrap:wrap;">
+            <a class="btn btn-outline" href="privacy.html">Privacy</a>
+            <a class="btn btn-outline" href="terms.html">Terms</a>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container legal-grid reveal">
-        <article class="card-soft">
-          <h3>Transparent legal framework</h3>
-          <p class="muted">Policy pages are available before booking and linked in every key conversion step.</p>
-          <p style="margin-top: 0.6rem;"><a href="privacy.html">Privacy policy</a> and <a href="terms.html">terms and conditions</a></p>
-        </article>
-        <article class="card-soft">
-          <h3>Need help before booking?</h3>
-          <p class="muted">Speak with the support team for appointment, prep, or package scope questions.</p>
-          <p style="margin-top: 0.6rem;"><a href="tel:+441234567890">Call 0123 456 7890</a> or <a href="https://wa.me/441234567890" target="_blank" rel="noopener">message on WhatsApp</a></p>
-        </article>
       </div>
     </section>
 
     <section class="section">
       <div class="container reveal">
-        <div class="section-title">
-          <h2>Frequently asked questions</h2>
-        </div>
+        <div class="section-title"><h2>FAQ</h2></div>
         <div class="faq">
-          <details>
-            <summary>Is this really a single-package website?</summary>
-            <p>Yes. There is only one offer: Premium BioTesting Package at GBP 995.</p>
-          </details>
-          <details>
-            <summary>Do I need to fast before testing?</summary>
-            <p>Yes, fasting is required for 8 to 12 hours. Water is recommended before your appointment.</p>
-          </details>
-          <details>
-            <summary>How do I unlock the booking form?</summary>
-            <p>Add the package to basket. The form then becomes available on the booking page.</p>
-          </details>
+          <details><summary>Is this really one product only?</summary><p>Yes. Premium BioTesting Package is the only product on this site and it is priced at GBP 995.</p></details>
+          <details><summary>How do I start booking?</summary><p>Add the package to basket. The booking popup form becomes available immediately after confirmation.</p></details>
+          <details><summary>Do I need to fast?</summary><p>Yes. Fast for 8 to 12 hours before your blood draw and remain hydrated with water.</p></details>
         </div>
       </div>
     </section>
@@ -223,28 +175,112 @@
     <div class="container footer-grid">
       <div>
         <a class="brand" href="index.html" aria-label="Quantum BioTesting home">
-          <span class="brand-mark" aria-hidden="true"></span>
-          <span class="brand-copy">
-            <strong>Quantum BioTesting</strong>
-            <span>Private diagnostics, structured clearly</span>
-          </span>
+          <strong>Quantum BioTesting</strong>
+          <span>One Product Platform</span>
         </a>
-        <p style="margin-top: 0.8rem;">A one-package private blood testing service built for credibility and clear decision-making.</p>
+        <p style="margin-top: 0.8rem;">A single-product private testing platform engineered for high-signal decisions.</p>
       </div>
       <div class="foot-links">
-        <a href="testing.html">What we test</a>
-        <a href="book.html">Book now</a>
+        <button data-open-modal="coverage" style="text-align:left;background:none;border:none;padding:0;color:inherit;cursor:pointer;font:inherit;">What is tested</button>
+        <button data-open-modal="locations" style="text-align:left;background:none;border:none;padding:0;color:inherit;cursor:pointer;font:inherit;">Locations</button>
+        <button data-open-modal="booking" style="text-align:left;background:none;border:none;padding:0;color:inherit;cursor:pointer;font:inherit;">Book now</button>
+      </div>
+      <div class="foot-links">
         <a href="privacy.html">Privacy policy</a>
         <a href="terms.html">Terms and conditions</a>
-      </div>
-      <div class="foot-links">
-        <a href="tel:+441234567890">0123 456 7890</a>
         <a href="mailto:info@quantumbiotesting.co.uk">info@quantumbiotesting.co.uk</a>
-        <a href="https://wa.me/441234567890" target="_blank" rel="noopener">WhatsApp support</a>
       </div>
     </div>
     <div class="container footer-bottom">Copyright 2026 Quantum BioTesting Ltd. Results are informational and should be reviewed with a clinician.</div>
   </footer>
+
+  <!-- Coverage popup -->
+  <div class="modal" id="modal-coverage" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="coverage-title">
+      <div class="modal-head">
+        <h3 id="coverage-title">Biomarker coverage</h3>
+        <button class="modal-close" data-close-modal="coverage" aria-label="Close">x</button>
+      </div>
+      <div class="modal-body">
+        <div class="grid-3">
+          <article class="popup-card"><h4>Cardiovascular</h4><p class="muted">Lipid quality, Apo markers, inflammatory support context.</p></article>
+          <article class="popup-card"><h4>Liver and kidney</h4><p class="muted">Filtration and processing indicators with hydration context.</p></article>
+          <article class="popup-card"><h4>Metabolic</h4><p class="muted">Glucose and insulin-response related biomarker architecture.</p></article>
+          <article class="popup-card"><h4>Hormonal</h4><p class="muted">Thyroid and endocrine markers relevant to regulation signals.</p></article>
+          <article class="popup-card"><h4>Nutrients</h4><p class="muted">Vitamin and mineral status linked to daily performance quality.</p></article>
+          <article class="popup-card"><h4>Immune/inflammation</h4><p class="muted">Markers offering context on inflammatory pressure patterns.</p></article>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Locations popup -->
+  <div class="modal" id="modal-locations" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="locations-title">
+      <div class="modal-head">
+        <h3 id="locations-title">Clinic network</h3>
+        <button class="modal-close" data-close-modal="locations" aria-label="Close">x</button>
+      </div>
+      <div class="modal-body">
+        <p class="muted" style="margin-bottom:0.9rem;">40+ clinics across major UK cities. Popular hubs include:</p>
+        <div class="grid-3">
+          <article class="popup-card"><h4>London</h4><p class="muted">City, West End, South, East, North</p></article>
+          <article class="popup-card"><h4>Manchester</h4><p class="muted">Central and surrounding partner clinics</p></article>
+          <article class="popup-card"><h4>Birmingham</h4><p class="muted">City centre and regional hubs</p></article>
+          <article class="popup-card"><h4>Leeds</h4><p class="muted">Leeds and West Yorkshire coverage</p></article>
+          <article class="popup-card"><h4>Glasgow</h4><p class="muted">Glasgow and greater Scotland routes</p></article>
+          <article class="popup-card"><h4>Bristol/Cardiff</h4><p class="muted">South West and Wales options</p></article>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking popup -->
+  <div class="modal" id="modal-booking" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="booking-title">
+      <div class="modal-head">
+        <h3 id="booking-title">Book Premium BioTesting Package</h3>
+        <button class="modal-close" data-close-modal="booking" aria-label="Close">x</button>
+      </div>
+      <div class="modal-body">
+        <div class="book-layout">
+          <aside class="card">
+            <h3 style="font-size:1.5rem;">Your basket</h3>
+            <p style="margin-top:0.4rem;"><span id="cart-status" class="cart-pill empty">Basket empty</span></p>
+            <div class="book-steps">
+              <article class="book-step"><strong>1</strong><span>Add package</span></article>
+              <article class="book-step"><strong>2</strong><span>Submit details</span></article>
+              <article class="book-step"><strong>3</strong><span>Team confirms</span></article>
+            </div>
+            <div class="basket-row"><span id="basket-name">No package selected</span><span id="basket-price">GBP 0.00</span></div>
+            <p class="muted">One package includes appointment, draw, analysis, and report delivery.</p>
+            <button class="btn btn-primary" data-add-basket style="margin-top:1rem; width:100%;">Add package (GBP 995)</button>
+            <button class="btn btn-outline" id="clear-basket" style="margin-top:0.55rem; width:100%;">Clear basket</button>
+            <div class="note" style="margin-top:0.9rem;">Prep: fast 8 to 12 hours, stay hydrated, avoid alcohol night before your draw.</div>
+          </aside>
+          <section id="booking-form-section" class="card is-hidden" aria-label="Booking form section">
+            <h3 style="font-size:1.6rem;">Booking form</h3>
+            <p class="muted" style="margin-bottom:0.9rem;">Unlocked once package is added.</p>
+            <form id="booking-form" novalidate>
+              <div class="form-grid">
+                <div class="field"><label for="first-name">First name</label><input id="first-name" name="first_name" required><span class="error">Please enter your first name.</span></div>
+                <div class="field"><label for="last-name">Last name</label><input id="last-name" name="last_name" required><span class="error">Please enter your last name.</span></div>
+                <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required><span class="error">Enter a valid email address.</span></div>
+                <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" required><span class="error">Please enter your phone number.</span></div>
+                <div class="field"><label for="clinic">Preferred clinic</label><select id="clinic" name="clinic" required><option value="">Select clinic</option><option>London</option><option>Manchester</option><option>Birmingham</option><option>Leeds</option><option>Bristol</option><option>Glasgow</option><option>Edinburgh</option><option>Cardiff</option></select><span class="error">Please choose a clinic.</span></div>
+                <div class="field"><label for="appointment-date">Preferred date</label><input id="appointment-date" name="appointment_date" type="date" required><span class="error">Please select a date.</span></div>
+                <div class="field field-full"><label for="notes">Notes</label><textarea id="notes" name="notes" placeholder="Optional notes for the team"></textarea></div>
+                <div class="field field-full"><label><input id="consent" type="checkbox" required> I agree to the <a href="terms.html">terms</a> and <a href="privacy.html">privacy policy</a>.</label><span class="error">You must agree before submitting.</span></div>
+              </div>
+              <button class="btn btn-primary" type="submit" style="margin-top:0.6rem;">Submit booking request</button>
+              <p class="help" style="margin-top:0.45rem;">No same-day walk-ins. Final details confirmed directly by the team.</p>
+            </form>
+            <div id="booking-success" class="success-box is-hidden">Booking request received. The team will contact you shortly to confirm appointment details.</div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="assets/js/main.js" defer></script>
 </body>
