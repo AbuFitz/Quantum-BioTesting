@@ -2,6 +2,677 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Biomarker List — Quantum BioTesting</title>
+  <meta name="description" content="The complete list of 300+ biomarkers in the Quantum Premium BioTest, organised across 11 clinical categories.">
+  <meta name="theme-color" content="#0B0B0B">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .test-subnav {
+      position: sticky;
+      top: var(--header-h);
+      z-index: 100;
+      background: rgba(11,11,11,0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--bdr);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .test-subnav::-webkit-scrollbar { display: none; }
+    .test-subnav-inner {
+      width: min(var(--max-w), calc(100% - var(--gutter) * 2));
+      margin-inline: auto;
+      display: flex;
+      gap: 0;
+      padding-block: 0;
+    }
+    .test-subnav a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--ink-3);
+      padding: 14px 18px;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color 0.18s, border-color 0.18s;
+    }
+    .test-subnav a:hover { color: var(--ink); }
+    .test-subnav a.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+    .test-category {
+      padding-block: clamp(60px, 8vw, 88px);
+      border-bottom: 1px solid var(--bdr);
+    }
+    .test-category:last-child { border-bottom: none; }
+
+    .test-cat-header {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .test-cat-title {
+      font-family: var(--display);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 300;
+      color: var(--ink);
+    }
+
+    .test-cat-count {
+      font-family: var(--display);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .test-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      background: var(--bg-2);
+      border: 1px solid var(--bdr2);
+      color: var(--ink-2);
+      transition: border-color 0.18s, color 0.18s;
+    }
+
+    .chip:hover { border-color: var(--bdr3); color: var(--ink); }
+
+    .chip.advanced {
+      background: var(--gold-bg);
+      border-color: var(--gold-bdr);
+      color: var(--gold);
+    }
+
+    .test-callout {
+      margin-top: 28px;
+      padding: 20px 24px;
+      background: var(--bg-2);
+      border: 1px solid var(--bdr2);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--r2) var(--r2) 0;
+      font-size: 0.875rem;
+      color: var(--ink-2);
+      line-height: 1.65;
+    }
+
+    .test-callout strong { color: var(--ink); font-weight: 600; }
+
+    .chip-legend {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 16px 20px;
+      background: var(--bg-2);
+      border: 1px solid var(--bdr);
+      border-radius: var(--r2);
+      margin-bottom: 48px;
+    }
+
+    .chip-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      color: var(--ink-2);
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header scrolled" role="banner">
+  <div class="header-inner">
+    <a href="index.html" class="site-logo">Quantum <span>Bio</span>Testing</a>
+    <div class="header-actions">
+      <a href="index.html" class="btn btn-ghost btn-sm">← Back</a>
+      <a href="index.html#pricing" class="btn btn-gold btn-sm">Book — £995</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="legal-hero">
+    <div class="legal-hero-inner" style="max-width:var(--max-w);">
+      <p class="legal-tag">The Complete Panel</p>
+      <h1 class="legal-title">Full Biomarker List</h1>
+      <p style="font-size:1rem;color:var(--ink-2);margin-top:12px;line-height:1.6;">
+        300+ biomarkers across 11 clinical categories. Gold-highlighted markers denote advanced or specialist analyses included in your test.
+      </p>
+    </div>
+  </div>
+
+  <nav class="test-subnav" aria-label="Test category navigation">
+    <div class="test-subnav-inner">
+      <a href="#cardio">Cardiovascular</a>
+      <a href="#fbc">Blood Count</a>
+      <a href="#metabolic">Metabolic</a>
+      <a href="#liver-kidney">Liver &amp; Kidney</a>
+      <a href="#thyroid">Thyroid</a>
+      <a href="#hormones">Hormones</a>
+      <a href="#inflammation">Inflammation</a>
+      <a href="#vitamins">Vitamins</a>
+      <a href="#cancer">Cancer Markers</a>
+      <a href="#cognitive">Cognitive</a>
+      <a href="#autoimmune">Autoimmune</a>
+    </div>
+  </nav>
+
+  <div class="section" style="padding-top:clamp(40px,6vw,64px);">
+    <div class="container">
+
+      <div class="chip-legend">
+        <div class="chip-legend-item">
+          <span class="chip" style="pointer-events:none;">Standard marker</span>
+          <span>Included as standard</span>
+        </div>
+        <div class="chip-legend-item">
+          <span class="chip advanced" style="pointer-events:none;">Advanced marker</span>
+          <span>Advanced / specialist analysis included at no extra cost</span>
+        </div>
+      </div>
+
+      <!-- 01 Cardiovascular -->
+      <div class="test-category" id="cardio">
+        <div class="test-cat-header">
+          <h2 class="test-cat-title">Cardiovascular &amp; Lipid</h2>
+          <span class="test-cat-count">38 markers</span>
+        </div>
+        <div class="test-chips">
+          <span class="chip">Total Cholesterol</span>
+          <span class="chip">LDL Cholesterol</span>
+          <span class="chip">HDL Cholesterol</span>
+          <span class="chip">Non-HDL Cholesterol</span>
+          <span class="chip">Triglycerides</span>
+          <span class="chip">VLDL</span>
+          <span class="chip">TC:HDL Ratio</span>
+          <span class="chip advanced">Lipoprotein(a) — Lp(a)</span>
+          <span class="chip advanced">ApoB (Apolipoprotein B)</span>
+          <span class="chip advanced">ApoA1 (Apolipoprotein A1)</span>
+          <span class="chip advanced">ApoB:ApoA1 Ratio</span>
+          <span class="chip advanced">Small Dense LDL</span>
+          <span class="chip advanced">Oxidised LDL</span>
+          <span class="chip advanced">LDL Particle Number</span>
+          <span class="chip">Homocysteine</span>
+          <span class="chip advanced">hsCRP (high-sensitivity CRP)</span>
+          <span class="chip">Fibrinogen</span>
+          <span class="chip">D-Dimer</span>
+          <span class="chip">Prothrombin Time (PT)</span>
+          <span class="chip">APTT</span>
+          <span class="chip advanced">NT-proBNP</span>
+          <span class="chip advanced">Troponin I (hs)</span>
+          <span class="chip">Uric Acid</span>
+          <span class="chip">Sodium</span>
+          <span class="chip">Potassium</span>
+          <span class="chip">Chloride</span>
+          <span class="chip">Bicarbonate</span>
+          <span class="chip">Calcium (total &amp; adjusted)</span>
+          <span class="chip">Phosphate</span>
+          <span class="chip">Magnesium</span>
+          <span class="chip advanced">Omega-3 Fatty Acid Index</span>
+          <span class="chip advanced">EPA (Eicosapentaenoic acid)</span>
+          <span class="chip advanced">DHA (Docosahexaenoic acid)</span>
+          <span class="chip advanced">AA:EPA Ratio</span>
+          <span class="chip advanced">Coenzyme Q10</span>
+          <span class="chip">eGFR</span>
+          <span class="chip">Blood Pressure Assessment</span>
+          <span class="chip">Resting Heart Rate</span>
+        </div>
+        <div class="test-callout">
+          <strong>Clinical note:</strong> Lp(a), ApoB, and small dense LDL are among the strongest predictors of cardiovascular risk and are rarely tested on the NHS. Our panel includes all three as standard.
+        </div>
+      </div>
+
+      <!-- 02 Full Blood Count -->
+      <div class="test-category" id="fbc">
+        <div class="test-cat-header">
+          <h2 class="test-cat-title">Full Blood Count</h2>
+          <span class="test-cat-count">32 markers</span>
+        </div>
+        <div class="test-chips">
+          <span class="chip">Red Blood Cell Count (RBC)</span>
+          <span class="chip">Haemoglobin (Hb)</span>
+          <span class="chip">Haematocrit (HCT)</span>
+          <span class="chip">MCV (Mean Corpuscular Volume)</span>
+          <span class="chip">MCH</span>
+          <span class="chip">MCHC</span>
+          <span class="chip">RDW (Red Cell Distribution Width)</span>
+          <span class="chip">White Blood Cell Count (WBC)</span>
+          <span class="chip">Neutrophils</span>
+          <span class="chip">Lymphocytes</span>
+          <span class="chip">Monocytes</span>
+          <span class="chip">Eosinophils</span>
+          <span class="chip">Basophils</span>
+          <span class="chip advanced">Neutrophil:Lymphocyte Ratio</span>
+          <span class="chip advanced">Lymphocyte:Monocyte Ratio</span>
+          <span class="chip">Platelet Count</span>
+          <span class="chip">MPV (Mean Platelet Volume)</span>
+          <span class="chip">PDW</span>
+          <span class="chip">PCT</span>
+          <span class="chip">Reticulocytes</span>
+          <span class="chip">Immature Reticulocyte Fraction</span>
+          <span class="chip">Iron</span>
+          <span class="chip">TIBC (Total Iron Binding Capacity)</span>
+          <span class="chip">UIBC</span>
+          <span class="chip">Transferrin Saturation</span>
+          <span class="chip">Ferritin</span>
+          <span class="chip advanced">Soluble Transferrin Receptor (sTfR)</span>
+          <span class="chip">Vitamin B12</span>
+          <span class="chip">Active B12 (Holotranscobalamin)</span>
+          <span class="chip">Folate (serum)</span>
+          <span class="chip">Red Cell Folate</span>
+          <span class="chip advanced">Methylmalonic Acid (MMA)</span>
+        </div>
+      </div>
+
+      <!-- 03 Metabolic -->
+      <div class="test-category" id="metabolic">
+        <div class="test-cat-header">
+          <h2 class="test-cat-title">Metabolic &amp; Glucose</h2>
+          <span class="test-cat-count">28 markers</span>
+        </div>
+        <div class="test-chips">
+          <span class="chip">Fasting Glucose</span>
+          <span class="chip">HbA1c</span>
+          <span class="chip advanced">Fasting Insulin</span>
+          <span class="chip advanced">HOMA-IR (Insulin Resistance Index)</span>
+          <span class="chip advanced">HOMA-B (Beta Cell Function)</span>
+          <span class="chip advanced">Fasting C-Peptide</span>
+          <span class="chip">Total Protein</span>
+          <span class="chip">Albumin</span>
+          <span class="chip">Globulin</span>
+          <span class="chip">A:G Ratio</span>
+          <span class="chip">Urea</span>
+          <span class="chip">Creatinine</span>
+          <span class="chip">eGFR (CKD-EPI)</span>
+          <span class="chip">Uric Acid</span>
+          <span class="chip advanced">Leptin</span>
+          <span class="chip advanced">Adiponectin</span>
+          <span class="chip advanced">Leptin:Adiponectin Ratio</span>
+          <span class="chip">Zinc</span>
+          <span class="chip">Copper</span>
+          <span class="chip">Selenium</span>
+          <span class="chip advanced">Iodine (urine)</span>
+          <span class="chip">Phosphorus</span>
+          <span class="chip">Ammonia</span>
+          <span class="chip advanced">Lactate</span>
+          <span class="chip advanced">Pyruvate</span>
+          <span class="chip advanced">GLP-1</span>
+          <span class="chip advanced">Gastric Inhibitory Peptide</span>
+          <span class="chip advanced">Ghrelin</span>
+        </div>
+        <div class="test-callout">
+          <strong>Clinical note:</strong> HOMA-IR is a validated measure of insulin resistance — a significant contributor to type 2 diabetes risk that often manifests years before a raised HbA1c is detected.
+        </div>
+      </div>
+
+      <!-- 04 Liver & Kidney -->
+      <div class="test-category" id="liver-kidney">
+        <div class="test-cat-header">
+          <h2 class="test-cat-title">Liver &amp; Kidney Function</h2>
+          <span class="test-cat-count">26 markers</span>
+        </div>
+        <div class="test-chips">
+          <span class="chip">ALT (Alanine Transaminase)</span>
+          <span class="chip">AST (Aspartate Transaminase)</span>
+          <span class="chip">GGT (Gamma-Glutamyl Transferase)</span>
+          <span class="chip">ALP (Alkaline Phosphatase)</span>
+          <span class="chip">Total Bilirubin</span>
+          <span class="chip">Direct Bilirubin</span>
+          <span class="chip">Indirect Bilirubin</span>
+          <span class="chip">Albumin</span>
+          <span class="chip">Total Protein</span>
+          <span class="chip advanced">AST:ALT Ratio</span>
+          <span class="chip advanced">GGT:ALP Ratio</span>
+          <span class="chip advanced">FIB-4 Score (fibrosis risk)</span>
+          <span class="chip">Creatinine</span>
+          <span class="chip">eGFR</span>
+          <span class="chip">Urea</span>
+          <span class="chip">Urea:Creatinine Ratio</span>
+          <span class="chip advanced">Cystatin C</span>
+          <span class="chip advanced">Beta-2 Microglobulin</span>
+          <span class="chip">Uric Acid</span>
+          <span class="chip">Microalbumin (urine)</span>
+          <span class="chip advanced">Albumin:Creatinine Ratio (urine)</span>
+          <span class="chip advanced">Protein:Creatinine Ratio (urine)</span>
+          <span class="chip">LDH (Lactate Dehydrogenase)</span>
+          <span class="chip">Amylase</span>
+          <span class="chip">Lipase</span>
+          <span class="chip advanced">Alpha-1 Antitrypsin</span>
+        </div>
+      </div>
+
+      <!-- 05 Thyroid -->
+      <div class="test-category" id="thyroid">
+        <div class="test-cat-header">
+          <h2 class="test-cat-title">Thyroid Function</h2>
+          <span class="test-cat-count">24 markers</span>
+        </div>
+        <div class="test-chips">
+          <span class="chip">TSH (Thyroid Stimulating Hormone)</span>
+          <span class="chip">Free T4 (fT4)</span>
+          <span class="chip">Free T3 (fT3)</span>
+          <span class="chip">Total T4</span>
+          <span class="chip">Total T3</span>
+          <span class="chip advanced">Reverse T3 (rT3)</span>
+          <span class="chip advanced">T3:rT3 Ratio</span>
+          <span class="chip advanced">TPO Antibodies (Thyroid Peroxidase)</span>
+          <span class="chip advanced">Thyroglobulin Antibodies (TgAb)</span>
+          <span class="chip advanced">TSH Receptor Antibodies (TRAb)</span>
+          <span class="chip">Thyroglobulin</span>
+          <span class="chip advanced">Thyroxine Binding Globulin (TBG)</span>
+          <span class="chip advanced">T3 Uptake</span>
+          <span class="chip advanced">Free Thyroxine Index</span>
+          <span class="chip">Calcium</span>
+          <span class="chip">Parathyroid Hormone (PTH)</span>
+          <span class="chip advanced">PTH-related Protein (PTHrP)</span>
+          <span class="chip">Calcitonin</span>
+          <span class="chip">Vitamin D (25-OH)</span>
+          <span class="chip">1,25-OH Vitamin D</span>
+          <span class="chip">Phosphate</span>
+          <span class="chip">Alkaline Phosphatase (bone-specific)</span>
+          <span class="chip advanced">Bone Turnover Markers (CTX, P1NP)</span>
+          <span class="chip advanced">Osteocalcin</span>
+        </div>
+      </div>
+
+      <!-- 06 Hormones -->
+      <div class="test-category" id="hormones">
+        <div class="test-cat-header">
+          <h2 class="test-cat-title">Hormones — All Genders</h2>
+          <span class="test-cat-count">30 markers</span>
+        </div>
+        <div class="test-chips">
+          <span class="chip">Total Testosterone</span>
+          <span class="chip advanced">Free Testosterone</span>
+          <span class="chip advanced">Bioavailable Testosterone</span>
+          <span class="chip">SHBG (Sex Hormone Binding Globulin)</span>
+          <span class="chip">Oestradiol (E2)</span>
+          <span class="chip">Oestrone (E1)</span>
+          <span class="chip">Oestriol (E3)</span>
+          <span class="chip">Progesterone</span>
+          <span class="chip">17-OH Progesterone</span>
+          <span class="chip">LH (Luteinising Hormone)</span>
+          <span class="chip">FSH (Follicle Stimulating Hormone)</span>
+          <span class="chip">Prolactin</span>
+          <span class="chip">DHEA-S</span>
+          <span class="chip">DHEA</span>
+          <span class="chip">Androstenedione</span>
+          <span class="chip advanced">Dihydrotestosterone (DHT)</span>
+          <span class="chip">Cortisol (morning)</span>
+          <span class="chip advanced">ACTH</span>
+          <span class="chip advanced">Cortisol:DHEA-S Ratio</span>
+          <span class="chip">IGF-1 (Insulin-like Growth Factor)</span>
+          <span class="chip">IGFBP-3</span>
+          <span class="chip advanced">Growth Hormone</span>
+          <span class="chip">AMH (Anti-Müllerian Hormone)</span>
+          <span class="chip advanced">Inhibin B</span>
+          <span class="chip">Aldosterone</span>
+          <span class="chip">Renin</span>
+          <span class="chip advanced">Aldosterone:Renin Ratio</span>
+          <span class="chip">Melatonin (urine)</span>
+          <span class="chip advanced">Pregnenolone</span>
+          <span class="chip advanced">Allopregnanolone</span>
+        </div>
+        <div class="test-callout">
+          <strong>Clinical note:</strong> Our hormone panel covers all major axes — gonadal, adrenal, thyroid, and pituitary — providing a complete endocrine picture in a single test.
+        </div>
+      </div>
+
+      <!-- 07 Inflammation -->
+      <div class="test-category" id="inflammation">
+        <div class="test-cat-header">
+          <h2 class="test-cat-title">Inflammation &amp; Immune</h2>
+          <span class="test-cat-count">22 markers</span>
+        </div>
+        <div class="test-chips">
+          <span class="chip">CRP (C-Reactive Protein)</span>
+          <span class="chip advanced">hsCRP (High-sensitivity CRP)</span>
+          <span class="chip">ESR (Erythrocyte Sedimentation Rate)</span>
+          <span class="chip">Ferritin</span>
+          <span class="chip advanced">IL-6 (Interleukin-6)</span>
+          <span class="chip advanced">IL-10</span>
+          <span class="chip advanced">TNF-alpha (Tumour Necrosis Factor)</span>
+          <span class="chip">Complement C3</span>
+          <span class="chip">Complement C4</span>
+          <span class="chip">IgG</span>
+          <span class="chip">IgA</span>
+          <span class="chip">IgM</span>
+          <span class="chip advanced">IgE (total)</span>
+          <span class="chip advanced">Serum Protein Electrophoresis</span>
+          <span class="chip advanced">Free Light Chains (Kappa/Lambda)</span>
+          <span class="chip advanced">Procalcitonin</span>
+          <span class="chip advanced">Neopterin</span>
+          <span class="chip advanced">Soluble CD163</span>
+          <span class="chip">LDH</span>
+          <span class="chip">Beta-2 Microglobulin</span>
+          <span class="chip advanced">Pentraxin-3</span>
+          <span class="chip advanced">Myeloperoxidase (MPO)</span>
+        </div>
+      </div>
+
+      <!-- 08 Vitamins & Minerals -->
+      <div class="test-category" id="vitamins">
+        <div class="test-cat-header">
+          <h2 class="test-cat-title">Vitamins &amp; Minerals</h2>
+          <span class="test-cat-count">20 markers</span>
+        </div>
+        <div class="test-chips">
+          <span class="chip">Vitamin D (25-OH)</span>
+          <span class="chip advanced">1,25-Dihydroxyvitamin D</span>
+          <span class="chip">Vitamin B12</span>
+          <span class="chip advanced">Active B12 (Holotranscobalamin)</span>
+          <span class="chip">Folate (serum)</span>
+          <span class="chip">Vitamin B1 (Thiamine)</span>
+          <span class="chip advanced">Vitamin B2 (Riboflavin)</span>
+          <span class="chip advanced">Vitamin B6 (Pyridoxal-5-Phosphate)</span>
+          <span class="chip advanced">Vitamin B9 (5-MTHF)</span>
+          <span class="chip advanced">Vitamin C (Ascorbic Acid)</span>
+          <span class="chip advanced">Vitamin A (Retinol)</span>
+          <span class="chip advanced">Vitamin E (Alpha-Tocopherol)</span>
+          <span class="chip advanced">Vitamin K1 (Phylloquinone)</span>
+          <span class="chip">Iron (serum)</span>
+          <span class="chip">Zinc</span>
+          <span class="chip">Copper</span>
+          <span class="chip">Selenium</span>
+          <span class="chip">Magnesium (RBC)</span>
+          <span class="chip advanced">Chromium</span>
+          <span class="chip advanced">Manganese</span>
+        </div>
+      </div>
+
+      <!-- 09 Cancer Markers -->
+      <div class="test-category" id="cancer">
+        <div class="test-cat-header">
+          <h2 class="test-cat-title">Cancer Screening Markers</h2>
+          <span class="test-cat-count">18 markers</span>
+        </div>
+        <div class="test-chips">
+          <span class="chip">PSA (Prostate Specific Antigen)</span>
+          <span class="chip advanced">Free PSA</span>
+          <span class="chip advanced">PSA Density</span>
+          <span class="chip">CEA (Carcinoembryonic Antigen)</span>
+          <span class="chip">CA-125 (Ovarian)</span>
+          <span class="chip">CA 19-9 (Pancreatic)</span>
+          <span class="chip">AFP (Alpha-Fetoprotein)</span>
+          <span class="chip">Beta-HCG</span>
+          <span class="chip">CA 15-3 (Breast)</span>
+          <span class="chip">CA 72-4 (Gastric)</span>
+          <span class="chip advanced">HE4 (Ovarian supplement)</span>
+          <span class="chip advanced">ROMA Index (CA-125 + HE4)</span>
+          <span class="chip advanced">Cyfra 21-1 (Lung)</span>
+          <span class="chip advanced">NSE (Neuron-Specific Enolase)</span>
+          <span class="chip advanced">Chromogranin A</span>
+          <span class="chip advanced">SCC Antigen</span>
+          <span class="chip">LDH</span>
+          <span class="chip">Thyroglobulin</span>
+        </div>
+        <div class="test-callout">
+          <strong>Important note:</strong> Cancer screening markers are indicative only. Elevated markers require further clinical investigation and should not be interpreted as a diagnosis of malignancy. Markers are applied age- and sex-appropriately by your reviewing physician.
+        </div>
+      </div>
+
+      <!-- 10 Cognitive -->
+      <div class="test-category" id="cognitive">
+        <div class="test-cat-header">
+          <h2 class="test-cat-title">Cognitive &amp; Neurological</h2>
+          <span class="test-cat-count">16 markers</span>
+        </div>
+        <div class="test-chips">
+          <span class="chip advanced">Omega-3 Index (EPA + DHA)</span>
+          <span class="chip advanced">Phosphatidylcholine</span>
+          <span class="chip advanced">Phosphatidylserine</span>
+          <span class="chip advanced">Sphingomyelin</span>
+          <span class="chip advanced">ApoE Genotyping (APOE ε2/ε3/ε4)</span>
+          <span class="chip">Homocysteine</span>
+          <span class="chip advanced">Methylmalonic Acid (B12 functional)</span>
+          <span class="chip">Folate (5-MTHF)</span>
+          <span class="chip advanced">MTHFR Genotyping (C677T, A1298C)</span>
+          <span class="chip">Vitamin D</span>
+          <span class="chip">Thyroid Function (full panel)</span>
+          <span class="chip advanced">Neurotransmitter precursors (Tryptophan, Tyrosine)</span>
+          <span class="chip advanced">Cortisol:DHEA-S Ratio</span>
+          <span class="chip advanced">IGF-1</span>
+          <span class="chip advanced">Ferritin (neurological iron)</span>
+          <span class="chip advanced">Heavy metals screen (Lead, Mercury, Arsenic, Cadmium)</span>
+        </div>
+        <div class="test-callout">
+          <strong>Clinical note:</strong> APOE ε4 genotyping provides an indication of genetic risk for late-onset Alzheimer's disease. This result is discussed sensitively by your physician with appropriate pre-result counselling context.
+        </div>
+      </div>
+
+      <!-- 11 Autoimmune -->
+      <div class="test-category" id="autoimmune">
+        <div class="test-cat-header">
+          <h2 class="test-cat-title">Autoimmune &amp; Genetic Risk</h2>
+          <span class="test-cat-count">46 markers</span>
+        </div>
+        <div class="test-chips">
+          <span class="chip">ANA (Antinuclear Antibodies)</span>
+          <span class="chip advanced">ANA Pattern (IIF)</span>
+          <span class="chip advanced">Anti-dsDNA</span>
+          <span class="chip advanced">Anti-Sm</span>
+          <span class="chip advanced">Anti-SSA/Ro</span>
+          <span class="chip advanced">Anti-SSB/La</span>
+          <span class="chip advanced">Anti-Scl-70</span>
+          <span class="chip advanced">Anti-Jo-1</span>
+          <span class="chip">Rheumatoid Factor (RF)</span>
+          <span class="chip advanced">Anti-CCP (Anti-Cyclic Citrullinated Peptide)</span>
+          <span class="chip">ANCA (pANCA/cANCA)</span>
+          <span class="chip advanced">Anti-MPO</span>
+          <span class="chip advanced">Anti-PR3</span>
+          <span class="chip">Antiphospholipid Panel</span>
+          <span class="chip advanced">Lupus Anticoagulant</span>
+          <span class="chip advanced">Anti-Cardiolipin (IgG/IgM)</span>
+          <span class="chip advanced">Anti-Beta-2 Glycoprotein I</span>
+          <span class="chip advanced">Coeliac Antibodies (tTGA IgA + EMA)</span>
+          <span class="chip advanced">Total IgA (coeliac control)</span>
+          <span class="chip advanced">Anti-Gliadin (IgG/IgA)</span>
+          <span class="chip advanced">Intrinsic Factor Antibodies</span>
+          <span class="chip advanced">Parietal Cell Antibodies</span>
+          <span class="chip advanced">Adrenal Cortex Antibodies</span>
+          <span class="chip advanced">Islet Cell Antibodies (ICA)</span>
+          <span class="chip advanced">Anti-GAD65</span>
+          <span class="chip advanced">Anti-IA2</span>
+          <span class="chip">Complement C3</span>
+          <span class="chip">Complement C4</span>
+          <span class="chip advanced">CH50 (Total Complement)</span>
+          <span class="chip advanced">Factor V Leiden</span>
+          <span class="chip advanced">Prothrombin G20210A</span>
+          <span class="chip advanced">MTHFR (C677T + A1298C)</span>
+          <span class="chip advanced">Protein C</span>
+          <span class="chip advanced">Protein S (free + total)</span>
+          <span class="chip advanced">Antithrombin III</span>
+          <span class="chip advanced">Activated Protein C Resistance</span>
+          <span class="chip advanced">PAI-1 (Plasminogen Activator Inhibitor)</span>
+          <span class="chip advanced">HLA-B27</span>
+          <span class="chip advanced">HLA-DQ2/DQ8 (coeliac risk)</span>
+          <span class="chip advanced">BRCA1/BRCA2 Risk Assessment</span>
+          <span class="chip advanced">Lynch Syndrome Markers</span>
+          <span class="chip advanced">APOE Genotyping</span>
+          <span class="chip advanced">MTHFR Genotyping</span>
+          <span class="chip advanced">FTO Gene (metabolic risk)</span>
+          <span class="chip advanced">TCF7L2 (T2DM genetic risk)</span>
+          <span class="chip advanced">CYP2D6 / CYP2C19 (pharmacogenomics)</span>
+        </div>
+        <div class="test-callout">
+          <strong>Clinical note:</strong> The autoimmune and genetic risk panel is reviewed by a physician with specialist knowledge. Where significant genetic findings are identified, additional guidance on next steps and referral pathways will be provided during your consultation.
+        </div>
+      </div>
+
+      <div style="padding-block:clamp(52px,7vw,80px);text-align:center;border-top:1px solid var(--bdr);">
+        <p class="s-label" style="justify-content:center;margin-bottom:20px;">
+          <span class="s-label-num">Ready?</span>
+          <span class="s-label-line"></span>
+          <span class="s-label-text">Book Your Test</span>
+        </p>
+        <h2 style="font-family:var(--display);font-size:clamp(2rem,5vw,3.5rem);font-weight:300;color:var(--ink);margin-bottom:20px;line-height:1.1;">
+          Everything. In one appointment.
+        </h2>
+        <p style="color:var(--ink-2);margin:0 auto 32px;max-width:50ch;font-size:1rem;">
+          300+ biomarkers, physician consultation, 48-hour results. All-inclusive at £995.
+        </p>
+        <a href="index.html#pricing" class="btn btn-gold">
+          Book Your Test — £995
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-bottom" style="padding-top:0;border-top:none;">
+      <p class="footer-copy">© 2026 Quantum BioTesting Ltd.</p>
+      <div class="footer-legal-links">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Subnav active tracking
+  (function() {
+    const links = Array.from(document.querySelectorAll('.test-subnav a'));
+    const sections = links.map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+
+    function update() {
+      const y = window.scrollY + 140;
+      let current = sections[0];
+      sections.forEach(s => { if (s.offsetTop <= y) current = s; });
+      links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current.id));
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  })();
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
   <meta http-equiv="refresh" content="0; url=index.html?modal=coverage">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Redirecting to Coverage</title>
