@@ -74,7 +74,7 @@
 
     toggle.addEventListener('click', () => isOpen ? closeNav() : openNav());
 
-    $$('.mobile-nav-link', nav).forEach(link => {
+    $$('.mob-link', nav).forEach(link => {
       link.addEventListener('click', closeNav);
     });
 
@@ -391,42 +391,51 @@
     const counters = $$('[data-count]');
     if (!counters.length) return;
 
+    const observed = new Set();
+
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
-        observer.unobserve(entry.target);
+        const el = entry.target;
+        if (observed.has(el)) return;
+        observed.add(el);
+        observer.unobserve(el);
 
-        const el      = entry.target;
-        const target  = parseInt(el.dataset.count, 10);
-        const suffix  = el.dataset.suffix || '';
-        const duration = 1200;
-        const start   = performance.now();
+        const target   = parseInt(el.dataset.count, 10);
+        const duration = 1100;
+        const start    = performance.now();
 
         function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
 
+        // Grab any child elements that should be preserved (sub, span)
+        const children = Array.from(el.children);
+
         function update(now) {
-          const elapsed  = now - start;
-          const progress = Math.min(elapsed / duration, 1);
+          const progress = Math.min((now - start) / duration, 1);
           const value    = Math.round(easeOut(progress) * target);
 
-          // Preserve inner HTML (suffix spans)
-          const suffixEl = el.querySelector('.stat-suffix');
-          if (suffixEl) {
-            el.childNodes[0].textContent = value;
+          // Set only the first text node, preserving child elements
+          const textNode = el.childNodes[0];
+          if (textNode && textNode.nodeType === Node.TEXT_NODE) {
+            textNode.textContent = value;
           } else {
-            el.textContent = value + suffix;
+            // Fallback: prepend a text node
+            el.insertBefore(document.createTextNode(value), el.firstChild);
           }
 
-          if (progress < 1) requestAnimationFrame(update);
-          else {
-            if (suffixEl) el.childNodes[0].textContent = target;
-            else el.textContent = target + suffix;
+          if (progress < 1) {
+            requestAnimationFrame(update);
+          } else {
+            const finalText = el.childNodes[0];
+            if (finalText && finalText.nodeType === Node.TEXT_NODE) {
+              finalText.textContent = target;
+            }
           }
         }
 
         requestAnimationFrame(update);
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.4 });
 
     counters.forEach(el => observer.observe(el));
   }

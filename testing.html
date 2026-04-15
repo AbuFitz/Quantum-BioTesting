@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Full Biomarker List — Quantum BioTesting</title>
   <meta name="description" content="The complete list of 300+ biomarkers in the Quantum Premium BioTest, organised across 11 clinical categories.">
-  <meta name="theme-color" content="#0B0B0B">
+  <meta name="theme-color" content="#111111">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
     .test-subnav {
@@ -17,13 +17,13 @@
       z-index: 100;
       background: rgba(11,11,11,0.95);
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--bdr);
+      border-bottom: 1px solid var(--bd);
       overflow-x: auto;
       scrollbar-width: none;
     }
     .test-subnav::-webkit-scrollbar { display: none; }
     .test-subnav-inner {
-      width: min(var(--max-w), calc(100% - var(--gutter) * 2));
+      width: min(var(--max), calc(100% - var(--px) * 2));
       margin-inline: auto;
       display: flex;
       gap: 0;
@@ -33,18 +33,18 @@
       font-size: 0.75rem;
       font-weight: 500;
       letter-spacing: 0.06em;
-      color: var(--ink-3);
+      color: var(--text-3);
       padding: 14px 18px;
       white-space: nowrap;
       border-bottom: 2px solid transparent;
       transition: color 0.18s, border-color 0.18s;
     }
-    .test-subnav a:hover { color: var(--ink); }
-    .test-subnav a.active { color: var(--blue); border-bottom-color: var(--blue); }
+    .test-subnav a:hover { color: var(--text); }
+    .test-subnav a.active { color: var(--accent); border-bottom-color: var(--accent); }
 
     .test-category {
       padding-block: clamp(60px, 8vw, 88px);
-      border-bottom: 1px solid var(--bdr);
+      border-bottom: 1px solid var(--bd);
     }
     .test-category:last-child { border-bottom: none; }
 
@@ -57,17 +57,17 @@
     }
 
     .test-cat-title {
-      font-family: var(--display);
+      font-family: var(--serif);
       font-size: clamp(1.75rem, 4vw, 2.5rem);
       font-weight: 300;
-      color: var(--ink);
+      color: var(--text);
     }
 
     .test-cat-count {
-      font-family: var(--display);
+      font-family: var(--serif);
       font-size: 1rem;
       font-weight: 400;
-      color: var(--blue);
+      color: var(--accent);
       font-style: italic;
     }
 
@@ -85,33 +85,33 @@
       font-size: 0.75rem;
       font-weight: 500;
       letter-spacing: 0.04em;
-      background: var(--off-white);
-      border: 1px solid var(--bdr-2);
-      color: var(--ink-2);
+      background: var(--surface);
+      border: 1px solid var(--bd-2);
+      color: var(--text-2);
       transition: border-color 0.18s, color 0.18s;
     }
 
-    .chip:hover { border-color: var(--bdr-3); color: var(--ink); }
+    .chip:hover { border-color: var(--bd-3); color: var(--text); }
 
     .chip.advanced {
       background: rgba(26,86,219,0.08);
       border-color: rgba(26,86,219,0.22);
-      color: var(--blue);
+      color: var(--accent);
     }
 
     .test-callout {
       margin-top: 28px;
       padding: 20px 24px;
-      background: var(--off-white);
-      border: 1px solid var(--bdr-2);
-      border-left: 3px solid var(--blue);
-      border-radius: 0 var(--r2) var(--r2) 0;
+      background: var(--surface);
+      border: 1px solid var(--bd-2);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--r-lg) var(--r-lg) 0;
       font-size: 0.875rem;
-      color: var(--ink-2);
+      color: var(--text-2);
       line-height: 1.65;
     }
 
-    .test-callout strong { color: var(--ink); font-weight: 600; }
+    .test-callout strong { color: var(--text); font-weight: 600; }
 
     .chip-legend {
       display: flex;
@@ -119,9 +119,9 @@
       gap: 20px;
       flex-wrap: wrap;
       padding: 16px 20px;
-      background: var(--bg-2);
-      border: 1px solid var(--bdr);
-      border-radius: var(--r2);
+      background: var(--surface);
+      border: 1px solid var(--bd);
+      border-radius: var(--r-lg);
       margin-bottom: 48px;
     }
 
@@ -130,7 +130,7 @@
       align-items: center;
       gap: 8px;
       font-size: 0.75rem;
-      color: var(--ink-2);
+      color: var(--text-2);
     }
   </style>
 </head>
@@ -139,20 +139,20 @@
 <header class="site-header scrolled" role="banner">
   <div class="header-inner">
     <a href="index.html" class="site-logo">Quantum <span>Bio</span>Testing</a>
-    <div class="header-actions">
+    <div class="header-right">
       <a href="index.html" class="btn btn-ghost btn-sm">← Back</a>
-      <a href="index.html#pricing" class="btn btn-gold btn-sm">Book — £995</a>
+      <a href="index.html#pricing" class="btn btn-dark btn-sm">Book — £995</a>
     </div>
   </div>
 </header>
 
 <main>
-  <div class="legal-hero">
-    <div class="legal-hero-inner" style="max-width:var(--max-w);">
-      <p class="legal-tag">The Complete Panel</p>
-      <h1 class="legal-title">Full Biomarker List</h1>
-      <p style="font-size:1rem;color:var(--ink-2);margin-top:12px;line-height:1.6;">
-        300+ biomarkers across 11 clinical categories. Gold-highlighted markers denote advanced or specialist analyses included in your test.
+  <div style="background:var(--dark);padding:clamp(60px,8vw,96px) var(--px) clamp(40px,6vw,64px);">
+    <div style="max-width:var(--max);margin-inline:auto;">
+      <p class="eyebrow on-dark" style="margin-bottom:16px;">The Complete Panel</p>
+      <h1 style="font-family:var(--serif);font-size:clamp(2.5rem,5vw,4rem);font-weight:400;color:var(--light);line-height:1.08;letter-spacing:-0.02em;margin-bottom:14px;">Full Biomarker List</h1>
+      <p style="font-size:1rem;color:var(--light-2);margin-top:0;line-height:1.65;max-width:54ch;">
+        300+ biomarkers across 11 clinical categories. Blue-highlighted markers denote advanced or specialist analyses included in your test.
       </p>
     </div>
   </div>
@@ -173,8 +173,8 @@
     </div>
   </nav>
 
-  <div class="section" style="padding-top:clamp(40px,6vw,64px);">
-    <div class="container">
+  <div class="section" style="background:var(--bg);padding-top:clamp(40px,6vw,64px);">
+    <div class="wrap">
 
       <div class="chip-legend">
         <div class="chip-legend-item">
@@ -615,19 +615,15 @@
         </div>
       </div>
 
-      <div style="padding-block:clamp(52px,7vw,80px);text-align:center;border-top:1px solid var(--bdr);">
-        <p class="s-label" style="justify-content:center;margin-bottom:20px;">
-          <span class="s-label-num">Ready?</span>
-          <span class="s-label-line"></span>
-          <span class="s-label-text">Book Your Test</span>
-        </p>
-        <h2 style="font-family:var(--display);font-size:clamp(2rem,5vw,3.5rem);font-weight:300;color:var(--ink);margin-bottom:20px;line-height:1.1;">
+  <div style="padding-block:clamp(52px,7vw,80px);text-align:center;border-top:1px solid var(--bd);">
+        <p class="eyebrow" style="justify-content:center;margin-bottom:20px;">Book Now</p>
+        <h2 style="font-family:var(--serif);font-size:clamp(2rem,5vw,3.5rem);font-weight:400;color:var(--text);margin-bottom:16px;line-height:1.1;">
           Everything. In one appointment.
         </h2>
-        <p style="color:var(--ink-2);margin:0 auto 32px;max-width:50ch;font-size:1rem;">
+        <p style="color:var(--text-2);margin:0 auto 32px;max-width:50ch;font-size:1rem;">
           300+ biomarkers, physician consultation, 48-hour results. All-inclusive at £995.
         </p>
-        <a href="index.html#pricing" class="btn btn-gold">
+        <a href="index.html#pricing" class="btn btn-dark">
           Book Your Test — £995
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
         </a>
