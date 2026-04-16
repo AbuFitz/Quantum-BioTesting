@@ -20,6 +20,7 @@
   function init() {
     initHeader();
     initMobileNav();
+    initTestingPanel();
     initModal();
     initCookieConsent();
     initFadeAnimations();
@@ -85,6 +86,64 @@
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && isOpen) closeNav();
     });
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     TESTING PANEL DRAWER
+  ══════════════════════════════════════════════════════════ */
+  function initTestingPanel() {
+    const overlay = $('#testing-panel');
+    if (!overlay) return;
+
+    const drawer = $('.tp-drawer', overlay);
+
+    function openPanel() {
+      overlay.classList.add('open');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      if (drawer) { drawer.scrollTop = 0; drawer.focus(); }
+    }
+
+    function closePanel() {
+      overlay.classList.remove('open');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    // Direct-open triggers
+    ['open-testing-nav', 'open-testing-panel', 'open-testing-footer', 'open-testing-hero'].forEach(id => {
+      const el = $(`#${id}`);
+      if (el) el.addEventListener('click', e => { e.preventDefault(); openPanel(); });
+    });
+
+    // Mobile nav trigger — close nav first, then open panel after animation
+    const mobBtn = $('#mob-testing-btn');
+    if (mobBtn) {
+      mobBtn.addEventListener('click', () => {
+        setTimeout(openPanel, 360);
+      });
+    }
+
+    const closeBtn = $('#testing-close');
+    if (closeBtn) closeBtn.addEventListener('click', closePanel);
+
+    overlay.addEventListener('click', e => { if (e.target === overlay) closePanel(); });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) closePanel();
+    });
+
+    // "Book" button inside the testing panel
+    const tpBook = $('#tp-book-btn');
+    if (tpBook) {
+      tpBook.addEventListener('click', () => {
+        closePanel();
+        setTimeout(() => {
+          const bookBtn = $('#open-modal-header');
+          if (bookBtn) bookBtn.click();
+        }, 350);
+      });
+    }
   }
 
   /* ══════════════════════════════════════════════════════════

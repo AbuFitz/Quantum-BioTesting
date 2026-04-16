@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quantum BioTesting — Advanced Private Blood Testing</title>
   <meta name="description" content="Over 300 biomarkers. GMC physician consultation. Results in 48 hours. The most complete private blood test available in the UK. All-inclusive at £995.">
-  <meta name="theme-color" content="#111111">
+  <meta name="theme-color" content="#0B1F3A">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
       Quantum <span>BioTesting</span>
     </a>
     <nav class="header-nav" aria-label="Primary">
-      <a href="#panel">The Panel</a>
+      <button class="nav-panel-btn" id="open-testing-nav">Our Testing</button>
       <a href="#process">How It Works</a>
       <a href="#preparation">Preparation</a>
       <a href="#pricing">Pricing</a>
@@ -37,7 +37,7 @@
 <!-- ════════════════════ MOBILE NAV ════════════════════════ -->
 <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
   <div class="mob-links">
-    <a href="#panel"       class="mob-link">The Panel       <span>01</span></a>
+    <button class="mob-link" id="mob-testing-btn">Our Testing     <span>01</span></button>
     <a href="#process"     class="mob-link">How It Works    <span>02</span></a>
     <a href="#preparation" class="mob-link">Preparation     <span>03</span></a>
     <a href="#pricing"     class="mob-link">Pricing         <span>04</span></a>
@@ -71,7 +71,7 @@
           Book Your Test
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
         </button>
-        <a href="#panel" class="btn btn-ghost-d">See what we test</a>
+        <button class="btn btn-ghost-d" id="open-testing-hero">See what we test</button>
       </div>
 
       <div class="hero-trust" role="list" aria-label="Accreditations">
@@ -309,10 +309,10 @@
       <p class="panel-foot-note">
         <strong>300+ biomarkers</strong> across 11 categories — all UKAS ISO 15189 accredited laboratory analysis.
       </p>
-      <a href="testing.html" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">
+      <button class="btn btn-ghost btn-sm" id="open-testing-panel">
         View full biomarker list
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-      </a>
+      </button>
     </div>
 
   </div>
@@ -681,7 +681,7 @@
         <p class="footer-col-title">The Test</p>
         <ul class="footer-links-list">
           <li><a href="#panel">The Panel</a></li>
-          <li><a href="testing.html" target="_blank" rel="noopener">Full Biomarker List</a></li>
+          <li><button id="open-testing-footer">Full Biomarker List</button></li>
           <li><a href="#process">How It Works</a></li>
           <li><a href="#preparation">Preparation</a></li>
         </ul>
@@ -720,6 +720,131 @@
     </p>
   </div>
 </footer>
+
+<!-- ════════════════════ TESTING PANEL ════════════════════ -->
+<div class="tp-overlay" id="testing-panel" role="dialog" aria-modal="true" aria-label="Our Testing" aria-hidden="true">
+  <div class="tp-drawer" tabindex="-1">
+
+    <div class="tp-header">
+      <div>
+        <p class="tp-eyebrow">What We Analyse</p>
+        <h2 class="tp-title">The Quantum Panel</h2>
+      </div>
+      <button class="tp-close" id="testing-close" aria-label="Close testing panel">&#x2715;</button>
+    </div>
+
+    <div class="tp-body">
+
+      <p class="tp-intro">
+        Our advanced testing covers <strong>300+ biomarkers</strong> across 11 clinical categories — one of the most comprehensive health insights available in private medicine. All from a single blood draw, processed in a UKAS ISO 15189 accredited laboratory and reviewed by a GMC-registered physician.
+      </p>
+
+      <p class="tp-section-label">11 clinical categories</p>
+
+      <div class="tp-cat-grid" role="list">
+
+        <div class="tp-cat-item" role="listitem">
+          <div class="tp-cat-head">
+            <span class="tp-cat-name">Cardiovascular &amp; Lipid</span>
+            <span class="tp-cat-count">38 markers</span>
+          </div>
+          <p class="tp-cat-desc">Full lipid profile, Lp(a), ApoB, ApoA1, homocysteine, hsCRP, troponin I, BNP, fibrinogen — a complete picture of cardiovascular risk.</p>
+        </div>
+
+        <div class="tp-cat-item" role="listitem">
+          <div class="tp-cat-head">
+            <span class="tp-cat-name">Full Blood Count</span>
+            <span class="tp-cat-count">32 markers</span>
+          </div>
+          <p class="tp-cat-desc">Red cells, white cells, platelets, iron studies, ferritin, TIBC, reticulocytes, full differential — haematological baseline in depth.</p>
+        </div>
+
+        <div class="tp-cat-item" role="listitem">
+          <div class="tp-cat-head">
+            <span class="tp-cat-name">Metabolic &amp; Glucose</span>
+            <span class="tp-cat-count">28 markers</span>
+          </div>
+          <p class="tp-cat-desc">HbA1c, fasting insulin, HOMA-IR, C-peptide, leptin, adiponectin, uric acid, pancreatic markers — metabolic health and insulin sensitivity.</p>
+        </div>
+
+        <div class="tp-cat-item" role="listitem">
+          <div class="tp-cat-head">
+            <span class="tp-cat-name">Hormones</span>
+            <span class="tp-cat-count">30 markers</span>
+          </div>
+          <p class="tp-cat-desc">Testosterone (total &amp; free), oestradiol, progesterone, cortisol (AM/PM), DHEA-S, IGF-1, LH, FSH, prolactin, SHBG — full endocrine profile.</p>
+        </div>
+
+        <div class="tp-cat-item" role="listitem">
+          <div class="tp-cat-head">
+            <span class="tp-cat-name">Vitamins &amp; Minerals</span>
+            <span class="tp-cat-count">20 markers</span>
+          </div>
+          <p class="tp-cat-desc">Vitamin D (25-OH), active B12, folate, vitamins A, C, E, K2, zinc, selenium, magnesium, copper — nutritional status in full.</p>
+        </div>
+
+        <div class="tp-cat-item" role="listitem">
+          <div class="tp-cat-head">
+            <span class="tp-cat-name">Inflammation &amp; Immune</span>
+            <span class="tp-cat-count">22 markers</span>
+          </div>
+          <p class="tp-cat-desc">hsCRP, IL-6, ESR, complement C3/C4, immunoglobulins IgA/IgG/IgM, procalcitonin, serum amyloid A — systemic inflammation and immune status.</p>
+        </div>
+
+        <div class="tp-cat-item" role="listitem">
+          <div class="tp-cat-head">
+            <span class="tp-cat-name">Liver &amp; Kidney (Organ Function)</span>
+            <span class="tp-cat-count">26 markers</span>
+          </div>
+          <p class="tp-cat-desc">Full liver function, eGFR, cystatin C, uric acid, urinary protein ratios, albumin, bilirubin — hepatic and renal function assessed together.</p>
+        </div>
+
+        <div class="tp-cat-item" role="listitem">
+          <div class="tp-cat-head">
+            <span class="tp-cat-name">Thyroid &amp; Bone</span>
+            <span class="tp-cat-count">24 markers</span>
+          </div>
+          <p class="tp-cat-desc">TSH, free T3, free T4, reverse T3, TPO antibodies, PTH, osteocalcin, bone turnover markers — thyroid and skeletal health.</p>
+        </div>
+
+        <div class="tp-cat-item" role="listitem">
+          <div class="tp-cat-head">
+            <span class="tp-cat-name">Cancer Screening Markers</span>
+            <span class="tp-cat-count">18 markers</span>
+          </div>
+          <p class="tp-cat-desc">PSA (total &amp; free), CEA, CA-125, CA 19-9, AFP, LDH — applied age- and sex-appropriately by your physician. Not diagnostic; part of a broader health picture.</p>
+        </div>
+
+        <div class="tp-cat-item" role="listitem">
+          <div class="tp-cat-head">
+            <span class="tp-cat-name">Cognitive &amp; Neurological</span>
+            <span class="tp-cat-count">16 markers</span>
+          </div>
+          <p class="tp-cat-desc">Omega-3 index, ApoE genotyping, phospholipid panel, MTHFR status, heavy metals screen (mercury, lead, arsenic) — brain health &amp; cognitive risk factors.</p>
+        </div>
+
+        <div class="tp-cat-item" role="listitem">
+          <div class="tp-cat-head">
+            <span class="tp-cat-name">Autoimmune &amp; Genetic Risk</span>
+            <span class="tp-cat-count">46 markers</span>
+          </div>
+          <p class="tp-cat-desc">ANA, anti-CCP, rheumatoid factor, coeliac antibodies, thrombophilia screen, pharmacogenomics panel — autoimmune activity and inherited risk.</p>
+        </div>
+
+      </div>
+
+      <div class="tp-cta-box">
+        <h3>Ready for the complete picture?</h3>
+        <p>300+ biomarkers. GMC physician consultation. Detailed report within 48 hours. All-inclusive at £995 — no hidden fees.</p>
+        <button class="btn btn-white" id="tp-book-btn">
+          Book Your Test — £995
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <!-- ════════════════════ BOOKING MODAL ═════════════════════ -->
 <div class="modal-overlay" id="booking-modal" role="dialog" aria-modal="true" aria-label="Book your test" aria-hidden="true">
