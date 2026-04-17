@@ -1,127 +1,109 @@
 /* ============================================================
    QUANTUM BIOTESTING — main.js
-   Header · Mobile nav · Modal (2-step) · Cookie consent
-   Fade animations · Counter animation · Scroll utilities
+   Nav · Drawer · Modal (2-step) · Cookie · Counters · Utils
    ============================================================ */
-
 (function () {
   'use strict';
 
-  const $ = (sel, ctx = document) => ctx.querySelector(sel);
-  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
-
-  function setAttr(el, attrs) {
-    if (!el) return;
-    Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v));
-  }
+  const $ = (sel, ctx) => (ctx || document).querySelector(sel);
+  const $$ = (sel, ctx) => Array.from((ctx || document).querySelectorAll(sel));
 
   document.addEventListener('DOMContentLoaded', init);
 
   function init() {
-    initHeader();
-    initMobileNav();
+    initNav();
+    initDrawer();
     initModal();
-    initCookieConsent();
-    initFadeAnimations();
+    initCookie();
     initCounters();
-    initScrollUtilities();
+    initFadeUp();
+    initScrollUtils();
     initDateConstraints();
-    initNavActiveState();
+    initNavActive();
   }
 
-  /* ══════════════════════════════════════════════════════════
-     HEADER
-  ══════════════════════════════════════════════════════════ */
-  function initHeader() {
-    const header = $('#site-header');
-    if (!header) return;
-
-    function onScroll() {
-      header.classList.toggle('scrolled', window.scrollY > 8);
+  /* ── NAV SCROLL ─────────────────────────────────────────── */
+  function initNav() {
+    const nav = $('#site-nav');
+    if (!nav) return;
+    function tick() {
+      nav.classList.toggle('elevated', window.scrollY > 12);
     }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    window.addEventListener('scroll', tick, { passive: true });
+    tick();
   }
 
-  /* ══════════════════════════════════════════════════════════
-     MOBILE NAV
-  ══════════════════════════════════════════════════════════ */
-  function initMobileNav() {
-    const toggle = $('#menu-toggle');
-    const nav    = $('#mobile-nav');
-    if (!toggle || !nav) return;
+  /* ── DRAWER ─────────────────────────────────────────────── */
+  function initDrawer() {
+    const burger  = $('#menu-toggle');
+    const drawer  = $('#nav-drawer');
+    const overlay = $('#drawer-overlay');
+    const closeBtn = $('#drawer-close');
+    if (!burger || !drawer) return;
 
-    let isOpen = false;
+    let open = false;
 
-    function openNav() {
-      isOpen = true;
-      toggle.classList.add('open');
-      nav.classList.add('open');
-      setAttr(toggle, { 'aria-expanded': 'true' });
-      setAttr(nav, { 'aria-hidden': 'false' });
+    function openDrawer() {
+      open = true;
+      drawer.classList.add('open');
+      drawer.setAttribute('aria-hidden', 'false');
+      burger.classList.add('open');
+      burger.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
     }
 
-    function closeNav() {
-      isOpen = false;
-      toggle.classList.remove('open');
-      nav.classList.remove('open');
-      setAttr(toggle, { 'aria-expanded': 'false' });
-      setAttr(nav, { 'aria-hidden': 'true' });
+    function closeDrawer() {
+      open = false;
+      drawer.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     }
 
-    toggle.addEventListener('click', () => isOpen ? closeNav() : openNav());
+    burger.addEventListener('click', () => open ? closeDrawer() : openDrawer());
+    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    if (overlay) overlay.addEventListener('click', closeDrawer);
 
-    $$('.mob-link', nav).forEach(link => {
-      link.addEventListener('click', closeNav);
-    });
-
-    document.addEventListener('click', e => {
-      if (isOpen && !nav.contains(e.target) && !toggle.contains(e.target)) closeNav();
-    });
+    $$('.drawer-a', drawer).forEach(a => a.addEventListener('click', closeDrawer));
 
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && isOpen) closeNav();
+      if (e.key === 'Escape' && open) closeDrawer();
     });
   }
 
-  /* ══════════════════════════════════════════════════════════
-     BOOKING MODAL — 2-step flow
-  ══════════════════════════════════════════════════════════ */
+  /* ── MODAL ──────────────────────────────────────────────── */
   function initModal() {
-    const overlay    = $('#booking-modal');
+    const overlay = $('#booking-modal');
     if (!overlay) return;
 
-    const sheet      = $('.modal-sheet', overlay);
+    const box        = $('.modal-box', overlay);
     const closeBtn   = $('#modal-close');
     const nextBtn    = $('#modal-next');
     const backBtn    = $('#modal-back');
-    const modalFooter = $('#modal-footer');
+    const footerEl   = $('#modal-footer');
     const successEl  = $('#modal-success');
     const progressEl = $('#modal-progress');
 
-    const TOTAL_STEPS = 2;
-    let currentStep = 1;
+    const STEPS = 2;
+    let step = 1;
 
-    /* ─── Open / Close ──────────────────────────────────── */
-    function openModal() {
+    /* open / close */
+    function open() {
       overlay.classList.add('open');
-      setAttr(overlay, { 'aria-hidden': 'false' });
+      overlay.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
-      sheet.setAttribute('tabindex', '-1');
-      sheet.focus();
-      goToStep(1);
+      if (box) { box.setAttribute('tabindex', '-1'); box.focus(); }
+      goTo(1);
     }
 
-    function closeModal() {
+    function close() {
       overlay.classList.remove('open');
-      setAttr(overlay, { 'aria-hidden': 'true' });
+      overlay.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
     }
 
-    /* ─── Triggers ──────────────────────────────────────── */
+    /* triggers */
     const triggerIds = [
       'open-modal-header',
       'open-modal-hero',
@@ -130,339 +112,210 @@
       'open-modal-footer',
       'open-modal-footer2',
       'open-modal-mobilebar',
+      'open-modal-reports',
     ];
-
     triggerIds.forEach(id => {
       const el = $(`#${id}`);
-      if (el) el.addEventListener('click', e => { e.preventDefault(); openModal(); });
+      if (el) el.addEventListener('click', e => { e.preventDefault(); open(); });
     });
 
-    closeBtn.addEventListener('click', closeModal);
-    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+      if (e.key === 'Escape' && overlay.classList.contains('open')) close();
     });
 
     const successClose = $('#modal-success-close');
-    if (successClose) successClose.addEventListener('click', closeModal);
+    if (successClose) successClose.addEventListener('click', close);
 
-    /* ─── Step navigation ───────────────────────────────── */
-    function goToStep(step) {
-      currentStep = step;
+    /* step navigation */
+    function goTo(n) {
+      step = n;
 
-      // Show/hide step panels
-      for (let i = 1; i <= TOTAL_STEPS; i++) {
+      for (let i = 1; i <= STEPS; i++) {
         const panel = $(`#step-${i}`);
-        if (panel) panel.classList.toggle('active', i === step);
-      }
+        if (panel) panel.classList.toggle('active', i === n);
 
-      // Update progress dots
-      $$('.step-dot', progressEl).forEach(dot => {
-        const dotStep = parseInt(dot.dataset.step, 10);
-        dot.classList.toggle('active', dotStep === step);
-        dot.classList.toggle('done', dotStep < step);
-      });
+        const progStep = $(`#prog-step-${i}`);
+        if (progStep) progStep.classList.toggle('active', i === n);
 
-      setAttr(progressEl, { 'aria-valuenow': step });
-
-      // Back button
-      if (backBtn) backBtn.style.display = step > 1 ? 'inline-flex' : 'none';
-
-      // Next/submit label
-      if (nextBtn) {
-        if (step === TOTAL_STEPS) {
-          nextBtn.innerHTML = `Send Enquiry <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M1 4l3 3 5-5"/></svg>`;
-        } else {
-          nextBtn.innerHTML = `Continue <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>`;
+        const dot = $(`.mp-dot[data-step="${i}"]`, progressEl);
+        if (dot) {
+          dot.classList.toggle('active', i === n);
+          dot.classList.toggle('done', i < n);
         }
       }
 
-      // Scroll sheet back to top
-      sheet.scrollTop = 0;
+      if (progressEl) progressEl.setAttribute('aria-valuenow', n);
+      if (backBtn) backBtn.style.display = n > 1 ? 'inline-flex' : 'none';
+
+      if (nextBtn) {
+        nextBtn.innerHTML = n === STEPS
+          ? 'Send Enquiry <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8.5l3 3 7-7"/></svg>'
+          : 'Continue <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>';
+      }
+
+      if (box) box.scrollTop = 0;
     }
 
-    nextBtn.addEventListener('click', () => {
-      if (currentStep < TOTAL_STEPS) {
-        if (validateStep(currentStep)) goToStep(currentStep + 1);
-      } else {
-        if (validateStep(currentStep)) submitEnquiry();
+    /* validation */
+    function markErr(id, show) {
+      const el = $(`#${id}`);
+      if (el) el.classList.toggle('has-err', show);
+    }
+
+    function validateStep(n) {
+      let ok = true;
+      if (n === 1) {
+        const loc = $('#clinic-location');
+        const dt  = $('#appt-date');
+        if (!loc || !loc.value) { markErr('field-location', true); ok = false; } else markErr('field-location', false);
+        if (!dt  || !dt.value)  { markErr('field-date', true);     ok = false; } else markErr('field-date', false);
       }
-    });
+      if (n === 2) {
+        const checks = [
+          ['fname',  'field-fname',  v => v.trim().length > 0],
+          ['lname',  'field-lname',  v => v.trim().length > 0],
+          ['email',  'field-email',  v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)],
+          ['phone',  'field-phone',  v => v.trim().length > 6],
+        ];
+        checks.forEach(([id, wrapId, test]) => {
+          const el = $(`#${id}`);
+          const pass = el && test(el.value);
+          markErr(wrapId, !pass);
+          if (!pass) ok = false;
+        });
+        const cc = $('#consent-contact');
+        const ct = $('#consent-terms');
+        if (!cc || !cc.checked) ok = false;
+        if (!ct || !ct.checked) ok = false;
+      }
+      return ok;
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        if (!validateStep(step)) return;
+        if (step < STEPS) {
+          goTo(step + 1);
+        } else {
+          /* final submit */
+          if (footerEl) footerEl.style.display = 'none';
+          if (successEl) successEl.classList.add('active');
+          for (let i = 1; i <= STEPS; i++) {
+            const p = $(`#step-${i}`);
+            if (p) p.classList.remove('active');
+          }
+          const bodyEl = $('.modal-body', overlay);
+          if (bodyEl) bodyEl.style.display = 'none';
+          const progCont = $('.modal-prog', overlay);
+          if (progCont) progCont.style.display = 'none';
+        }
+      });
+    }
 
     if (backBtn) {
       backBtn.addEventListener('click', () => {
-        if (currentStep > 1) goToStep(currentStep - 1);
+        if (step > 1) goTo(step - 1);
       });
-    }
-
-    /* ─── Validation ────────────────────────────────────── */
-    function showError(fieldId, msg) {
-      const field = $(`#${fieldId}`);
-      if (!field) return;
-      const control = field.querySelector('.form-control') || field;
-      const errorEl = field.querySelector('.form-error');
-      control.classList.add('has-error');
-      if (errorEl && msg) errorEl.textContent = msg;
-    }
-
-    function clearError(fieldId) {
-      const field = $(`#${fieldId}`);
-      if (!field) return;
-      const control = field.querySelector('.form-control') || field;
-      const errorEl = field.querySelector('.form-error');
-      control.classList.remove('has-error');
-      if (errorEl) errorEl.textContent = errorEl.getAttribute('data-default') || errorEl.textContent;
-    }
-
-    function getVal(id) {
-      const el = $(`#${id}`);
-      return el ? el.value.trim() : '';
-    }
-
-    function validateStep(step) {
-      let valid = true;
-      const firstErrors = [];
-
-      function fail(fieldId, msg) {
-        showError(fieldId, msg);
-        firstErrors.push(fieldId);
-        valid = false;
-      }
-
-      if (step === 1) {
-        // clinic location required
-        if (!getVal('clinic-location')) {
-          fail('field-location', 'Please select a preferred location');
-        } else clearError('field-location');
-
-        // date required
-        if (!getVal('appt-date')) {
-          fail('field-date', 'Please select a preferred date');
-        } else clearError('field-date');
-      }
-
-      if (step === 2) {
-        // First name
-        if (!getVal('fname')) {
-          fail('field-fname', 'Please enter your first name');
-        } else clearError('field-fname');
-
-        // Last name
-        if (!getVal('lname')) {
-          fail('field-lname', 'Please enter your last name');
-        } else clearError('field-lname');
-
-        // Email
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-        const emailVal = getVal('email');
-        if (!emailVal || !emailPattern.test(emailVal)) {
-          fail('field-email', 'Please enter a valid email address');
-        } else clearError('field-email');
-
-        // Phone
-        if (!getVal('phone')) {
-          fail('field-phone', 'Please enter your phone number');
-        } else clearError('field-phone');
-
-        // Consent checkboxes
-        const contactCb = $('#consent-contact');
-        const termsCb   = $('#consent-terms');
-
-        if (!contactCb?.checked) {
-          contactCb?.classList.add('has-error');
-          valid = false;
-        } else {
-          contactCb?.classList.remove('has-error');
-        }
-
-        if (!termsCb?.checked) {
-          termsCb?.classList.add('has-error');
-          valid = false;
-        } else {
-          termsCb?.classList.remove('has-error');
-        }
-      }
-
-      // Scroll to first error
-      if (firstErrors.length > 0) {
-        const firstErrorEl = $(`#${firstErrors[0]}`);
-        if (firstErrorEl) {
-          firstErrorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-      }
-
-      return valid;
-    }
-
-    /* ─── Submit ────────────────────────────────────────── */
-    function submitEnquiry() {
-      if (nextBtn) nextBtn.disabled = true;
-
-      setTimeout(() => {
-        // Hide steps and footer, show success
-        for (let i = 1; i <= TOTAL_STEPS; i++) {
-          const panel = $(`#step-${i}`);
-          if (panel) panel.classList.remove('active');
-        }
-
-        const progressBar = $('#modal-progress');
-        if (progressBar) progressBar.style.display = 'none';
-
-        if (modalFooter) modalFooter.style.display = 'none';
-
-        if (successEl) {
-          successEl.classList.add('show');
-          successEl.focus();
-        }
-
-        if (nextBtn) nextBtn.disabled = false;
-      }, 900);
     }
   }
 
-  /* ══════════════════════════════════════════════════════════
-     COOKIE CONSENT
-  ══════════════════════════════════════════════════════════ */
-  function initCookieConsent() {
-    const bar       = $('#cookie-bar');
-    const acceptBtn = $('#cookie-accept');
-    const essBtn    = $('#cookie-essential');
-
+  /* ── COOKIE ─────────────────────────────────────────────── */
+  function initCookie() {
+    const bar    = $('#cookie-bar');
+    const accept = $('#cookie-accept');
+    const ess    = $('#cookie-essential');
     if (!bar) return;
 
-    const STORAGE_KEY = 'qbt-cookies';
+    const KEY = 'qbt-cookie';
+    if (localStorage.getItem(KEY)) return;
 
-    if (localStorage.getItem(STORAGE_KEY)) return;
+    setTimeout(() => bar.classList.add('show'), 1600);
 
-    setTimeout(() => {
-      bar.classList.add('show');
-    }, 1500);
+    function dismiss() { bar.classList.remove('show'); }
 
-    function dismiss() {
-      bar.classList.remove('show');
-    }
-
-    if (acceptBtn) {
-      acceptBtn.addEventListener('click', () => {
-        localStorage.setItem(STORAGE_KEY, 'all');
-        dismiss();
-      });
-    }
-
-    if (essBtn) {
-      essBtn.addEventListener('click', () => {
-        localStorage.setItem(STORAGE_KEY, 'essential');
-        dismiss();
-      });
-    }
+    if (accept) accept.addEventListener('click', () => { localStorage.setItem(KEY, 'all'); dismiss(); });
+    if (ess)    ess.addEventListener('click',    () => { localStorage.setItem(KEY, 'ess'); dismiss(); });
   }
 
-  /* ══════════════════════════════════════════════════════════
-     FADE ANIMATIONS
-  ══════════════════════════════════════════════════════════ */
-  function initFadeAnimations() {
-    const elements = $$('.fade-up');
-    if (!elements.length) return;
-
-    if (!('IntersectionObserver' in window)) {
-      elements.forEach(el => el.classList.add('visible'));
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.06, rootMargin: '-40px 0px' }
-    );
-
-    elements.forEach(el => observer.observe(el));
-  }
-
-  /* ══════════════════════════════════════════════════════════
-     COUNTER ANIMATION
-  ══════════════════════════════════════════════════════════ */
+  /* ── COUNTERS ───────────────────────────────────────────── */
   function initCounters() {
-    const counters = $$('[data-count]');
-    if (!counters.length) return;
+    const els = $$('[data-count]');
+    if (!els.length) return;
 
-    const observed = new Set();
+    const seen = new WeakSet();
 
-    const observer = new IntersectionObserver(entries => {
+    const obs = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
         const el = entry.target;
-        if (observed.has(el)) return;
-        observed.add(el);
-        observer.unobserve(el);
+        if (seen.has(el)) return;
+        seen.add(el);
+        obs.unobserve(el);
 
-        const target   = parseInt(el.dataset.count, 10);
-        const duration = 1100;
-        const start    = performance.now();
+        const target = parseInt(el.dataset.count, 10);
+        const dur    = 1100;
+        const t0     = performance.now();
+        function ease(t) { return 1 - Math.pow(1 - t, 3); }
 
-        function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
-
-        // Grab any child elements that should be preserved (sub, span)
-        const children = Array.from(el.children);
-
-        function update(now) {
-          const progress = Math.min((now - start) / duration, 1);
-          const value    = Math.round(easeOut(progress) * target);
-
-          // Set only the first text node, preserving child elements
-          const textNode = el.childNodes[0];
-          if (textNode && textNode.nodeType === Node.TEXT_NODE) {
-            textNode.textContent = value;
+        function tick(now) {
+          const p = Math.min((now - t0) / dur, 1);
+          const v = Math.round(ease(p) * target);
+          // Only update first text node to preserve child elements (sub, em etc)
+          const tn = el.childNodes[0];
+          if (tn && tn.nodeType === Node.TEXT_NODE) {
+            tn.textContent = v;
           } else {
-            // Fallback: prepend a text node
-            el.insertBefore(document.createTextNode(value), el.firstChild);
+            el.textContent = v;
           }
-
-          if (progress < 1) {
-            requestAnimationFrame(update);
-          } else {
-            const finalText = el.childNodes[0];
-            if (finalText && finalText.nodeType === Node.TEXT_NODE) {
-              finalText.textContent = target;
-            }
-          }
+          if (p < 1) requestAnimationFrame(tick);
         }
-
-        requestAnimationFrame(update);
+        requestAnimationFrame(tick);
       });
-    }, { threshold: 0.4 });
+    }, { threshold: 0.5 });
 
-    counters.forEach(el => observer.observe(el));
+    els.forEach(el => obs.observe(el));
   }
 
-  /* ══════════════════════════════════════════════════════════
-     SCROLL UTILITIES
-  ══════════════════════════════════════════════════════════ */
-  function initScrollUtilities() {
+  /* ── FADE UP ────────────────────────────────────────────── */
+  function initFadeUp() {
+    const els = $$('.fade-up');
+    if (!els.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(el => el.classList.add('visible'));
+      return;
+    }
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '-40px 0px' });
+
+    els.forEach(el => obs.observe(el));
+  }
+
+  /* ── SCROLL UTILITIES ───────────────────────────────────── */
+  function initScrollUtils() {
     const backTop    = $('#back-top');
     const mobileBar  = $('#mobile-book-bar');
     const pricing    = $('#pricing');
-
-    let mobileBarShown = false;
+    let barShown = false;
 
     window.addEventListener('scroll', () => {
       const y = window.scrollY;
-
-      // Back to top
       if (backTop) backTop.classList.toggle('show', y > 400);
-
-      // Mobile booking bar — show after pricing section enters view
-      if (mobileBar && pricing) {
-        const pricingTop = pricing.getBoundingClientRect().top;
-        if (pricingTop < window.innerHeight * 0.6 && !mobileBarShown) {
+      if (mobileBar && pricing && !barShown) {
+        const top = pricing.getBoundingClientRect().top;
+        if (top < window.innerHeight * 0.7) {
           mobileBar.classList.add('show');
           mobileBar.setAttribute('aria-hidden', 'false');
-          mobileBarShown = true;
+          barShown = true;
         }
       }
     }, { passive: true });
@@ -474,47 +327,37 @@
     }
   }
 
-  /* ══════════════════════════════════════════════════════════
-     DATE CONSTRAINTS
-  ══════════════════════════════════════════════════════════ */
+  /* ── DATE CONSTRAINTS ───────────────────────────────────── */
   function initDateConstraints() {
-    const apptDate = $('#appt-date');
-
-    if (apptDate) {
-      const tomorrow = new Date();
-      tomorrow.setDate(tomorrow.getDate() + 1);
-      apptDate.min = tomorrow.toISOString().split('T')[0];
-
-      const maxDate = new Date();
-      maxDate.setFullYear(maxDate.getFullYear() + 1);
-      apptDate.max = maxDate.toISOString().split('T')[0];
-    }
+    const d = $('#appt-date');
+    if (!d) return;
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    d.min = tomorrow.toISOString().split('T')[0];
+    const max = new Date();
+    max.setFullYear(max.getFullYear() + 1);
+    d.max = max.toISOString().split('T')[0];
   }
 
-  /* ══════════════════════════════════════════════════════════
-     NAV ACTIVE STATE
-  ══════════════════════════════════════════════════════════ */
-  function initNavActiveState() {
-    const navLinks = $$('.header-nav a');
-    const sections = navLinks
-      .map(l => ({ link: l, section: document.querySelector(l.getAttribute('href')) }))
-      .filter(item => item.section);
+  /* ── NAV ACTIVE ─────────────────────────────────────────── */
+  function initNavActive() {
+    const links = $$('.nav-links a');
+    const sections = links
+      .map(l => ({ link: l, section: $(l.getAttribute('href')) }))
+      .filter(x => x.section);
 
     if (!sections.length) return;
 
-    function updateActive() {
-      const y = window.scrollY + 100;
+    function update() {
+      const y = window.scrollY + 90;
       let current = sections[0];
-      sections.forEach(item => {
-        if (item.section.offsetTop <= y) current = item;
-      });
-
-      navLinks.forEach(l => l.removeAttribute('aria-current'));
-      if (current) current.link.setAttribute('aria-current', 'location');
+      sections.forEach(x => { if (x.section.offsetTop <= y) current = x; });
+      links.forEach(l => l.classList.remove('active'));
+      if (current) current.link.classList.add('active');
     }
 
-    window.addEventListener('scroll', updateActive, { passive: true });
-    updateActive();
+    window.addEventListener('scroll', update, { passive: true });
+    update();
   }
 
 })();
