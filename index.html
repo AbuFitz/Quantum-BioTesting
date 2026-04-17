@@ -3,30 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quantum BioTesting — Private Blood Testing, UK</title>
-  <meta name="description" content="The most complete private blood test in the UK. 300+ biomarkers, GMC physician review, 48-hour results. All-inclusive at £995.">
-  <meta name="theme-color" content="#141414">
+  <title>Quantum BioTesting — Premium Private Blood Testing, UK</title>
+  <meta name="description" content="The UK's most comprehensive private blood test. 300+ biomarkers analysed across 11 clinical categories. Clinically reviewed results delivered within 2-5 working days. 40+ clinic locations nationwide. &pound;995 all-inclusive.">
+  <meta name="theme-color" content="#0D1F3C">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━ NAV ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- NAV -->
 <nav class="site-nav" id="site-nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
-    <a href="#hero" class="nav-logo" aria-label="Quantum BioTesting">
+    <a href="#hero" class="nav-logo" aria-label="Quantum BioTesting Home">
+      <svg width="28" height="34" viewBox="0 0 28 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M14 2C14 2 2 13.5 2 21C2 27.627 7.373 33 14 33C20.627 33 26 27.627 26 21C26 13.5 14 2 14 2Z" fill="#C8192C"/>
+        <path d="M10 21C10 21 11 18 14 17" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
       Quantum <em>Bio</em>Testing
     </a>
     <div class="nav-links">
       <a href="#panel">The Panel</a>
       <a href="#process">How It Works</a>
       <a href="#preparation">Preparation</a>
+      <a href="#locations">Locations</a>
       <a href="#pricing">Pricing</a>
     </div>
     <div class="nav-right">
-      <button class="btn btn-outline btn-sm" id="open-modal-header">Book Now</button>
+      <button class="btn btn-red btn-sm" id="open-modal-header">Book Now &mdash; &pound;995</button>
     </div>
     <button class="nav-burger" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
       <span></span><span></span><span></span>
@@ -34,7 +39,7 @@
   </div>
 </nav>
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━ DRAWER ━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- DRAWER -->
 <div class="drawer" id="nav-drawer" aria-hidden="true">
   <div class="drawer-overlay" id="drawer-overlay"></div>
   <div class="drawer-panel">
@@ -48,45 +53,76 @@
       <a href="#panel"       class="drawer-a">The Panel       <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       <a href="#process"     class="drawer-a">How It Works    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       <a href="#preparation" class="drawer-a">Preparation     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <a href="#locations"   class="drawer-a">Locations       <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       <a href="#pricing"     class="drawer-a">Pricing         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
     </nav>
     <div class="drawer-foot">
-      <button class="btn btn-ink" id="open-modal-mobile" style="width:100%;justify-content:center;">Book Your Test — £995</button>
-      <a href="tel:01234567890" class="btn btn-outline" style="width:100%;justify-content:center;">Call: 0123 456 7890</a>
+      <button class="btn btn-red" id="open-modal-mobile" style="width:100%;justify-content:center;">Book Your Test &mdash; &pound;995</button>
+      <a href="tel:01494000000" class="btn btn-outline" style="width:100%;justify-content:center;">Call Us</a>
     </div>
   </div>
 </div>
 
 <main>
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━ HERO ━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-<section id="hero" aria-labelledby="h1">
+<!-- HERO -->
+<section id="hero" aria-labelledby="hero-h1">
   <div class="hero-inner">
-    <p class="hero-tag">Private Diagnostics · UK · Est. 2019</p>
-    <h1 class="hero-h1" id="h1">
-      Know everything<br>
-      <em>your body is doing.</em>
-    </h1>
-    <p class="hero-p">
-      Over 300 biomarkers tested in a single appointment. Every organ system, every hormone, every metabolic pathway. Reviewed by a GMC-registered physician. Results in 48 hours.
-    </p>
-    <div class="hero-btns">
-      <button class="btn btn-ink btn-lg" id="open-modal-hero">
-        Book Your Test
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-      </button>
-      <a href="#panel" class="btn btn-outline btn-lg">See the full panel</a>
+    <div class="hero-left">
+      <p class="hero-tag">Private Diagnostics &nbsp;&middot;&nbsp; UK &nbsp;&middot;&nbsp; 40+ Clinics Nationwide</p>
+      <h1 class="hero-h1" id="hero-h1">Your health,<br><em>fully understood.</em></h1>
+      <p class="hero-p">The most comprehensive private blood panel available in the UK. Over 300 biomarkers spanning every major organ system &mdash; with clinically reviewed results delivered to your inbox within 2&ndash;5 working days.</p>
+      <div class="hero-btns">
+        <button class="btn btn-red btn-lg" id="open-modal-hero">
+          Book Your Test &mdash; &pound;995
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </button>
+        <a href="#panel" class="btn btn-outline-w btn-lg">See the full panel</a>
+      </div>
+      <div class="hero-trust" role="list" aria-label="Accreditations">
+        <span class="ht-item" role="listitem">UKAS Accredited</span>
+        <span class="ht-item" role="listitem">RIQAS Quality Scheme</span>
+        <span class="ht-item" role="listitem">GCP Certified</span>
+        <span class="ht-item" role="listitem">145+ Countries</span>
+      </div>
     </div>
-    <div class="hero-trust" role="list" aria-label="Accreditations">
-      <span class="ht-item" role="listitem">UKAS Accredited</span>
-      <span class="ht-item" role="listitem">CQC Registered</span>
-      <span class="ht-item" role="listitem">ISO 15189</span>
-      <span class="ht-item" role="listitem">GMC Physicians</span>
+    <div class="hero-right" aria-hidden="true">
+      <div class="hero-card">
+        <div class="hero-card-title">Quantum Premium BioTest &mdash; Overview</div>
+        <div class="hero-stat">
+          <span class="hs-label">Biomarkers tested</span>
+          <span class="hs-val blue">300+</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hs-label">Clinical categories</span>
+          <span class="hs-val">11</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hs-label">Standard turnaround</span>
+          <span class="hs-val">2&ndash;5 working days</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hs-label">Express results available</span>
+          <span class="hs-val blue">from 2 hours</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hs-label">UK clinic locations</span>
+          <span class="hs-val">40+</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hs-label">All-inclusive price</span>
+          <span class="hs-val red">&pound;995</span>
+        </div>
+        <div class="hero-card-badge">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg>
+          Results delivered securely by email
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━ NUMBERS ━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- NUMBERS BAND -->
 <div class="nums-band" role="region" aria-label="Key figures">
   <div class="nums-inner">
     <div class="n-cell fade-up">
@@ -94,33 +130,32 @@
       <div class="n-lbl">Biomarkers Tested</div>
     </div>
     <div class="n-cell fade-up">
-      <div class="n-val">48<sub>hr</sub></div>
-      <div class="n-lbl">Result Turnaround</div>
-    </div>
-    <div class="n-cell fade-up">
       <div class="n-val"><span data-count="40">40</span><sub>+</sub></div>
       <div class="n-lbl">UK Clinic Locations</div>
     </div>
     <div class="n-cell fade-up">
-      <div class="n-val">£995</div>
+      <div class="n-val">2&ndash;5<sub>days</sub></div>
+      <div class="n-lbl">Standard Turnaround</div>
+    </div>
+    <div class="n-cell fade-up">
+      <div class="n-val">&pound;995</div>
       <div class="n-lbl">All-Inclusive Price</div>
     </div>
   </div>
 </div>
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━ ABOUT ━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- ABOUT -->
 <section id="about" aria-labelledby="about-h">
   <div class="about-wrap">
     <div class="about-l fade-up">
       <p class="sec-kicker">Why Quantum BioTesting</p>
       <h2 class="sec-h" id="about-h">Private medicine<br><em>without the gaps.</em></h2>
-      <p class="sec-p">
-        Standard NHS blood tests check around 15 to 20 markers. Our panel checks over 300. We measure what routine testing misses — the early signals, the subtle patterns, the markers that explain symptoms years before they become diagnoses.
-      </p>
-      <p class="sec-p">
-        Every result is reviewed by a GMC-registered physician who provides a written clinical summary and a 45-minute consultation to walk you through the findings.
-      </p>
-      <button class="btn btn-ink" id="open-modal-footer2">Book Your Test — £995</button>
+      <p class="sec-p">Standard NHS blood tests check around 15 to 20 markers. Our Premium BioTest checks over 300. We measure what routine testing misses &mdash; the early signals, the subtle patterns, the markers that explain symptoms years before they become diagnoses.</p>
+      <p class="sec-p">Every result is reviewed by a qualified clinical specialist who provides a detailed digital report, complete with biomarker analysis, reference ranges, and actionable health insights. Optional telephone consultation available to discuss your findings.</p>
+      <button class="btn btn-blue" id="open-modal-footer2">
+        Book Your Test &mdash; &pound;995
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </button>
     </div>
     <div class="about-r fade-up">
       <div class="a-card">
@@ -129,16 +164,16 @@
         </div>
         <div class="a-text">
           <h3>300+ Biomarkers</h3>
-          <p>Cardiovascular, metabolic, hormonal, inflammatory, immune, cognitive — the full picture in a single draw.</p>
+          <p>Cardiovascular, metabolic, hormonal, inflammatory, immune, cognitive and more &mdash; the complete clinical picture in a single blood draw.</p>
         </div>
       </div>
       <div class="a-card">
         <div class="a-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M6 20v-1a6 6 0 0 1 12 0v1"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
         </div>
         <div class="a-text">
-          <h3>GMC Physician Review</h3>
-          <p>Every report is reviewed and signed off by a licensed GMC physician. Not an algorithm. Not a nurse. A doctor.</p>
+          <h3>Detailed Digital Report</h3>
+          <p>Each report includes full biomarker analysis, clinical reference ranges, and a clear summary of key findings with actionable health insights.</p>
         </div>
       </div>
       <div class="a-card">
@@ -146,24 +181,24 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
         </div>
         <div class="a-text">
-          <h3>Results in 48 Hours</h3>
-          <p>From blood draw to full physician-reviewed report within 48 hours. Secure digital delivery to your account.</p>
+          <h3>2&ndash;5 Day Turnaround</h3>
+          <p>Results delivered securely via email within 2&ndash;5 working days. Select advanced tests can return results in as little as 2 hours.</p>
         </div>
       </div>
       <div class="a-card">
         <div class="a-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.36 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         </div>
         <div class="a-text">
-          <h3>UKAS-Accredited Labs</h3>
-          <p>All samples are processed in ISO 15189-accredited laboratories to the highest clinical standards available.</p>
+          <h3>Optional Telephone Consultation</h3>
+          <p>Speak with a clinical specialist by telephone to walk through your results, understand what they mean, and discuss any recommended next steps.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━ THE PANEL ━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- THE PANEL -->
 <section id="panel" aria-labelledby="panel-h">
   <div class="panel-wrap">
     <div class="panel-top fade-up">
@@ -236,71 +271,68 @@
         <span class="cat-bg">Advanced</span>
       </div>
       <div class="cat-item" style="background:var(--off);cursor:default;">
-        <div class="cat-n" style="color:var(--sage);">Total</div>
-        <div class="cat-nm" style="font-size:1.5rem;letter-spacing:-0.04em;">300+</div>
-        <div class="cat-ct">biomarkers</div>
+        <div class="cat-n" style="color:var(--blue);">Total</div>
+        <div class="cat-nm" style="font-family:var(--display);font-size:1.75rem;letter-spacing:-.04em;color:var(--navy);">300+</div>
+        <div class="cat-ct">biomarkers across 11 categories</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━ INCLUDED ━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- INCLUDED -->
 <section id="included" aria-labelledby="incl-h">
   <div class="incl-wrap">
     <div class="incl-top fade-up">
       <div>
-        <p class="sec-kicker" style="color:rgba(255,255,255,0.4);">
-          <span style="background:rgba(255,255,255,0.18);display:inline-block;width:20px;height:1px;margin-bottom:3px;"></span>
-          Everything is included
-        </p>
-        <h2 class="incl-h" id="incl-h">One price.<br>No surprises.</h2>
+        <p class="sec-kicker white-k">Everything is included</p>
+        <h2 class="incl-h" id="incl-h">One price.<br><em>No surprises.</em></h2>
       </div>
       <div>
-        <p class="incl-p">£995 covers every aspect of the process — from the initial blood draw to the physician consultation and digital report delivery. There are no add-ons, no hidden fees, and no upsells.</p>
+        <p class="incl-p">&pound;995 covers every aspect of the process &mdash; from the initial blood draw and full laboratory analysis, to clinician review and secure digital report delivery. No add-ons, no hidden fees, no upsells.</p>
       </div>
     </div>
     <div class="incl-grid fade-up">
       <div class="incl-item">
         <div class="i-n">01</div>
-        <div class="i-lbl">Blood Draw</div>
-        <div class="i-desc">Phlebotomy at your chosen clinic. Professional, comfortable, and typically 20 minutes.</div>
+        <div class="i-lbl">In-Clinic Blood Draw</div>
+        <div class="i-desc">Simple phlebotomy appointment at your chosen clinic. Professional, comfortable, and typically around 20 minutes from arrival to leaving.</div>
         <span class="i-tag">Included</span>
       </div>
       <div class="incl-item">
         <div class="i-n">02</div>
         <div class="i-lbl">300+ Biomarker Analysis</div>
-        <div class="i-desc">Samples processed in accredited ISO 15189 laboratories with clinical-grade equipment.</div>
+        <div class="i-desc">Samples processed in accredited laboratories using advanced diagnostic technology across 11 clinical categories.</div>
         <span class="i-tag">Included</span>
       </div>
       <div class="incl-item">
         <div class="i-n">03</div>
-        <div class="i-lbl">Physician Review</div>
-        <div class="i-desc">Every result reviewed and clinically annotated by a GMC-registered physician.</div>
+        <div class="i-lbl">Clinical Review</div>
+        <div class="i-desc">Every result reviewed and annotated by a qualified clinical specialist. Not automated &mdash; reviewed by a human professional.</div>
         <span class="i-tag">Included</span>
       </div>
       <div class="incl-item">
         <div class="i-n">04</div>
-        <div class="i-lbl">Digital Report</div>
-        <div class="i-desc">A detailed, clearly written report delivered securely to your account within 48 hours.</div>
+        <div class="i-lbl">Digital Results Report</div>
+        <div class="i-desc">A detailed digital report including biomarker analysis, reference ranges, and a clear summary with actionable health insights. Delivered securely by email.</div>
         <span class="i-tag">Included</span>
       </div>
       <div class="incl-item">
         <div class="i-n">05</div>
-        <div class="i-lbl">45-Minute Consultation</div>
-        <div class="i-desc">A dedicated session with your reviewing physician to discuss findings and next steps.</div>
-        <span class="i-tag">Included</span>
+        <div class="i-lbl">Telephone Consultation</div>
+        <div class="i-desc">Optional consultation by telephone with a clinical specialist to discuss your results in detail and understand what they mean for your health.</div>
+        <span class="i-tag">Optional</span>
       </div>
       <div class="incl-item">
         <div class="i-n">06</div>
-        <div class="i-lbl">Clinical Summary Letter</div>
-        <div class="i-desc">A formal letter summarising your results, suitable for sharing with your GP or specialists.</div>
+        <div class="i-lbl">Results Within 2&ndash;5 Days</div>
+        <div class="i-desc">Standard turnaround of 2&ndash;5 working days from blood draw to full report. Select advanced tests return results in as little as 2 hours.</div>
         <span class="i-tag">Included</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━ PROCESS ━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- PROCESS -->
 <section id="process" aria-labelledby="proc-h">
   <div class="process-wrap">
     <div class="process-top fade-up">
@@ -308,91 +340,278 @@
         <p class="sec-kicker">How It Works</p>
         <h2 class="sec-h" id="proc-h">Simple.<br><em>Start to finish.</em></h2>
       </div>
-      <p class="sec-p">Four straightforward steps from booking to results. No GP referral needed. No waiting lists. No fasting for most markers.</p>
+      <p class="sec-p">Four clear steps from booking to receiving your results. No GP referral needed. No waiting lists. Your appointment is carried out in-clinic with a simple blood draw.</p>
     </div>
     <div class="steps fade-up">
       <div class="step-row">
         <div class="step-n">1</div>
         <div class="step-body">
-          <h3>Book Online</h3>
-          <p>Choose your preferred clinic location and appointment time. We have 40+ clinics across the UK, with availability seven days a week.</p>
-          <span class="step-tag">Takes 2 minutes</span>
+          <h3>Book Your Appointment</h3>
+          <p>Choose your preferred clinic location from our network of 40+ premium clinics across the UK, select your appointment date and complete a short health questionnaire. Available seven days a week.</p>
+          <span class="step-tag">Takes 2 minutes online</span>
         </div>
       </div>
       <div class="step-row">
         <div class="step-n">2</div>
         <div class="step-body">
-          <h3>Attend Your Appointment</h3>
-          <p>A trained phlebotomist takes a single blood draw at your chosen clinic. The appointment itself is typically 20 minutes. You are free to go about your day immediately after.</p>
-          <span class="step-tag">~20 minutes</span>
+          <h3>Prepare for Your Appointment</h3>
+          <p>Fast for 8&ndash;12 hours before your appointment (water is fine and encouraged). Ensure you are well hydrated on the day. Avoid strenuous exercise in the 24 hours before. Continue all prescribed medications as normal.</p>
+          <span class="step-tag">Fast 8&ndash;12 hrs before</span>
+          <span class="step-tag red" style="margin-left:6px;">Stay well hydrated</span>
         </div>
       </div>
       <div class="step-row">
         <div class="step-n">3</div>
         <div class="step-body">
-          <h3>Analysis &amp; Physician Review</h3>
-          <p>Your sample is dispatched to an accredited lab the same day. Once results are received, a GMC physician reviews and annotates each finding individually.</p>
-          <span class="step-tag">Within 48 hours</span>
+          <h3>Attend Your Clinic Appointment</h3>
+          <p>Visit your chosen clinic where a trained specialist will carry out a simple, professional blood draw. The appointment is typically around 20 minutes. You are free to carry on with your day immediately afterwards.</p>
+          <span class="step-tag">~20 minutes in-clinic</span>
         </div>
       </div>
       <div class="step-row">
         <div class="step-n">4</div>
         <div class="step-body">
-          <h3>Report &amp; Consultation</h3>
-          <p>Your detailed report is delivered to your secure account. A 45-minute consultation with your physician follows to walk through the findings, explain what they mean, and outline any recommended next steps.</p>
-          <span class="step-tag">Full clinical picture</span>
+          <h3>Receive Your Results Report</h3>
+          <p>Your detailed digital report &mdash; including full biomarker analysis, reference ranges, and a clear summary of key findings &mdash; is delivered securely to your email within 2&ndash;5 working days. Arrange an optional telephone consultation to discuss your results.</p>
+          <span class="step-tag">2&ndash;5 working days</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━ PREPARATION ━━━━━━━━━━━━━━━━━━━━ -->
+<!-- PREPARATION -->
 <section id="preparation" aria-labelledby="prep-h">
   <div class="prep-wrap">
     <div class="prep-top fade-up">
       <p class="sec-kicker">Before Your Appointment</p>
-      <h2 class="sec-h" id="prep-h">How to prepare.</h2>
-      <p class="sec-p">Most markers require no fasting. A few metabolic and lipid markers give more accurate readings with an overnight fast — your confirmation email will specify which apply to you.</p>
+      <h2 class="sec-h" id="prep-h">What to expect &amp; how to prepare.</h2>
+      <p class="sec-p">Following these simple steps ensures the most accurate results and the most comfortable appointment experience possible.</p>
     </div>
     <div class="prep-grid fade-up">
       <div class="prep-card">
         <div class="prep-ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
         </div>
-        <h3>Fasting (If Required)</h3>
-        <p>If your appointment requires fasting, we ask for 10–12 hours of no food or drink (water is fine) before your blood draw. Your confirmation will make this clear.</p>
+        <h3>Fasting Required &mdash; 8 to 12 Hours</h3>
+        <p>You must fast for 8 to 12 hours before your appointment. This means no food or drink (water is fine and encouraged) during this period. Fasting is essential for the accuracy of key metabolic, lipid, and blood glucose markers. Morning appointment slots work well for most people.</p>
       </div>
       <div class="prep-card">
         <div class="prep-ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v6m0 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0 12v2"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10" /><path d="M12 6v6l4 2"/></svg>
         </div>
-        <h3>Stay Hydrated</h3>
-        <p>Drink plenty of water in the 24 hours before your appointment. Well-hydrated veins make the draw easier and more comfortable, and hydration can affect certain markers.</p>
+        <h3>Be Well Hydrated on the Day</h3>
+        <p>Drink plenty of water on the morning of your appointment and in the 24 hours before. Good hydration makes veins easier to access, making the blood draw quicker and more comfortable. It also ensures the accuracy of certain markers in your results.</p>
       </div>
       <div class="prep-card">
         <div class="prep-ico">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
         </div>
         <h3>Medications &amp; Supplements</h3>
-        <p>Continue taking all prescribed medications as normal. Where possible, take vitamin or mineral supplements after your blood draw to avoid influencing the relevant marker readings.</p>
+        <p>Continue taking all prescribed medications as normal unless your doctor has specifically advised otherwise. Where possible, take vitamin or mineral supplements after your blood draw rather than before, to avoid influencing the readings of relevant markers.</p>
       </div>
       <div class="prep-card">
         <div class="prep-ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12A10 10 0 1 1 12 2"/><path d="M22 2L12 12"/><path d="M17 2h5v5"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>
         </div>
-        <h3>Exercise</h3>
-        <p>Avoid intense physical exercise in the 24 hours before your appointment. Strenuous exercise transiently elevates inflammatory markers, creatine kinase, and certain enzyme levels.</p>
+        <h3>Avoid Strenuous Exercise Beforehand</h3>
+        <p>Avoid intense or strenuous physical exercise in the 24 hours before your appointment. Heavy exercise can temporarily elevate inflammatory markers and certain enzyme levels, which may affect the interpretation of your results.</p>
       </div>
       <div class="prep-note">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
-        <span><strong>Note:</strong> If you have any specific medical conditions or are unsure about preparation, contact us before your appointment. Our clinical team will advise you directly.</span>
+        <span><strong>Important:</strong> If you have specific medical conditions, take regular medication, or are unsure about any aspect of preparation, please contact our team before your appointment. We will advise you directly to ensure the most accurate results possible.</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━ PRICING ━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- LOCATIONS -->
+<section id="locations" aria-labelledby="locs-h">
+  <div class="locs-wrap">
+    <div class="locs-top fade-up">
+      <div class="locs-hd">
+        <p class="sec-kicker">40+ Premium Clinic Locations</p>
+        <h2 class="sec-h" id="locs-h">We come to you.<br><em>Nationwide.</em></h2>
+      </div>
+      <p class="sec-p">Clinics are located in premium, convenient locations across the UK &mdash; including high street sites, retail clinics, and dedicated health suites in major cities. Easy to book, easy to get to.</p>
+    </div>
+    <div class="locs-grid fade-up">
+      <div class="loc-card">
+        <div class="loc-city">London</div>
+        <div class="loc-details">Multiple sites including high street &amp; retail clinics across Central, East &amp; South London</div>
+      </div>
+      <div class="loc-card">
+        <div class="loc-city">Manchester</div>
+        <div class="loc-details">City centre clinic &mdash; easily accessible by public transport</div>
+      </div>
+      <div class="loc-card">
+        <div class="loc-city">Birmingham</div>
+        <div class="loc-details">Central Birmingham clinic location</div>
+      </div>
+      <div class="loc-card">
+        <div class="loc-city">Leeds</div>
+        <div class="loc-details">Leeds city centre, convenient parking nearby</div>
+      </div>
+      <div class="loc-card">
+        <div class="loc-city">Liverpool</div>
+        <div class="loc-details">Liverpool central clinic location</div>
+      </div>
+      <div class="loc-card">
+        <div class="loc-city">High Wycombe</div>
+        <div class="loc-details">High Wycombe clinic, serving Thames Valley &amp; surrounding areas</div>
+      </div>
+      <div class="loc-card">
+        <div class="loc-city">Glasgow</div>
+        <div class="loc-details">Glasgow clinic serving central Scotland</div>
+      </div>
+      <div class="loc-card">
+        <div class="loc-city">Belfast</div>
+        <div class="loc-details">Belfast clinic serving Northern Ireland</div>
+      </div>
+      <div class="loc-card" style="background:var(--navy);border-color:var(--navy);">
+        <div class="loc-city" style="color:var(--white);">+ Many more locations</div>
+        <div class="loc-details" style="color:rgba(255,255,255,0.55);margin-top:6px;">Contact us to find your nearest clinic or discuss an alternative location.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXAMPLE REPORTS -->
+<section id="reports" aria-labelledby="reports-h">
+  <div class="reports-wrap">
+    <div class="reports-top fade-up">
+      <div class="reports-hd">
+        <p class="sec-kicker">Example Report</p>
+        <h2 class="sec-h" id="reports-h">Your results,<br><em>clearly explained.</em></h2>
+        <p class="sec-p" style="margin-top:10px;">Every report includes a full breakdown of each biomarker tested, your individual result, the clinical reference range, and a plain-English summary of what your results mean for your health.</p>
+        <div class="reports-cta">
+          <div class="reports-cta-title">Request an example report</div>
+          <p>To see a full example report showing the level of detail and insight included, please contact our team and we will send one directly to you.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button class="btn btn-blue" id="open-modal-reports">Request Your Example Report</button>
+            <a href="mailto:hello@quantumbt.co.uk" class="btn btn-outline">Email Us</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="reports-mock">
+          <div class="rm-header">
+            <span class="rm-header-title">Quantum Premium BioTest &mdash; Results Report</span>
+            <span class="rm-badge">Confidential</span>
+          </div>
+          <div class="rm-body">
+            <div class="rm-row">
+              <div>
+                <div class="rm-marker">Total Cholesterol</div>
+                <div class="rm-range">Ref: 2.0 &ndash; 5.0 mmol/L</div>
+              </div>
+              <span class="rm-value ok">4.2 mmol/L</span>
+            </div>
+            <div class="rm-row">
+              <div>
+                <div class="rm-marker">HbA1c (Glycated Haemoglobin)</div>
+                <div class="rm-range">Ref: 20 &ndash; 41 mmol/mol</div>
+              </div>
+              <span class="rm-value ok">36 mmol/mol</span>
+            </div>
+            <div class="rm-row">
+              <div>
+                <div class="rm-marker">Vitamin D (25-OH)</div>
+                <div class="rm-range">Ref: 50 &ndash; 175 nmol/L</div>
+              </div>
+              <span class="rm-value warn">38 nmol/L</span>
+            </div>
+            <div class="rm-row">
+              <div>
+                <div class="rm-marker">TSH (Thyroid Stimulating Hormone)</div>
+                <div class="rm-range">Ref: 0.27 &ndash; 4.2 mIU/L</div>
+              </div>
+              <span class="rm-value ok">1.8 mIU/L</span>
+            </div>
+            <div class="rm-row">
+              <div>
+                <div class="rm-marker">hsCRP (Inflammation Marker)</div>
+                <div class="rm-range">Ref: &lt; 3.0 mg/L</div>
+              </div>
+              <span class="rm-value flag">6.1 mg/L</span>
+            </div>
+          </div>
+          <div class="rm-footer">
+            <span>Sample report extract &mdash; illustrative purposes only</span>
+            <span>300+ markers in full report</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCREDITATIONS -->
+<section id="accreditations" aria-labelledby="accred-h">
+  <div class="accred-wrap">
+    <div class="accred-top fade-up">
+      <div class="accred-hd">
+        <p class="sec-kicker white-k">Accreditation &amp; Expertise</p>
+        <h2 class="sec-h white-h" id="accred-h">Globally recognised.<br><em>Clinically trusted.</em></h2>
+        <p class="accred-body-p">Our diagnostic service operates using advanced laboratory technology, with all results clinically reviewed. Our laboratory partner operates in over 145 countries and holds internationally recognised accreditations and quality certifications.</p>
+      </div>
+      <div class="accred-stat-grid">
+        <div class="accred-stat">
+          <div class="accred-stat-val"><span class="bl">145</span>+</div>
+          <div class="accred-stat-lbl">Countries of operation</div>
+        </div>
+        <div class="accred-stat">
+          <div class="accred-stat-val">300+</div>
+          <div class="accred-stat-lbl">Biomarkers tested</div>
+        </div>
+        <div class="accred-stat">
+          <div class="accred-stat-val">40+</div>
+          <div class="accred-stat-lbl">UK clinic locations</div>
+        </div>
+      </div>
+    </div>
+    <div class="accred-pills fade-up">
+      <div class="accred-pill">
+        <div class="accred-pill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="accred-pill-text">
+          <div class="accred-pill-name">UKAS Accredited</div>
+          <div class="accred-pill-desc">United Kingdom Accreditation Service</div>
+        </div>
+      </div>
+      <div class="accred-pill">
+        <div class="accred-pill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <div class="accred-pill-text">
+          <div class="accred-pill-name">RIQAS Quality Scheme</div>
+          <div class="accred-pill-desc">International external quality assurance</div>
+        </div>
+      </div>
+      <div class="accred-pill">
+        <div class="accred-pill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
+        </div>
+        <div class="accred-pill-text">
+          <div class="accred-pill-name">GCP Certified</div>
+          <div class="accred-pill-desc">Good Clinical Practice standards</div>
+        </div>
+      </div>
+      <div class="accred-pill">
+        <div class="accred-pill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div class="accred-pill-text">
+          <div class="accred-pill-name">Global Reach</div>
+          <div class="accred-pill-desc">Operating in 145+ countries worldwide</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
 <section id="pricing" aria-labelledby="price-h">
   <div class="pricing-wrap">
     <div class="pricing-l fade-up">
@@ -401,104 +620,110 @@
         <h2 class="sec-h" id="price-h">One price.<br><em>Everything included.</em></h2>
       </div>
       <div>
-        <div class="price-fig">£995</div>
-        <div class="price-sub">All-inclusive · No hidden costs</div>
+        <div class="price-fig">&pound;995</div>
+        <div class="price-sub">All-inclusive &middot; No hidden costs &middot; No add-ons</div>
       </div>
       <div class="pi-list">
         <div class="pi-row">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8.5l3 3 7-7"/></svg>
-          300+ biomarkers across 11 categories
+          In-clinic blood draw at your preferred location
         </div>
         <div class="pi-row">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8.5l3 3 7-7"/></svg>
-          Professional phlebotomy at clinic
+          300+ biomarkers across 11 clinical categories
         </div>
         <div class="pi-row">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8.5l3 3 7-7"/></svg>
-          ISO 15189 laboratory analysis
+          Advanced accredited laboratory analysis
         </div>
         <div class="pi-row">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8.5l3 3 7-7"/></svg>
-          GMC physician clinical review
+          Clinical specialist review of every result
         </div>
         <div class="pi-row">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8.5l3 3 7-7"/></svg>
-          Full digital report within 48 hours
+          Detailed digital report &mdash; delivered within 2&ndash;5 days
         </div>
         <div class="pi-row">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8.5l3 3 7-7"/></svg>
-          45-minute physician consultation
-        </div>
-        <div class="pi-row">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8.5l3 3 7-7"/></svg>
-          Clinical summary letter for your GP
+          Optional telephone consultation included
         </div>
       </div>
     </div>
     <div class="pricing-r fade-up">
       <div class="pr-top">
+        <div class="pr-badge">Premium Package</div>
         <h3>Quantum Premium BioTest</h3>
-        <p>The most comprehensive private blood panel available in the UK. Accepted by leading insurers.</p>
+        <p>The most comprehensive private blood panel available. Everything you need to fully understand your health in a single appointment.</p>
+        <div class="pr-price-row">
+          <span class="pr-price">&pound;995</span>
+          <span class="pr-price-note">all-inclusive</span>
+        </div>
       </div>
       <div class="pr-mid">
-        <div class="pr-line">Biomarker analysis (300+) <strong>Included</strong></div>
-        <div class="pr-line">Phlebotomy service <strong>Included</strong></div>
-        <div class="pr-line">Physician clinical review <strong>Included</strong></div>
-        <div class="pr-line">48-hr digital report <strong>Included</strong></div>
-        <div class="pr-line">45-min consultation <strong>Included</strong></div>
-        <div class="pr-line">GP summary letter <strong>Included</strong></div>
-        <div class="pr-line" style="font-weight:600;color:var(--ink);">Total <strong style="font-size:1rem;">£995</strong></div>
+        <div class="pr-line">In-clinic blood draw <strong>Included</strong></div>
+        <div class="pr-line">300+ biomarker analysis <strong>Included</strong></div>
+        <div class="pr-line">Clinical specialist review <strong>Included</strong></div>
+        <div class="pr-line">Digital results report <strong>2&ndash;5 working days</strong></div>
+        <div class="pr-line">Telephone consultation <strong>Optional</strong></div>
+        <div class="pr-line">Express results option <strong>From 2 hours</strong></div>
+        <div class="pr-line total">Total <strong>&pound;995</strong></div>
       </div>
       <div class="pr-btn">
-        <button class="btn btn-ink" id="open-modal-pricing" style="width:100%;justify-content:center;">
-          Book Your Test — £995
+        <button class="btn btn-red" id="open-modal-pricing" style="width:100%;justify-content:center;">
+          Add to Basket &mdash; &pound;995
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
         </button>
-        <p style="font-size:0.8125rem;color:var(--ink-3);text-align:center;">Secure booking · Cancel up to 48hrs before</p>
+        <p style="font-size:.8125rem;color:var(--ink-3);text-align:center;">Secure booking &middot; Cancel up to 48 hours before appointment</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━ ACCREDITATIONS ━━━━━━━━━━━━━━━━━ -->
+<!-- ACCRED STRIP -->
 <div class="accred-band" role="region" aria-label="Accreditations">
   <div class="accred-inner">
     <span class="accred-lbl">Accredited by</span>
     <div class="accred-items">
       <span class="accred-item"><span class="accred-dot" aria-hidden="true"></span>UKAS</span>
-      <span class="accred-item"><span class="accred-dot" aria-hidden="true"></span>Care Quality Commission</span>
-      <span class="accred-item"><span class="accred-dot" aria-hidden="true"></span>ISO 15189</span>
-      <span class="accred-item"><span class="accred-dot" aria-hidden="true"></span>General Medical Council</span>
-      <span class="accred-item"><span class="accred-dot" aria-hidden="true"></span>MHRA</span>
+      <span class="accred-item"><span class="accred-dot" aria-hidden="true"></span>RIQAS Quality Scheme</span>
+      <span class="accred-item"><span class="accred-dot" aria-hidden="true"></span>GCP Certified</span>
+      <span class="accred-item"><span class="accred-dot" aria-hidden="true"></span>145+ Countries</span>
     </div>
   </div>
 </div>
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━ FINAL CTA ━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- FINAL CTA -->
 <section class="cta-sec" aria-labelledby="cta-h">
   <div class="cta-inner fade-up">
     <div class="cta-text">
-      <h2 id="cta-h">Your health.<br>Fully understood.</h2>
-      <p>Stop guessing. 300+ biomarkers, physician review, and answers in 48 hours. One appointment. One price.</p>
+      <h2 id="cta-h">Stop guessing.<br><em>Start knowing.</em></h2>
+      <p>300+ biomarkers. Clinically reviewed results. Detailed digital report. 40+ UK clinics. One appointment. One price. Everything you need to truly understand your health.</p>
     </div>
     <div class="cta-btns">
-      <button class="btn btn-sage btn-lg" id="open-modal-footer">
-        Book Your Test — £995
+      <button class="btn btn-red btn-lg" id="open-modal-footer">
+        Book Your Test &mdash; &pound;995
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
       </button>
-      <a href="tel:01234567890" class="btn btn-outline-w btn-lg">Call: 0123 456 7890</a>
+      <a href="tel:01494000000" class="btn btn-outline-w btn-lg">Call Us</a>
     </div>
   </div>
 </section>
 
 </main>
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━ FOOTER ━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- FOOTER -->
 <footer class="site-footer" role="contentinfo">
   <div class="footer-main">
     <div class="f-brand">
-      <div class="f-logo">Quantum <em>Bio</em>Testing</div>
-      <p class="f-about">Advanced private blood testing. GMC physicians. UKAS-accredited laboratories. Results in 48 hours.</p>
+      <div class="f-logo">
+        <svg width="20" height="24" viewBox="0 0 28 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M14 2C14 2 2 13.5 2 21C2 27.627 7.373 33 14 33C20.627 33 26 27.627 26 21C26 13.5 14 2 14 2Z" fill="#C8192C"/>
+          <path d="M10 21C10 21 11 18 14 17" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        Quantum <em>Bio</em>Testing
+      </div>
+      <p class="f-about">Premium private blood testing across the UK. Clinically reviewed results. 300+ biomarkers. 40+ clinic locations nationwide.</p>
     </div>
     <div class="f-col">
       <h4>Services</h4>
@@ -510,97 +735,101 @@
     <div class="f-col">
       <h4>Information</h4>
       <a href="#preparation">Preparation Guide</a>
-      <a href="#about">About Us</a>
+      <a href="#locations">Clinic Locations</a>
+      <a href="#reports">Example Report</a>
       <a href="privacy.html">Privacy Policy</a>
       <a href="terms.html">Terms of Service</a>
     </div>
     <div class="f-col">
       <h4>Contact</h4>
-      <a href="tel:01234567890">0123 456 7890</a>
       <a href="mailto:hello@quantumbt.co.uk">hello@quantumbt.co.uk</a>
-      <p>Mon–Fri, 8am–6pm</p>
-      <p>40+ UK clinic locations</p>
+      <p>Mon&ndash;Sat, 8am&ndash;6pm</p>
+      <p style="margin-top:8px;">High Wycombe &middot; London</p>
+      <p>Manchester &middot; Birmingham</p>
+      <p>Leeds &middot; Liverpool &middot; Glasgow &middot; Belfast</p>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 Quantum BioTesting Ltd. All rights reserved.</p>
+    <p>&copy; 2026 Quantum BioTesting Ltd. All rights reserved. Registered in England &amp; Wales.</p>
     <div class="footer-links">
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
-      <a href="#hero">Back to top</a>
+      <a href="#hero">Back to top &uarr;</a>
     </div>
   </div>
 </footer>
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━ FLOATING UI ━━━━━━━━━━━━━━━━━━━━ -->
+<!-- FLOATING -->
 <button id="back-top" aria-label="Back to top">
   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 12V4M4 8l4-4 4 4"/></svg>
 </button>
 
 <div class="mob-bar" id="mobile-book-bar" aria-hidden="true">
-  <button class="btn btn-ink" id="open-modal-mobilebar" style="flex:1;justify-content:center;">Book Now — £995</button>
-  <a href="tel:01234567890" class="btn btn-outline btn-sm">Call</a>
+  <button class="btn btn-red" id="open-modal-mobilebar" style="flex:1;justify-content:center;">Book Now &mdash; &pound;995</button>
+  <a href="tel:01494000000" class="btn btn-outline btn-sm">Call</a>
 </div>
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━ BOOKING MODAL ━━━━━━━━━━━━━━━━━━ -->
+<!-- BOOKING MODAL -->
 <div class="modal-overlay" id="booking-modal" aria-modal="true" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
   <div class="modal-box">
-
-    <!-- Header -->
     <div class="modal-hd">
-      <div class="modal-ttl" id="modal-title">Book Your Test</div>
+      <div class="modal-ttl" id="modal-title">Book Your Quantum Premium BioTest</div>
       <button class="modal-x" id="modal-close" aria-label="Close booking form">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13"/></svg>
       </button>
     </div>
-
-    <!-- Progress -->
     <div class="modal-prog" id="modal-progress" role="progressbar" aria-valuemin="1" aria-valuemax="2" aria-valuenow="1">
       <div class="mp-step active" id="prog-step-1">
         <div class="mp-dot active" data-step="1">1</div>
-        <span class="mp-lbl">Your Appointment</span>
+        <span class="mp-lbl">Appointment Details</span>
       </div>
       <div class="mp-step" id="prog-step-2">
         <div class="mp-dot" data-step="2">2</div>
-        <span class="mp-lbl">Your Details</span>
+        <span class="mp-lbl">Your Information</span>
       </div>
     </div>
-
-    <!-- Body -->
     <div class="modal-body">
-      <!-- Step 1 -->
       <div class="modal-step active" id="step-1">
         <div class="fld" id="field-location">
           <label for="clinic-location">Preferred Clinic Location</label>
           <select id="clinic-location" required aria-required="true">
-            <option value="">Select a clinic…</option>
-            <option>London — Harley Street</option>
-            <option>London — City</option>
-            <option>London — Canary Wharf</option>
-            <option>Manchester — City Centre</option>
-            <option>Birmingham — Edgbaston</option>
-            <option>Leeds — City Centre</option>
-            <option>Edinburgh — New Town</option>
-            <option>Glasgow — West End</option>
-            <option>Bristol — Clifton</option>
-            <option>Oxford — City Centre</option>
-            <option>Cambridge — City Centre</option>
-            <option>Brighton — Hove</option>
+            <option value="">Select a clinic location&hellip;</option>
+            <optgroup label="London">
+              <option>London &mdash; Central (Multiple sites)</option>
+              <option>London &mdash; City / East</option>
+              <option>London &mdash; South</option>
+              <option>London &mdash; High Street Clinic</option>
+              <option>London &mdash; Retail Clinic</option>
+            </optgroup>
+            <optgroup label="England">
+              <option>High Wycombe</option>
+              <option>Manchester &mdash; City Centre</option>
+              <option>Birmingham &mdash; City Centre</option>
+              <option>Leeds &mdash; City Centre</option>
+              <option>Liverpool &mdash; City Centre</option>
+            </optgroup>
+            <optgroup label="Scotland">
+              <option>Glasgow &mdash; City Centre</option>
+            </optgroup>
+            <optgroup label="Northern Ireland">
+              <option>Belfast &mdash; City Centre</option>
+            </optgroup>
           </select>
           <span class="e-msg" role="alert">Please select a clinic location</span>
         </div>
         <div class="fld" id="field-date">
-          <label for="appt-date">Preferred Date</label>
+          <label for="appt-date">Preferred Appointment Date</label>
           <input type="date" id="appt-date" required aria-required="true" />
           <span class="e-msg" role="alert">Please select a date</span>
         </div>
         <div class="fld">
           <label for="appt-notes">Additional Notes <span style="font-weight:400;color:var(--ink-3);">(optional)</span></label>
-          <textarea id="appt-notes" rows="3" placeholder="Anything we should know — fasting requirements, accessibility needs, etc."></textarea>
+          <textarea id="appt-notes" rows="3" placeholder="e.g. accessibility requirements, preferred time, any questions for the clinical team&hellip;"></textarea>
+        </div>
+        <div style="padding:14px 16px;background:var(--blue-dim);border:1px solid var(--blue-bd);border-radius:var(--r);font-size:.8125rem;color:var(--ink-2);line-height:1.55;">
+          <strong style="color:var(--navy);">Reminder:</strong> Please fast for 8&ndash;12 hours before your appointment and ensure you are well hydrated on the day.
         </div>
       </div>
-
-      <!-- Step 2 -->
       <div class="modal-step" id="step-2">
         <div class="fld-row">
           <div class="fld" id="field-fname">
@@ -616,17 +845,21 @@
         </div>
         <div class="fld" id="field-email">
           <label for="email">Email Address</label>
-          <input type="email" id="email" required aria-required="true" autocomplete="email" />
+          <input type="email" id="email" required aria-required="true" autocomplete="email" placeholder="Your results will be delivered to this address" />
           <span class="e-msg" role="alert">A valid email address is required</span>
         </div>
         <div class="fld" id="field-phone">
           <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" required aria-required="true" autocomplete="tel" />
+          <input type="tel" id="phone" required aria-required="true" autocomplete="tel" placeholder="+44" />
           <span class="e-msg" role="alert">Phone number is required</span>
+        </div>
+        <div class="fld">
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob" autocomplete="bday" />
         </div>
         <div class="chk-row">
           <input type="checkbox" id="consent-contact" required aria-required="true" />
-          <label for="consent-contact">I agree to be contacted about my booking by the Quantum BioTesting team</label>
+          <label for="consent-contact">I agree to be contacted by the Quantum BioTesting team regarding my booking and results</label>
         </div>
         <div class="chk-row">
           <input type="checkbox" id="consent-terms" required aria-required="true" />
@@ -634,46 +867,39 @@
         </div>
       </div>
     </div>
-
-    <!-- Footer / Actions -->
     <div id="modal-footer">
       <div class="modal-ft">
         <button class="btn btn-outline btn-sm" id="modal-back" style="display:none;">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>
           Back
         </button>
-        <button class="btn btn-ink" id="modal-next">
+        <button class="btn btn-blue" id="modal-next">
           Continue
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
         </button>
       </div>
       <div class="modal-sec">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg>
-        Secure booking · Your data is encrypted and never sold
+        Secure booking &middot; Your data is encrypted and never sold to third parties
       </div>
     </div>
-
-    <!-- Success state -->
     <div class="modal-done" id="modal-success">
       <div class="done-ico">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
       </div>
-      <h3>Request Received</h3>
-      <p>We'll confirm your appointment by email within 2 hours. Check your inbox for next steps.</p>
+      <h3>Enquiry Received</h3>
+      <p>Thank you &mdash; our team will confirm your appointment by email shortly. Please check your inbox for next steps.</p>
       <button class="btn btn-outline" id="modal-success-close">Close</button>
     </div>
-
   </div>
 </div>
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━ COOKIE BAR ━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- COOKIE BAR -->
 <div class="cookie-bar" id="cookie-bar" role="region" aria-label="Cookie consent">
-  <p class="cookie-txt">
-    We use cookies to improve your experience and analyse site performance. See our <a href="privacy.html">Privacy Policy</a>.
-  </p>
+  <p class="cookie-txt">We use cookies to improve your experience and analyse site performance. See our <a href="privacy.html">Privacy Policy</a> for details.</p>
   <div class="cookie-acts">
-    <button class="btn btn-outline btn-sm" id="cookie-essential">Essential only</button>
-    <button class="btn btn-ink btn-sm" id="cookie-accept">Accept all</button>
+    <button class="btn btn-outline-w btn-sm" id="cookie-essential">Essential only</button>
+    <button class="btn btn-blue btn-sm" id="cookie-accept">Accept all</button>
   </div>
 </div>
 
