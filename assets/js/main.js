@@ -23,6 +23,7 @@
     initNavActive();
     initTabletImages();
     initFaq();
+    initHealthCheckTabs();
   }
 
   /* ── SCROLL PROGRESS ────────────────────────────────────── */
@@ -388,6 +389,38 @@
   }
 
   /* ── FAQ ACCORDION ──────────────────────────────────────── */
+  /* ── HEALTH CHECK TABS ──────────────────────────────────── */
+  function initHealthCheckTabs() {
+    const tabs = $$('[role="tab"]', $('#health-checks'));
+    if (!tabs.length) return;
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetId = tab.getAttribute('aria-controls');
+        const targetPane = $('#' + targetId);
+        if (!targetPane) return;
+
+        // Deactivate all tabs + hide all panes
+        tabs.forEach(t => {
+          t.classList.remove('hc-tab--active');
+          t.setAttribute('aria-selected', 'false');
+          const pane = $('#' + t.getAttribute('aria-controls'));
+          if (pane) pane.classList.add('hc-pane--hidden');
+        });
+
+        // Activate clicked tab + show its pane
+        tab.classList.add('hc-tab--active');
+        tab.setAttribute('aria-selected', 'true');
+        targetPane.classList.remove('hc-pane--hidden');
+
+        // Re-run fade-up observers on newly visible pane
+        $$('.fade-up:not(.visible)', targetPane).forEach(el => {
+          el.classList.add('visible');
+        });
+      });
+    });
+  }
+
   function initFaq() {
     const items = $$('.faq-item');
     if (!items.length) return;

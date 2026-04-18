@@ -31,7 +31,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
 
 <!-- Hero preload -->
-<link rel="preload" as="image" href="assets/images/hero-lab.webp" fetchpriority="high">
+<!-- hero image loaded via img fetchpriority -->
 
 <!-- CSS -->
 <link rel="stylesheet" href="assets/css/style.css">
@@ -98,8 +98,7 @@
       Quantum&nbsp;<span class="bio">Bio</span>Testing
     </a>
     <ul class="nav-links" role="list">
-      <li><a href="#mens-test">Men&rsquo;s Test</a></li>
-      <li><a href="#womens-test">Women&rsquo;s Test</a></li>
+      <li><a href="#health-checks">Health Checks</a></li>
       <li><a href="#process">How It Works</a></li>
       <li><a href="#locations">Locations</a></li>
       <li><a href="#pricing">Pricing</a></li>
@@ -127,9 +126,9 @@
       </button>
     </div>
     <nav class="drawer-nav">
-      <a href="#mens-test" class="drawer-a">Men&rsquo;s Health Check<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-      <a href="#womens-test" class="drawer-a">Women&rsquo;s Health Check<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-      <a href="#our-tests" class="drawer-a">Choose Your Test<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <a href="#health-checks" class="drawer-a">Men&rsquo;s Health Check<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <a href="#health-checks" class="drawer-a">Women&rsquo;s Health Check<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <a href="#health-checks" class="drawer-a">Health Checks<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       <a href="#process" class="drawer-a">How It Works<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       <a href="#preparation" class="drawer-a">Preparation Guide<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       <a href="#locations" class="drawer-a">Clinic Locations<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
@@ -150,51 +149,68 @@
 
 <!-- ━━━━━━━━━━━━━━━━━━━━━━ HERO ━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
 <section id="hero" aria-labelledby="hero-heading">
-  <div class="hero-bg-img" aria-hidden="true"></div>
-  <div class="hero-overlay" aria-hidden="true"></div>
-  <div class="hero-inner hero-inner--full">
-    <div class="hero-content">
-      <p class="hero-eyebrow" aria-hidden="true">
-        <span class="hero-eyebrow-dot"></span>
-        Premium Private Blood Testing &mdash; UK
-      </p>
-      <h1 class="hero-h1" id="hero-heading">
-        Advanced health testing.<br><em>Tailored for you.</em>
-      </h1>
-      <p class="hero-desc">
-        Purpose-built health checks for men and women. From 300 to 350 biomarkers,
-        clinically reviewed by specialists and delivered to your inbox &mdash; all from
-        a single appointment at any of our 40+ UK clinics.
-      </p>
-      <div class="hero-actions">
-        <button class="btn btn-ghost-w btn-lg" id="open-modal-hero" type="button" aria-haspopup="dialog">
-          Men&rsquo;s Health Check &mdash; &pound;995
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </button>
-        <button class="btn btn-outline-w btn-lg" id="open-modal-womens-hero" type="button" aria-haspopup="dialog">
-          Women&rsquo;s Health Check
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </button>
-      </div>
-      <div class="hero-proof" role="list" aria-label="Key statistics">
-        <div class="hero-proof-item" role="listitem">
-          <div class="hero-proof-val">350</div>
-          <div class="hero-proof-lbl">Max biomarkers tested</div>
+  <div class="hero-split">
+
+    <!-- Left: content -->
+    <div class="hero-split-l">
+      <div class="hero-content">
+        <p class="hero-eyebrow" aria-hidden="true">
+          <span class="hero-eyebrow-dot"></span>
+          Premium Private Blood Testing &mdash; UK
+        </p>
+        <h1 class="hero-h1" id="hero-heading">
+          Know your health,<br><em>completely.</em>
+        </h1>
+        <p class="hero-desc">
+          Purpose-built health checks for men and women. Up to 350 biomarkers,
+          clinically reviewed by specialists &mdash; all from a single appointment
+          at one of our 40+ UK clinics. No GP referral required.
+        </p>
+
+        <!-- Dual CTA cards -->
+        <div class="hero-cta-group" role="group" aria-label="Choose your health check">
+          <button class="hero-cta-btn hero-cta-mens" id="open-modal-hero" type="button" aria-haspopup="dialog">
+            <span class="hero-cta-tag">Men&rsquo;s</span>
+            <span class="hero-cta-text">Men&rsquo;s Health Check</span>
+            <span class="hero-cta-price">&pound;995</span>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </button>
+          <button class="hero-cta-btn hero-cta-womens" id="open-modal-womens-hero" type="button" aria-haspopup="dialog">
+            <span class="hero-cta-tag hero-cta-tag--w">Women&rsquo;s</span>
+            <span class="hero-cta-text">Women&rsquo;s Health Check</span>
+            <span class="hero-cta-price">&pound;995</span>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </button>
         </div>
-        <div class="hero-proof-item" role="listitem">
-          <div class="hero-proof-val">2</div>
-          <div class="hero-proof-lbl">Tests &mdash; Men&rsquo;s &amp; Women&rsquo;s</div>
-        </div>
-        <div class="hero-proof-item" role="listitem">
-          <div class="hero-proof-val">40+</div>
-          <div class="hero-proof-lbl">UK clinic locations</div>
-        </div>
-        <div class="hero-proof-item" role="listitem">
-          <div class="hero-proof-val">2&ndash;5</div>
-          <div class="hero-proof-lbl">Days to results</div>
+
+        <!-- Proof stats -->
+        <div class="hero-proof" role="list" aria-label="Key statistics">
+          <div class="hero-proof-item" role="listitem">
+            <div class="hero-proof-val">350</div>
+            <div class="hero-proof-lbl">Max biomarkers</div>
+          </div>
+          <div class="hero-proof-item" role="listitem">
+            <div class="hero-proof-val">40+</div>
+            <div class="hero-proof-lbl">UK clinic locations</div>
+          </div>
+          <div class="hero-proof-item" role="listitem">
+            <div class="hero-proof-val">2&ndash;5</div>
+            <div class="hero-proof-lbl">Days to results</div>
+          </div>
+          <div class="hero-proof-item" role="listitem">
+            <div class="hero-proof-val">£995</div>
+            <div class="hero-proof-lbl">All-inclusive price</div>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Right: image panel -->
+    <div class="hero-split-r" aria-hidden="true">
+      <img src="assets/images/doctor.webp" alt="" width="900" height="1200" fetchpriority="high" draggable="false">
+      <div class="hero-split-r-grad"></div>
+    </div>
+
   </div>
 </section>
 
@@ -253,79 +269,305 @@
 
 
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━ OUR TESTS ━━━━━━━━━━━━━━━━━━━━━━━━ -->
-<section id="our-tests" aria-labelledby="tests-heading">
-  <div class="our-tests-inner">
-    <div class="tests-head fade-up">
-      <p class="sec-eyebrow">Our Health Checks</p>
-      <h2 class="sec-h" id="tests-heading">Choose your<br><em>health check.</em></h2>
-      <p class="sec-body" style="max-width:56ch;margin-top:16px;">Two purpose-built health checks &mdash; each designed to give you the clearest, most comprehensive picture of your health available from a single blood test in the UK.</p>
-    </div>
-    <div class="tests-grid">
+<!-- ━━━━━━━━━━━━━━━━━━━━━━ HEALTH CHECKS ━━━━━━━━━━━━━━━━━━━━ -->
+<section id="health-checks" aria-labelledby="hc-heading">
+  <div class="hc-inner">
 
-      <div class="test-card fade-up" role="article" aria-labelledby="mens-card-heading">
-        <div class="test-card-img">
-          <img src="assets/images/blood-draw.webp" alt="Men's blood test at a private clinic" width="600" height="380" loading="lazy">
-          <div class="test-card-img-overlay" aria-hidden="true"></div>
-          <span class="test-card-badge mens-badge">Men&rsquo;s</span>
+    <div class="hc-head fade-up">
+      <p class="sec-eyebrow">Men&rsquo;s &amp; Women&rsquo;s Health Checks</p>
+      <h2 class="sec-h" id="hc-heading">Built for your biology.<br><em>Tailored to your gender.</em></h2>
+      <p class="sec-body" style="max-width:58ch;margin-top:16px;">Two purpose-built health checks designed around the specific needs of the male and female body. Select a test to explore what&rsquo;s covered, what&rsquo;s included, and why it matters.</p>
+    </div>
+
+    <!-- Tab toggle -->
+    <div class="hc-tabs" role="tablist" aria-label="Health check selection">
+      <button class="hc-tab hc-tab--active" id="tab-mens" role="tab" aria-selected="true" aria-controls="pane-mens" type="button">
+        <span class="hct-pill hct-pill--mens">Men&rsquo;s</span>
+        <span class="hct-name">Men&rsquo;s Health Check</span>
+        <span class="hct-sub">300+ biomarkers &middot; 11 clinical categories &middot; &pound;995</span>
+      </button>
+      <button class="hc-tab" id="tab-womens" role="tab" aria-selected="false" aria-controls="pane-womens" type="button">
+        <span class="hct-pill hct-pill--womens">Women&rsquo;s</span>
+        <span class="hct-name">Women&rsquo;s Health Check</span>
+        <span class="hct-sub">Up to 350 biomarkers &middot; 27 health areas &middot; &pound;995</span>
+      </button>
+    </div>
+
+    <!-- ── Men's pane ── -->
+    <div class="hc-pane" id="pane-mens" role="tabpanel" aria-labelledby="tab-mens">
+
+      <div class="hcp-stats" aria-label="Men's test statistics">
+        <div class="hcps-item">
+          <span class="hcps-val"><span data-count="300">300</span>+</span>
+          <span class="hcps-lbl">Biomarkers</span>
         </div>
-        <div class="test-card-body">
-          <h3 class="test-card-title" id="mens-card-heading">Men&rsquo;s Health Check</h3>
-          <p class="test-card-desc">Our most comprehensive men&rsquo;s blood panel covering every major health system &mdash; from cardiac and hormonal health to organ function, nutrition, and cancer screening markers.</p>
-          <div class="test-card-stats" aria-label="Test statistics">
-            <div class="tcs-item"><span class="tcs-val">300+</span><span class="tcs-lbl">Biomarkers</span></div>
-            <div class="tcs-sep" aria-hidden="true"></div>
-            <div class="tcs-item"><span class="tcs-val">11</span><span class="tcs-lbl">Categories</span></div>
-            <div class="tcs-sep" aria-hidden="true"></div>
-            <div class="tcs-item"><span class="tcs-val">2&ndash;5</span><span class="tcs-lbl">Days</span></div>
+        <div class="hcps-sep" aria-hidden="true"></div>
+        <div class="hcps-item">
+          <span class="hcps-val">11</span>
+          <span class="hcps-lbl">Clinical categories</span>
+        </div>
+        <div class="hcps-sep" aria-hidden="true"></div>
+        <div class="hcps-item">
+          <span class="hcps-val">2&ndash;5</span>
+          <span class="hcps-lbl">Days to results</span>
+        </div>
+        <div class="hcps-sep" aria-hidden="true"></div>
+        <div class="hcps-item">
+          <span class="hcps-val">&pound;995</span>
+          <span class="hcps-lbl">All-inclusive price</span>
+        </div>
+      </div>
+
+      <div class="hcp-layout">
+        <div class="hcp-l fade-up">
+          <h3 class="hcp-title">The most comprehensive men&rsquo;s blood panel from a single appointment in the UK.</h3>
+          <p class="hcp-desc">A full-body health audit covering every major system &mdash; from cardiac and hormonal health to organ function, nutrition, immune markers, and cancer screening indicators. Every result reviewed by a clinical specialist, not an algorithm.</p>
+          <div class="hcp-features">
+            <div class="hcpf-item">
+              <div class="hcpf-check" aria-hidden="true"><svg viewBox="0 0 10 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 4l2.5 2.5 5-5"/></svg></div>
+              <div class="hcpf-text">
+                <span class="hcpf-title">In-clinic blood draw</span>
+                <span class="hcpf-desc">Quick, comfortable appointment with a trained phlebotomist at any of 40+ UK locations</span>
+              </div>
+            </div>
+            <div class="hcpf-item">
+              <div class="hcpf-check" aria-hidden="true"><svg viewBox="0 0 10 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 4l2.5 2.5 5-5"/></svg></div>
+              <div class="hcpf-text">
+                <span class="hcpf-title">UKAS-accredited analysis</span>
+                <span class="hcpf-desc">Full laboratory analysis using state-of-the-art automated platforms</span>
+              </div>
+            </div>
+            <div class="hcpf-item">
+              <div class="hcpf-check" aria-hidden="true"><svg viewBox="0 0 10 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 4l2.5 2.5 5-5"/></svg></div>
+              <div class="hcpf-text">
+                <span class="hcpf-title">Clinical specialist review</span>
+                <span class="hcpf-desc">Every result individually reviewed by a qualified clinical specialist</span>
+              </div>
+            </div>
+            <div class="hcpf-item">
+              <div class="hcpf-check" aria-hidden="true"><svg viewBox="0 0 10 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 4l2.5 2.5 5-5"/></svg></div>
+              <div class="hcpf-text">
+                <span class="hcpf-title">Detailed digital report</span>
+                <span class="hcpf-desc">Comprehensive report with plain-English commentary delivered in 2&ndash;5 working days</span>
+              </div>
+            </div>
+            <div class="hcpf-item">
+              <div class="hcpf-check" aria-hidden="true"><svg viewBox="0 0 10 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 4l2.5 2.5 5-5"/></svg></div>
+              <div class="hcpf-text">
+                <span class="hcpf-title">Optional consultation</span>
+                <span class="hcpf-desc">Follow-up telephone consultation with a clinical specialist available on request</span>
+              </div>
+            </div>
+            <div class="hcpf-item">
+              <div class="hcpf-check" aria-hidden="true"><svg viewBox="0 0 10 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 4l2.5 2.5 5-5"/></svg></div>
+              <div class="hcpf-text">
+                <span class="hcpf-title">Express results option</span>
+                <span class="hcpf-desc">Results available from as little as 2 hours from laboratory sample receipt</span>
+              </div>
+            </div>
           </div>
-          <div class="test-card-price">&pound;995 <span>all-inclusive</span></div>
-          <div class="test-card-actions">
-            <button class="btn btn-primary btn-full" id="open-modal-mens-card" type="button" aria-haspopup="dialog">
+          <div class="hcp-price-row">
+            <span class="hcp-price">&pound;995</span>
+            <span class="hcp-price-note">all-inclusive &mdash; no hidden fees</span>
+          </div>
+          <div class="hcp-actions">
+            <button class="btn btn-primary" id="open-modal-mens-card" type="button" aria-haspopup="dialog">
               Book Men&rsquo;s Test <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
             </button>
-            <a href="#mens-test" class="btn btn-ghost btn-full">View full panel</a>
+            <a href="#about" class="btn btn-ghost">Learn More</a>
           </div>
         </div>
-      </div>
 
-      <div class="test-card fade-up" role="article" aria-labelledby="womens-card-heading" style="transition-delay:.1s">
-        <div class="test-card-img">
-          <img src="assets/images/clinic.webp" alt="Women's health check at a Quantum BioTesting clinic" width="600" height="380" loading="lazy">
-          <div class="test-card-img-overlay" aria-hidden="true"></div>
-          <span class="test-card-badge womens-badge">Women&rsquo;s</span>
-        </div>
-        <div class="test-card-body">
-          <h3 class="test-card-title" id="womens-card-heading">Women&rsquo;s Health Check</h3>
-          <p class="test-card-desc">Our most advanced women&rsquo;s health panel. Up to 350 biomarkers covering hormone balance, heart health, stress, nutrition, tumour markers and more &mdash; plus a private GP consultation included.</p>
-          <div class="test-card-stats" aria-label="Test statistics">
-            <div class="tcs-item"><span class="tcs-val">350</span><span class="tcs-lbl">Biomarkers</span></div>
-            <div class="tcs-sep" aria-hidden="true"></div>
-            <div class="tcs-item"><span class="tcs-val">27</span><span class="tcs-lbl">Health Areas</span></div>
-            <div class="tcs-sep" aria-hidden="true"></div>
-            <div class="tcs-item"><span class="tcs-val">4</span><span class="tcs-lbl">Day Results</span></div>
+        <div class="hcp-r fade-up" style="transition-delay:.12s">
+          <div class="hcp-cat-heading">What&rsquo;s Tested &mdash; 11 Clinical Categories</div>
+          <div class="hcp-cat-grid" role="list" aria-label="Men's test clinical categories">
+          <div class="hcp-cat-cell fade-up">
+            <div class="hcp-cat-num">01</div>
+            <div class="hcp-cat-name">Liver Health</div>
+            <div class="hcp-cat-count">18 biomarkers</div>
           </div>
-          <div class="test-card-features">
-            <div class="tcf-item">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 3L6 10 3 7"/></svg>
-              <span>Private GP consultation included</span>
-            </div>
-            <div class="tcf-item">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 3L6 10 3 7"/></svg>
-              <span>6-month repeat testing</span>
-            </div>
+          <div class="hcp-cat-cell fade-up" style="transition-delay:0.04s">
+            <div class="hcp-cat-num">02</div>
+            <div class="hcp-cat-name">Kidney Function</div>
+            <div class="hcp-cat-count">14 biomarkers</div>
           </div>
-          <div class="test-card-price">&pound;995 <span>incl. GP consultation</span></div>
-          <div class="test-card-actions">
-            <button class="btn btn-primary btn-full" id="open-modal-womens-card" type="button" aria-haspopup="dialog">
-              Book Women&rsquo;s Test <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-            </button>
-            <a href="#womens-test" class="btn btn-ghost btn-full">View full panel</a>
+          <div class="hcp-cat-cell fade-up" style="transition-delay:0.08s">
+            <div class="hcp-cat-num">03</div>
+            <div class="hcp-cat-name">Thyroid Markers</div>
+            <div class="hcp-cat-count">4 biomarkers</div>
+          </div>
+          <div class="hcp-cat-cell fade-up" style="transition-delay:0.12s">
+            <div class="hcp-cat-num">04</div>
+            <div class="hcp-cat-name">Cardiac &amp; Lipids</div>
+            <div class="hcp-cat-count">20 biomarkers</div>
+            <div class="hcp-cat-adv">Advanced</div>
+          </div>
+          <div class="hcp-cat-cell fade-up" style="transition-delay:0.16s">
+            <div class="hcp-cat-num">05</div>
+            <div class="hcp-cat-name">Hormones &amp; Fertility</div>
+            <div class="hcp-cat-count">38 biomarkers</div>
+            <div class="hcp-cat-adv">Comprehensive</div>
+          </div>
+          <div class="hcp-cat-cell fade-up" style="transition-delay:0.20s">
+            <div class="hcp-cat-num">06</div>
+            <div class="hcp-cat-name">Vitamins &amp; Minerals</div>
+            <div class="hcp-cat-count">24 biomarkers</div>
+          </div>
+          <div class="hcp-cat-cell fade-up" style="transition-delay:0.24s">
+            <div class="hcp-cat-num">07</div>
+            <div class="hcp-cat-name">Blood &amp; Iron Studies</div>
+            <div class="hcp-cat-count">26 biomarkers</div>
+          </div>
+          <div class="hcp-cat-cell fade-up" style="transition-delay:0.28s">
+            <div class="hcp-cat-num">08</div>
+            <div class="hcp-cat-name">Inflammation &amp; Immune</div>
+            <div class="hcp-cat-count">16 biomarkers</div>
+            <div class="hcp-cat-adv">High sensitivity</div>
+          </div>
+          <div class="hcp-cat-cell fade-up" style="transition-delay:0.32s">
+            <div class="hcp-cat-num">09</div>
+            <div class="hcp-cat-name">Diabetes &amp; Metabolic</div>
+            <div class="hcp-cat-count">18 biomarkers</div>
+          </div>
+          <div class="hcp-cat-cell fade-up" style="transition-delay:0.36s">
+            <div class="hcp-cat-num">10</div>
+            <div class="hcp-cat-name">Cancer Markers</div>
+            <div class="hcp-cat-count">12 biomarkers</div>
+            <div class="hcp-cat-adv">Screening indicators</div>
+          </div>
+          <div class="hcp-cat-cell fade-up" style="transition-delay:0.40s">
+            <div class="hcp-cat-num">11</div>
+            <div class="hcp-cat-name">Gut &amp; Digestive Health</div>
+            <div class="hcp-cat-count">14 biomarkers</div>
+          </div>
+
+            <div class="hcp-cat-total" role="listitem">
+              <span class="hcp-cat-total-val"><span data-count="300">300</span>+ biomarkers</span>
+              <span class="hcp-cat-total-lbl">Across 11 clinical categories</span>
+            </div>
           </div>
         </div>
       </div>
 
     </div>
+
+    <!-- ── Women's pane (hidden by default) ── -->
+    <div class="hc-pane hc-pane--hidden" id="pane-womens" role="tabpanel" aria-labelledby="tab-womens">
+
+      <div class="hcp-stats" aria-label="Women's test statistics">
+        <div class="hcps-item">
+          <span class="hcps-val">350</span>
+          <span class="hcps-lbl">Biomarkers</span>
+        </div>
+        <div class="hcps-sep" aria-hidden="true"></div>
+        <div class="hcps-item">
+          <span class="hcps-val">27</span>
+          <span class="hcps-lbl">Health areas</span>
+        </div>
+        <div class="hcps-sep" aria-hidden="true"></div>
+        <div class="hcps-item">
+          <span class="hcps-val">4</span>
+          <span class="hcps-lbl">Days to results</span>
+        </div>
+        <div class="hcps-sep" aria-hidden="true"></div>
+        <div class="hcps-item">
+          <span class="hcps-val">&pound;995</span>
+          <span class="hcps-lbl">Incl. GP consultation</span>
+        </div>
+      </div>
+
+      <div class="hcp-layout">
+        <div class="hcp-l fade-up">
+          <h3 class="hcp-title">Up to 350 biomarkers. One year of transformative health insight.</h3>
+          <p class="hcp-desc">One of our most advanced health checks, specifically designed for women. From hormone balance and heart health to stress, nutrition, tumour markers and more &mdash; with a private GP consultation and 6-month repeat test included as standard.</p>
+          <div class="hcp-features">
+            <div class="hcpf-item">
+              <div class="hcpf-check" aria-hidden="true"><svg viewBox="0 0 10 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 4l2.5 2.5 5-5"/></svg></div>
+              <div class="hcpf-text">
+                <span class="hcpf-title">Private GP consultation included</span>
+                <span class="hcpf-desc">A remote GP consultation to help you understand your results and plan next steps</span>
+              </div>
+            </div>
+            <div class="hcpf-item">
+              <div class="hcpf-check" aria-hidden="true"><svg viewBox="0 0 10 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 4l2.5 2.5 5-5"/></svg></div>
+              <div class="hcpf-text">
+                <span class="hcpf-title">6-month repeat testing included</span>
+                <span class="hcpf-desc">Track your progress and spot changes with a follow-up test after 6 months</span>
+              </div>
+            </div>
+            <div class="hcpf-item">
+              <div class="hcpf-check" aria-hidden="true"><svg viewBox="0 0 10 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 4l2.5 2.5 5-5"/></svg></div>
+              <div class="hcpf-text">
+                <span class="hcpf-title">Up to 350 data points</span>
+                <span class="hcpf-desc">Covering every major health system from hormones and heart health to stress and nutrition</span>
+              </div>
+            </div>
+            <div class="hcpf-item">
+              <div class="hcpf-check" aria-hidden="true"><svg viewBox="0 0 10 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 4l2.5 2.5 5-5"/></svg></div>
+              <div class="hcpf-text">
+                <span class="hcpf-title">Results in 4 working days</span>
+                <span class="hcpf-desc">Fast, accurate results with full clinical specialist review before delivery</span>
+              </div>
+            </div>
+            <div class="hcpf-item">
+              <div class="hcpf-check" aria-hidden="true"><svg viewBox="0 0 10 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 4l2.5 2.5 5-5"/></svg></div>
+              <div class="hcpf-text">
+                <span class="hcpf-title">Personalised health report</span>
+                <span class="hcpf-desc">Detailed recommendations tailored to your results and future health goals</span>
+              </div>
+            </div>
+          </div>
+          <div class="hcp-price-row">
+            <span class="hcp-price">&pound;995</span>
+            <span class="hcp-price-note">includes private GP consultation</span>
+          </div>
+          <div class="hcp-actions">
+            <button class="btn btn-primary" id="open-modal-womens-card" type="button" aria-haspopup="dialog">
+              Book Women&rsquo;s Test <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </button>
+            <button class="btn btn-ghost" id="open-modal-womens-info" type="button" aria-haspopup="dialog">
+              Request Information
+            </button>
+          </div>
+          <p class="hcp-disclaimer">From time to time there may be temporary changes to the test menu. Please contact us to confirm availability for specific tests.</p>
+        </div>
+
+        <div class="hcp-r fade-up" style="transition-delay:.12s">
+          <div class="hcp-cat-heading">What&rsquo;s Covered &mdash; 27 Health Areas</div>
+          <div class="hcp-w-cats" role="list" aria-label="Women's test health areas">
+          <div class="hcp-w-cat">Allergy Evaluation</div>
+          <div class="hcp-w-cat">Autoimmune</div>
+          <div class="hcp-w-cat">Bone Health</div>
+          <div class="hcp-w-cat">Diabetes Health</div>
+          <div class="hcp-w-cat">Digestive Health</div>
+          <div class="hcp-w-cat">Epstein-Barr Virus</div>
+          <div class="hcp-w-cat">Female Hormone</div>
+          <div class="hcp-w-cat">Full Blood Count</div>
+          <div class="hcp-w-cat">Heart Health</div>
+          <div class="hcp-w-cat">Infection &amp; Inflammation</div>
+          <div class="hcp-w-cat">Iron Status</div>
+          <div class="hcp-w-cat">Kidney Health</div>
+          <div class="hcp-w-cat">Liver Health</div>
+          <div class="hcp-w-cat">Male Hormone</div>
+          <div class="hcp-w-cat">Metabolic Syndrome</div>
+          <div class="hcp-w-cat">Muscle &amp; Joint Health</div>
+          <div class="hcp-w-cat">Nutritional Health</div>
+          <div class="hcp-w-cat">Pancreatic Health</div>
+          <div class="hcp-w-cat">Personal Health Measurements</div>
+          <div class="hcp-w-cat">Pituitary &amp; Adrenal</div>
+          <div class="hcp-w-cat">Digestive &amp; Bowel Health</div>
+          <div class="hcp-w-cat">Stress</div>
+          <div class="hcp-w-cat">Thyroid Health</div>
+          <div class="hcp-w-cat">Tumour Markers</div>
+          <div class="hcp-w-cat">Urinalysis</div>
+          <div class="hcp-w-cat">UTI</div>
+          <div class="hcp-w-cat">Genetic Risk Assessment</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </section>
 
@@ -425,319 +667,6 @@
           <div class="compare-item"><span class="ci-check" aria-label="Included">&#10003;</span><span>Full clinical specialist review &amp; commentary</span></div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ━━━━━━━━━━━━━━━━━━━━━━ MEN'S HEALTH CHECK ━━━━━━━━━━━━━ -->
-<section id="mens-test" aria-labelledby="panel-heading">
-  <div class="panel-inner">
-    <div class="panel-head fade-up">
-      <div class="panel-head-l">
-        <p class="sec-eyebrow">Men&rsquo;s Health Check</p>
-        <h2 class="sec-h" id="panel-heading">300+ biomarkers.<br><em>11 clinical categories.</em></h2>
-      </div>
-      <a href="#mens-test" class="btn btn-ghost">
-        View all biomarkers
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-      </a>
-    </div>
-
-    <div class="cat-grid" role="list" aria-label="Clinical testing categories">
-      <div class="cat-cell fade-up" role="listitem">
-        <div class="cat-num" aria-hidden="true">01</div>
-        <div class="cat-name">Liver Health</div>
-        <div class="cat-count">18 biomarkers</div>
-      </div>
-      <div class="cat-cell fade-up" role="listitem" style="transition-delay:.05s">
-        <div class="cat-num" aria-hidden="true">02</div>
-        <div class="cat-name">Kidney Function</div>
-        <div class="cat-count">14 biomarkers</div>
-      </div>
-      <div class="cat-cell fade-up" role="listitem" style="transition-delay:.1s">
-        <div class="cat-num" aria-hidden="true">03</div>
-        <div class="cat-name">Thyroid Markers</div>
-        <div class="cat-count">4 biomarkers</div>
-      </div>
-      <div class="cat-cell fade-up" role="listitem" style="transition-delay:.15s">
-        <div class="cat-num" aria-hidden="true">04</div>
-        <div class="cat-name">Cardiac &amp; Lipids</div>
-        <div class="cat-count">20 biomarkers</div>
-        <div class="cat-adv">Advanced</div>
-      </div>
-      <div class="cat-cell fade-up" role="listitem" style="transition-delay:.2s">
-        <div class="cat-num" aria-hidden="true">05</div>
-        <div class="cat-name">Hormones &amp; Fertility</div>
-        <div class="cat-count">38 biomarkers</div>
-        <div class="cat-adv">Comprehensive</div>
-      </div>
-      <div class="cat-cell fade-up" role="listitem" style="transition-delay:.25s">
-        <div class="cat-num" aria-hidden="true">06</div>
-        <div class="cat-name">Vitamins &amp; Minerals</div>
-        <div class="cat-count">24 biomarkers</div>
-      </div>
-      <div class="cat-cell fade-up" role="listitem" style="transition-delay:.3s">
-        <div class="cat-num" aria-hidden="true">07</div>
-        <div class="cat-name">Blood &amp; Iron Studies</div>
-        <div class="cat-count">26 biomarkers</div>
-      </div>
-      <div class="cat-cell fade-up" role="listitem" style="transition-delay:.35s">
-        <div class="cat-num" aria-hidden="true">08</div>
-        <div class="cat-name">Inflammation &amp; Immune</div>
-        <div class="cat-count">16 biomarkers</div>
-        <div class="cat-adv">High sensitivity</div>
-      </div>
-      <div class="cat-cell fade-up" role="listitem" style="transition-delay:.4s">
-        <div class="cat-num" aria-hidden="true">09</div>
-        <div class="cat-name">Diabetes &amp; Metabolic</div>
-        <div class="cat-count">18 biomarkers</div>
-      </div>
-      <div class="cat-cell fade-up" role="listitem" style="transition-delay:.45s">
-        <div class="cat-num" aria-hidden="true">10</div>
-        <div class="cat-name">Cancer Markers</div>
-        <div class="cat-count">12 biomarkers</div>
-        <div class="cat-adv">Screening indicators</div>
-      </div>
-      <div class="cat-cell fade-up" role="listitem" style="transition-delay:.5s">
-        <div class="cat-num" aria-hidden="true">11</div>
-        <div class="cat-name">Gut &amp; Digestive Health</div>
-        <div class="cat-count">14 biomarkers</div>
-      </div>
-      <div class="cat-total" role="listitem">
-        <div>
-          <div class="cat-total-val"><span data-count="300">300</span>+ biomarkers</div>
-          <div class="cat-total-text">Across 11 clinical categories &mdash; the most comprehensive panel in the UK</div>
-        </div>
-        <button class="btn btn-ghost-w" id="open-modal-panel" type="button" aria-haspopup="dialog">
-          Book Your Test
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ━━━━━━━━━━━━━━━━━━━━━━ WHAT'S INCLUDED ━━━━━━━━━━━━━━━━ -->
-<section id="included" aria-labelledby="included-heading">
-  <div class="incl-inner">
-    <div class="incl-head fade-up">
-      <div>
-        <p class="sec-eyebrow light">Everything in One Appointment</p>
-        <h2 class="sec-h white" id="included-heading">All-inclusive.<br><em>Nothing extra.</em></h2>
-      </div>
-      <p class="sec-body light">Every element of the Quantum Premium BioTest is included in a single &pound;995 price. No upsells, no add-ons, no hidden laboratory fees.</p>
-    </div>
-
-    <div class="incl-grid" role="list" aria-label="Included features">
-      <div class="incl-cell fade-up" role="listitem">
-        <div class="incl-n" aria-hidden="true">01</div>
-        <div class="incl-label">In-Clinic Blood Draw</div>
-        <p class="incl-desc">A quick, comfortable appointment with a trained phlebotomist at your preferred clinic. Available at 40+ locations across the UK, seven days a week.</p>
-        <span class="incl-tag">Nationwide</span>
-      </div>
-      <div class="incl-cell fade-up" role="listitem" style="transition-delay:.08s">
-        <div class="incl-n" aria-hidden="true">02</div>
-        <div class="incl-label">300+ Biomarker Analysis</div>
-        <p class="incl-desc">Full laboratory analysis of 300+ biomarkers spanning 11 clinical categories using state-of-the-art automated analytical platforms in an accredited UK laboratory.</p>
-        <span class="incl-tag">UKAS Accredited</span>
-      </div>
-      <div class="incl-cell fade-up" role="listitem" style="transition-delay:.16s">
-        <div class="incl-n" aria-hidden="true">03</div>
-        <div class="incl-label">Clinical Specialist Review</div>
-        <p class="incl-desc">Every result is individually reviewed by a qualified clinical specialist before your report is finalised. Not an algorithm &mdash; a human expert reviewing your health data.</p>
-        <span class="incl-tag">Expert Review</span>
-      </div>
-      <div class="incl-cell fade-up" role="listitem" style="transition-delay:.24s">
-        <div class="incl-n" aria-hidden="true">04</div>
-        <div class="incl-label">Detailed Digital Report</div>
-        <p class="incl-desc">A comprehensive digital report showing every biomarker result alongside reference ranges and plain-English clinical commentary. Delivered to your inbox in 2&ndash;5 working days.</p>
-        <span class="incl-tag">2&ndash;5 Days</span>
-      </div>
-      <div class="incl-cell fade-up" role="listitem" style="transition-delay:.32s">
-        <div class="incl-n" aria-hidden="true">05</div>
-        <div class="incl-label">Optional Consultation</div>
-        <p class="incl-desc">An optional follow-up telephone consultation with a clinical specialist to discuss your results, understand what they mean, and receive guidance on next steps.</p>
-        <span class="incl-tag">Available on request</span>
-      </div>
-      <div class="incl-cell fade-up" role="listitem" style="transition-delay:.4s">
-        <div class="incl-n" aria-hidden="true">06</div>
-        <div class="incl-label">Express Results Option</div>
-        <p class="incl-desc">Need your results sooner? Our express service can return results in as little as 2 hours from sample receipt at the laboratory. Ask our team for availability.</p>
-        <span class="incl-tag">From 2 hours</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<!-- ━━━━━━━━━━━━━━━━━━━━━━ WOMEN'S HEALTH CHECK ━━━━━━━━━━━━━ -->
-<section id="womens-test" aria-labelledby="womens-heading">
-  <div class="womens-inner">
-    <div class="womens-layout">
-
-      <div class="womens-l fade-up">
-        <p class="sec-eyebrow">Women&rsquo;s Health Check</p>
-        <h2 class="sec-h" id="womens-heading">Up to 350 biomarkers.<br><em>One year of insight.</em></h2>
-
-        <p class="sec-body" style="margin-top:18px;margin-bottom:28px;">One of our most advanced &amp; comprehensive health checks specifically crafted to deliver transformative insights for optimal wellbeing. Get an entire year&rsquo;s worth of in-depth results for up to 350 biomarkers covering everything from stress and tumour associated markers. You&rsquo;ll receive a personalised health report plus a private GP consultation to help you understand your results and plan your next steps with confidence. Track your progress with repeat testing, spot changes early and stay in control every step of the way.</p>
-
-        <div class="womens-features">
-          <div class="wf-item">
-            <div class="wf-check" aria-hidden="true"><svg viewBox="0 0 10 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4l2.5 2.5 5-5"/></svg></div>
-            <span>Track your results with repeat testing after 6 months</span>
-          </div>
-          <div class="wf-item">
-            <div class="wf-check" aria-hidden="true"><svg viewBox="0 0 10 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4l2.5 2.5 5-5"/></svg></div>
-            <span>Remote GP consultations included</span>
-          </div>
-          <div class="wf-item">
-            <div class="wf-check" aria-hidden="true"><svg viewBox="0 0 10 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4l2.5 2.5 5-5"/></svg></div>
-            <span>Up to 350 data points linked to key health areas</span>
-          </div>
-          <div class="wf-item">
-            <div class="wf-check" aria-hidden="true"><svg viewBox="0 0 10 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4l2.5 2.5 5-5"/></svg></div>
-            <span>Results within 4 working days</span>
-          </div>
-        </div>
-
-        <div class="womens-why">
-          <h3 class="womens-why-title">Why should you test?</h3>
-          <p>The Quantum Women&rsquo;s Health Check measures up to 350 biomarkers across essential health areas from hormone balance and heart health to digestion, nutrition, stress, tumour markers and more. Through a simple blood test you&rsquo;ll get a detailed view of your current health status and future health risks. This is more than just a routine check-up &mdash; you&rsquo;ll receive a personalised report with recommendations to optimise your health for the long term. With a follow-up test after 6 months, you can track progress, measure changes and make smarter choices.</p>
-        </div>
-
-        <div class="womens-price-row">
-          <div class="womens-price">&pound;995</div>
-          <div class="womens-price-note">includes private GP consultation</div>
-        </div>
-
-        <div class="womens-actions">
-          <button class="btn btn-primary" id="open-modal-womens" type="button" aria-haspopup="dialog">
-            Book Women&rsquo;s Test
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-          </button>
-          <button class="btn btn-ghost" id="open-modal-womens-info" type="button" aria-haspopup="dialog">
-            Request More Information
-          </button>
-        </div>
-
-        <p class="womens-disclaimer">From time to time there may be temporary changes to the test menu. If you are booking for a specific test please contact us in advance to confirm availability.</p>
-      </div>
-
-      <div class="womens-r fade-up" style="transition-delay:.12s">
-        <div class="womens-cats-head">What&rsquo;s Included</div>
-        <div class="womens-cats-grid">
-          <div class="womens-cat fade-up">
-            <span class="wcat-name">Allergy Evaluation</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.04s">
-            <span class="wcat-name">Autoimmune</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.08s">
-            <span class="wcat-name">Bone Health</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.12s">
-            <span class="wcat-name">Diabetes Health</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.16s">
-            <span class="wcat-name">Digestive Health</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.20s">
-            <span class="wcat-name">Epstein-Barr Virus</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.24s">
-            <span class="wcat-name">Female Hormone</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.28s">
-            <span class="wcat-name">Full Blood Count</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.32s">
-            <span class="wcat-name">Heart Health</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.00s">
-            <span class="wcat-name">Infection &amp; Inflammation</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.04s">
-            <span class="wcat-name">Iron Status</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.08s">
-            <span class="wcat-name">Kidney Health</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.12s">
-            <span class="wcat-name">Liver Health</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.16s">
-            <span class="wcat-name">Male Hormone</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.20s">
-            <span class="wcat-name">Metabolic Syndrome</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.24s">
-            <span class="wcat-name">Muscle &amp; Joint Health</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.28s">
-            <span class="wcat-name">Nutritional Health</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.32s">
-            <span class="wcat-name">Pancreatic Health</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.00s">
-            <span class="wcat-name">Personal Health Measurements</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.04s">
-            <span class="wcat-name">Pituitary &amp; Adrenal</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.08s">
-            <span class="wcat-name">Digestive &amp; Bowel Health</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.12s">
-            <span class="wcat-name">Stress</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.16s">
-            <span class="wcat-name">Thyroid Health</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.20s">
-            <span class="wcat-name">Tumour Markers</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.24s">
-            <span class="wcat-name">Urinalysis</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.28s">
-            <span class="wcat-name">UTI</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-          <div class="womens-cat fade-up" style="transition-delay:0.32s">
-            <span class="wcat-name">Genetic Risk Assessment</span>
-            <svg class="wcat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -1320,8 +1249,8 @@
     </div>
     <div class="f-col">
       <h4>Services</h4>
-      <a href="#mens-test">Men&rsquo;s Health Check</a>
-      <a href="#womens-test">Women&rsquo;s Health Check</a>
+      <a href="#health-checks">Men&rsquo;s Health Check</a>
+      <a href="#health-checks">Women&rsquo;s Health Check</a>
       <a href="#process">How It Works</a>
       <a href="#pricing">Pricing &mdash; &pound;995</a>
     </div>
