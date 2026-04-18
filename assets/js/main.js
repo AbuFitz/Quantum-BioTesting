@@ -41,7 +41,7 @@
     const nav = $('#site-nav');
     if (!nav) return;
     function tick() {
-      const scrolled = window.scrollY > 12;
+      const scrolled = window.scrollY > 60;
       nav.classList.toggle('elevated', scrolled);
       nav.classList.toggle('scrolled', scrolled);
     }

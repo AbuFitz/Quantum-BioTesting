@@ -9,7 +9,7 @@
 html{
   font-size:16px;scroll-behavior:smooth;
   -webkit-text-size-adjust:100%;
-  scroll-padding-top:80px;
+  scroll-padding-top:88px;
 }
 body{
   font-family:var(--body);background:var(--white);color:var(--navy);
@@ -65,7 +65,7 @@ input,select,textarea{outline:none}
   --max: 1220px;
   --gtr: clamp(20px,5vw,72px);
   --sec: clamp(96px,11vw,144px);
-  --nav: 80px;
+  --nav: 68px;
 
   /* Motion */
   --ease:    cubic-bezier(.25,.46,.45,.94);
@@ -134,62 +134,165 @@ input,select,textarea{outline:none}
 .btn-xl{padding:19px 44px;font-size:1rem;letter-spacing:.02em}
 .btn-full{width:100%;justify-content:center}
 
-/* ── NAVIGATION ────────────────────────────────────────────── */
+/* ── NAVIGATION ─────────────────────────────────────────────
+   Two-state design:
+   ① At top → floating dark-glass capsule over hero (dark bg)
+   ② Scrolled → full-width white bar with navy pill-badge logo
+   The pill-badge is the "half-cut" accent on the left.
+──────────────────────────────────────────────────────────── */
 .site-nav{
-  position:fixed;top:0;left:0;right:0;z-index:900;height:var(--nav);
-  background:rgba(255,255,255,.92);
-  backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);
-  border-bottom:1px solid transparent;
-  transition:border-color .3s,box-shadow .3s,background .3s;
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  /* container is invisible; inner holds the visual */
+  height:calc(var(--nav) + 20px);
+  pointer-events:none;
+  transition:height .45s var(--eout);
 }
-.site-nav.elevated,.site-nav.scrolled{
-  border-bottom-color:var(--line);
-  box-shadow:0 1px 24px rgba(10,22,40,.07);
-  background:rgba(255,255,255,.97);
-}
+.site-nav.scrolled{height:var(--nav);}
+
 .nav-inner{
-  height:100%;max-width:var(--max);margin-inline:auto;
-  padding-inline:var(--gtr);display:flex;align-items:center;
-  justify-content:space-between;gap:20px;
+  pointer-events:auto;
+  margin:12px auto 0;
+  /* constrained width for the floating island */
+  max-width:min(calc(var(--max) - 0px), calc(100% - 32px));
+  height:56px;
+  padding-inline:8px 8px;
+  display:flex;align-items:center;
+  justify-content:space-between;gap:8px;
+  /* Dark glass appearance at page top */
+  background:rgba(10,22,40,.46);
+  backdrop-filter:blur(22px) saturate(150%);
+  -webkit-backdrop-filter:blur(22px) saturate(150%);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:14px;
+  box-shadow:
+    0 4px 32px rgba(10,22,40,.28),
+    inset 0 1px 0 rgba(255,255,255,.07);
+  transition:
+    margin .45s var(--eout),
+    max-width .45s var(--eout),
+    height .45s var(--eout),
+    padding .45s var(--eout),
+    border-radius .45s var(--eout),
+    background .4s,
+    border-color .35s,
+    box-shadow .4s;
 }
 
-/* Text-only wordmark */
-.nav-logo{
-  display:flex;align-items:baseline;gap:0;
-  font-family:var(--display);font-size:1.3125rem;
-  letter-spacing:-.018em;color:var(--navy);flex-shrink:0;line-height:1;
-  transition:opacity .15s;
+/* Scrolled: expand to full-width white bar */
+.site-nav.scrolled .nav-inner{
+  margin:0 auto;
+  max-width:100%;
+  height:var(--nav);
+  padding-inline:var(--gtr);
+  border-radius:0;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(28px);
+  -webkit-backdrop-filter:blur(28px);
+  border-color:var(--line);
+  border-top:none;border-left:none;border-right:none;
+  box-shadow:0 1px 28px rgba(10,22,40,.08);
 }
-.nav-logo:hover{opacity:.75}
+
+/* ── Logo pill badge ──────────────────────────────────────── */
+.nav-logo{
+  display:inline-flex;align-items:center;
+  font-family:var(--display);font-size:1.1rem;
+  letter-spacing:-.02em;flex-shrink:0;line-height:1;
+  /* Glass pill at top */
+  color:rgba(255,255,255,.93);
+  padding:9px 20px;
+  border-radius:100px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.15);
+  transition:
+    background .4s,
+    border-color .4s,
+    color .35s,
+    box-shadow .4s,
+    opacity .15s;
+}
+.nav-logo:hover{opacity:.82}
 .nav-logo .bio{font-style:italic}
 
-.nav-links{display:flex;align-items:center;gap:32px}
+/* Scrolled: solid navy pill — the "half-cut" badge */
+.site-nav.scrolled .nav-logo{
+  background:var(--navy);
+  border-color:var(--navy);
+  color:#fff;
+  box-shadow:0 2px 16px rgba(10,22,40,.25);
+}
+
+/* ── Nav links ────────────────────────────────────────────── */
+.nav-links{display:flex;align-items:center;gap:28px}
 .nav-links a{
-  font-size:.875rem;font-weight:500;color:var(--ink3);
-  letter-spacing:.005em;transition:color .15s;
+  font-size:.8125rem;font-weight:500;
+  letter-spacing:.01em;
+  color:rgba(255,255,255,.6);
   position:relative;padding-bottom:2px;
+  transition:color .2s;
 }
 .nav-links a::after{
   content:'';position:absolute;left:0;bottom:0;
-  width:0;height:1.5px;background:var(--navy);
-  border-radius:2px;transition:width .22s var(--ease);
+  width:0;height:1px;
+  background:rgba(255,255,255,.55);
+  border-radius:1px;
+  transition:width .24s var(--ease);
 }
-.nav-links a:hover,.nav-links a.active{color:var(--navy)}
+.nav-links a:hover,.nav-links a.active{color:rgba(255,255,255,.95)}
 .nav-links a:hover::after,.nav-links a.active::after{width:100%}
+
+/* Scrolled link colours */
+.site-nav.scrolled .nav-links a{color:var(--ink3)}
+.site-nav.scrolled .nav-links a::after{background:var(--navy)}
+.site-nav.scrolled .nav-links a:hover,
+.site-nav.scrolled .nav-links a.active{color:var(--navy)}
+
+/* ── Book button state ────────────────────────────────────── */
+/* At top: white glass ghost */
+.nav-book-btn{
+  background:rgba(255,255,255,.12)!important;
+  border-color:rgba(255,255,255,.22)!important;
+  color:rgba(255,255,255,.9)!important;
+  box-shadow:none!important;
+}
+.nav-book-btn:hover{
+  background:rgba(255,255,255,.22)!important;
+  border-color:rgba(255,255,255,.45)!important;
+  color:#fff!important;
+  transform:translateY(-1px)!important;
+}
+/* Scrolled: primary dark */
+.site-nav.scrolled .nav-book-btn{
+  background:var(--navy)!important;
+  border-color:var(--navy)!important;
+  color:#fff!important;
+  box-shadow:0 1px 3px rgba(10,22,40,.18),0 4px 16px rgba(10,22,40,.14)!important;
+}
+.site-nav.scrolled .nav-book-btn:hover{
+  background:var(--n70)!important;
+  border-color:var(--n70)!important;
+  box-shadow:0 4px 24px rgba(10,22,40,.3)!important;
+  transform:translateY(-2px)!important;
+}
 
 .nav-right{display:flex;align-items:center;gap:10px}
 
+/* ── Hamburger burger ─────────────────────────────────────── */
 .nav-burger{
   display:none;width:40px;height:40px;
   flex-direction:column;justify-content:center;align-items:center;gap:5px;
   border-radius:var(--rmd);transition:background .15s;flex-shrink:0;
 }
-.nav-burger:hover{background:var(--n02)}
+.nav-burger:hover{background:rgba(255,255,255,.1)}
 .nav-burger span{
-  display:block;width:20px;height:1.5px;background:var(--navy);
+  display:block;width:20px;height:1.5px;
+  background:rgba(255,255,255,.8);
   border-radius:2px;transform-origin:center;
   transition:transform .28s var(--eout),opacity .2s,width .22s;
 }
+.site-nav.scrolled .nav-burger:hover{background:var(--n02)}
+.site-nav.scrolled .nav-burger span{background:var(--navy)}
+
 .nav-burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
 .nav-burger.open span:nth-child(2){opacity:0;width:0}
 .nav-burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
@@ -895,69 +998,6 @@ input,select,textarea{outline:none}
   color:var(--white);cursor:default;
 }
 
-/* ── TESTIMONIALS ──────────────────────────────────────────── */
-#testimonials{
-  padding-block:var(--sec);
-  background:var(--n02);border-bottom:1px solid var(--line);
-}
-.testi-inner{max-width:var(--max);margin-inline:auto;padding-inline:var(--gtr)}
-.testi-head{
-  display:grid;grid-template-columns:1fr auto;
-  align-items:end;gap:24px;margin-bottom:52px;
-}
-.testi-trust{
-  display:flex;align-items:center;gap:10px;
-  margin-top:14px;flex-wrap:wrap;
-}
-.testi-trust-stars{display:flex;gap:3px}
-.testi-trust-star{width:14px;height:14px;fill:var(--navy)}
-.testi-trust-score{
-  font-size:.875rem;font-weight:700;color:var(--navy);
-  letter-spacing:-.01em;
-}
-.testi-trust-count{
-  font-size:.8125rem;color:var(--ink3);font-weight:300;
-}
-.testi-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
-}
-.testi-card{
-  background:var(--white);border:1px solid var(--line);
-  border-radius:var(--rxl);padding:32px 28px;
-  display:flex;flex-direction:column;gap:20px;
-  transition:border-color .22s,box-shadow .22s,transform .22s var(--eout);
-}
-.testi-card:hover{
-  border-color:var(--n20);
-  box-shadow:0 8px 36px rgba(10,22,40,.08);
-  transform:translateY(-4px);
-}
-.testi-stars{display:flex;gap:3px;margin-bottom:4px}
-.testi-star{
-  width:13px;height:13px;fill:var(--navy);
-}
-.testi-quote{
-  font-size:1rem;color:var(--ink2);line-height:1.78;
-  font-weight:300;flex:1;
-  font-style:italic;
-}
-.testi-author{
-  display:flex;align-items:center;gap:12px;
-  padding-top:18px;border-top:1px solid var(--line);
-}
-.testi-avatar{
-  width:44px;height:44px;border-radius:50%;
-  background:var(--navy);
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--display);font-size:1rem;font-weight:400;
-  color:var(--white);flex-shrink:0;letter-spacing:-.01em;
-}
-.testi-name{
-  font-size:.9375rem;font-weight:600;color:var(--navy);
-  letter-spacing:-.01em;margin-bottom:2px;
-}
-.testi-meta{font-size:.8125rem;color:var(--ink3);font-weight:300}
-
 /* ── REPORTS ───────────────────────────────────────────────── */
 #reports{
   padding-block:var(--sec);background:var(--n02);
@@ -1494,8 +1534,6 @@ input,select,textarea{outline:none}
   .prep-grid{grid-template-columns:1fr}
   .locs-head{grid-template-columns:1fr}
   .locs-photo-grid{grid-template-columns:repeat(2,1fr)}
-  .testi-head{grid-template-columns:1fr}
-  .testi-grid{grid-template-columns:1fr 1fr}
   .reports-grid{grid-template-columns:1fr}
   .pricing-layout{grid-template-columns:1fr}
   .price-card{position:static}
@@ -1514,7 +1552,6 @@ input,select,textarea{outline:none}
   .incl-grid{grid-template-columns:1fr}
   .steps{grid-template-columns:repeat(2,1fr)}
   .locs-photo-grid{grid-template-columns:1fr}
-  .testi-grid{grid-template-columns:1fr}
   .accred-badges{grid-template-columns:1fr}
   .footer-main{grid-template-columns:1fr}
   .footer-bottom{flex-direction:column;align-items:flex-start}
@@ -1972,25 +2009,34 @@ input,select,textarea{outline:none}
 /* ── Page chrome ─────────────────────────────────────────── */
 .legal-page-body{background:#fff}
 
-/* Nav is always elevated / scrolled on legal pages */
-.site-nav.elevated{
-  background:rgba(255,255,255,.98);
-  backdrop-filter:saturate(160%) blur(14px);
-  -webkit-backdrop-filter:saturate(160%) blur(14px);
-  border-bottom:1px solid var(--line);
+/* Nav is always in scrolled state on legal pages — no floating island */
+.legal-page-body .site-nav{height:var(--nav)}
+.legal-page-body .nav-inner{
+  margin:0 auto;max-width:100%;height:var(--nav);
+  padding-inline:var(--gtr);border-radius:0;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);
+  border:none;border-bottom:1px solid var(--line);
   box-shadow:0 1px 12px rgba(10,22,40,.06);
 }
-.site-nav.elevated .nav-logo{color:var(--navy)}
-.site-nav.elevated .nav-links a{color:var(--ink3)}
-.site-nav.elevated .btn-ghost{
-  border-color:var(--navy);color:var(--navy);
+.legal-page-body .nav-logo{
+  background:var(--navy);border-color:var(--navy);color:#fff;
+  box-shadow:0 2px 16px rgba(10,22,40,.22);
 }
-.site-nav.elevated .btn-ghost:hover{
-  background:var(--navy);color:#fff;
-}
+.legal-page-body .nav-links a{color:var(--ink3)}
+.legal-page-body .nav-links a::after{background:var(--navy)}
+.legal-page-body .nav-links a:hover{color:var(--navy)}
+.legal-page-body .nav-burger span{background:var(--navy)}
+.legal-page-body .nav-burger:hover{background:var(--n02)}
 
 /* Align "back" button to the right */
 .nav-right{margin-left:auto}
+.legal-back-btn{
+  border-color:var(--n10)!important;color:var(--navy)!important;
+}
+.legal-back-btn:hover{
+  background:var(--n02)!important;border-color:var(--n20)!important;
+}
 
 /* ── Legal hero ───────────────────────────────────────────── */
 .legal-hero{
