@@ -10,6 +10,7 @@ html{
   font-size:16px;scroll-behavior:smooth;
   -webkit-text-size-adjust:100%;
   scroll-padding-top:88px;
+  overflow-x:hidden;
 }
 body{
   font-family:var(--body);background:var(--white);color:var(--navy);
@@ -319,7 +320,7 @@ input,select,textarea{outline:none}
 .nav-burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 
 /* ── DRAWER ────────────────────────────────────────────────── */
-.drawer{position:fixed;inset:0;z-index:850;pointer-events:none}
+.drawer{position:fixed;inset:0;z-index:850;pointer-events:none;overflow:hidden}
 .drawer-overlay{
   position:absolute;inset:0;background:rgba(10,22,40,.52);
   opacity:0;transition:opacity .3s;
@@ -1669,6 +1670,10 @@ input,select,textarea{outline:none}
   /* Scrolled: restore the navy pill shape on the white bar */
   .site-nav.scrolled{
     background:transparent;
+    height:60px;
+  }
+  .site-nav.scrolled .nav-inner{
+    height:60px;
   }
   .site-nav.scrolled .nav-logo{
     padding:8px 18px;
@@ -1773,7 +1778,9 @@ input,select,textarea{outline:none}
 
   /* Nav */
   .site-nav{height:52px}
+  .site-nav.scrolled{height:52px}
   .nav-inner{height:52px;padding-inline:14px}
+  .site-nav.scrolled .nav-inner{height:52px}
   .nav-logo{font-size:.875rem}
   .nav-burger{width:40px;height:40px}
   .site-nav.scrolled .nav-logo{padding:6px 14px}
