@@ -1,6 +1,6 @@
 /* ============================================================
-   QUANTUM BIOTESTING — main.js
-   Nav · Drawer · Modal (2-step) · Cookie · Counters · Utils
+   QUANTUM BIOTESTING  —  main.js  v4
+   Nav · Drawer · Modal · Cookie · Counters · Fade · Scroll
    ============================================================ */
 (function () {
   'use strict';
@@ -11,6 +11,7 @@
   document.addEventListener('DOMContentLoaded', init);
 
   function init() {
+    initScrollProgress();
     initNav();
     initDrawer();
     initModal();
@@ -20,6 +21,18 @@
     initScrollUtils();
     initDateConstraints();
     initNavActive();
+    initTabletImages();
+    initFaq();
+  }
+
+  /* ── SCROLL PROGRESS ────────────────────────────────────── */
+  function initScrollProgress() {
+    const bar = $('#scroll-progress');
+    if (!bar) return;
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = h > 0 ? (window.scrollY / h * 100) + '%' : '0%';
+    }, { passive: true });
   }
 
   /* ── NAV SCROLL ─────────────────────────────────────────── */
@@ -27,7 +40,9 @@
     const nav = $('#site-nav');
     if (!nav) return;
     function tick() {
-      nav.classList.toggle('elevated', window.scrollY > 12);
+      const scrolled = window.scrollY > 12;
+      nav.classList.toggle('elevated', scrolled);
+      nav.classList.toggle('scrolled', scrolled);
     }
     window.addEventListener('scroll', tick, { passive: true });
     tick();
@@ -35,9 +50,9 @@
 
   /* ── DRAWER ─────────────────────────────────────────────── */
   function initDrawer() {
-    const burger  = $('#menu-toggle');
-    const drawer  = $('#nav-drawer');
-    const overlay = $('#drawer-overlay');
+    const burger   = $('#menu-toggle');
+    const drawer   = $('#nav-drawer');
+    const overlay  = $('#drawer-overlay');
     const closeBtn = $('#drawer-close');
     if (!burger || !drawer) return;
 
@@ -63,10 +78,8 @@
 
     burger.addEventListener('click', () => open ? closeDrawer() : openDrawer());
     if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-    if (overlay) overlay.addEventListener('click', closeDrawer);
-
+    if (overlay)  overlay.addEventListener('click', closeDrawer);
     $$('.drawer-a', drawer).forEach(a => a.addEventListener('click', closeDrawer));
-
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && open) closeDrawer();
     });
@@ -88,7 +101,6 @@
     const STEPS = 2;
     let step = 1;
 
-    /* open / close */
     function open() {
       overlay.classList.add('open');
       overlay.setAttribute('aria-hidden', 'false');
@@ -103,7 +115,6 @@
       document.body.style.overflow = '';
     }
 
-    /* triggers */
     const triggerIds = [
       'open-modal-header',
       'open-modal-hero',
@@ -113,6 +124,9 @@
       'open-modal-footer2',
       'open-modal-mobilebar',
       'open-modal-reports',
+      'open-modal-panel',
+      'open-modal-testi',
+      'open-modal-faq',
     ];
     triggerIds.forEach(id => {
       const el = $(`#${id}`);
@@ -128,7 +142,6 @@
     const successClose = $('#modal-success-close');
     if (successClose) successClose.addEventListener('click', close);
 
-    /* step navigation */
     function goTo(n) {
       step = n;
 
@@ -137,7 +150,10 @@
         if (panel) panel.classList.toggle('active', i === n);
 
         const progStep = $(`#prog-step-${i}`);
-        if (progStep) progStep.classList.toggle('active', i === n);
+        if (progStep) {
+          progStep.classList.toggle('active', i === n);
+          progStep.classList.toggle('done', i < n);
+        }
 
         const dot = $(`.mp-dot[data-step="${i}"]`, progressEl);
         if (dot) {
@@ -158,7 +174,6 @@
       if (box) box.scrollTop = 0;
     }
 
-    /* validation */
     function markErr(id, show) {
       const el = $(`#${id}`);
       if (el) el.classList.toggle('has-err', show);
@@ -169,15 +184,15 @@
       if (n === 1) {
         const loc = $('#clinic-location');
         const dt  = $('#appt-date');
-        if (!loc || !loc.value) { markErr('field-location', true); ok = false; } else markErr('field-location', false);
-        if (!dt  || !dt.value)  { markErr('field-date', true);     ok = false; } else markErr('field-date', false);
+        if (!loc || !loc.value) { markErr('field-location', true);  ok = false; } else markErr('field-location', false);
+        if (!dt  || !dt.value)  { markErr('field-date',     true);  ok = false; } else markErr('field-date',     false);
       }
       if (n === 2) {
         const checks = [
-          ['fname',  'field-fname',  v => v.trim().length > 0],
-          ['lname',  'field-lname',  v => v.trim().length > 0],
-          ['email',  'field-email',  v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)],
-          ['phone',  'field-phone',  v => v.trim().length > 6],
+          ['fname', 'field-fname', v => v.trim().length > 0],
+          ['lname', 'field-lname', v => v.trim().length > 0],
+          ['email', 'field-email', v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)],
+          ['phone', 'field-phone', v => v.trim().length > 6],
         ];
         checks.forEach(([id, wrapId, test]) => {
           const el = $(`#${id}`);
@@ -199,7 +214,6 @@
         if (step < STEPS) {
           goTo(step + 1);
         } else {
-          /* final submit */
           if (footerEl) footerEl.style.display = 'none';
           if (successEl) successEl.classList.add('active');
           for (let i = 1; i <= STEPS; i++) {
@@ -228,13 +242,12 @@
     const ess    = $('#cookie-essential');
     if (!bar) return;
 
-    const KEY = 'qbt-cookie';
+    const KEY = 'qbt-cookie-v2';
     if (localStorage.getItem(KEY)) return;
 
-    setTimeout(() => bar.classList.add('show'), 1600);
+    setTimeout(() => bar.classList.add('show'), 2200);
 
     function dismiss() { bar.classList.remove('show'); }
-
     if (accept) accept.addEventListener('click', () => { localStorage.setItem(KEY, 'all'); dismiss(); });
     if (ess)    ess.addEventListener('click',    () => { localStorage.setItem(KEY, 'ess'); dismiss(); });
   }
@@ -245,7 +258,6 @@
     if (!els.length) return;
 
     const seen = new WeakSet();
-
     const obs = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
@@ -255,14 +267,13 @@
         obs.unobserve(el);
 
         const target = parseInt(el.dataset.count, 10);
-        const dur    = 1100;
+        const dur    = 1200;
         const t0     = performance.now();
         function ease(t) { return 1 - Math.pow(1 - t, 3); }
 
         function tick(now) {
           const p = Math.min((now - t0) / dur, 1);
           const v = Math.round(ease(p) * target);
-          // Only update first text node to preserve child elements (sub, em etc)
           const tn = el.childNodes[0];
           if (tn && tn.nodeType === Node.TEXT_NODE) {
             tn.textContent = v;
@@ -273,7 +284,7 @@
         }
         requestAnimationFrame(tick);
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.4 });
 
     els.forEach(el => obs.observe(el));
   }
@@ -295,24 +306,26 @@
           obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.08, rootMargin: '-40px 0px' });
+    }, { threshold: 0.06, rootMargin: '-32px 0px' });
 
     els.forEach(el => obs.observe(el));
   }
 
   /* ── SCROLL UTILITIES ───────────────────────────────────── */
   function initScrollUtils() {
-    const backTop    = $('#back-top');
-    const mobileBar  = $('#mobile-book-bar');
-    const pricing    = $('#pricing');
+    const backTop   = $('#back-top');
+    const mobileBar = $('#mobile-book-bar');
+    const hero      = $('#hero');
     let barShown = false;
 
     window.addEventListener('scroll', () => {
       const y = window.scrollY;
-      if (backTop) backTop.classList.toggle('show', y > 400);
-      if (mobileBar && pricing && !barShown) {
-        const top = pricing.getBoundingClientRect().top;
-        if (top < window.innerHeight * 0.7) {
+      if (backTop) backTop.classList.toggle('show', y > 500);
+
+      /* Show mobile bar after scrolling past hero */
+      if (mobileBar && hero && !barShown) {
+        const heroBottom = hero.getBoundingClientRect().bottom;
+        if (heroBottom < 0) {
           mobileBar.classList.add('show');
           mobileBar.setAttribute('aria-hidden', 'false');
           barShown = true;
@@ -339,7 +352,7 @@
     d.max = max.toISOString().split('T')[0];
   }
 
-  /* ── NAV ACTIVE ─────────────────────────────────────────── */
+  /* ── NAV ACTIVE SECTION ─────────────────────────────────── */
   function initNavActive() {
     const links = $$('.nav-links a');
     const sections = links
@@ -349,7 +362,7 @@
     if (!sections.length) return;
 
     function update() {
-      const y = window.scrollY + 90;
+      const y = window.scrollY + 100;
       let current = sections[0];
       sections.forEach(x => { if (x.section.offsetTop <= y) current = x; });
       links.forEach(l => l.classList.remove('active'));
@@ -359,5 +372,47 @@
     window.addEventListener('scroll', update, { passive: true });
     update();
   }
+
+  /* ── PAUSE TICKER ON REDUCED MOTION ─────────────────────── */
+  function initTabletImages() {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const ticker = $('.ticker-track');
+    if (ticker && mq.matches) {
+      ticker.style.animationPlayState = 'paused';
+    }
+  }
+
+  /* ── FAQ ACCORDION ──────────────────────────────────────── */
+  function initFaq() {
+    const items = $$('.faq-item');
+    if (!items.length) return;
+
+    items.forEach(item => {
+      const btn = item.querySelector('.faq-q');
+      const ans = item.querySelector('.faq-a');
+      if (!btn || !ans) return;
+
+      btn.addEventListener('click', () => {
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+        // Close all other items
+        items.forEach(other => {
+          const ob = other.querySelector('.faq-q');
+          const oa = other.querySelector('.faq-a');
+          if (ob && oa) {
+            ob.setAttribute('aria-expanded', 'false');
+            oa.style.maxHeight = '0';
+          }
+        });
+
+        // Open this one if it was closed
+        if (!isOpen) {
+          btn.setAttribute('aria-expanded', 'true');
+          ans.style.maxHeight = ans.scrollHeight + 'px';
+        }
+      });
+    });
+  }
+
 
 })();
