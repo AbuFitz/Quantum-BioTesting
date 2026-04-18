@@ -1639,22 +1639,11 @@ input,select,textarea{outline:none}
 /* ─── ≤768px — Portrait: hero stacks ─────────────────────── */
 @media(max-width:768px){
 
-  /* Nav: solid full-width dark bar
-     Hero is single-column dark navy here — glass pill is invisible */
-  .site-nav{height:64px}
-  .nav-inner{
-    max-width:100%;margin:0;height:64px;
-    padding-inline:20px;
-    border-radius:0;
-    background:var(--navy);
-    border:none;
-    border-bottom:1px solid rgba(255,255,255,.1);
-    box-shadow:none;
-  }
-  /* Logo: plain white text on dark bar (no nested pill) */
-  .nav-logo{background:transparent;border-color:transparent;padding:6px 0}
-  /* Scrolled: restore pill shape on white bar */
-  .site-nav.scrolled .nav-logo{padding:7px 16px}
+  /* Nav: boost pill opacity — glass at .46 is invisible on dark navy hero */
+  .nav-inner{background:rgba(10,22,40,.92);border-color:rgba(255,255,255,.16)}
+  /* Burger: stronger border + lines so it's clearly visible */
+  .nav-burger{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.12)}
+  .nav-burger span{background:#fff}
 
   /* ─ Hero: doctor image as subtle full-cover backdrop ─ */
   .hero-split{display:block;position:relative;min-height:auto}
@@ -1716,14 +1705,9 @@ input,select,textarea{outline:none}
 
 /* ─── ≤640px — Small tablet / large phone ────────────────── */
 @media(max-width:640px){
-  /* Nav: hide Book button — mob-bar handles booking at this size */
+  /* Nav: hide Book button — mob-bar handles booking */
   .nav-book-btn{display:none!important}
-
-  /* Nav: tighten height + padding (solid bar already set at ≤768px) */
-  .site-nav{height:60px}
-  .nav-inner{height:60px;padding-inline:16px}
-  .nav-logo{font-size:1rem}
-  .site-nav.scrolled .nav-logo{padding:7px 14px}
+  /* Burger: 44px = iOS minimum touch target */
   .nav-burger{width:44px;height:44px}
 
   /* Hero — tighter heading */
@@ -1749,11 +1733,8 @@ input,select,textarea{outline:none}
   .sec-body{font-size:.9375rem;line-height:1.72}
 
   /* Nav */
-  .site-nav{height:52px}
-  .nav-inner{height:52px;padding-inline:14px}
-  .nav-logo{font-size:.9rem;padding:4px 0}
+  .nav-logo{font-size:.875rem}
   .nav-burger{width:40px;height:40px}
-  .site-nav.scrolled .nav-logo{padding:6px 12px;font-size:.875rem}
 
   /* Hero */
   .hero-h1{font-size:clamp(2rem,10vw,2.75rem);letter-spacing:-.045em}
@@ -1934,9 +1915,7 @@ input,select,textarea{outline:none}
 
 /* ─── ≤360px — Small phone ───────────────────────────────── */
 @media(max-width:360px){
-  .site-nav{height:52px}
-  .nav-logo{font-size:.8125rem;padding:4px 0}
-  .site-nav.scrolled .nav-logo{padding:5px 10px;font-size:.8125rem}
+  .nav-logo{font-size:.8125rem}
   .hero-h1{font-size:clamp(1.875rem,12vw,2.5rem)}
   .hero-cta-btn{padding:12px 14px}
   .hero-proof{margin-top:24px}
