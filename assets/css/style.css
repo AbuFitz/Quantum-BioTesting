@@ -1701,8 +1701,18 @@ input,select,textarea{outline:none}
   /* Nav: hide Book button at this size (mob-bar handles it) */
   .nav-book-btn{display:none!important}
 
-  /* Nav island — a touch tighter */
-  .nav-inner{max-width:calc(100% - 24px);padding-inline:10px}
+  /* Nav: full-width solid dark bar — pill is invisible on dark hero */
+  .nav-inner{
+    max-width:100%;margin:0 auto;height:60px;
+    padding-inline:16px;
+    border-radius:0;
+    background:var(--navy);
+    border:none;
+    border-bottom:1px solid rgba(255,255,255,.1);
+    box-shadow:none;
+  }
+  /* Logo: strip nested-pill look on solid bar */
+  .nav-logo{background:transparent;border-color:transparent;padding:6px 0;font-size:1rem}
 
   /* Hero — tighter heading */
   .hero-h1{font-size:clamp(2.3rem,8.5vw,3.2rem)}
@@ -1727,8 +1737,8 @@ input,select,textarea{outline:none}
   .sec-body{font-size:.9375rem;line-height:1.72}
 
   /* Nav */
-  .nav-inner{max-width:calc(100% - 20px);padding-inline:8px;height:52px}
-  .nav-logo{font-size:.9rem;padding:6px 13px}
+  .nav-inner{height:52px;padding-inline:14px}
+  .nav-logo{font-size:.9rem;padding:4px 0}
   .nav-burger{width:38px;height:38px}
 
   /* Hero */
@@ -1910,7 +1920,7 @@ input,select,textarea{outline:none}
 
 /* ─── ≤360px — Small phone ───────────────────────────────── */
 @media(max-width:360px){
-  .nav-logo{font-size:.8125rem;padding:5px 11px}
+  .nav-logo{font-size:.8125rem;padding:4px 0}
   .hero-h1{font-size:clamp(1.875rem,12vw,2.5rem)}
   .hero-cta-btn{padding:12px 14px}
   .hero-proof{margin-top:24px}
