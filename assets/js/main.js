@@ -328,10 +328,12 @@
       const y = window.scrollY;
       if (backTop) backTop.classList.toggle('show', y > 500);
 
-      /* Show mobile bar after scrolling past hero */
-      if (mobileBar && hero && !barShown) {
-        const heroBottom = hero.getBoundingClientRect().bottom;
-        if (heroBottom < 0) {
+      /* Show mobile bar once past ~200px or after hero scrolled away */
+      if (mobileBar && !barShown) {
+        const threshold = hero
+          ? hero.getBoundingClientRect().bottom < 120
+          : y > 200;
+        if (threshold) {
           mobileBar.classList.add('show');
           mobileBar.setAttribute('aria-hidden', 'false');
           barShown = true;
