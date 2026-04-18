@@ -123,10 +123,15 @@
       'open-modal-footer',
       'open-modal-footer2',
       'open-modal-mobilebar',
-      'open-modal-reports',
       'open-modal-panel',
       'open-modal-testi',
       'open-modal-faq',
+      'open-modal-womens-hero',
+      'open-modal-womens-card',
+      'open-modal-womens',
+      'open-modal-womens-info',
+      'open-modal-mens-card',
+      'open-modal-pricing-womens',
     ];
     triggerIds.forEach(id => {
       const el = $(`#${id}`);
