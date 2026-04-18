@@ -1748,24 +1748,68 @@ input,select,textarea{outline:none}
   .hero-proof-item:nth-child(4){border-bottom:none}
   .hero-proof-val{font-size:1.5rem}
   .hero-proof-lbl{font-size:.6875rem}
+
+  /* Section head spacing — more compact at portrait */
+  .hc-head{margin-bottom:36px}
+  .hc-tabs{margin-bottom:36px}
+  .hcp-stats{margin-bottom:28px}
 }
 
-/* ─── ≤640px — Small phone ────────────────────────────── */
+/* ─── ≤640px — Small phone ─────────────────────────────────────
+   Bridges the 481-640px gap where many desktop values are still
+   active but the screen is phone-sized.
+─────────────────────────────────────────────────────────────── */
 @media(max-width:640px){
-  /* Nav: hide Book button — mob-bar handles booking */
+  /* Section spacing — reduce from the 96px desktop value */
+  :root{--sec:clamp(60px,11vw,80px)}
+
+  /* Nav: hide Book Now — mob-bar handles booking */
   .nav-book-btn{display:none!important}
-  /* Hero: less top gap on smaller screens */
+
+  /* Hero */
   .hero-h1{font-size:clamp(2.3rem,8.5vw,3.2rem)}
   .hero-split-l{padding-top:84px}
+
+  /* Stats strip — tighter cell padding */
+  .stat-cell{padding:28px 20px}
+
+  /* Section head margins — compact for phone viewport */
+  .hc-head{margin-bottom:28px}
+  .hc-tabs{margin-bottom:24px;gap:8px;padding:6px}
+  .hcp-stats{margin-bottom:24px}
+  .compare-head{margin-bottom:36px}
+  .process-head{margin-bottom:40px}
+  .locs-head{margin-bottom:36px}
+  .pricing-header{margin-bottom:36px}
+
+  /* About — 16/9 ratio better on narrow screens */
+  .about-img-wrap img{aspect-ratio:16/9}
+
+  /* Health check — stack CTA buttons */
+  .hcp-actions{flex-direction:column;gap:8px}
+  .hcp-actions .btn{width:100%;justify-content:center}
+
+  /* Compare */
+  .compare-item{font-size:.875rem;padding:11px 20px}
+  .compare-col-hd{padding:14px 20px}
+
+  /* Process — single column */
+  .steps{grid-template-columns:1fr;gap:12px}
 
   /* Prep grid — single column */
   .prep-grid{grid-template-columns:1fr}
 
-  /* Locations — single column */
+  /* Locations */
   .locs-addr-grid,.locs-addr-grid--sm{grid-template-columns:1fr}
+  .locs-all{flex-direction:column;gap:12px;align-items:stretch;padding:20px 24px}
+  .locs-all .btn{width:100%;justify-content:center}
 
-  /* Process — single column */
-  .steps{grid-template-columns:1fr;gap:12px}
+  /* Footer — single column on phones */
+  .footer-main{grid-template-columns:1fr;gap:24px}
+  .f-desc{max-width:none}
+  .f-col h4{margin-bottom:10px}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:10px}
+  .footer-links{flex-wrap:wrap;gap:14px}
 }
 
 /* ─── ≤480px — Mobile ────────────────────────────────────── */
