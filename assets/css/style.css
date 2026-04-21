@@ -1827,15 +1827,21 @@ input,select,textarea{outline:none}
   .hc-head{margin-bottom:22px;text-align:center}
   .hc-tabs{margin-bottom:18px;gap:6px;padding:6px;border-radius:var(--rmd)}
   .hc-tab{padding:13px 18px;border-radius:10px;gap:3px}
-  .hct-pill{font-size:.5rem;padding:2px 8px;margin-bottom:1px}
+  .hct-pill{font-size:.5625rem;padding:2px 8px;margin-bottom:1px}
   .hct-name{font-size:1rem;line-height:1.2}
-  .hct-sub{font-size:.625rem;color:var(--ink4)}
+  .hct-sub{font-size:.6875rem;color:var(--ink4)}
 
-  /* ── Health check stat bar ── */
-  .hcp-stats{margin-bottom:22px}
-  .hcps-item{padding:16px 10px}
-  .hcps-val{font-size:1.875rem;letter-spacing:-.04em}
-  .hcps-lbl{font-size:.5625rem;letter-spacing:.06em}
+  /* ── Health check stat bar: 2×2 grid — 4-in-a-row is too cramped on phone ── */
+  .hcp-stats{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:1px;background:var(--line);
+    border-radius:var(--rmd);overflow:hidden;
+    margin-bottom:22px;
+  }
+  .hcps-sep{display:none}
+  .hcps-item{background:var(--n02);padding:18px 14px}
+  .hcps-val{font-size:2rem;letter-spacing:-.04em}
+  .hcps-lbl{font-size:.75rem;letter-spacing:.06em}
 
   /* ── Health check content ── */
   .hcp-title{font-size:clamp(1.125rem,4vw,1.5rem);margin-bottom:10px;line-height:1.2}
@@ -1850,12 +1856,12 @@ input,select,textarea{outline:none}
   .hcpf-desc{font-size:.75rem;line-height:1.5}
 
   /* ── Men's category grid ── */
-  .hcp-cat-heading{font-size:.5625rem;letter-spacing:.1em;margin-bottom:10px}
+  .hcp-cat-heading{font-size:.625rem;letter-spacing:.1em;margin-bottom:10px}
   .hcp-cat-grid{grid-template-columns:repeat(2,1fr);gap:6px}
   .hcp-cat-cell{padding:12px 12px 10px;border-radius:var(--rmd)}
-  .hcp-cat-num{font-size:.5rem;letter-spacing:.08em;margin-bottom:4px}
-  .hcp-cat-name{font-size:.8125rem;line-height:1.25;margin-bottom:3px}
-  .hcp-cat-count{font-size:.625rem}
+  .hcp-cat-num{font-size:.625rem;letter-spacing:.08em;margin-bottom:4px}
+  .hcp-cat-name{font-size:.875rem;line-height:1.25;margin-bottom:3px}
+  .hcp-cat-count{font-size:.75rem}
   .hcp-cat-total{grid-column:1/-1;padding:14px 16px}
   .hcp-cat-total-val{font-size:1.25rem;letter-spacing:-.03em}
   .hcp-cat-total-lbl{font-size:.6875rem}
@@ -1926,7 +1932,7 @@ input,select,textarea{outline:none}
   .step-title{font-size:.9375rem;font-weight:600;margin-bottom:6px;color:var(--navy)}
   .step-desc{font-size:.8125rem;color:var(--ink2);line-height:1.65;margin-bottom:10px}
   .step-tags{gap:5px;flex-wrap:wrap}
-  .step-tag{font-size:.5625rem;padding:3px 8px}
+  .step-tag{font-size:.6875rem;padding:3px 10px}
 
   /* ── Preparation: prominent decorative numbers ── */
   .prep-head{margin-bottom:28px}
@@ -1960,7 +1966,7 @@ input,select,textarea{outline:none}
     flex-direction:column;gap:12px;align-items:stretch;
     padding:18px;border-radius:var(--rlg);margin-top:24px;
   }
-  .locs-all-label{font-size:.625rem}
+  .locs-all-label{font-size:.75rem}
   .locs-cities{gap:6px}
   .loc-pill{padding:5px 12px;font-size:.75rem}
   .locs-all .btn{width:100%;justify-content:center}
@@ -1971,8 +1977,8 @@ input,select,textarea{outline:none}
   .accred-badge{padding:16px 14px;gap:6px;border-radius:var(--rmd)}
   .accred-badge-name{font-size:.875rem;margin-bottom:2px}
   .accred-badge-desc{
-    font-size:.6875rem;line-height:1.5;
-    color:rgba(255,255,255,.28);
+    font-size:.75rem;line-height:1.55;
+    color:rgba(255,255,255,.48);
   }
   .accred-stat-row{padding:16px 20px;gap:14px;border-radius:var(--rmd)}
   .accred-stat-val{font-size:2.25rem;letter-spacing:-.05em;min-width:3.5rem}
@@ -1982,7 +1988,7 @@ input,select,textarea{outline:none}
   .pricing-header{margin-bottom:28px;text-align:center}
   .dual-pricing-grid{max-width:none;gap:12px}
   .pc-head{padding:22px 20px 20px}
-  .pc-eyebrow{font-size:.5625rem;letter-spacing:.12em;margin-bottom:8px}
+  .pc-eyebrow{font-size:.6875rem;letter-spacing:.12em;margin-bottom:8px}
   .pc-name{font-size:1.125rem;letter-spacing:-.015em;margin-bottom:4px}
   .pc-desc{font-size:.8125rem;line-height:1.55}
   .pc-price{font-size:3rem;letter-spacing:-.055em}
@@ -1999,9 +2005,9 @@ input,select,textarea{outline:none}
   /* ── Accred strip ── */
   .ab-inner{flex-direction:column;align-items:flex-start;gap:8px;padding-block:14px}
   .ab-sep{display:none}
-  .ab-label{font-size:.5625rem}
+  .ab-label{font-size:.75rem}
   .ab-items{gap:6px;flex-wrap:wrap}
-  .ab-item{font-size:.75rem}
+  .ab-item{font-size:.8125rem}
 
   /* ── FAQ ── */
   .faq-sticky{margin-bottom:28px}
@@ -2070,7 +2076,7 @@ input,select,textarea{outline:none}
   .hero-proof-item{padding:13px 14px 13px 0}
   .hero-proof-item:nth-child(even){padding-left:14px;padding-right:0}
   .hero-proof-val{font-size:1.25rem;letter-spacing:-.03em}
-  .hero-proof-lbl{font-size:.5625rem}
+  .hero-proof-lbl{font-size:.625rem}
 
   /* ── Stats strip ── */
   .stat-cell{padding:20px 16px}
@@ -2081,14 +2087,12 @@ input,select,textarea{outline:none}
   /* ── Health check tabs ── */
   .hc-tab{padding:12px 14px}
   .hct-name{font-size:.9375rem}
-  .hct-sub{font-size:.5625rem}
+  .hct-sub{font-size:.625rem}
 
-  /* ── Stat bar: scrollable ── */
-  .hcp-stats{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-  .hcp-stats::-webkit-scrollbar{display:none}
-  .hcps-item{min-width:68px;padding:13px 6px}
-  .hcps-val{font-size:1.25rem;letter-spacing:-.04em}
-  .hcps-lbl{font-size:.4375rem;letter-spacing:.05em}
+  /* ── Stat bar: tighter padding at ≤480px (2×2 grid already set at ≤640px) ── */
+  .hcps-item{padding:14px 10px}
+  .hcps-val{font-size:1.625rem;letter-spacing:-.04em}
+  .hcps-lbl{font-size:.6875rem;letter-spacing:.05em}
 
   /* ── Health check features ── */
   .hcp-features{padding:10px 12px;gap:8px;margin-bottom:14px}
@@ -2100,14 +2104,14 @@ input,select,textarea{outline:none}
   /* ── Category grid ── */
   .hcp-cat-grid{grid-template-columns:repeat(2,1fr);gap:5px}
   .hcp-cat-cell{padding:10px 10px 8px}
-  .hcp-cat-name{font-size:.75rem}
-  .hcp-cat-count{font-size:.5625rem}
+  .hcp-cat-name{font-size:.8125rem}
+  .hcp-cat-count{font-size:.6875rem}
   .hcp-cat-total{grid-column:1/-1;padding:12px 14px}
   .hcp-cat-total-val{font-size:1.125rem}
 
   /* ── Women's categories ── */
   .hcp-w-cats{grid-template-columns:1fr 1fr;gap:0}
-  .hcp-w-cat{padding:8px 10px;font-size:.75rem}
+  .hcp-w-cat{padding:9px 11px;font-size:.8125rem}
 
   /* ── HCP price/actions ── */
   .hcp-price{font-size:2.25rem}
@@ -2121,7 +2125,7 @@ input,select,textarea{outline:none}
   /* ── Compare ── */
   .compare-col-hd{padding:12px 18px}
   .compare-item{font-size:.8125rem;padding:10px 18px;gap:8px}
-  .ci-x,.ci-check{width:16px;height:16px;font-size:.5625rem}
+  .ci-x,.ci-check{width:16px;height:16px;font-size:.625rem}
 
   /* ── Process: FLAT NUMBERED LIST at small phones ── */
   .steps{
@@ -2154,7 +2158,7 @@ input,select,textarea{outline:none}
   .step-title{font-size:.9375rem;font-weight:600;margin-bottom:6px}
   .step-desc{font-size:.875rem;color:var(--ink2);margin-bottom:10px;line-height:1.65}
   .step-tags{gap:5px}
-  .step-tag{font-size:.5625rem;padding:3px 8px}
+  .step-tag{font-size:.625rem;padding:3px 8px}
 
   /* ── Preparation ── */
   .prep-cell{padding:22px 18px;gap:10px;border-radius:0}
@@ -2188,7 +2192,7 @@ input,select,textarea{outline:none}
   .pc-body{padding:10px 18px}
   .pc-row{padding-block:9px}
   .pc-footer{padding:12px 18px}
-  .pc-note{font-size:.625rem}
+  .pc-note{font-size:.6875rem}
 
   /* ── Accred strip ── */
   .ab-inner{padding-block:12px;gap:6px}
