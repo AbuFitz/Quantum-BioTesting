@@ -1561,7 +1561,7 @@ input,select,textarea{outline:none}
 .fade-up.visible{opacity:1;transform:none}
 
 /* ══════════════════════════════════════════════════════════════
-   RESPONSIVE — clean rebuild v2
+   RESPONSIVE — mobile redesign v3
    ≤1100  wide-tablet  ·  ≤900  tablet/nav  ·  ≤768  portrait
    ≤640   small-tablet  ·  ≤480  mobile  ·  ≤360  small-phone
 ══════════════════════════════════════════════════════════════ */
@@ -1569,7 +1569,7 @@ input,select,textarea{outline:none}
 /* ─── ≤1100px — Wide tablet ──────────────────────────────── */
 @media(max-width:1100px){
   .hcp-layout{grid-template-columns:1fr}
-  .dual-pricing-grid{grid-template-columns:1fr}
+  .dual-pricing-grid{grid-template-columns:1fr;max-width:600px;margin-inline:auto}
   .faq-layout{grid-template-columns:1fr}
   .accred-grid{grid-template-columns:1fr;gap:40px}
   .steps{grid-template-columns:repeat(2,1fr);gap:28px}
@@ -1579,10 +1579,9 @@ input,select,textarea{outline:none}
 
 /* ─── ≤900px — Tablet: nav burger appears ────────────────── */
 @media(max-width:900px){
-  /* Nav: hide links, keep compact Book button + burger */
+  /* Nav */
   .nav-links{display:none}
   .nav-burger{display:flex}
-  /* Compact the Book button for tablet */
   .nav-book-btn{padding:9px 16px!important;font-size:.8125rem!important;gap:6px!important}
   .nav-book-btn svg{width:12px;height:12px}
   .drawer-foot .btn-primary{background:var(--blue);border-color:var(--blue)}
@@ -1590,14 +1589,14 @@ input,select,textarea{outline:none}
   /* Hero */
   .hero-card{display:none}
 
-  /* Stats strip — 2×2 */
+  /* Stats strip — 2×2 grid */
   .stats-inner{grid-template-columns:repeat(2,1fr)}
   .stat-cell{border-right:none;border-bottom:1px solid var(--line)}
   .stat-cell:nth-child(odd){border-right:1px solid var(--line)}
   .stat-cell:last-child{border-bottom:none}
   .stat-cell:nth-child(3){border-bottom:none}
 
-  /* Health checks */
+  /* Health checks — stack pane layout, tabs stay 1-col */
   .hc-tabs{grid-template-columns:1fr}
   .hcp-layout{grid-template-columns:1fr}
   .hcp-cat-grid{grid-template-columns:repeat(2,1fr)}
@@ -1606,8 +1605,8 @@ input,select,textarea{outline:none}
   /* About */
   .about-wrap{grid-template-columns:1fr}
 
-  /* Compare */
-  .compare-grid{grid-template-columns:1fr}
+  /* Compare — stack columns, add gap */
+  .compare-grid{grid-template-columns:1fr;gap:10px}
 
   /* Process */
   .process-head{grid-template-columns:1fr}
@@ -1626,7 +1625,7 @@ input,select,textarea{outline:none}
   .accred-grid{grid-template-columns:1fr;gap:40px}
 
   /* Pricing */
-  .dual-pricing-grid{grid-template-columns:1fr}
+  .dual-pricing-grid{grid-template-columns:1fr;max-width:none}
   .price-card{position:static}
 
   /* FAQ */
@@ -1637,91 +1636,50 @@ input,select,textarea{outline:none}
   .footer-main{grid-template-columns:1fr 1fr}
 }
 
-/* ─── ≤768px — Portrait: nav bar + hero stacks ───────────── */
+/* ─── ≤768px — Portrait: solid nav bar, hero stacks ──────── */
 @media(max-width:768px){
 
-  /* ── NAV: solid full-width bar ─────────────────────────────
-     The floating glass pill is visually invisible on the dark
-     hero. Replace with a proper solid bar at the top.        */
-  .site-nav{
-    height:60px;
-    background:var(--navy);
-  }
+  /* ── NAV: full-width solid navy bar ── */
+  .site-nav{height:60px;background:var(--navy)}
   .nav-inner{
-    max-width:100%;
-    margin:0;
-    height:60px;
-    padding-inline:16px;
-    border-radius:0;
-    background:var(--navy);
-    border:none;
+    max-width:100%;margin:0;height:60px;padding-inline:16px;
+    border-radius:0;background:var(--navy);border:none;
     border-bottom:1.5px solid rgba(255,255,255,.14);
-    box-shadow:none;
-    backdrop-filter:none;
-    -webkit-backdrop-filter:none;
+    box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;
   }
-  /* Logo: just the text — no nested pill on a dark bar */
-  .nav-logo{
-    background:transparent;
-    border-color:transparent;
-    padding:6px 0;
-    font-size:1rem;
-  }
-  /* Scrolled: restore the navy pill shape on the white bar */
-  .site-nav.scrolled{
-    background:transparent;
-    height:60px;
-  }
-  .site-nav.scrolled .nav-inner{
-    height:60px;
-  }
-  .site-nav.scrolled .nav-logo{
-    padding:8px 18px;
-  }
-  /* Burger: large, clearly visible white icon box */
+  .nav-logo{background:transparent;border-color:transparent;padding:6px 0;font-size:1rem}
+  .site-nav.scrolled{background:transparent;height:60px}
+  .site-nav.scrolled .nav-inner{height:60px}
+  .site-nav.scrolled .nav-logo{padding:8px 18px}
   .nav-burger{
-    width:44px;height:44px;
+    width:44px;height:44px;border-radius:8px;
     border:1.5px solid rgba(255,255,255,.35);
     background:rgba(255,255,255,.12);
-    border-radius:8px;
   }
   .nav-burger span{background:#fff;width:20px;height:2px}
-  /* Scrolled burger adapts to white bar */
-  .site-nav.scrolled .nav-burger{
-    border-color:var(--line2);
-    background:var(--off);
-  }
+  .site-nav.scrolled .nav-burger{border-color:var(--line2);background:var(--off)}
   .site-nav.scrolled .nav-burger span{background:var(--navy)}
 
-  /* ─ Hero: doctor image as full-cover backdrop ─ */
+  /* ── Hero: doctor image as full-bleed backdrop ── */
   .hero-split{display:block;position:relative;min-height:auto}
   .hero-split::before{display:none}
-
-  .hero-split-r{
-    position:absolute;inset:0;
-    display:block;z-index:0;overflow:hidden;
-  }
+  .hero-split-r{position:absolute;inset:0;display:block;z-index:0;overflow:hidden}
   .hero-split-r img{
-    width:100%;height:100%;
-    object-fit:cover;object-position:68% top;
+    width:100%;height:100%;object-fit:cover;object-position:68% top;
     opacity:.16;filter:grayscale(20%) contrast(1.1);
   }
   .hero-split-r-grad{
     position:absolute;inset:0;
     background:
-      linear-gradient(to bottom, var(--navy) 0%, rgba(11,31,58,.55) 40%, var(--navy) 100%),
-      linear-gradient(to right, var(--navy) 0%, rgba(11,31,58,.3) 50%, transparent 80%);
+      linear-gradient(to bottom,var(--navy) 0%,rgba(11,31,58,.55) 40%,var(--navy) 100%),
+      linear-gradient(to right,var(--navy) 0%,rgba(11,31,58,.3) 50%,transparent 80%);
   }
-
   .hero-split-l{
-    background:transparent;
-    position:relative;z-index:1;
+    background:transparent;position:relative;z-index:1;
     max-width:none;width:100%;
     display:flex;flex-direction:column;align-items:flex-start;
-    padding-top:96px;
-    padding-bottom:clamp(60px,11vw,88px);
-    padding-left:var(--gtr);
-    padding-right:var(--gtr);
+    padding-top:96px;padding-bottom:clamp(60px,11vw,88px);
+    padding-left:var(--gtr);padding-right:var(--gtr);
   }
   .hero-content{width:100%;max-width:560px}
   .hero-h1{font-size:clamp(2.6rem,7vw,3.8rem)}
@@ -1730,9 +1688,8 @@ input,select,textarea{outline:none}
 
   /* Proof stats: 2×2 grid */
   .hero-proof{
-    display:grid;grid-template-columns:1fr 1fr;
-    gap:0;margin-top:40px;
-    border-top:1px solid rgba(255,255,255,.08);
+    display:grid;grid-template-columns:1fr 1fr;gap:0;
+    margin-top:40px;border-top:1px solid rgba(255,255,255,.08);
     padding-top:0;max-width:400px;
   }
   .hero-proof-item{
@@ -1740,71 +1697,185 @@ input,select,textarea{outline:none}
     border-right:1px solid rgba(255,255,255,.08);
     border-bottom:1px solid rgba(255,255,255,.08);
   }
-  .hero-proof-item:nth-child(even){
-    border-right:none;
-    padding-left:20px;padding-right:0;
-  }
-  .hero-proof-item:nth-child(3),
-  .hero-proof-item:nth-child(4){border-bottom:none}
+  .hero-proof-item:nth-child(even){border-right:none;padding-left:20px;padding-right:0}
+  .hero-proof-item:nth-child(3),.hero-proof-item:nth-child(4){border-bottom:none}
   .hero-proof-val{font-size:1.5rem}
   .hero-proof-lbl{font-size:.6875rem}
 
-  /* Section head spacing — more compact at portrait */
+  /* ── Section head spacing ── */
   .hc-head{margin-bottom:36px}
   .hc-tabs{margin-bottom:36px}
   .hcp-stats{margin-bottom:28px}
+
+  /* ── Health checks: tighten features list ── */
+  .hcp-features{padding:14px 16px;gap:12px}
+  .hcpf-item{gap:10px}
+  .hcpf-desc{font-size:.8125rem}
+
+  /* ── Compare: tighten stacked columns ── */
+  .compare-col{border-radius:var(--rlg)}
+  .compare-col-hd{padding:14px 22px}
+  .compare-item{padding:11px 22px}
+
+  /* ── Preparation: tighter cells on portrait ── */
+  .prep-cell{padding:28px 24px;gap:12px}
+  .prep-num{font-size:2rem}
+  .prep-body{font-size:.875rem}
+
+  /* ── Locations ── */
+  .locs-city-group{margin-bottom:28px}
+
+  /* ── Accreditations: tighter badges + stat rows ── */
+  .accred-badge{padding:18px 16px}
+  .accred-stat-row{padding:16px 20px}
+
+  /* ── Pricing card: tighter head & body ── */
+  .pc-head{padding:26px 26px 22px}
+  .pc-body{padding:18px 26px}
+  .pc-footer{padding:18px 26px}
+  .pc-price{font-size:2.75rem}
+  .dual-pricing-grid{gap:16px;max-width:none}
+  .pricing-header{margin-bottom:36px}
+
+  /* ── FAQ ── */
+  .faq-q{font-size:.9375rem}
 }
 
-/* ─── ≤640px — Small phone ─────────────────────────────────────
-   Bridges the 481-640px gap where many desktop values are still
-   active but the screen is phone-sized.
-─────────────────────────────────────────────────────────────── */
+/* ─── ≤640px — Phone: comprehensive section redesign ────────── */
 @media(max-width:640px){
-  /* Section spacing — reduce from the 96px desktop value */
   :root{--sec:clamp(60px,11vw,80px)}
 
-  /* Nav: hide Book Now — mob-bar handles booking */
+  /* Nav: hide Book button — mob-bar handles it */
   .nav-book-btn{display:none!important}
 
-  /* Hero */
+  /* ── Hero ── */
   .hero-h1{font-size:clamp(2.3rem,8.5vw,3.2rem)}
   .hero-split-l{padding-top:84px}
 
-  /* Stats strip — tighter cell padding */
-  .stat-cell{padding:28px 20px}
+  /* ── Stats strip ── */
+  .stat-cell{padding:26px 18px}
 
-  /* Section head margins — compact for phone viewport */
+  /* ── Global section head margins ── */
   .hc-head{margin-bottom:28px}
-  .hc-tabs{margin-bottom:24px;gap:8px;padding:6px}
-  .hcp-stats{margin-bottom:24px}
-  .compare-head{margin-bottom:36px}
-  .process-head{margin-bottom:40px}
-  .locs-head{margin-bottom:36px}
-  .pricing-header{margin-bottom:36px}
+  .hc-tabs{margin-bottom:24px;gap:6px;padding:6px}
+  .hcp-stats{margin-bottom:22px}
+  .compare-head{margin-bottom:32px}
+  .process-head{margin-bottom:36px}
+  .locs-head{margin-bottom:32px}
+  .pricing-header{margin-bottom:28px}
+  .accred-grid{gap:32px}
 
-  /* About — 16/9 ratio better on narrow screens */
-  .about-img-wrap img{aspect-ratio:16/9}
+  /* ── Health check tabs — compact for phone ── */
+  .hc-tab{padding:14px 18px}
+  .hct-name{font-size:1.0625rem}
+  .hct-sub{font-size:.6875rem}
 
-  /* Health check — stack CTA buttons */
+  /* ── Health check stat bar — smaller numbers ── */
+  .hcps-item{padding:16px 10px}
+  .hcps-val{font-size:1.75rem}
+  .hcps-lbl{font-size:.5625rem;letter-spacing:.07em}
+
+  /* ── Health check features list — compact ── */
+  .hcp-features{padding:12px 14px;gap:10px;margin-bottom:20px;border-radius:var(--rmd)}
+  .hcpf-item{gap:10px}
+  .hcpf-check{width:18px;height:18px}
+  .hcpf-check svg{width:8px;height:8px}
+  .hcpf-title{font-size:.8125rem}
+  .hcpf-desc{font-size:.75rem;line-height:1.5}
+
+  /* ── Men's category grid — tighter cells ── */
+  .hcp-cat-cell{padding:11px 11px 9px}
+  .hcp-cat-num{font-size:.5rem;letter-spacing:.08em}
+  .hcp-cat-name{font-size:.75rem}
+  .hcp-cat-count{font-size:.625rem}
+  .hcp-cat-total{padding:13px 16px}
+  .hcp-cat-total-val{font-size:1.125rem}
+  .hcp-cat-total-lbl{font-size:.6875rem}
+
+  /* ── HCP price & actions ── */
+  .hcp-price{font-size:2.25rem}
+  .hcp-price-row{margin-bottom:14px}
   .hcp-actions{flex-direction:column;gap:8px}
   .hcp-actions .btn{width:100%;justify-content:center}
+  .hcp-desc{font-size:.9375rem}
 
-  /* Compare */
-  .compare-item{font-size:.875rem;padding:11px 20px}
-  .compare-col-hd{padding:14px 20px}
+  /* ── About ── */
+  .about-img-wrap img{aspect-ratio:16/9}
+  .about-l{gap:22px}
+  .about-text p{font-size:.9375rem}
 
-  /* Process — single column */
+  /* ── Compare: full-phone stacked columns ── */
+  .compare-col{border-radius:var(--rmd)}
+  .compare-col-hd{padding:13px 18px}
+  .compare-item{font-size:.875rem;padding:11px 18px}
+  .ci-x,.ci-check{width:16px;height:16px;font-size:.5625rem}
+
+  /* ── Process: single column with wide banner image ── */
   .steps{grid-template-columns:1fr;gap:12px}
+  .step-img{aspect-ratio:21/9}
+  .step-body{padding:18px 20px 22px}
+  .step-title{font-size:.9375rem}
+  .step-desc{font-size:.875rem}
 
-  /* Prep grid — single column */
+  /* ── Preparation: single column, compact cells ── */
   .prep-grid{grid-template-columns:1fr}
+  .prep-head{margin-bottom:32px}
+  .prep-cell{padding:22px 18px;gap:10px}
+  .prep-num{font-size:1.625rem}
+  .prep-title{font-size:1rem}
+  .prep-body{font-size:.875rem;line-height:1.68}
+  .prep-note{padding:14px 16px;gap:10px;font-size:.875rem;line-height:1.65}
+  .prep-note-icon{width:15px;height:15px;margin-top:1px}
 
-  /* Locations */
+  /* ── Locations: single column cards ── */
   .locs-addr-grid,.locs-addr-grid--sm{grid-template-columns:1fr}
-  .locs-all{flex-direction:column;gap:12px;align-items:stretch;padding:20px 24px}
+  .loc-addr-card{padding:15px 18px;gap:8px}
+  .lac-name{font-size:.875rem}
+  .lac-address{font-size:.8125rem;line-height:1.65}
+  .locs-city-group{margin-bottom:22px}
+  .locs-all{flex-direction:column;gap:10px;align-items:stretch;padding:18px}
+  .locs-all-label{font-size:.6875rem}
   .locs-all .btn{width:100%;justify-content:center}
+  .loc-pill{padding:6px 12px;font-size:.75rem}
 
-  /* Footer — single column on phones */
+  /* ── Accreditations: tighter on phone ── */
+  .accred-badge{padding:16px 14px;gap:4px}
+  .accred-badge-name{font-size:.875rem}
+  .accred-stat-row{padding:15px 18px;gap:12px}
+  .accred-stat-val{font-size:1.625rem;min-width:3.5rem}
+  .accred-stat-txt{font-size:.8125rem}
+
+  /* ── Pricing cards: full width, compact head ── */
+  .dual-pricing-grid{max-width:none;gap:14px}
+  .pc-head{padding:22px 20px 18px}
+  .pc-name{font-size:1.125rem}
+  .pc-desc{font-size:.8125rem}
+  .pc-price{font-size:2.5rem}
+  .pc-price-note{font-size:.8125rem}
+  .pc-body{padding:14px 20px}
+  .pc-row{font-size:.8125rem;padding-block:9px}
+  .pc-footer{padding:14px 20px}
+  .pc-note{font-size:.6875rem}
+
+  /* ── Accred strip: stack on phone ── */
+  .ab-inner{flex-direction:column;align-items:flex-start;gap:8px;padding-block:14px}
+  .ab-sep{display:none}
+  .ab-items{gap:8px;flex-wrap:wrap}
+  .ab-item{font-size:.75rem}
+
+  /* ── FAQ ── */
+  .faq-q{font-size:.875rem;gap:12px;padding:18px 0}
+  .faq-a-inner{font-size:.875rem;line-height:1.68}
+  .faq-q-icon{width:26px;height:26px}
+
+  /* ── CTA section ── */
+  .cta-section{padding-block:clamp(64px,12vw,90px)}
+  .cta-actions{flex-direction:column;width:100%;align-items:stretch;gap:8px}
+  .cta-actions .btn{width:100%;justify-content:center;padding:15px 22px}
+  .cta-sub{font-size:.75rem;gap:8px;flex-wrap:wrap}
+  .cta-sub-dot{display:none}
+
+  /* ── Footer: single column ── */
   .footer-main{grid-template-columns:1fr;gap:24px}
   .f-desc{max-width:none}
   .f-col h4{margin-bottom:10px}
@@ -1812,80 +1883,88 @@ input,select,textarea{outline:none}
   .footer-links{flex-wrap:wrap;gap:14px}
 }
 
-/* ─── ≤480px — Mobile ────────────────────────────────────── */
+/* ─── ≤480px — Mobile: small-phone fine-tuning ───────────── */
 @media(max-width:480px){
   :root{--sec:clamp(48px,9vw,72px)}
 
-  /* Typography */
+  /* ── Typography ── */
   .sec-h{font-size:clamp(1.625rem,8vw,2.125rem)}
   .sec-body{font-size:.9375rem;line-height:1.72}
 
-  /* Nav */
-  .site-nav{height:52px}
-  .site-nav.scrolled{height:52px}
-  .nav-inner{height:52px;padding-inline:14px}
-  .site-nav.scrolled .nav-inner{height:52px}
+  /* ── Nav ── */
+  .site-nav,.site-nav.scrolled{height:52px}
+  .nav-inner,.site-nav.scrolled .nav-inner{height:52px;padding-inline:14px}
   .nav-logo{font-size:.875rem}
   .nav-burger{width:40px;height:40px}
   .site-nav.scrolled .nav-logo{padding:6px 14px}
 
-  /* Hero */
+  /* ── Hero ── */
   .hero-h1{font-size:clamp(2rem,10vw,2.75rem);letter-spacing:-.045em}
-  .hero-split-l{
-    padding-top:76px;
-    padding-bottom:clamp(48px,10vw,68px);
-  }
-  .hero-cta-group{flex-direction:column;gap:8px;margin-bottom:28px}
+  .hero-split-l{padding-top:72px;padding-bottom:clamp(44px,10vw,64px)}
+  .hero-cta-group{margin-bottom:22px}
   .hero-cta-btn{
-    width:100%;padding:14px 18px;border-radius:12px;
-    border-color:rgba(255,255,255,.14);
-    background:rgba(255,255,255,.06);
+    width:100%;padding:14px 16px;border-radius:12px;
+    border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.06);
   }
-  .hero-proof{max-width:none;margin-top:32px}
+  .hero-proof{max-width:none;margin-top:26px}
+  .hero-proof-item{padding:14px 16px 14px 0}
+  .hero-proof-item:nth-child(even){padding-left:16px;padding-right:0}
   .hero-proof-val{font-size:1.375rem}
   .hero-proof-lbl{font-size:.625rem}
 
-  /* Stats strip — 2×2, compact */
-  .stat-cell{padding:22px 18px}
+  /* ── Stats strip ── */
+  .stat-cell{padding:20px 16px}
   .stat-val{font-size:clamp(1.875rem,7.5vw,2.5rem)}
   .stat-lbl{font-size:.75rem}
+  .stat-divider{width:22px;margin-bottom:2px}
 
-  /* Health check tabs */
-  .hc-tab{padding:14px 14px}
+  /* ── Health check tabs ── */
+  .hc-tab{padding:13px 16px}
   .hct-name{font-size:.9375rem}
-  .hct-sub{font-size:.6875rem}
+  .hct-sub{font-size:.625rem}
 
-  /* Stat bar — scrollable */
+  /* ── Stat bar: scrollable horizontal ── */
   .hcp-stats{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .hcp-stats::-webkit-scrollbar{display:none}
-  .hcps-item{min-width:78px;padding:14px 8px}
+  .hcps-item{min-width:72px;padding:14px 8px}
   .hcps-val{font-size:1.25rem}
+  .hcps-lbl{font-size:.5rem;letter-spacing:.06em}
 
-  /* Category grid */
+  /* ── Health check features: even tighter ── */
+  .hcp-features{padding:10px 12px;gap:8px;margin-bottom:16px}
+  .hcpf-item{gap:8px}
+  .hcpf-check{width:16px;height:16px;margin-top:2px}
+  .hcpf-check svg{width:7px;height:7px}
+  .hcpf-title{font-size:.8125rem}
+  .hcpf-desc{font-size:.75rem;line-height:1.5}
+
+  /* ── Category grid ── */
+  .hcp-cat-grid{grid-template-columns:repeat(2,1fr)}
   .hcp-cat-cell{padding:10px 10px 8px}
   .hcp-cat-total{grid-column:span 2;padding:12px 14px}
-  .hcp-cat-total-val{font-size:clamp(1.25rem,5vw,1.5rem)}
+  .hcp-cat-total-val{font-size:clamp(1rem,5vw,1.25rem)}
 
-  /* Women's categories — 2-col tags */
+  /* ── Women's categories ── */
   .hcp-w-cats{grid-template-columns:1fr 1fr;gap:6px}
   .hcp-w-cat{padding:7px 10px;font-size:.75rem;border-radius:6px}
 
-  /* HCP actions */
+  /* ── HCP price & actions ── */
+  .hcp-price{font-size:2rem}
+  .hcp-price-note{font-size:.8125rem}
   .hcp-actions{flex-direction:column;gap:8px}
   .hcp-actions .btn{width:100%;justify-content:center}
   .hcp-desc{font-size:.9375rem}
-  .hcpf-title{font-size:.875rem}
-  .hcpf-desc{font-size:.8125rem}
 
-  /* About */
+  /* ── About ── */
   .about-text p{font-size:.9375rem}
   .about-img-wrap img{aspect-ratio:16/9}
+  .about-l{gap:20px}
 
-  /* Compare */
-  .compare-item{font-size:.8125rem;gap:10px;padding:10px 20px}
-  .compare-col-hd{padding:14px 20px}
+  /* ── Compare ── */
+  .compare-item{font-size:.8125rem;gap:8px;padding:10px 16px}
+  .compare-col-hd{padding:12px 16px}
 
-  /* Process — numbered list (no images) */
+  /* ── Process: numbered list, no images ── */
   .steps{
     grid-template-columns:1fr;gap:0;
     border-top:1px solid var(--line);
@@ -1895,17 +1974,15 @@ input,select,textarea{outline:none}
     counter-increment:step-counter;
     border-radius:0;border:none;
     border-bottom:1px solid var(--line);
-    box-shadow:none!important;
-    padding:20px 0;display:block;
-    transition:none;
+    box-shadow:none!important;padding:20px 0;
+    display:block;transition:none;
   }
   .step-card:hover{transform:none!important;box-shadow:none!important}
   .step-img{display:none}
   .step-body{padding:0}
   .step-title::before{
-    content:counter(step-counter, decimal-leading-zero);
-    display:block;
-    font-size:.625rem;font-weight:700;
+    content:counter(step-counter,decimal-leading-zero);
+    display:block;font-size:.625rem;font-weight:700;
     letter-spacing:.12em;color:var(--blue);
     font-family:var(--body);margin-bottom:6px;
   }
@@ -1914,74 +1991,71 @@ input,select,textarea{outline:none}
   .step-tags{gap:5px}
   .step-tag{font-size:.625rem;padding:3px 8px}
 
-  /* Preparation */
+  /* ── Preparation ── */
   .prep-grid{grid-template-columns:1fr}
-  .prep-cell{padding:22px 20px;gap:10px}
-  .prep-num{font-size:1.625rem}
+  .prep-cell{padding:20px 18px;gap:10px}
+  .prep-num{font-size:1.5rem}
   .prep-title{font-size:.9375rem}
-  .prep-body{font-size:.8125rem;line-height:1.68}
-  .prep-note{padding:14px 16px;gap:10px;font-size:.8125rem;line-height:1.65}
+  .prep-body{font-size:.8125rem;line-height:1.65}
+  .prep-note{padding:13px 15px;gap:10px;font-size:.8125rem;line-height:1.65}
   .prep-note-icon{width:15px;height:15px;flex-shrink:0;margin-top:1px}
 
-  /* Locations */
+  /* ── Locations ── */
   .locs-addr-grid,.locs-addr-grid--sm{grid-template-columns:1fr}
-  .loc-addr-card{padding:16px 18px}
-  .lac-name{font-size:.9375rem}
-  .lac-address{font-size:.8125rem}
+  .loc-addr-card{padding:14px 16px;gap:8px}
+  .lac-name{font-size:.875rem}
+  .lac-address{font-size:.8125rem;line-height:1.65}
   .loc-addr-card .lac-link{display:none}
-  .locs-all{flex-direction:column;gap:12px;align-items:stretch;padding:20px}
-  .locs-all-label{font-size:.75rem;font-weight:600}
-  .locs-cities{gap:6px}
-  .loc-pill{padding:5px 12px;font-size:.75rem}
+  .locs-all{padding:16px}
+  .locs-all-label{font-size:.625rem}
+  .locs-cities{gap:5px}
+  .loc-pill{padding:5px 10px;font-size:.6875rem}
   .locs-all .btn{width:100%;justify-content:center}
 
-  /* Accreditations */
+  /* ── Accreditations ── */
   .accred-badges{grid-template-columns:1fr 1fr;gap:8px;margin-top:20px}
-  .accred-badge{padding:14px 12px;gap:4px}
+  .accred-badge{padding:13px 12px;gap:4px}
   .accred-badge-name{font-size:.8125rem;margin-bottom:0}
   .accred-badge-desc{display:none}
-  .accred-stat-row{padding:14px 16px;gap:12px}
-  .accred-stat-val{font-size:1.5rem;min-width:3.25rem}
+  .accred-stat-row{padding:13px 16px;gap:10px}
+  .accred-stat-val{font-size:1.5rem;min-width:3rem}
   .accred-stat-txt{font-size:.8125rem;line-height:1.5}
 
-  /* Pricing */
-  .pc-head{padding:22px 20px 18px}
-  .pc-name{font-size:1.125rem}
+  /* ── Pricing ── */
+  .dual-pricing-grid{max-width:none;gap:12px}
+  .pc-head{padding:20px 18px 16px}
+  .pc-name{font-size:1.0625rem}
   .pc-desc{font-size:.8125rem}
-  .pc-price{font-size:2.75rem}
+  .pc-price{font-size:2.5rem}
   .pc-price-note{font-size:.75rem}
-  .pc-body{padding:16px 20px}
+  .pc-body{padding:14px 18px}
   .pc-row{font-size:.8125rem;padding-block:9px}
-  .pc-footer{padding:16px 20px}
-  .pc-note{font-size:.75rem}
+  .pc-footer{padding:14px 18px}
+  .pc-note{font-size:.6875rem}
 
-  /* Accred strip */
-  .ab-inner{padding-block:14px;gap:14px;flex-wrap:wrap}
-  .ab-items{gap:10px}
-  .ab-item{font-size:.75rem}
+  /* ── Accred strip ── */
+  .ab-inner{padding-block:12px;gap:8px}
+  .ab-items{gap:8px}
+  .ab-item{font-size:.6875rem}
 
-  /* FAQ */
+  /* ── FAQ ── */
   .faq-q{font-size:.875rem;gap:12px;padding:18px 0}
   .faq-a-inner{font-size:.875rem;line-height:1.68}
   .faq-q-icon{width:26px;height:26px}
 
-  /* CTA section */
-  .cta-section{padding-block:clamp(60px,12vw,88px)}
+  /* ── CTA section ── */
+  .cta-section{padding-block:clamp(56px,12vw,80px)}
   .cta-heading{font-size:clamp(1.875rem,9vw,2.5rem)}
-  .cta-body{font-size:.9375rem;margin-bottom:28px}
-  .cta-actions{flex-direction:column;width:100%;align-items:stretch;gap:8px}
-  .cta-actions .btn{width:100%;justify-content:center;padding:15px 22px}
-  .cta-sub{font-size:.75rem;gap:8px;flex-wrap:wrap}
-  .cta-sub-dot{display:none}
+  .cta-body{font-size:.9375rem;margin-bottom:24px}
 
-  /* Footer */
-  .footer-main{grid-template-columns:1fr;gap:28px}
+  /* ── Footer ── */
+  .footer-main{grid-template-columns:1fr;gap:24px}
   .f-desc{max-width:none}
   .f-col h4{margin-bottom:10px}
   .footer-bottom{flex-direction:column;align-items:flex-start;gap:10px}
   .footer-links{flex-wrap:wrap;gap:14px}
 
-  /* Mobile bar — show and style */
+  /* ── Mobile bar: show ── */
   .mob-bar{
     display:flex;
     padding:10px 16px calc(10px + env(safe-area-inset-bottom));
@@ -1992,15 +2066,11 @@ input,select,textarea{outline:none}
   }
   .mob-bar .btn-primary{
     background:var(--blue);border-color:var(--blue);
-    flex:1;justify-content:center;
-    padding:13px 16px;font-size:.875rem;
+    flex:1;justify-content:center;padding:13px 16px;font-size:.875rem;
   }
-  .mob-bar .btn-ghost{
-    padding:13px 16px;white-space:nowrap;
-    font-size:.875rem;
-  }
+  .mob-bar .btn-ghost{padding:13px 16px;white-space:nowrap;font-size:.875rem}
 
-  /* Forms */
+  /* ── Forms ── */
   .fld-row{grid-template-columns:1fr}
 
   html{scroll-padding-top:56px}
@@ -2008,19 +2078,29 @@ input,select,textarea{outline:none}
 
 /* ─── ≤360px — Small phone ───────────────────────────────── */
 @media(max-width:360px){
-  .site-nav{height:52px}
+  .site-nav,.site-nav.scrolled{height:52px}
   .nav-inner{height:52px}
   .nav-logo{font-size:.8125rem;padding:5px 0}
-  .hero-h1{font-size:clamp(1.875rem,12vw,2.5rem)}
+  .hero-h1{font-size:clamp(1.875rem,12vw,2.375rem)}
   .hero-cta-btn{padding:12px 14px}
-  .hero-proof{margin-top:24px}
+  .hero-proof{margin-top:20px}
+  .hero-proof-item{padding:12px 14px 12px 0}
+  .hero-proof-item:nth-child(even){padding-left:14px}
   .hero-proof-val{font-size:1.25rem}
-  .stat-cell{padding:18px 14px}
+  .stat-cell{padding:16px 12px}
+  .stat-val{font-size:clamp(1.625rem,8vw,2rem)}
   .hcp-cat-grid{grid-template-columns:1fr}
   .hcp-cat-total{grid-column:1/-1}
   .hcp-w-cats{grid-template-columns:1fr}
   .accred-badges{grid-template-columns:1fr}
-  .prep-cell{padding:18px 16px}
+  .prep-cell{padding:16px 14px}
+  .compare-item{padding:9px 14px}
+  .compare-col-hd{padding:11px 14px}
+  .pc-head{padding:16px 14px 12px}
+  .pc-body{padding:12px 14px}
+  .pc-footer{padding:12px 14px}
+  .locs-all{padding:14px}
+  .faq-q{padding:16px 0}
 }
 /* ── OUR TESTS ────────────────────────────────────────────── */
 #our-tests{
