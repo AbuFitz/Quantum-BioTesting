@@ -1647,26 +1647,42 @@ input,select,textarea{outline:none}
 /* ─── ≤768px — Portrait tablet + nav bar ─────────────────── */
 @media(max-width:768px){
 
-  /* ── NAV: full-width solid navy bar ── */
-  .site-nav{height:60px;background:var(--navy)}
-  .nav-inner{
+  /* ── NAV: solid navy bar — identical at top AND when scrolled ──
+     Specificity-matched selectors beat the base desktop rules.
+     Result: no white flash, no height jump, no dark burger.    */
+  .site-nav,.site-nav.scrolled{
+    height:60px;background:var(--navy);
+    transition:none; /* kill the floating-island height animation */
+  }
+  .nav-inner,.site-nav.scrolled .nav-inner{
     max-width:100%;margin:0;height:60px;padding-inline:20px;
-    border-radius:0;background:var(--navy);border:none;
-    border-bottom:1.5px solid rgba(255,255,255,.12);
+    border-radius:0;background:var(--navy)!important;border:none;
+    border-bottom:1px solid rgba(255,255,255,.1);
     box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;
+    transition:none;
   }
-  .nav-logo{background:transparent;border-color:transparent;padding:6px 0;font-size:1rem}
-  .site-nav.scrolled{background:transparent;height:60px}
-  .site-nav.scrolled .nav-inner{height:60px}
-  .site-nav.scrolled .nav-logo{padding:8px 18px}
-  .nav-burger{
+  /* Logo: plain text only, no pill badge at any scroll position */
+  .nav-logo,.site-nav.scrolled .nav-logo{
+    background:transparent!important;border-color:transparent!important;
+    color:rgba(255,255,255,.95)!important;box-shadow:none!important;
+    padding:0;font-size:1.0625rem;letter-spacing:-.025em;
+  }
+  /* Burger: white ghost icon, never switches to gray/dark */
+  .nav-burger,.site-nav.scrolled .nav-burger{
     width:44px;height:44px;border-radius:8px;
-    border:1.5px solid rgba(255,255,255,.3);
-    background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.2);
+    background:rgba(255,255,255,.07);
   }
-  .nav-burger span{background:#fff;width:20px;height:2px}
-  .site-nav.scrolled .nav-burger{border-color:var(--line2);background:var(--off)}
-  .site-nav.scrolled .nav-burger span{background:var(--navy)}
+  .nav-burger:hover,.site-nav.scrolled .nav-burger:hover{
+    background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.32);
+  }
+  .nav-burger span,.site-nav.scrolled .nav-burger span{
+    background:rgba(255,255,255,.9);width:18px;height:1.5px;
+  }
+  /* Drawer head: align height with 60px nav */
+  .drawer-head{height:60px}
+  /* Correct anchor scroll offset for 60px fixed nav */
+  html{scroll-padding-top:64px}
 
   /* ── Hero: doctor image as full-bleed backdrop ── */
   .hero-split{display:block;position:relative;min-height:auto}
@@ -1765,8 +1781,20 @@ input,select,textarea{outline:none}
     --gtr:20px;
   }
 
-  /* Hide Book button — mob-bar handles booking */
+  /* ── Nav: hide desktop book button, show mob-bar instead ── */
   .nav-book-btn{display:none!important}
+  /* Mob-bar: slide up once past hero on ALL phone sizes ≤640px.
+     Previously only at ≤480px — leaving 481–640px with no booking CTA. */
+  .mob-bar{
+    display:flex;
+    background:rgba(255,255,255,.97);
+    backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  }
+  .mob-bar .btn-primary{
+    background:var(--blue);border-color:var(--blue);
+    flex:1;justify-content:center;padding:13px 16px;font-size:.875rem;
+  }
+  .mob-bar .btn-ghost{padding:13px 16px;white-space:nowrap;font-size:.875rem}
 
   /* ── Section eyebrow: remove decorative line on mobile ── */
   .sec-eyebrow::before{display:none}
@@ -2024,12 +2052,12 @@ input,select,textarea{outline:none}
   .sec-h{font-size:clamp(1.625rem,8.5vw,2rem)}
   .sec-body{font-size:.9375rem;line-height:1.72}
 
-  /* ── Nav ── */
+  /* ── Nav: 52px at small phone — keep navy, kill logo pill ── */
   .site-nav,.site-nav.scrolled{height:52px}
   .nav-inner,.site-nav.scrolled .nav-inner{height:52px;padding-inline:16px}
-  .nav-logo{font-size:.875rem}
-  .nav-burger{width:40px;height:40px}
-  .site-nav.scrolled .nav-logo{padding:6px 14px}
+  .nav-logo,.site-nav.scrolled .nav-logo{font-size:.875rem;padding:0}
+  .nav-burger,.site-nav.scrolled .nav-burger{width:40px;height:40px}
+  .drawer-head{height:52px}
 
   /* ── Hero ── */
   .hero-h1{font-size:clamp(1.9rem,9.5vw,2.5rem);letter-spacing:-.045em}
@@ -2192,20 +2220,8 @@ input,select,textarea{outline:none}
   .f-col h4{margin-bottom:10px}
   .f-col a,.f-col span,.f-col p{padding-block:3.5px}
 
-  /* ── Mobile bar: show ── */
-  .mob-bar{
-    display:flex;
-    padding:10px 16px calc(10px + env(safe-area-inset-bottom));
-    gap:8px;background:rgba(255,255,255,.97);
-    backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-    border-top:1px solid var(--line);
-    box-shadow:0 -4px 32px rgba(11,31,58,.1);
-  }
-  .mob-bar .btn-primary{
-    background:var(--blue);border-color:var(--blue);
-    flex:1;justify-content:center;padding:13px 16px;font-size:.875rem;
-  }
-  .mob-bar .btn-ghost{padding:13px 16px;white-space:nowrap;font-size:.875rem}
+  /* ── Mobile bar: tighter padding at ≤480px (display already set at ≤640px) ── */
+  .mob-bar{padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
 
   /* ── Forms ── */
   .fld-row{grid-template-columns:1fr}
@@ -2216,8 +2232,8 @@ input,select,textarea{outline:none}
 /* ─── ≤360px — Tiny phone ────────────────────────────────── */
 @media(max-width:360px){
   .site-nav,.site-nav.scrolled{height:52px}
-  .nav-inner{height:52px}
-  .nav-logo{font-size:.8125rem;padding:5px 0}
+  .nav-inner,.site-nav.scrolled .nav-inner{height:52px}
+  .nav-logo,.site-nav.scrolled .nav-logo{font-size:.8125rem;padding:0}
   .hero-h1{font-size:clamp(1.75rem,11vw,2.125rem)}
   .hero-cta-btn{padding:11px 14px}
   .hero-cta-text{font-size:.8125rem}
