@@ -1561,9 +1561,11 @@ input,select,textarea{outline:none}
 .fade-up.visible{opacity:1;transform:none}
 
 /* ══════════════════════════════════════════════════════════════
-   RESPONSIVE — mobile redesign v3
+   RESPONSIVE — mobile redesign v4
+   Deep section-by-section overhaul. Every section deliberately
+   designed for mobile — not just scaled-down desktop.
    ≤1100  wide-tablet  ·  ≤900  tablet/nav  ·  ≤768  portrait
-   ≤640   small-tablet  ·  ≤480  mobile  ·  ≤360  small-phone
+   ≤640   phone  ·  ≤480  small-phone  ·  ≤360  tiny-phone
 ══════════════════════════════════════════════════════════════ */
 
 /* ─── ≤1100px — Wide tablet ──────────────────────────────── */
@@ -1589,14 +1591,14 @@ input,select,textarea{outline:none}
   /* Hero */
   .hero-card{display:none}
 
-  /* Stats strip — 2×2 grid */
+  /* Stats strip — 2×2 */
   .stats-inner{grid-template-columns:repeat(2,1fr)}
   .stat-cell{border-right:none;border-bottom:1px solid var(--line)}
   .stat-cell:nth-child(odd){border-right:1px solid var(--line)}
   .stat-cell:last-child{border-bottom:none}
   .stat-cell:nth-child(3){border-bottom:none}
 
-  /* Health checks — stack pane layout, tabs stay 1-col */
+  /* Health checks */
   .hc-tabs{grid-template-columns:1fr}
   .hcp-layout{grid-template-columns:1fr}
   .hcp-cat-grid{grid-template-columns:repeat(2,1fr)}
@@ -1605,12 +1607,18 @@ input,select,textarea{outline:none}
   /* About */
   .about-wrap{grid-template-columns:1fr}
 
-  /* Compare — stack columns, add gap */
-  .compare-grid{grid-template-columns:1fr;gap:10px}
+  /* Compare — unified bordered container, no gap between stacked cols */
+  .compare-grid{
+    grid-template-columns:1fr;gap:0;
+    border:1px solid var(--line);
+    border-radius:var(--rxl);overflow:hidden;
+  }
+  .compare-col{border-radius:0;border:none;border-bottom:1px solid var(--line)}
+  .qbt-col{border-bottom:none}
 
   /* Process */
   .process-head{grid-template-columns:1fr}
-  .steps{grid-template-columns:repeat(2,1fr);gap:20px}
+  .steps{grid-template-columns:repeat(2,1fr);gap:16px}
 
   /* Preparation */
   .prep-head{grid-template-columns:1fr;gap:24px}
@@ -1636,15 +1644,15 @@ input,select,textarea{outline:none}
   .footer-main{grid-template-columns:1fr 1fr}
 }
 
-/* ─── ≤768px — Portrait: solid nav bar, hero stacks ──────── */
+/* ─── ≤768px — Portrait tablet + nav bar ─────────────────── */
 @media(max-width:768px){
 
   /* ── NAV: full-width solid navy bar ── */
   .site-nav{height:60px;background:var(--navy)}
   .nav-inner{
-    max-width:100%;margin:0;height:60px;padding-inline:16px;
+    max-width:100%;margin:0;height:60px;padding-inline:20px;
     border-radius:0;background:var(--navy);border:none;
-    border-bottom:1.5px solid rgba(255,255,255,.14);
+    border-bottom:1.5px solid rgba(255,255,255,.12);
     box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;
   }
   .nav-logo{background:transparent;border-color:transparent;padding:6px 0;font-size:1rem}
@@ -1653,8 +1661,8 @@ input,select,textarea{outline:none}
   .site-nav.scrolled .nav-logo{padding:8px 18px}
   .nav-burger{
     width:44px;height:44px;border-radius:8px;
-    border:1.5px solid rgba(255,255,255,.35);
-    background:rgba(255,255,255,.12);
+    border:1.5px solid rgba(255,255,255,.3);
+    background:rgba(255,255,255,.1);
   }
   .nav-burger span{background:#fff;width:20px;height:2px}
   .site-nav.scrolled .nav-burger{border-color:var(--line2);background:var(--off)}
@@ -1663,308 +1671,431 @@ input,select,textarea{outline:none}
   /* ── Hero: doctor image as full-bleed backdrop ── */
   .hero-split{display:block;position:relative;min-height:auto}
   .hero-split::before{display:none}
-  .hero-split-r{position:absolute;inset:0;display:block;z-index:0;overflow:hidden}
+  .hero-split-r{position:absolute;inset:0;z-index:0;overflow:hidden}
   .hero-split-r img{
-    width:100%;height:100%;object-fit:cover;object-position:68% top;
-    opacity:.16;filter:grayscale(20%) contrast(1.1);
+    width:100%;height:100%;object-fit:cover;object-position:70% top;
+    opacity:.14;filter:grayscale(20%) contrast(1.1);
   }
   .hero-split-r-grad{
     position:absolute;inset:0;
     background:
-      linear-gradient(to bottom,var(--navy) 0%,rgba(11,31,58,.55) 40%,var(--navy) 100%),
-      linear-gradient(to right,var(--navy) 0%,rgba(11,31,58,.3) 50%,transparent 80%);
+      linear-gradient(to bottom,var(--navy) 0%,rgba(11,31,58,.4) 45%,var(--navy) 100%),
+      linear-gradient(to right,var(--navy) 0%,rgba(11,31,58,.15) 60%,transparent 100%);
   }
   .hero-split-l{
     background:transparent;position:relative;z-index:1;
     max-width:none;width:100%;
     display:flex;flex-direction:column;align-items:flex-start;
-    padding-top:96px;padding-bottom:clamp(60px,11vw,88px);
-    padding-left:var(--gtr);padding-right:var(--gtr);
+    padding-top:100px;padding-bottom:clamp(56px,10vw,80px);
+    padding-inline:var(--gtr);
   }
-  .hero-content{width:100%;max-width:560px}
-  .hero-h1{font-size:clamp(2.6rem,7vw,3.8rem)}
-  .hero-desc{font-size:clamp(.9375rem,2vw,1rem);max-width:48ch}
-  .hero-cta-group{margin-bottom:40px}
+  .hero-content{width:100%;max-width:600px}
+  .hero-h1{font-size:clamp(2.5rem,6vw,3.75rem)}
+  .hero-desc{font-size:1rem;max-width:52ch;margin-bottom:32px}
+  .hero-cta-group{margin-bottom:36px}
 
-  /* Proof stats: 2×2 grid */
+  /* Proof stats: 2×2 — no max-width constraint */
   .hero-proof{
     display:grid;grid-template-columns:1fr 1fr;gap:0;
-    margin-top:40px;border-top:1px solid rgba(255,255,255,.08);
-    padding-top:0;max-width:400px;
+    margin-top:36px;padding-top:0;
+    border-top:1px solid rgba(255,255,255,.1);
+    max-width:none;
   }
   .hero-proof-item{
-    padding:18px 20px 18px 0;gap:4px;
+    padding:18px 20px 18px 0;gap:5px;
     border-right:1px solid rgba(255,255,255,.08);
     border-bottom:1px solid rgba(255,255,255,.08);
   }
   .hero-proof-item:nth-child(even){border-right:none;padding-left:20px;padding-right:0}
   .hero-proof-item:nth-child(3),.hero-proof-item:nth-child(4){border-bottom:none}
-  .hero-proof-val{font-size:1.5rem}
+  .hero-proof-val{font-size:1.625rem;letter-spacing:-.04em}
   .hero-proof-lbl{font-size:.6875rem}
 
-  /* ── Section head spacing ── */
-  .hc-head{margin-bottom:36px}
-  .hc-tabs{margin-bottom:36px}
-  .hcp-stats{margin-bottom:28px}
+  /* ── Global section head scale ── */
+  .sec-h{font-size:clamp(1.875rem,5vw,3rem)}
 
-  /* ── Health checks: tighten features list ── */
-  .hcp-features{padding:14px 16px;gap:12px}
-  .hcpf-item{gap:10px}
+  /* ── Health checks ── */
+  .hc-head{margin-bottom:32px}
+  .hc-tabs{margin-bottom:32px;gap:8px;padding:7px;border-radius:var(--rlg)}
+  .hc-tab{padding:16px 20px;border-radius:12px}
+  .hcp-stats{margin-bottom:32px}
+  .hcp-features{padding:14px 16px;gap:12px;border-radius:var(--rmd)}
   .hcpf-desc{font-size:.8125rem}
 
-  /* ── Compare: tighten stacked columns ── */
-  .compare-col{border-radius:var(--rlg)}
+  /* ── Compare: tighten stacked unified container ── */
+  .compare-head{margin-bottom:36px}
   .compare-col-hd{padding:14px 22px}
-  .compare-item{padding:11px 22px}
+  .compare-item{padding:12px 22px}
 
-  /* ── Preparation: tighter cells on portrait ── */
-  .prep-cell{padding:28px 24px;gap:12px}
-  .prep-num{font-size:2rem}
-  .prep-body{font-size:.875rem}
+  /* ── Preparation: bigger decorative numbers ── */
+  .prep-cell{padding:32px 28px;gap:14px}
+  .prep-num{font-size:2.75rem;letter-spacing:-.05em}
+  .prep-title{font-size:1.0625rem}
+  .prep-body{font-size:.9375rem}
 
   /* ── Locations ── */
   .locs-city-group{margin-bottom:28px}
 
-  /* ── Accreditations: tighter badges + stat rows ── */
-  .accred-badge{padding:18px 16px}
-  .accred-stat-row{padding:16px 20px}
+  /* ── Accreditations: impactful numbers ── */
+  .accred-badge{padding:20px 18px}
+  .accred-stat-val{font-size:2.5rem;letter-spacing:-.05em}
+  .accred-stat-row{padding:20px 24px;gap:16px}
 
-  /* ── Pricing card: tighter head & body ── */
-  .pc-head{padding:26px 26px 22px}
-  .pc-body{padding:18px 26px}
-  .pc-footer{padding:18px 26px}
-  .pc-price{font-size:2.75rem}
-  .dual-pricing-grid{gap:16px;max-width:none}
-  .pricing-header{margin-bottom:36px}
+  /* ── Pricing: large, prominent price ── */
+  .pc-head{padding:28px 28px 24px}
+  .pc-body{padding:18px 28px}
+  .pc-footer{padding:18px 28px}
+  .pc-price{font-size:3.25rem;letter-spacing:-.05em}
+  .dual-pricing-grid{gap:16px}
+  .pricing-header{margin-bottom:40px}
 
   /* ── FAQ ── */
-  .faq-q{font-size:.9375rem}
+  .faq-q{font-size:.9375rem;padding:20px 0}
+  .faq-a-inner{font-size:.9375rem}
+  .faq-sticky{margin-bottom:32px}
 }
 
-/* ─── ≤640px — Phone: comprehensive section redesign ────────── */
+/* ─── ≤640px — Phone: full section redesign ─────────────────
+   Every section reviewed and deliberately designed for a
+   phone viewport. No 21:9 images. Bigger stats. Cleaner cards.
+─────────────────────────────────────────────────────────────── */
 @media(max-width:640px){
-  :root{--sec:clamp(60px,11vw,80px)}
+  :root{
+    --sec:clamp(56px,11vw,80px);
+    --gtr:20px;
+  }
 
-  /* Nav: hide Book button — mob-bar handles it */
+  /* Hide Book button — mob-bar handles booking */
   .nav-book-btn{display:none!important}
 
+  /* ── Section eyebrow: remove decorative line on mobile ── */
+  .sec-eyebrow::before{display:none}
+  .sec-eyebrow{letter-spacing:.14em;margin-bottom:10px}
+
+  /* ── Section heading scale ── */
+  .sec-h{font-size:clamp(1.75rem,7.5vw,2.375rem)}
+
   /* ── Hero ── */
-  .hero-h1{font-size:clamp(2.3rem,8.5vw,3.2rem)}
-  .hero-split-l{padding-top:84px}
+  .hero-split-l{padding-top:82px;padding-bottom:52px}
+  .hero-h1{font-size:clamp(2.125rem,8vw,3rem);letter-spacing:-.04em;line-height:1.06}
+  .hero-desc{font-size:.9375rem;line-height:1.72;margin-bottom:26px}
+  .hero-cta-group{gap:8px;margin-bottom:26px;flex-direction:column}
+  .hero-cta-btn{width:100%;padding:15px 18px;border-radius:12px;border-color:rgba(255,255,255,.16);background:rgba(255,255,255,.06)}
+  .hero-cta-text{font-size:.9375rem}
+  .hero-cta-price{font-size:.9375rem;color:rgba(255,255,255,.38)}
+  .hero-proof{max-width:none;margin-top:28px}
+  .hero-proof-item{padding:14px 18px 14px 0;gap:4px}
+  .hero-proof-item:nth-child(even){padding-left:18px;padding-right:0}
+  .hero-proof-val{font-size:1.5rem;letter-spacing:-.04em}
+  .hero-proof-lbl{font-size:.625rem}
 
   /* ── Stats strip ── */
-  .stat-cell{padding:26px 18px}
+  .stat-cell{padding:24px 20px}
+  .stat-val{font-size:clamp(2rem,7vw,2.5rem)}
+  .stat-lbl{font-size:.8125rem;line-height:1.4}
+  .stat-divider{width:24px;margin-bottom:2px}
 
-  /* ── Global section head margins ── */
-  .hc-head{margin-bottom:28px}
-  .hc-tabs{margin-bottom:24px;gap:6px;padding:6px}
+  /* ── Health check section heading ── */
+  .hc-head{margin-bottom:22px;text-align:center}
+  .hc-tabs{margin-bottom:18px;gap:6px;padding:6px;border-radius:var(--rmd)}
+  .hc-tab{padding:13px 18px;border-radius:10px;gap:3px}
+  .hct-pill{font-size:.5rem;padding:2px 8px;margin-bottom:1px}
+  .hct-name{font-size:1rem;line-height:1.2}
+  .hct-sub{font-size:.625rem;color:var(--ink4)}
+
+  /* ── Health check stat bar ── */
   .hcp-stats{margin-bottom:22px}
-  .compare-head{margin-bottom:32px}
-  .process-head{margin-bottom:36px}
-  .locs-head{margin-bottom:32px}
-  .pricing-header{margin-bottom:28px}
-  .accred-grid{gap:32px}
-
-  /* ── Health check tabs — compact for phone ── */
-  .hc-tab{padding:14px 18px}
-  .hct-name{font-size:1.0625rem}
-  .hct-sub{font-size:.6875rem}
-
-  /* ── Health check stat bar — smaller numbers ── */
   .hcps-item{padding:16px 10px}
-  .hcps-val{font-size:1.75rem}
-  .hcps-lbl{font-size:.5625rem;letter-spacing:.07em}
+  .hcps-val{font-size:1.875rem;letter-spacing:-.04em}
+  .hcps-lbl{font-size:.5625rem;letter-spacing:.06em}
 
-  /* ── Health check features list — compact ── */
-  .hcp-features{padding:12px 14px;gap:10px;margin-bottom:20px;border-radius:var(--rmd)}
+  /* ── Health check content ── */
+  .hcp-title{font-size:clamp(1.125rem,4vw,1.5rem);margin-bottom:10px;line-height:1.2}
+  .hcp-desc{font-size:.9375rem;margin-bottom:20px;line-height:1.72}
+
+  /* ── Health check features list ── */
+  .hcp-features{padding:12px 14px;gap:10px;margin-bottom:18px;border-radius:var(--rmd)}
   .hcpf-item{gap:10px}
-  .hcpf-check{width:18px;height:18px}
+  .hcpf-check{width:18px;height:18px;flex-shrink:0}
   .hcpf-check svg{width:8px;height:8px}
-  .hcpf-title{font-size:.8125rem}
+  .hcpf-title{font-size:.8125rem;font-weight:600}
   .hcpf-desc{font-size:.75rem;line-height:1.5}
 
-  /* ── Men's category grid — tighter cells ── */
-  .hcp-cat-cell{padding:11px 11px 9px}
-  .hcp-cat-num{font-size:.5rem;letter-spacing:.08em}
-  .hcp-cat-name{font-size:.75rem}
+  /* ── Men's category grid ── */
+  .hcp-cat-heading{font-size:.5625rem;letter-spacing:.1em;margin-bottom:10px}
+  .hcp-cat-grid{grid-template-columns:repeat(2,1fr);gap:6px}
+  .hcp-cat-cell{padding:12px 12px 10px;border-radius:var(--rmd)}
+  .hcp-cat-num{font-size:.5rem;letter-spacing:.08em;margin-bottom:4px}
+  .hcp-cat-name{font-size:.8125rem;line-height:1.25;margin-bottom:3px}
   .hcp-cat-count{font-size:.625rem}
-  .hcp-cat-total{padding:13px 16px}
-  .hcp-cat-total-val{font-size:1.125rem}
+  .hcp-cat-total{grid-column:1/-1;padding:14px 16px}
+  .hcp-cat-total-val{font-size:1.25rem;letter-spacing:-.03em}
   .hcp-cat-total-lbl{font-size:.6875rem}
 
+  /* ── Women's categories ── */
+  .hcp-w-cats{grid-template-columns:1fr 1fr;gap:0;border-radius:var(--rmd)}
+  .hcp-w-cat{padding:9px 12px;font-size:.8125rem}
+
   /* ── HCP price & actions ── */
-  .hcp-price{font-size:2.25rem}
-  .hcp-price-row{margin-bottom:14px}
+  .hcp-price{font-size:2.5rem;letter-spacing:-.05em}
+  .hcp-price-note{font-size:.875rem}
+  .hcp-price-row{margin-bottom:16px}
   .hcp-actions{flex-direction:column;gap:8px}
   .hcp-actions .btn{width:100%;justify-content:center}
-  .hcp-desc{font-size:.9375rem}
+  .hcp-disclaimer{font-size:.6875rem}
 
   /* ── About ── */
-  .about-img-wrap img{aspect-ratio:16/9}
-  .about-l{gap:22px}
-  .about-text p{font-size:.9375rem}
+  .about-l{gap:20px}
+  .about-text p{font-size:.9375rem;line-height:1.75}
+  .about-img-wrap img{aspect-ratio:4/3}
+  .about-img-wrap{border-radius:var(--rlg)}
+  .about-img-caption{font-size:.75rem;padding:14px 16px}
 
-  /* ── Compare: full-phone stacked columns ── */
-  .compare-col{border-radius:var(--rmd)}
-  .compare-col-hd{padding:13px 18px}
-  .compare-item{font-size:.875rem;padding:11px 18px}
-  .ci-x,.ci-check{width:16px;height:16px;font-size:.5625rem}
+  /* ── Compare: already unified container from ≤900px ── */
+  .compare-head{margin-bottom:28px}
+  .compare-grid{border-radius:var(--rlg)}
+  .compare-col-hd{padding:13px 20px}
+  .compare-badge{font-size:.8125rem}
+  .compare-item{font-size:.875rem;padding:11px 20px;gap:10px}
+  .ci-x,.ci-check{width:18px;height:18px;font-size:.5625rem;flex-shrink:0;margin-top:1px}
 
-  /* ── Process: single column with wide banner image ── */
-  .steps{grid-template-columns:1fr;gap:12px}
-  .step-img{aspect-ratio:21/9}
-  .step-body{padding:18px 20px 22px}
-  .step-title{font-size:.9375rem}
-  .step-desc{font-size:.875rem}
+  /* ── Process: NUMBERED CARD LAYOUT — no images ── */
+  .process-head{margin-bottom:28px}
+  .steps{
+    grid-template-columns:1fr;gap:8px;
+    counter-reset:step-counter;
+  }
+  .step-card{
+    counter-increment:step-counter;
+    display:grid;
+    grid-template-columns:52px 1fr;
+    gap:0;
+    border:1px solid var(--line);
+    border-radius:var(--rmd);
+    overflow:hidden;
+    box-shadow:none;
+    padding:0;
+    transition:box-shadow .2s;
+  }
+  .step-card:hover{
+    transform:none;
+    box-shadow:0 6px 24px rgba(10,22,40,.08)!important;
+  }
+  .step-card::before{
+    content:counter(step-counter,decimal-leading-zero);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--display);font-size:1.375rem;
+    font-weight:400;color:var(--n30);letter-spacing:-.03em;line-height:1;
+    background:var(--n02);
+    border-right:1px solid var(--line);
+  }
+  .step-img{display:none!important}
+  .step-num{display:none!important}
+  .step-body{
+    padding:16px 18px 18px;
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  .step-title{font-size:.9375rem;font-weight:600;margin-bottom:6px;color:var(--navy)}
+  .step-desc{font-size:.8125rem;color:var(--ink2);line-height:1.65;margin-bottom:10px}
+  .step-tags{gap:5px;flex-wrap:wrap}
+  .step-tag{font-size:.5625rem;padding:3px 8px}
 
-  /* ── Preparation: single column, compact cells ── */
-  .prep-grid{grid-template-columns:1fr}
-  .prep-head{margin-bottom:32px}
-  .prep-cell{padding:22px 18px;gap:10px}
-  .prep-num{font-size:1.625rem}
-  .prep-title{font-size:1rem}
-  .prep-body{font-size:.875rem;line-height:1.68}
-  .prep-note{padding:14px 16px;gap:10px;font-size:.875rem;line-height:1.65}
-  .prep-note-icon{width:15px;height:15px;margin-top:1px}
+  /* ── Preparation: prominent decorative numbers ── */
+  .prep-head{margin-bottom:28px}
+  .prep-grid{grid-template-columns:1fr;gap:2px}
+  .prep-cell{
+    padding:26px 22px;gap:12px;
+    border-radius:0;
+  }
+  .prep-cell:first-child{border-radius:var(--rlg) var(--rlg) 0 0}
+  .prep-cell:last-child{border-radius:0 0 var(--rlg) var(--rlg)}
+  .prep-num{font-size:2.5rem;letter-spacing:-.06em;line-height:1}
+  .prep-title{font-size:1.0625rem;font-weight:600}
+  .prep-body{font-size:.9375rem;line-height:1.72;color:rgba(255,255,255,.42)}
+  .prep-note{
+    padding:16px 18px;gap:12px;
+    font-size:.9375rem;line-height:1.65;
+    border-radius:var(--rlg);margin-top:20px;
+  }
+  .prep-note-icon{width:16px;height:16px;margin-top:2px;flex-shrink:0}
 
-  /* ── Locations: single column cards ── */
+  /* ── Locations ── */
+  .locs-head{margin-bottom:28px}
   .locs-addr-grid,.locs-addr-grid--sm{grid-template-columns:1fr}
-  .loc-addr-card{padding:15px 18px;gap:8px}
-  .lac-name{font-size:.875rem}
-  .lac-address{font-size:.8125rem;line-height:1.65}
   .locs-city-group{margin-bottom:22px}
-  .locs-all{flex-direction:column;gap:10px;align-items:stretch;padding:18px}
-  .locs-all-label{font-size:.6875rem}
+  .locs-city-label{font-size:.6875rem;margin-bottom:12px}
+  .loc-addr-card{padding:16px 18px;gap:10px;border-radius:var(--rmd)}
+  .lac-name{font-size:.9375rem;font-weight:700}
+  .lac-address{font-size:.875rem;line-height:1.65}
+  .lac-link{font-size:.75rem}
+  .locs-all{
+    flex-direction:column;gap:12px;align-items:stretch;
+    padding:18px;border-radius:var(--rlg);margin-top:24px;
+  }
+  .locs-all-label{font-size:.625rem}
+  .locs-cities{gap:6px}
+  .loc-pill{padding:5px 12px;font-size:.75rem}
   .locs-all .btn{width:100%;justify-content:center}
-  .loc-pill{padding:6px 12px;font-size:.75rem}
 
-  /* ── Accreditations: tighter on phone ── */
-  .accred-badge{padding:16px 14px;gap:4px}
-  .accred-badge-name{font-size:.875rem}
-  .accred-stat-row{padding:15px 18px;gap:12px}
-  .accred-stat-val{font-size:1.625rem;min-width:3.5rem}
-  .accred-stat-txt{font-size:.8125rem}
+  /* ── Accreditations: keep badge descriptions, big stat numbers ── */
+  .accred-grid{gap:28px}
+  .accred-badges{grid-template-columns:1fr 1fr;gap:10px;margin-top:28px}
+  .accred-badge{padding:16px 14px;gap:6px;border-radius:var(--rmd)}
+  .accred-badge-name{font-size:.875rem;margin-bottom:2px}
+  .accred-badge-desc{
+    font-size:.6875rem;line-height:1.5;
+    color:rgba(255,255,255,.28);
+  }
+  .accred-stat-row{padding:16px 20px;gap:14px;border-radius:var(--rmd)}
+  .accred-stat-val{font-size:2.25rem;letter-spacing:-.05em;min-width:3.5rem}
+  .accred-stat-txt{font-size:.875rem;line-height:1.5}
 
-  /* ── Pricing cards: full width, compact head ── */
-  .dual-pricing-grid{max-width:none;gap:14px}
-  .pc-head{padding:22px 20px 18px}
-  .pc-name{font-size:1.125rem}
-  .pc-desc{font-size:.8125rem}
-  .pc-price{font-size:2.5rem}
+  /* ── Pricing: £995 must be big and prominent ── */
+  .pricing-header{margin-bottom:28px;text-align:center}
+  .dual-pricing-grid{max-width:none;gap:12px}
+  .pc-head{padding:22px 20px 20px}
+  .pc-eyebrow{font-size:.5625rem;letter-spacing:.12em;margin-bottom:8px}
+  .pc-name{font-size:1.125rem;letter-spacing:-.015em;margin-bottom:4px}
+  .pc-desc{font-size:.8125rem;line-height:1.55}
+  .pc-price{font-size:3rem;letter-spacing:-.055em}
   .pc-price-note{font-size:.8125rem}
-  .pc-body{padding:14px 20px}
-  .pc-row{font-size:.8125rem;padding-block:9px}
-  .pc-footer{padding:14px 20px}
-  .pc-note{font-size:.6875rem}
+  .pc-price-row{padding-top:16px;margin-top:16px;gap:8px}
+  .pc-body{padding:12px 20px}
+  .pc-row{font-size:.8125rem;padding-block:10px}
+  .pc-row-lbl{font-size:.8125rem}
+  .pc-row-val{font-size:.75rem}
+  .pc-footer{padding:14px 20px;gap:10px}
+  .pc-footer .btn{padding:13px 20px;font-size:.875rem}
+  .pc-note{font-size:.6875rem;gap:5px}
 
-  /* ── Accred strip: stack on phone ── */
+  /* ── Accred strip ── */
   .ab-inner{flex-direction:column;align-items:flex-start;gap:8px;padding-block:14px}
   .ab-sep{display:none}
-  .ab-items{gap:8px;flex-wrap:wrap}
+  .ab-label{font-size:.5625rem}
+  .ab-items{gap:6px;flex-wrap:wrap}
   .ab-item{font-size:.75rem}
 
   /* ── FAQ ── */
+  .faq-sticky{margin-bottom:28px}
+  .faq-sticky .btn{width:100%;justify-content:center;margin-top:20px}
   .faq-q{font-size:.875rem;gap:12px;padding:18px 0}
-  .faq-a-inner{font-size:.875rem;line-height:1.68}
-  .faq-q-icon{width:26px;height:26px}
+  .faq-a-inner{font-size:.9375rem;line-height:1.72}
+  .faq-q-icon{width:28px;height:28px;flex-shrink:0}
 
   /* ── CTA section ── */
-  .cta-section{padding-block:clamp(64px,12vw,90px)}
+  .cta-section{padding-block:clamp(60px,12vw,88px)}
+  .cta-heading{font-size:clamp(1.875rem,8vw,2.5rem)}
+  .cta-body{font-size:.9375rem;margin-bottom:28px;max-width:none}
   .cta-actions{flex-direction:column;width:100%;align-items:stretch;gap:8px}
   .cta-actions .btn{width:100%;justify-content:center;padding:15px 22px}
-  .cta-sub{font-size:.75rem;gap:8px;flex-wrap:wrap}
+  .cta-sub{font-size:.75rem;gap:8px;flex-wrap:wrap;justify-content:center}
   .cta-sub-dot{display:none}
 
-  /* ── Footer: single column ── */
-  .footer-main{grid-template-columns:1fr;gap:24px}
-  .f-desc{max-width:none}
-  .f-col h4{margin-bottom:10px}
+  /* ── Footer: brand spans full width, link cols in 2-col ── */
+  .footer-main{
+    grid-template-columns:1fr 1fr;
+    gap:0 16px;
+    padding-block:clamp(40px,8vw,56px);
+  }
+  .f-brand{
+    grid-column:1 / -1;
+    padding-bottom:24px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+    margin-bottom:0;
+    gap:12px;
+  }
+  .f-wordmark{font-size:1.25rem}
+  .f-desc{max-width:none;font-size:.875rem}
+  .f-col{padding-top:22px}
+  .f-col h4{margin-bottom:12px}
+  .f-col a,.f-col span,.f-col p{font-size:.875rem;padding-block:4px}
   .footer-bottom{flex-direction:column;align-items:flex-start;gap:10px}
   .footer-links{flex-wrap:wrap;gap:14px}
 }
 
-/* ─── ≤480px — Mobile: small-phone fine-tuning ───────────── */
+/* ─── ≤480px — Small phone: fine-tuning ─────────────────────
+   Process steps switch from grid cards to flat numbered list.
+   Typography tightens. Accred desc hides. Mob-bar appears.
+─────────────────────────────────────────────────────────────── */
 @media(max-width:480px){
-  :root{--sec:clamp(48px,9vw,72px)}
+  :root{--sec:clamp(48px,10vw,64px)}
 
   /* ── Typography ── */
-  .sec-h{font-size:clamp(1.625rem,8vw,2.125rem)}
+  .sec-h{font-size:clamp(1.625rem,8.5vw,2rem)}
   .sec-body{font-size:.9375rem;line-height:1.72}
 
   /* ── Nav ── */
   .site-nav,.site-nav.scrolled{height:52px}
-  .nav-inner,.site-nav.scrolled .nav-inner{height:52px;padding-inline:14px}
+  .nav-inner,.site-nav.scrolled .nav-inner{height:52px;padding-inline:16px}
   .nav-logo{font-size:.875rem}
   .nav-burger{width:40px;height:40px}
   .site-nav.scrolled .nav-logo{padding:6px 14px}
 
   /* ── Hero ── */
-  .hero-h1{font-size:clamp(2rem,10vw,2.75rem);letter-spacing:-.045em}
-  .hero-split-l{padding-top:72px;padding-bottom:clamp(44px,10vw,64px)}
-  .hero-cta-group{margin-bottom:22px}
-  .hero-cta-btn{
-    width:100%;padding:14px 16px;border-radius:12px;
-    border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.06);
-  }
-  .hero-proof{max-width:none;margin-top:26px}
-  .hero-proof-item{padding:14px 16px 14px 0}
-  .hero-proof-item:nth-child(even){padding-left:16px;padding-right:0}
-  .hero-proof-val{font-size:1.375rem}
-  .hero-proof-lbl{font-size:.625rem}
+  .hero-h1{font-size:clamp(1.9rem,9.5vw,2.5rem);letter-spacing:-.045em}
+  .hero-split-l{padding-top:70px;padding-bottom:44px}
+  .hero-cta-group{margin-bottom:20px}
+  .hero-cta-btn{padding:13px 16px;border-radius:10px}
+  .hero-cta-text{font-size:.875rem}
+  .hero-cta-price{font-size:.875rem}
+  .hero-proof{margin-top:24px}
+  .hero-proof-item{padding:13px 14px 13px 0}
+  .hero-proof-item:nth-child(even){padding-left:14px;padding-right:0}
+  .hero-proof-val{font-size:1.25rem;letter-spacing:-.03em}
+  .hero-proof-lbl{font-size:.5625rem}
 
   /* ── Stats strip ── */
   .stat-cell{padding:20px 16px}
-  .stat-val{font-size:clamp(1.875rem,7.5vw,2.5rem)}
+  .stat-val{font-size:clamp(1.875rem,7.5vw,2.375rem)}
   .stat-lbl{font-size:.75rem}
-  .stat-divider{width:22px;margin-bottom:2px}
+  .stat-divider{width:20px;margin-bottom:2px}
 
   /* ── Health check tabs ── */
-  .hc-tab{padding:13px 16px}
+  .hc-tab{padding:12px 14px}
   .hct-name{font-size:.9375rem}
-  .hct-sub{font-size:.625rem}
+  .hct-sub{font-size:.5625rem}
 
-  /* ── Stat bar: scrollable horizontal ── */
+  /* ── Stat bar: scrollable ── */
   .hcp-stats{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .hcp-stats::-webkit-scrollbar{display:none}
-  .hcps-item{min-width:72px;padding:14px 8px}
-  .hcps-val{font-size:1.25rem}
-  .hcps-lbl{font-size:.5rem;letter-spacing:.06em}
+  .hcps-item{min-width:68px;padding:13px 6px}
+  .hcps-val{font-size:1.25rem;letter-spacing:-.04em}
+  .hcps-lbl{font-size:.4375rem;letter-spacing:.05em}
 
-  /* ── Health check features: even tighter ── */
-  .hcp-features{padding:10px 12px;gap:8px;margin-bottom:16px}
-  .hcpf-item{gap:8px}
+  /* ── Health check features ── */
+  .hcp-features{padding:10px 12px;gap:8px;margin-bottom:14px}
   .hcpf-check{width:16px;height:16px;margin-top:2px}
   .hcpf-check svg{width:7px;height:7px}
   .hcpf-title{font-size:.8125rem}
   .hcpf-desc{font-size:.75rem;line-height:1.5}
 
   /* ── Category grid ── */
-  .hcp-cat-grid{grid-template-columns:repeat(2,1fr)}
+  .hcp-cat-grid{grid-template-columns:repeat(2,1fr);gap:5px}
   .hcp-cat-cell{padding:10px 10px 8px}
-  .hcp-cat-total{grid-column:span 2;padding:12px 14px}
-  .hcp-cat-total-val{font-size:clamp(1rem,5vw,1.25rem)}
+  .hcp-cat-name{font-size:.75rem}
+  .hcp-cat-count{font-size:.5625rem}
+  .hcp-cat-total{grid-column:1/-1;padding:12px 14px}
+  .hcp-cat-total-val{font-size:1.125rem}
 
   /* ── Women's categories ── */
-  .hcp-w-cats{grid-template-columns:1fr 1fr;gap:6px}
-  .hcp-w-cat{padding:7px 10px;font-size:.75rem;border-radius:6px}
+  .hcp-w-cats{grid-template-columns:1fr 1fr;gap:0}
+  .hcp-w-cat{padding:8px 10px;font-size:.75rem}
 
-  /* ── HCP price & actions ── */
-  .hcp-price{font-size:2rem}
-  .hcp-price-note{font-size:.8125rem}
-  .hcp-actions{flex-direction:column;gap:8px}
-  .hcp-actions .btn{width:100%;justify-content:center}
-  .hcp-desc{font-size:.9375rem}
+  /* ── HCP price/actions ── */
+  .hcp-price{font-size:2.25rem}
+  .hcp-actions{gap:7px}
 
   /* ── About ── */
-  .about-text p{font-size:.9375rem}
   .about-img-wrap img{aspect-ratio:16/9}
-  .about-l{gap:20px}
+  .about-l{gap:18px}
+  .about-text p{font-size:.9375rem}
 
   /* ── Compare ── */
-  .compare-item{font-size:.8125rem;gap:8px;padding:10px 16px}
-  .compare-col-hd{padding:12px 16px}
+  .compare-col-hd{padding:12px 18px}
+  .compare-item{font-size:.8125rem;padding:10px 18px;gap:8px}
+  .ci-x,.ci-check{width:16px;height:16px;font-size:.5625rem}
 
-  /* ── Process: numbered list, no images ── */
+  /* ── Process: FLAT NUMBERED LIST at small phones ── */
   .steps{
     grid-template-columns:1fr;gap:0;
     border-top:1px solid var(--line);
@@ -1972,88 +2103,94 @@ input,select,textarea{outline:none}
   }
   .step-card{
     counter-increment:step-counter;
-    border-radius:0;border:none;
+    display:block;
+    grid-template-columns:unset;
+    border:none;border-radius:0;
     border-bottom:1px solid var(--line);
-    box-shadow:none!important;padding:20px 0;
-    display:block;transition:none;
+    box-shadow:none!important;
+    padding:20px 0;
+    transition:none;
   }
   .step-card:hover{transform:none!important;box-shadow:none!important}
-  .step-img{display:none}
-  .step-body{padding:0}
+  .step-card::before{display:none}
+  .step-img{display:none!important}
+  .step-num{display:none!important}
+  .step-body{padding:0;display:block}
   .step-title::before{
     content:counter(step-counter,decimal-leading-zero);
-    display:block;font-size:.625rem;font-weight:700;
-    letter-spacing:.12em;color:var(--blue);
-    font-family:var(--body);margin-bottom:6px;
+    display:block;font-size:.5625rem;font-weight:700;
+    letter-spacing:.14em;color:var(--blue);
+    font-family:var(--body);text-transform:uppercase;
+    margin-bottom:8px;
   }
-  .step-title{font-size:.9375rem;margin-bottom:6px}
-  .step-desc{font-size:.875rem;margin-bottom:10px}
+  .step-title{font-size:.9375rem;font-weight:600;margin-bottom:6px}
+  .step-desc{font-size:.875rem;color:var(--ink2);margin-bottom:10px;line-height:1.65}
   .step-tags{gap:5px}
-  .step-tag{font-size:.625rem;padding:3px 8px}
+  .step-tag{font-size:.5625rem;padding:3px 8px}
 
   /* ── Preparation ── */
-  .prep-grid{grid-template-columns:1fr}
-  .prep-cell{padding:20px 18px;gap:10px}
-  .prep-num{font-size:1.5rem}
-  .prep-title{font-size:.9375rem}
-  .prep-body{font-size:.8125rem;line-height:1.65}
-  .prep-note{padding:13px 15px;gap:10px;font-size:.8125rem;line-height:1.65}
-  .prep-note-icon{width:15px;height:15px;flex-shrink:0;margin-top:1px}
+  .prep-cell{padding:22px 18px;gap:10px;border-radius:0}
+  .prep-cell:first-child{border-radius:var(--rlg) var(--rlg) 0 0}
+  .prep-cell:last-child{border-radius:0 0 var(--rlg) var(--rlg)}
+  .prep-num{font-size:2rem;letter-spacing:-.05em}
+  .prep-title{font-size:1rem}
+  .prep-body{font-size:.875rem;line-height:1.65}
+  .prep-note{padding:14px 16px;gap:10px;font-size:.875rem;margin-top:16px}
 
   /* ── Locations ── */
-  .locs-addr-grid,.locs-addr-grid--sm{grid-template-columns:1fr}
   .loc-addr-card{padding:14px 16px;gap:8px}
   .lac-name{font-size:.875rem}
   .lac-address{font-size:.8125rem;line-height:1.65}
-  .loc-addr-card .lac-link{display:none}
-  .locs-all{padding:16px}
-  .locs-all-label{font-size:.625rem}
-  .locs-cities{gap:5px}
+  .lac-link{font-size:.6875rem}
+  .locs-all{padding:14px;gap:10px;margin-top:18px}
   .loc-pill{padding:5px 10px;font-size:.6875rem}
-  .locs-all .btn{width:100%;justify-content:center}
 
-  /* ── Accreditations ── */
-  .accred-badges{grid-template-columns:1fr 1fr;gap:8px;margin-top:20px}
+  /* ── Accreditations: hide badge desc at small sizes ── */
   .accred-badge{padding:13px 12px;gap:4px}
   .accred-badge-name{font-size:.8125rem;margin-bottom:0}
   .accred-badge-desc{display:none}
-  .accred-stat-row{padding:13px 16px;gap:10px}
-  .accred-stat-val{font-size:1.5rem;min-width:3rem}
+  .accred-stat-val{font-size:1.875rem;min-width:3rem;letter-spacing:-.045em}
   .accred-stat-txt{font-size:.8125rem;line-height:1.5}
+  .accred-stat-row{padding:13px 16px;gap:10px}
 
   /* ── Pricing ── */
-  .dual-pricing-grid{max-width:none;gap:12px}
   .pc-head{padding:20px 18px 16px}
-  .pc-name{font-size:1.0625rem}
-  .pc-desc{font-size:.8125rem}
-  .pc-price{font-size:2.5rem}
-  .pc-price-note{font-size:.75rem}
-  .pc-body{padding:14px 18px}
-  .pc-row{font-size:.8125rem;padding-block:9px}
-  .pc-footer{padding:14px 18px}
-  .pc-note{font-size:.6875rem}
+  .pc-name{font-size:1rem}
+  .pc-price{font-size:2.75rem}
+  .pc-body{padding:10px 18px}
+  .pc-row{padding-block:9px}
+  .pc-footer{padding:12px 18px}
+  .pc-note{font-size:.625rem}
 
   /* ── Accred strip ── */
-  .ab-inner{padding-block:12px;gap:8px}
-  .ab-items{gap:8px}
+  .ab-inner{padding-block:12px;gap:6px}
+  .ab-items{gap:6px}
   .ab-item{font-size:.6875rem}
 
   /* ── FAQ ── */
-  .faq-q{font-size:.875rem;gap:12px;padding:18px 0}
+  .faq-q{font-size:.875rem;padding:16px 0;gap:12px}
   .faq-a-inner{font-size:.875rem;line-height:1.68}
   .faq-q-icon{width:26px;height:26px}
 
   /* ── CTA section ── */
-  .cta-section{padding-block:clamp(56px,12vw,80px)}
-  .cta-heading{font-size:clamp(1.875rem,9vw,2.5rem)}
-  .cta-body{font-size:.9375rem;margin-bottom:24px}
+  .cta-section{padding-block:clamp(52px,12vw,76px)}
+  .cta-heading{font-size:clamp(1.75rem,9vw,2.25rem)}
+  .cta-body{margin-bottom:22px}
+  .cta-actions .btn{padding:13px 20px}
 
-  /* ── Footer ── */
-  .footer-main{grid-template-columns:1fr;gap:24px}
-  .f-desc{max-width:none}
+  /* ── Footer: collapse to 1-col at small phone ── */
+  .footer-main{
+    grid-template-columns:1fr;
+    gap:0;
+    padding-block:clamp(36px,8vw,48px);
+  }
+  .f-brand{
+    grid-column:auto;
+    padding-bottom:20px;
+  }
+  .f-col{padding-top:16px}
   .f-col h4{margin-bottom:10px}
-  .footer-bottom{flex-direction:column;align-items:flex-start;gap:10px}
-  .footer-links{flex-wrap:wrap;gap:14px}
+  .f-col a,.f-col span,.f-col p{padding-block:3.5px}
 
   /* ── Mobile bar: show ── */
   .mob-bar{
@@ -2076,31 +2213,42 @@ input,select,textarea{outline:none}
   html{scroll-padding-top:56px}
 }
 
-/* ─── ≤360px — Small phone ───────────────────────────────── */
+/* ─── ≤360px — Tiny phone ────────────────────────────────── */
 @media(max-width:360px){
   .site-nav,.site-nav.scrolled{height:52px}
   .nav-inner{height:52px}
   .nav-logo{font-size:.8125rem;padding:5px 0}
-  .hero-h1{font-size:clamp(1.875rem,12vw,2.375rem)}
-  .hero-cta-btn{padding:12px 14px}
-  .hero-proof{margin-top:20px}
-  .hero-proof-item{padding:12px 14px 12px 0}
-  .hero-proof-item:nth-child(even){padding-left:14px}
-  .hero-proof-val{font-size:1.25rem}
+  .hero-h1{font-size:clamp(1.75rem,11vw,2.125rem)}
+  .hero-cta-btn{padding:11px 14px}
+  .hero-cta-text{font-size:.8125rem}
+  .hero-cta-price{display:none}
+  .hero-proof-item{padding:11px 12px 11px 0}
+  .hero-proof-item:nth-child(even){padding-left:12px}
+  .hero-proof-val{font-size:1.125rem}
   .stat-cell{padding:16px 12px}
-  .stat-val{font-size:clamp(1.625rem,8vw,2rem)}
+  .stat-val{font-size:clamp(1.625rem,8.5vw,2rem)}
+  .hc-tab{padding:10px 12px}
+  .hct-name{font-size:.875rem}
   .hcp-cat-grid{grid-template-columns:1fr}
   .hcp-cat-total{grid-column:1/-1}
   .hcp-w-cats{grid-template-columns:1fr}
-  .accred-badges{grid-template-columns:1fr}
-  .prep-cell{padding:16px 14px}
-  .compare-item{padding:9px 14px}
+  .compare-item{padding:9px 14px;font-size:.75rem}
   .compare-col-hd{padding:11px 14px}
+  .step-title{font-size:.875rem}
+  .step-desc{font-size:.8125rem}
+  .prep-cell{padding:18px 16px}
+  .prep-num{font-size:1.75rem}
+  .accred-badges{grid-template-columns:1fr}
+  .accred-stat-val{font-size:1.625rem}
   .pc-head{padding:16px 14px 12px}
-  .pc-body{padding:12px 14px}
+  .pc-body{padding:10px 14px}
   .pc-footer{padding:12px 14px}
-  .locs-all{padding:14px}
-  .faq-q{padding:16px 0}
+  .pc-price{font-size:2.5rem}
+  .locs-all{padding:12px}
+  .faq-q{padding:14px 0;font-size:.8125rem}
+  .footer-main{padding-block:28px}
+  .f-brand{padding-bottom:16px}
+  .f-col{padding-top:14px}
 }
 /* ── OUR TESTS ────────────────────────────────────────────── */
 #our-tests{
