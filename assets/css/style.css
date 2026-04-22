@@ -3035,7 +3035,7 @@ input,select,textarea{outline:none}
   }
 
   .hcp-stats {
-    grid-template-columns: 1fr;
+    display: none;
   }
 
   .hcps-item {
@@ -3049,37 +3049,72 @@ input,select,textarea{outline:none}
   }
 
   .hcp-title {
-    font-size: clamp(1.25rem, 6.8vw, 1.5rem);
-    line-height: 1.28;
-    margin-bottom: 12px;
+    font-size: clamp(1.125rem, 6.4vw, 1.375rem);
+    line-height: 1.3;
+    margin-bottom: 8px;
   }
 
   .hcp-desc {
-    font-size: 0.9rem;
-    line-height: 1.65;
-    margin-bottom: 18px;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
     color: var(--ink3);
   }
 
   .hcp-features {
-    padding: 14px 16px;
-    gap: 12px;
-    margin-bottom: 16px;
+    padding: 10px 12px;
+    gap: 8px;
+    margin-bottom: 14px;
+    border-radius: 8px;
   }
 
   .hcpf-item {
-    align-items: flex-start;
-    gap: 10px;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hcpf-check {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  .hcpf-check svg {
+    width: 8px;
+    height: 8px;
   }
 
   .hcpf-title {
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     font-weight: 600;
+    margin-bottom: 0;
   }
 
   .hcpf-desc {
+    display: none;
+  }
+
+  .hcp-price-row {
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+
+  .hcp-price {
+    font-size: 1.75rem;
+  }
+
+  .hcp-price-note {
     font-size: 0.75rem;
-    line-height: 1.5;
+  }
+
+  .hcp-actions {
+    gap: 8px;
+  }
+
+  .hcp-actions .btn {
+    font-size: 0.8125rem;
+    padding: 11px 14px;
   }
 
   .compare-grid {
@@ -3175,35 +3210,51 @@ input,select,textarea{outline:none}
 
 @media (max-width: 520px) {
   .hcp-title {
-    font-size: clamp(1.15rem, 7.2vw, 1.35rem);
-    margin-bottom: 10px;
+    font-size: clamp(1.0625rem, 6.2vw, 1.25rem);
+    line-height: 1.32;
+    margin-bottom: 6px;
   }
 
   .hcp-desc {
-    font-size: 0.875rem;
-    margin-bottom: 14px;
+    font-size: 0.75rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
   }
 
-  .hcp-price-row {
-    flex-direction: column;
+  .hcp-features {
+    padding: 8px 10px;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .hcpf-item {
     gap: 6px;
   }
 
+  .hcpf-title {
+    font-size: 0.6875rem;
+  }
+
+  .hcp-price-row {
+    gap: 2px;
+    margin-bottom: 10px;
+  }
+
   .hcp-price {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
   }
 
   .hcp-price-note {
-    font-size: 0.8125rem;
+    font-size: 0.6875rem;
   }
 
   .hcp-actions {
-    gap: 8px;
+    gap: 6px;
   }
 
   .hcp-actions .btn {
-    font-size: 0.875rem;
-    padding: 13px 16px;
+    font-size: 0.75rem;
+    padding: 10px 12px;
   }
 }
 
@@ -3241,5 +3292,59 @@ input,select,textarea{outline:none}
   .legal-table tbody td {
     padding: 10px 12px;
     font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .hcp-title {
+    font-size: clamp(1.0rem, 6vw, 1.1875rem);
+    margin-bottom: 4px;
+  }
+
+  .hcp-desc {
+    font-size: 0.6875rem;
+    line-height: 1.55;
+    margin-bottom: 8px;
+  }
+
+  .hcp-features {
+    padding: 6px 8px;
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+
+  .hcpf-item {
+    gap: 4px;
+  }
+
+  .hcpf-check {
+    width: 16px;
+    height: 16px;
+  }
+
+  .hcpf-title {
+    font-size: 0.625rem;
+  }
+
+  .hcp-price-row {
+    gap: 0;
+    margin-bottom: 8px;
+  }
+
+  .hcp-price {
+    font-size: 1.25rem;
+  }
+
+  .hcp-price-note {
+    font-size: 0.625rem;
+  }
+
+  .hcp-actions {
+    gap: 4px;
+  }
+
+  .hcp-actions .btn {
+    font-size: 0.6875rem;
+    padding: 8px 10px;
   }
 }
