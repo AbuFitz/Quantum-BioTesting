@@ -3048,6 +3048,10 @@ input,select,textarea{outline:none}
     grid-template-columns: 1fr;
   }
 
+  .hcp-r {
+    display: none;
+  }
+
   .hcp-title {
     font-size: clamp(1.125rem, 6.4vw, 1.375rem);
     line-height: 1.3;
