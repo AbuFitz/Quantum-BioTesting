@@ -11,6 +11,80 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
+    :root {
+      --header-h: 68px;
+      --px: clamp(18px, 3.2vw, 32px);
+      --bg: #f8fafe;
+      --dark: #0b1f3a;
+      --light: #ffffff;
+      --light-2: rgba(255, 255, 255, 0.74);
+      --text: #0b1f3a;
+      --text-2: #374151;
+      --text-3: #6b7280;
+      --accent: #2f80ed;
+      --surface: #ffffff;
+      --bd: #e2e8f2;
+      --bd-2: #d3deef;
+      --bd-3: #b9c8e2;
+      --r-lg: 16px;
+      --serif: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 120;
+      height: var(--header-h);
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--bd);
+      backdrop-filter: blur(18px);
+    }
+
+    .header-inner {
+      width: min(var(--max), calc(100% - var(--px) * 2));
+      margin-inline: auto;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .site-logo {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .site-logo span {
+      font-style: italic;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .btn-dark {
+      background: var(--dark);
+      color: #fff;
+      border-color: var(--dark);
+    }
+
+    .btn-dark:hover {
+      background: #122d56;
+      border-color: #122d56;
+    }
+
+    .section .wrap {
+      width: min(var(--max), calc(100% - var(--px) * 2));
+      margin-inline: auto;
+    }
+
     .test-subnav {
       position: sticky;
       top: var(--header-h);
@@ -131,6 +205,77 @@
       gap: 8px;
       font-size: 0.75rem;
       color: var(--text-2);
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --header-h: 56px;
+      }
+
+      .site-logo {
+        font-size: 0.95rem;
+      }
+
+      .header-right .btn {
+        padding: 9px 12px;
+        font-size: 0.75rem;
+      }
+
+      .test-subnav a {
+        padding: 12px 14px;
+        font-size: 0.6875rem;
+      }
+
+      .test-category {
+        padding-block: 44px;
+      }
+
+      .test-cat-header {
+        margin-bottom: 18px;
+      }
+
+      .test-cat-title {
+        font-size: clamp(1.45rem, 6.4vw, 1.9rem);
+      }
+
+      .chip {
+        font-size: 0.6875rem;
+        padding: 6px 10px;
+      }
+
+      .chip-legend {
+        margin-bottom: 28px;
+        padding: 14px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .header-inner {
+        gap: 6px;
+      }
+
+      .header-right {
+        gap: 6px;
+      }
+
+      .header-right .btn {
+        padding: 8px 10px;
+        font-size: 0.6875rem;
+      }
+
+      .test-callout {
+        padding: 14px 16px;
+        font-size: 0.8125rem;
+      }
+
+      .test-chips {
+        gap: 6px;
+      }
+
+      .chip {
+        width: 100%;
+        justify-content: flex-start;
+      }
     }
   </style>
 </head>

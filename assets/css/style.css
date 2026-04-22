@@ -391,16 +391,6 @@ input,select,textarea{outline:none}
 }
 .drawer-a--sub:hover,.drawer-a--sub:active{color:var(--navy)}
 
-/* Gender tag badge */
-.drawer-a-tag{
-  width:22px;height:22px;border-radius:6px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:.625rem;font-weight:700;letter-spacing:.04em;
-  flex-shrink:0;
-}
-.drawer-a-tag--m{background:var(--n05);color:var(--n60)}
-.drawer-a-tag--w{background:#fdf2f8;color:#9d174d}
-
 /* Footer CTA */
 .drawer-foot{
   padding:16px 20px calc(16px + env(safe-area-inset-bottom));
@@ -2850,4 +2840,342 @@ input,select,textarea{outline:none}
   .legal-footer-inner{flex-direction:column;gap:20px}
   .legal-footer-copy{min-width:0;text-align:center}
   .legal-footer-nav{justify-content:center}
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE REVAMP OVERRIDES (final pass)
+   Added at end intentionally to beat legacy duplicate blocks.
+══════════════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .drawer-panel {
+    width: min(360px, 92vw);
+    border-left: 1px solid var(--line);
+  }
+
+  .drawer-head {
+    background: linear-gradient(120deg, var(--navy), var(--n70));
+  }
+
+  .drawer-a,
+  .drawer-a--sub {
+    min-height: 56px;
+    padding-inline: 22px;
+    font-size: 0.95rem;
+  }
+
+  .drawer-a--sub {
+    color: var(--ink2);
+    font-weight: 500;
+  }
+
+  .drawer-foot {
+    background: #fff;
+    padding-top: 14px;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .hero-split-l {
+    padding-top: 94px;
+  }
+
+  .hero-desc {
+    max-width: 45ch;
+  }
+
+  .stats-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-cell,
+  .stat-cell:nth-child(odd),
+  .stat-cell:last-child,
+  .stat-cell:nth-child(3) {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .stat-cell:last-child {
+    border-bottom: none;
+  }
+
+  .hct-name {
+    font-size: 1.05rem;
+  }
+
+  .hct-sub {
+    line-height: 1.5;
+  }
+
+  .hcp-layout,
+  .about-wrap,
+  .process-head,
+  .locs-head,
+  .accred-grid,
+  .faq-layout {
+    gap: 26px;
+  }
+
+  .process-head,
+  .locs-head,
+  .accred-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .step-card {
+    border-radius: 14px;
+  }
+
+  .locs-addr-grid,
+  .locs-addr-grid--sm {
+    grid-template-columns: 1fr;
+  }
+
+  .dual-pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .price-card {
+    position: static;
+  }
+
+  .faq-sticky {
+    position: static;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-nav,
+  .site-nav.scrolled,
+  .legal-page-body .site-nav {
+    height: 56px;
+  }
+
+  .nav-inner,
+  .site-nav.scrolled .nav-inner,
+  .legal-page-body .nav-inner {
+    height: 56px;
+    padding-inline: 16px;
+  }
+
+  .drawer-panel {
+    width: 100%;
+    max-width: none;
+  }
+
+  .drawer-section-label {
+    padding: 18px 22px 8px;
+  }
+
+  .drawer-nav {
+    padding-bottom: 2px;
+  }
+
+  .drawer-a,
+  .drawer-a--sub {
+    margin-inline: 10px;
+    margin-bottom: 8px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    height: 52px;
+    padding-inline: 14px;
+    background: #fff;
+  }
+
+  .drawer-a svg,
+  .drawer-a--sub svg {
+    opacity: 0.52;
+  }
+
+  .drawer-a:active,
+  .drawer-a:hover,
+  .drawer-a--sub:active,
+  .drawer-a--sub:hover {
+    background: var(--n02);
+    border-color: var(--n10);
+  }
+
+  .drawer-foot {
+    gap: 10px;
+  }
+
+  .hero-cta-btn {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .hero-proof {
+    grid-template-columns: 1fr;
+    border-top: none;
+  }
+
+  .hero-proof-item,
+  .hero-proof-item:nth-child(even),
+  .hero-proof-item:nth-child(3),
+  .hero-proof-item:nth-child(4) {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 14px 0;
+  }
+
+  .hero-proof-item:last-child {
+    border-bottom: none;
+  }
+
+  .hc-tabs {
+    grid-template-columns: 1fr;
+    border-radius: 12px;
+  }
+
+  .hcp-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .hcps-item {
+    text-align: left;
+    padding: 14px 16px;
+  }
+
+  .hcp-cat-grid,
+  .hcp-w-cats {
+    grid-template-columns: 1fr;
+  }
+
+  .hcpf-item {
+    align-items: flex-start;
+  }
+
+  .compare-grid {
+    border-radius: 14px;
+  }
+
+  .compare-item {
+    align-items: center;
+  }
+
+  .steps {
+    gap: 10px;
+  }
+
+  .step-card {
+    grid-template-columns: 46px 1fr;
+  }
+
+  .prep-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .prep-cell:first-child,
+  .prep-cell:last-child {
+    border-radius: 0;
+  }
+
+  .prep-grid {
+    border-radius: 14px;
+  }
+
+  .locs-all {
+    align-items: stretch;
+  }
+
+  .accred-badges {
+    grid-template-columns: 1fr;
+  }
+
+  .accred-stat-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pc-head,
+  .pc-body,
+  .pc-footer {
+    padding-inline: 18px;
+  }
+
+  .pc-price {
+    font-size: 2.75rem;
+  }
+
+  .faq-q {
+    font-size: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .cta-actions {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .cta-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .legal-hero {
+    padding: calc(var(--nav) + 44px) var(--gtr) 44px;
+  }
+
+  .legal-title {
+    font-size: clamp(1.75rem, 7.2vw, 2.2rem);
+  }
+
+  .legal-section {
+    margin-bottom: 34px;
+    padding-bottom: 34px;
+  }
+
+  .legal-section h2 {
+    font-size: 1.15rem;
+  }
+
+  .legal-section p,
+  .legal-section li {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    scroll-padding-top: 60px;
+  }
+
+  .hero-split-l {
+    padding-top: 76px;
+  }
+
+  .hero-h1 {
+    font-size: clamp(1.9rem, 10.6vw, 2.4rem);
+  }
+
+  .mob-bar {
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+  }
+
+  .mob-bar .btn {
+    font-size: 0.8125rem;
+    padding: 11px 12px;
+  }
+
+  .loc-pill {
+    font-size: 0.6875rem;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+  }
+
+  .legal-table thead th,
+  .legal-table tbody td {
+    padding: 10px 12px;
+    font-size: 0.8125rem;
+  }
 }
