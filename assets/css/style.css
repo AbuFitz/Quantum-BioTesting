@@ -2612,6 +2612,8 @@ input,select,textarea{outline:none}
   font-size:.875rem;font-weight:600;color:var(--navy);letter-spacing:-.005em;
 }
 .hcpf-desc{font-size:.8125rem;color:var(--ink3);font-weight:300;line-height:1.55}
+.hcp-title-compact,
+.hcp-desc-compact{display:none}
 .hcp-price-row{
   display:flex;align-items:baseline;gap:10px;margin-bottom:16px;
 }
@@ -3067,6 +3069,20 @@ input,select,textarea{outline:none}
     color: var(--navy);
   }
 
+  #pane-mens .hcp-title-full,
+  #pane-mens .hcp-desc-full {
+    display: none;
+  }
+
+  #pane-mens .hcp-title-compact,
+  #pane-mens .hcp-desc-compact {
+    display: inline;
+  }
+
+  #pane-mens .hcp-desc-compact {
+    display: block;
+  }
+
   .hcp-desc {
     font-size: 0.75rem;
     line-height: 1.5;
@@ -3088,6 +3104,10 @@ input,select,textarea{outline:none}
   }
 
   .hcpf-item:nth-child(n+4) {
+    display: none;
+  }
+
+  #pane-mens .hcpf-item:nth-child(n+3) {
     display: none;
   }
 
@@ -3138,9 +3158,13 @@ input,select,textarea{outline:none}
     flex-wrap: wrap;
   }
 
+  #pane-mens .hcp-actions .btn-ghost {
+    display: none;
+  }
+
   .hcp-actions .btn {
     flex: 1;
-    min-width: 140px;
+    min-width: 0;
     font-size: 0.8125rem;
     padding: 11px 12px;
   }
