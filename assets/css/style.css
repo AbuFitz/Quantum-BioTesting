@@ -4327,6 +4327,16 @@ input,select,textarea{outline:none}
 /* ── HEALTH CHECKS: MOBILE TWO-SIDED LAYOUT ──────────────────── */
 @media(max-width:640px) {
 
+  /* Force single-column — collapses the hidden .hcp-r track so .hcp-l fills full width */
+  .hcp-layout {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  .hcp-l {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
   /* Restore stats bar as a 2×2 compact tile grid */
   .hcp-stats {
     display: grid !important;
