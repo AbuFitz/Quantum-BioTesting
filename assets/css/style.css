@@ -4323,3 +4323,56 @@ input,select,textarea{outline:none}
   font-size: .6875rem; color: rgba(255,255,255,.4);
   text-align: right; line-height: 1.45;
 }
+
+/* ── HEALTH CHECKS: MOBILE TWO-SIDED LAYOUT ──────────────────── */
+@media(max-width:640px) {
+
+  /* Restore stats bar as a 2×2 compact tile grid */
+  .hcp-stats {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1px !important;
+    background: rgba(255,255,255,.09) !important;
+    border-radius: var(--rmd) !important;
+    overflow: hidden !important;
+    margin-bottom: 20px !important;
+    border: 1px solid rgba(255,255,255,.09) !important;
+  }
+  .hcps-sep { display: none !important; }
+  .hcps-item {
+    background: rgba(255,255,255,.04) !important;
+    padding: 14px 10px !important;
+    text-align: center !important;
+    border-radius: 0 !important;
+  }
+  .hcps-val { font-size: 1.25rem !important; }
+  .hcps-lbl { font-size: .5625rem !important; letter-spacing: .06em; }
+
+  /* Features: 2-column compact card grid */
+  .hcp-features {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-bottom: 16px !important;
+  }
+  .hcpf-item {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+    padding: 10px 12px !important;
+    background: rgba(255,255,255,.04) !important;
+    border: 1px solid rgba(255,255,255,.09) !important;
+    border-radius: var(--rmd) !important;
+  }
+  .hcpf-check { margin-top: 0 !important; }
+  .hcpf-desc  { display: none !important; }
+  .hcpf-title {
+    font-size: .75rem !important;
+    color: rgba(255,255,255,.82) !important;
+    font-weight: 500 !important;
+    line-height: 1.35 !important;
+  }
+}
