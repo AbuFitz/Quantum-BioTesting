@@ -24,6 +24,7 @@
     initTabletImages();
     initFaq();
     initHealthCheckTabs();
+    initPromoBar();
   }
 
   /* ── SCROLL PROGRESS ────────────────────────────────────── */
@@ -454,5 +455,27 @@
     });
   }
 
+
+  /* ── PROMO BAR ─────────────────────────────────────────── */
+  function initPromoBar() {
+    const bar = $('#promo-bar');
+    const closeBtn = $('#promo-bar-close');
+    if (!bar) return;
+
+    if (sessionStorage.getItem('promo-dismissed')) {
+      bar.classList.add('pb-hidden');
+      return;
+    }
+
+    document.body.classList.add('has-promo');
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        bar.classList.add('pb-hidden');
+        document.body.classList.remove('has-promo');
+        sessionStorage.setItem('promo-dismissed', '1');
+      });
+    }
+  }
 
 })();
