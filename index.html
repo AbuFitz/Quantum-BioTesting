@@ -175,6 +175,13 @@
     <!-- Left: content -->
     <div class="hero-split-l">
       <div class="hero-content">
+        <div class="hero-creds" aria-label="Quality accreditations">
+          <span class="hero-cred"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4.5L7 2l5 2.5v3c0 2.5-2.2 4.5-5 5-2.8-.5-5-2.5-5-5v-3z"/><path d="M4.5 7l2 2 3.5-3.5"/></svg>UKAS Accredited</span>
+          <span class="hero-cred-sep" aria-hidden="true"></span>
+          <span class="hero-cred"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="7" r="5.5"/><path d="M4.5 7l2 2 3-3"/></svg>Clinically Reviewed</span>
+          <span class="hero-cred-sep" aria-hidden="true"></span>
+          <span class="hero-cred"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M7 2v10M2 7h10"/></svg>No GP Referral</span>
+        </div>
         <h1 class="hero-h1" id="hero-heading">
           Know your health,<br><em>completely.</em>
         </h1>
@@ -218,6 +225,11 @@
             <div class="hero-proof-val">£995</div>
             <div class="hero-proof-lbl">Was &pound;2,995 &mdash; Save &pound;2,000</div>
           </div>
+        </div>
+        <div class="hero-ecg" aria-hidden="true">
+          <svg viewBox="0 0 220 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="ecg-path" d="M 0 14 L 20 14 L 24 9 L 26 14 L 30 3 L 32 25 L 34 14 L 50 14 L 54 9 L 56 14 L 80 14 L 84 9 L 86 14 L 90 3 L 92 25 L 94 14 L 110 14 L 114 9 L 116 14 L 220 14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+          </svg>
         </div>
       </div>
     </div>
@@ -403,6 +415,10 @@
             </button>
             <a href="#about" class="btn btn-ghost">Learn More</a>
           </div>
+          <button class="hcp-cats-toggle" id="cats-btn-mens" aria-expanded="false" type="button">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+            View all 11 clinical categories
+          </button>
         </div>
 
         <div class="hcp-r fade-up" style="transition-delay:.12s">
@@ -561,6 +577,10 @@
             </button>
           </div>
           <p class="hcp-disclaimer">From time to time there may be temporary changes to the test menu. Please contact us to confirm availability for specific tests.</p>
+          <button class="hcp-cats-toggle" id="cats-btn-womens" aria-expanded="false" type="button">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+            View all 27 health areas
+          </button>
         </div>
 
         <div class="hcp-r fade-up" style="transition-delay:.12s">
@@ -1009,9 +1029,9 @@
           </div>
         </div>
         <div class="pc-body">
-          <div class="pc-row"><span class="pc-row-lbl">In-clinic blood draw</span><span class="pc-row-val">Included</span></div>
-          <div class="pc-row"><span class="pc-row-lbl">300+ biomarker analysis</span><span class="pc-row-val">Included</span></div>
-          <div class="pc-row"><span class="pc-row-lbl">Clinical specialist review</span><span class="pc-row-val">Included</span></div>
+          <div class="pc-row"><span class="pc-row-lbl">In-clinic blood draw</span><span class="pc-row-val pc-val-incl">Included</span></div>
+          <div class="pc-row"><span class="pc-row-lbl">300+ biomarker analysis</span><span class="pc-row-val pc-val-incl">Included</span></div>
+          <div class="pc-row"><span class="pc-row-lbl">Clinical specialist review</span><span class="pc-row-val pc-val-incl">Included</span></div>
           <div class="pc-row"><span class="pc-row-lbl">Digital results report</span><span class="pc-row-val">2&ndash;5 working days</span></div>
           <div class="pc-row"><span class="pc-row-lbl">Telephone consultation</span><span class="pc-row-val">Optional</span></div>
           <div class="pc-row"><span class="pc-row-lbl">Express results option</span><span class="pc-row-val">From 2 hours</span></div>
@@ -1042,12 +1062,12 @@
           </div>
         </div>
         <div class="pc-body">
-          <div class="pc-row"><span class="pc-row-lbl">In-clinic blood draw</span><span class="pc-row-val">Included</span></div>
-          <div class="pc-row"><span class="pc-row-lbl">Up to 350 biomarker analysis</span><span class="pc-row-val">Included</span></div>
-          <div class="pc-row"><span class="pc-row-lbl">Clinical specialist review</span><span class="pc-row-val">Included</span></div>
+          <div class="pc-row"><span class="pc-row-lbl">In-clinic blood draw</span><span class="pc-row-val pc-val-incl">Included</span></div>
+          <div class="pc-row"><span class="pc-row-lbl">Up to 350 biomarker analysis</span><span class="pc-row-val pc-val-incl">Included</span></div>
+          <div class="pc-row"><span class="pc-row-lbl">Clinical specialist review</span><span class="pc-row-val pc-val-incl">Included</span></div>
           <div class="pc-row"><span class="pc-row-lbl">Digital results report</span><span class="pc-row-val">4 working days</span></div>
-          <div class="pc-row"><span class="pc-row-lbl">Private GP consultation</span><span class="pc-row-val" style="color:var(--ok);font-weight:700">Included</span></div>
-          <div class="pc-row"><span class="pc-row-lbl">6-month repeat testing</span><span class="pc-row-val" style="color:var(--ok);font-weight:700">Included</span></div>
+          <div class="pc-row"><span class="pc-row-lbl">Private GP consultation</span><span class="pc-row-val pc-val-incl">Included</span></div>
+          <div class="pc-row"><span class="pc-row-lbl">6-month repeat testing</span><span class="pc-row-val pc-val-incl">Included</span></div>
           <div class="pc-row pc-total"><span class="pc-row-lbl">Total</span><span class="pc-row-val">&pound;995</span></div>
         </div>
         <div class="pc-footer">
@@ -1156,6 +1176,24 @@
     </div>
   </div>
 </section>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━ CATEGORIES SHEET ━━━━━━━━━━━━━━━━━ -->
+<div class="cats-sheet" id="cats-sheet" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="cats-sheet-title">
+  <div class="cats-sheet-overlay" id="cats-sheet-overlay" aria-hidden="true"></div>
+  <div class="cats-sheet-panel">
+    <div class="cats-sheet-handle" aria-hidden="true"></div>
+    <div class="cats-sheet-head">
+      <div class="cats-sheet-title" id="cats-sheet-title">Clinical Categories</div>
+      <span class="cats-sheet-count-badge" id="cats-sheet-badge">300+ biomarkers</span>
+      <button class="cats-sheet-close" id="cats-sheet-close" aria-label="Close categories">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 2l10 10M12 2L2 12"/></svg>
+      </button>
+    </div>
+    <div class="cats-sheet-body">
+      <div class="cats-sheet-grid" id="cats-sheet-grid"></div>
+    </div>
+  </div>
+</div>
 
 </main>
 

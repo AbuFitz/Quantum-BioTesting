@@ -25,6 +25,7 @@
     initFaq();
     initHealthCheckTabs();
     initPromoBar();
+    initCatsSheet();
   }
 
   /* ── SCROLL PROGRESS ────────────────────────────────────── */
@@ -476,6 +477,91 @@
         sessionStorage.setItem('promo-dismissed', '1');
       });
     }
+  }
+
+  /* ── CATEGORIES BOTTOM SHEET ─────────────────────────── */
+  function initCatsSheet() {
+    const sheet    = $('#cats-sheet');
+    if (!sheet) return;
+    const overlay  = $('#cats-sheet-overlay');
+    const closeBtn = $('#cats-sheet-close');
+    const titleEl  = $('#cats-sheet-title');
+    const badgeEl  = $('#cats-sheet-badge');
+    const gridEl   = $('#cats-sheet-grid');
+
+    let lastTrigger = null;
+
+    function openSheet(type) {
+      let html = '';
+
+      if (type === 'mens') {
+        titleEl.textContent = "Men's — 11 Clinical Categories";
+        badgeEl.textContent = '300+ biomarkers';
+        $$('.hcp-cat-cell', $('#pane-mens')).forEach(cell => {
+          const num   = cell.querySelector('.hcp-cat-num')  ? cell.querySelector('.hcp-cat-num').textContent  : '';
+          const name  = cell.querySelector('.hcp-cat-name') ? cell.querySelector('.hcp-cat-name').textContent : '';
+          const count = cell.querySelector('.hcp-cat-count')? cell.querySelector('.hcp-cat-count').textContent: '';
+          const adv   = cell.querySelector('.hcp-cat-adv')  ? cell.querySelector('.hcp-cat-adv').textContent  : '';
+          html += '<div class="cats-sheet-cell">'
+            + '<div class="cats-sheet-num">' + num + '</div>'
+            + '<div class="cats-sheet-name">' + name + '</div>'
+            + '<div class="cats-sheet-count">' + count + '</div>'
+            + (adv ? '<div class="cats-sheet-adv">' + adv + '</div>' : '')
+            + '</div>';
+        });
+        html += '<div class="cats-sheet-total">'
+          + '<div class="cats-sheet-total-val">300+</div>'
+          + '<div class="cats-sheet-total-lbl">Biomarkers<br>across 11 categories</div>'
+          + '</div>';
+      } else {
+        titleEl.textContent = "Women's — 27 Health Areas";
+        badgeEl.textContent = 'Up to 350 biomarkers';
+        let i = 1;
+        $$('.hcp-w-cat', $('#pane-womens')).forEach(cat => {
+          const num  = String(i++).padStart(2, '0');
+          const name = cat.textContent.trim();
+          html += '<div class="cats-sheet-cell">'
+            + '<div class="cats-sheet-num">' + num + '</div>'
+            + '<div class="cats-sheet-name">' + name + '</div>'
+            + '</div>';
+        });
+        html += '<div class="cats-sheet-total">'
+          + '<div class="cats-sheet-total-val">350</div>'
+          + '<div class="cats-sheet-total-lbl">Max biomarkers<br>across 27 areas</div>'
+          + '</div>';
+      }
+
+      gridEl.innerHTML = html;
+      sheet.classList.add('open');
+      sheet.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function closeSheet() {
+      sheet.classList.remove('open');
+      sheet.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastTrigger) lastTrigger.focus();
+    }
+
+    const mensBtn   = $('#cats-btn-mens');
+    const womensBtn = $('#cats-btn-womens');
+
+    if (mensBtn) mensBtn.addEventListener('click', () => {
+      lastTrigger = mensBtn;
+      openSheet('mens');
+    });
+    if (womensBtn) womensBtn.addEventListener('click', () => {
+      lastTrigger = womensBtn;
+      openSheet('womens');
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', closeSheet);
+    if (overlay)  overlay.addEventListener('click',  closeSheet);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && sheet.classList.contains('open')) closeSheet();
+    });
   }
 
 })();

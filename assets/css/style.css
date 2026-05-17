@@ -4043,3 +4043,283 @@ input,select,textarea{outline:none}
 @media(max-width:360px) {
   .drawer-was { display: none !important; }
 }
+
+/* ================================================================
+   v5c  HEALTHCARE FEEL + EQUAL PRICING + MOBILE COMPACT
+   ================================================================ */
+
+/* ── CLINICAL GREEN TOKEN ──────────────────────────────────────── */
+:root {
+  --clin:        #3ecf8e;
+  --clin-bg:     rgba(62,207,142,.10);
+  --clin-border: rgba(62,207,142,.22);
+}
+
+/* ── EQUAL-HEIGHT PRICING CARDS ───────────────────────────────── */
+.dual-pricing-grid { align-items: stretch !important; }
+.price-card        { display: flex !important; flex-direction: column !important; }
+.pc-body           { flex: 1 !important; }
+
+/* ── PRICING: CLINICAL "INCLUDED" HIGHLIGHT ───────────────────── */
+.pc-val-incl {
+  color: #16a34a !important;
+  font-weight: 700 !important;
+}
+
+/* ── HERO: CLINICAL CREDENTIALS ROW ──────────────────────────── */
+.hero-creds {
+  display: flex;
+  align-items: center;
+  gap: 8px 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.hero-cred {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: .6875rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--clin);
+  line-height: 1;
+}
+.hero-cred svg { width: 11px; height: 11px; flex-shrink: 0; }
+.hero-cred-sep {
+  display: inline-block;
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.22);
+  flex-shrink: 0;
+}
+@media(max-width:520px) {
+  .hero-cred-sep { display: none; }
+  .hero-creds { gap: 6px; }
+}
+@media(max-width:380px) {
+  .hero-cred { font-size: .625rem; }
+}
+
+/* ── HERO: ECG HEARTBEAT DECORATION ──────────────────────────── */
+.hero-ecg {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  height: 28px;
+  margin-top: 18px;
+  opacity: .2;
+  overflow: visible;
+}
+.hero-ecg .ecg-path {
+  stroke: var(--clin);
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  animation: ecg-draw 2.6s cubic-bezier(.25,.46,.45,.94) 1s forwards;
+}
+@keyframes ecg-draw { to { stroke-dashoffset: 0; } }
+@media(prefers-reduced-motion: reduce) {
+  .hero-ecg .ecg-path { animation: none; stroke-dashoffset: 0; }
+}
+@media(max-width:640px) {
+  .hero-ecg { max-width: 200px; height: 22px; }
+}
+
+/* ── CLINICAL GREEN: HEALTH CHECK FEATURE TICKS ──────────────── */
+#health-checks .hcpf-check {
+  border-color: var(--clin-border) !important;
+  background:   var(--clin-bg)     !important;
+}
+#health-checks .hcpf-check svg {
+  stroke: var(--clin) !important;
+}
+
+/* Compare column ticks: bright clinical green on dark bg */
+.qbt-col .ci-check {
+  background:   var(--clin-bg)     !important;
+  color:        var(--clin)        !important;
+  border-color: var(--clin-border) !important;
+}
+
+/* ── ACCRED BAND: BADGE ENHANCEMENT ──────────────────────────── */
+.accred-band .ab-items { gap: 8px !important; }
+.accred-band .ab-item {
+  padding: 4px 12px !important;
+  background:   rgba(62,207,142,.07)  !important;
+  border: 1px solid rgba(62,207,142,.2) !important;
+  border-radius: var(--pill) !important;
+  font-size: .6875rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .06em !important;
+  text-transform: uppercase !important;
+  color: rgba(255,255,255,.72) !important;
+  display: inline-flex; align-items: center;
+}
+
+/* ── MOBILE COMPACT: REDUCE SECTION PADDING ──────────────────── */
+@media(max-width:640px) {
+  :root { --sec: clamp(32px,8vw,48px) !important; }
+}
+@media(max-width:480px) {
+  :root { --sec: clamp(24px,6vw,36px) !important; }
+}
+
+/* ── HEALTH CHECKS: MOBILE CATEGORIES TOGGLE ─────────────────── */
+.hcp-cats-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 11px 20px;
+  font-size: .875rem;
+  font-weight: 500;
+  color: rgba(255,255,255,.65);
+  border: 1.5px solid rgba(255,255,255,.15);
+  border-radius: var(--rmd);
+  margin-top: 14px;
+  transition: background .15s, border-color .15s;
+  letter-spacing: -.01em;
+  background: transparent;
+}
+.hcp-cats-toggle:hover {
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.28);
+}
+.hcp-cats-toggle svg {
+  width: 14px; height: 14px;
+  flex-shrink: 0;
+  transition: transform .22s var(--eout);
+}
+.hcp-cats-toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+@media(max-width:640px) {
+  .hcp-cats-toggle { display: flex; }
+}
+
+/* ── CATEGORIES BOTTOM SHEET ──────────────────────────────────── */
+.cats-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 1900;
+  display: flex;
+  align-items: flex-end;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .22s ease;
+}
+.cats-sheet.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.cats-sheet-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.62);
+}
+.cats-sheet-panel {
+  position: relative; z-index: 1;
+  width: 100%;
+  max-height: 88svh;
+  background: var(--n90);
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  transition: transform .3s var(--eout);
+  overflow: hidden;
+}
+.cats-sheet.open .cats-sheet-panel { transform: translateY(0); }
+.cats-sheet-handle {
+  width: 36px; height: 4px;
+  background: rgba(255,255,255,.18);
+  border-radius: var(--pill);
+  margin: 12px auto 0;
+  flex-shrink: 0;
+}
+.cats-sheet-head {
+  padding: 14px 20px 12px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.cats-sheet-title {
+  font-size: 1rem; font-weight: 600;
+  color: var(--white); letter-spacing: -.02em;
+  flex: 1;
+}
+.cats-sheet-count-badge {
+  font-size: .6875rem; font-weight: 600;
+  color: var(--clin);
+  background: var(--clin-bg);
+  border: 1px solid var(--clin-border);
+  border-radius: var(--pill);
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+.cats-sheet-close {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,.6);
+  flex-shrink: 0;
+  transition: background .15s;
+}
+.cats-sheet-close:hover { background: rgba(255,255,255,.16); }
+.cats-sheet-close svg { width: 12px; height: 12px; }
+.cats-sheet-body {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 14px 14px calc(20px + env(safe-area-inset-bottom));
+}
+.cats-sheet-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.cats-sheet-cell {
+  padding: 11px 13px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--rmd);
+}
+.cats-sheet-num {
+  font-size: .5625rem; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(255,255,255,.22);
+  margin-bottom: 3px;
+}
+.cats-sheet-name {
+  font-size: .8125rem; font-weight: 600;
+  color: var(--white); line-height: 1.25; margin-bottom: 2px;
+}
+.cats-sheet-count { font-size: .6875rem; color: rgba(255,255,255,.38); }
+.cats-sheet-adv {
+  display: inline-block;
+  font-size: .5625rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--clin); background: var(--clin-bg);
+  border-radius: var(--pill); padding: 1px 6px; margin-top: 3px;
+}
+.cats-sheet-total {
+  grid-column: 1 / -1;
+  padding: 13px 16px;
+  background: rgba(62,207,142,.08);
+  border: 1px solid rgba(62,207,142,.16);
+  border-radius: var(--rmd);
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.cats-sheet-total-val {
+  font-family: var(--display);
+  font-size: 1.375rem; color: var(--clin);
+  letter-spacing: -.04em; line-height: 1;
+}
+.cats-sheet-total-lbl {
+  font-size: .6875rem; color: rgba(255,255,255,.4);
+  text-align: right; line-height: 1.45;
+}
