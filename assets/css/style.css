@@ -4324,10 +4324,15 @@ input,select,textarea{outline:none}
   text-align: right; line-height: 1.45;
 }
 
-/* ── HEALTH CHECKS: MOBILE TWO-SIDED LAYOUT ──────────────────── */
+/* ── HEALTH CHECKS: MOBILE REDESIGN ──────────────────────────── */
 @media(max-width:640px) {
 
-  /* Force single-column — collapses the hidden .hcp-r track so .hcp-l fills full width */
+  /* ── Section breathing room ──────────────────────────────── */
+  #health-checks { padding-block: clamp(52px,10vw,72px) !important; }
+  .hc-head { margin-bottom: 28px !important; }
+  .hc-tabs { margin-bottom: 28px !important; gap: 8px !important; }
+
+  /* ── Force full-width single column ──────────────────────── */
   .hcp-layout {
     grid-template-columns: 1fr !important;
     gap: 0 !important;
@@ -4337,52 +4342,97 @@ input,select,textarea{outline:none}
     min-width: 0 !important;
   }
 
-  /* Restore stats bar as a 2×2 compact tile grid */
+  /* ── Stats bar: 2×2 generous tile grid ───────────────────── */
   .hcp-stats {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     gap: 1px !important;
-    background: rgba(255,255,255,.09) !important;
-    border-radius: var(--rmd) !important;
+    background: rgba(255,255,255,.1) !important;
+    border-radius: 14px !important;
     overflow: hidden !important;
-    margin-bottom: 20px !important;
-    border: 1px solid rgba(255,255,255,.09) !important;
+    margin-bottom: 28px !important;
+    border: 1px solid rgba(255,255,255,.1) !important;
   }
   .hcps-sep { display: none !important; }
   .hcps-item {
-    background: rgba(255,255,255,.04) !important;
-    padding: 14px 10px !important;
+    background: rgba(255,255,255,.05) !important;
+    padding: 18px 14px !important;
     text-align: center !important;
     border-radius: 0 !important;
   }
-  .hcps-val { font-size: 1.25rem !important; }
-  .hcps-lbl { font-size: .5625rem !important; letter-spacing: .06em; }
+  .hcps-val { font-size: 1.5rem !important; margin-bottom: 6px !important; }
+  .hcps-lbl { font-size: .625rem !important; letter-spacing: .07em !important; opacity: .55 !important; }
 
-  /* Features: 2-column compact card grid */
+  /* ── Title & description ─────────────────────────────────── */
+  .hcp-title {
+    font-size: clamp(1.25rem, 5.5vw, 1.5rem) !important;
+    line-height: 1.25 !important;
+    margin-bottom: 14px !important;
+    color: var(--white) !important;
+  }
+  .hcp-desc {
+    font-size: .9375rem !important;
+    line-height: 1.7 !important;
+    margin-bottom: 22px !important;
+    color: rgba(255,255,255,.5) !important;
+  }
+
+  /* ── Features: 2-col cards, show 4 items ─────────────────── */
   .hcp-features {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 6px !important;
+    gap: 8px !important;
     background: transparent !important;
     border: none !important;
     padding: 0 !important;
-    margin-bottom: 16px !important;
+    margin-bottom: 24px !important;
   }
+  /* un-hide items 3 & 4 (previously hidden by nth-child rule) */
+  .hcpf-item:nth-child(n+3),
+  #pane-mens .hcpf-item:nth-child(n+3) {
+    display: flex !important;
+  }
+  /* hide items 5 & 6 — keep it clean */
+  .hcpf-item:nth-child(n+5) { display: none !important; }
+
   .hcpf-item {
     flex-direction: column !important;
     align-items: flex-start !important;
-    gap: 6px !important;
-    padding: 10px 12px !important;
-    background: rgba(255,255,255,.04) !important;
+    gap: 8px !important;
+    padding: 14px 14px !important;
+    background: rgba(255,255,255,.05) !important;
     border: 1px solid rgba(255,255,255,.09) !important;
-    border-radius: var(--rmd) !important;
+    border-radius: 12px !important;
   }
-  .hcpf-check { margin-top: 0 !important; }
+  .hcpf-check {
+    width: 22px !important; height: 22px !important;
+    margin-top: 0 !important;
+    flex-shrink: 0 !important;
+  }
+  .hcpf-check svg { width: 9px !important; height: 9px !important; }
   .hcpf-desc  { display: none !important; }
   .hcpf-title {
-    font-size: .75rem !important;
-    color: rgba(255,255,255,.82) !important;
+    font-size: .8125rem !important;
     font-weight: 500 !important;
-    line-height: 1.35 !important;
+    line-height: 1.4 !important;
+    color: rgba(255,255,255,.85) !important;
+  }
+
+  /* ── Price row ───────────────────────────────────────────── */
+  .hcp-price-row {
+    margin-bottom: 20px !important;
+    padding-bottom: 20px !important;
+    border-bottom: 1px solid rgba(255,255,255,.1) !important;
+  }
+  .hcp-price { font-size: 2.25rem !important; }
+  .hcp-price-note {
+    font-size: .8125rem !important;
+    color: rgba(255,255,255,.4) !important;
+  }
+
+  /* ── Actions ─────────────────────────────────────────────── */
+  .hcp-actions {
+    gap: 10px !important;
+    margin-bottom: 14px !important;
   }
 }
