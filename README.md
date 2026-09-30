@@ -10,7 +10,7 @@ terms.html      Terms & Conditions
 assets/css/site.css   All styles. Tokens at the top, then header, home sections, dialog, inner pages. No global section padding: spacing is set per section.
 assets/js/site.js     Menu, test switcher, booking dialog, cookie notice, biomarker tools, scroll spy
 assets/fonts/         Schibsted Grotesk (Latin, variable, self-hosted, SIL OFL; see LICENSES.txt)
-assets/images/        Temporary photography; replace freely (each sits in a fixed-ratio `.media` frame)
+assets/images/        Temporary photography; replace freely (the `.photo` frames crop and tint whatever is inside)
 robots.txt, sitemap.xml
 ```
 
