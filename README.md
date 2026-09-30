@@ -3,12 +3,12 @@
 Static marketing and booking-enquiry site for Quantum BioTesting's Men's and Women's Health Checks. Plain HTML, one stylesheet, one script. No build step; deploy the repository root.
 
 ```
-index.html      Home: hero, choose-your-test canvas, why Quantum, experience, FAQ, close
+index.html      Home: hero with the two tests as report covers, why Quantum, experience, FAQ, closing call
 testing.html    Depth: Men's biomarker categories, Women's health areas, preparation, clinics
 privacy.html    Privacy Policy
 terms.html      Terms & Conditions
 assets/css/site.css   All styles. Tokens at the top, then header, home sections, dialog, inner pages. No global section padding: spacing is set per section.
-assets/js/site.js     Menu, test switcher, booking dialog, cookie notice, biomarker tools, scroll spy
+assets/js/site.js     Menu, test-details drawers, booking dialog, cookie notice, biomarker tools, scroll spy
 assets/fonts/         Schibsted Grotesk (Latin, variable, self-hosted, SIL OFL; see LICENSES.txt)
 assets/images/        Temporary photography; replace freely (the `.photo` frames crop and tint whatever is inside)
 robots.txt, sitemap.xml
@@ -17,10 +17,10 @@ robots.txt, sitemap.xml
 ## Working on it
 
 - Serve locally with any static server, e.g. `python3 -m http.server`.
-- Colours and type are CSS custom properties at the top of `site.css`. The palette (navy, cobalt, paper) is carried over from the previous site because no logo file has reached the repository; re-derive the `--c-deep`, `--c-brand` and `--c-sky` values from the logo when it is supplied.
-- Photography is tinted to the brand blue in CSS (`.photo`), so any replacement image picks up the treatment. Use `.photo--plain` for untinted images.
+- Colours and type are CSS custom properties at the top of `site.css`. The palette (ink navy, ultramarine, paper, one red for the saving) is carried over from the previous site because no logo file has reached the repository; re-derive the `--c-deep`, `--c-brand` and `--c-sky` values from the logo when it is supplied.
+- Photography sits in `.photo` frames that crop whatever is inside; swap the `<img>` and adjust `--pos` if the subject needs re-centring. The two report covers in the hero (`.sheet`) and the highlighter (`mark`) are the signature device; the covers open the details drawers (`#details-mens`, `#details-womens`).
 - Header, footer and booking dialog markup is repeated on each page. Change it in all four files.
-- Prices appear in the hero, the choose-your-test canvas, the closing call and the JSON-LD on `index.html`, and on `testing.html`. Current values: RRP £2,112, offer £995, saving £1,117.
+- Prices appear on the hero covers, the two drawers, the closing call and the JSON-LD on `index.html`, and on `testing.html`. Current values: RRP £2,112, offer £995, saving £1,117.
 
 ## Booking enquiry
 

@@ -104,7 +104,7 @@
     <a class="brand" href="#top" aria-label="Quantum BioTesting — home">Quantum&nbsp;<span>Bio</span>Testing</a>
     <nav class="nav" aria-label="Main" data-spy>
       <ul>
-        <li><a href="#tests">Health checks</a></li>
+        <li><a href="#top">Health checks</a></li>
         <li><a href="#experience">The experience</a></li>
         <li><a href="testing.html">Biomarkers</a></li>
         <li><a href="#faq">FAQs</a></li>
@@ -118,7 +118,7 @@
 </header>
 <div class="menu-panel" id="menu-panel">
   <nav aria-label="Main">
-    <a href="#tests">Health checks</a>
+    <a href="#top">Health checks</a>
     <a href="#experience">The experience</a>
     <a href="testing.html">Biomarkers</a>
     <a href="#faq">FAQs</a>
@@ -128,104 +128,54 @@
 
 <main id="main">
   <section class="hero" id="top" aria-labelledby="hero-title">
-    <div class="wrap">
+    <div class="wrap hero__grid">
       <div class="hero__copy">
-        <h1 id="hero-title">Know your health, <em>completely.</em></h1>
+        <h1 id="hero-title">Know your health, <mark>completely.</mark></h1>
         <p class="hero__lead">Private blood tests for men and women. Up to 350 biomarkers, every result reviewed by a clinical specialist.</p>
         <div class="hero__actions">
-          <a class="btn" href="#tests">Choose your test</a>
-          <p class="hero__price"><strong>£995</strong><s>RRP £2,112</s></p>
+          <button class="btn" type="button" data-book>Book your health check</button>
+          <a class="link" href="testing.html">See every biomarker</a>
         </div>
         <p class="hero__foot"><span>No GP referral</span><span>Results in 2–5 working days</span></p>
       </div>
-    </div>
-    <div class="photo hero__photo">
-      <img src="assets/images/sample-collection.webp" width="1200" height="801" fetchpriority="high" decoding="async" alt="A clinician applying a plaster to a patient’s arm after a blood sample">
-    </div>
-  </section>
-
-  <section class="choose" id="tests" aria-labelledby="tests-title">
-    <div class="wrap choose__head">
-      <h2 id="tests-title">Choose your test.</h2>
-      <p>Two health checks, one appointment each. Both <strong>£995</strong> (RRP £2,112, save £1,117).</p>
-    </div>
-    <div class="switch" role="tablist" aria-label="Choose a health check">
-      <button type="button" role="tab" id="tab-mens" aria-selected="true" aria-controls="half-mens">Men’s</button>
-      <button type="button" role="tab" id="tab-womens" aria-selected="false" aria-controls="half-womens" tabindex="-1">Women’s</button>
-    </div>
-    <div class="canvas" data-active="mens">
-      <section class="half half--mens" id="half-mens" aria-labelledby="t-mens">
-        <h3 class="half__name" id="t-mens">Men’s<small>Health Check</small></h3>
-        <p class="half__count">300+ biomarkers</p>
-        <p class="half__line">Comprehensive men’s health panel, built for fast clinical insight. Results in 2–5 working days.</p>
-        <div class="half__buy">
-          <p class="price"><span class="price__now">£995</span><span class="price__sub"><s>RRP £2,112</s> · Save <b>£1,117</b></span></p>
-          <button class="btn btn--light" type="button" data-book="mens">Book Men’s test</button>
-        </div>
-        <details>
-          <summary>Explore details</summary>
-          <div class="half__more">
-            <p>A full-body health audit covering every major system, from cardiac and hormonal health to organ function, nutrition, immune markers and cancer screening indicators. Every result is reviewed by a clinical specialist, not an algorithm.</p>
-            <ul>
-              <li>In-clinic blood draw by a trained phlebotomist</li>
-              <li>Detailed digital report with plain-English commentary</li>
-              <li>Optional follow-up telephone consultation</li>
-              <li>Express results option, from as little as 2 hours</li>
-            </ul>
-            <a href="testing.html#mens">See all 11 categories</a>
-          </div>
-        </details>
-      </section>
-      <section class="half half--womens" id="half-womens" aria-labelledby="t-womens">
-        <h3 class="half__name" id="t-womens">Women’s<small>Health Check</small></h3>
-        <p class="half__count">Up to 350 biomarkers</p>
-        <p class="half__line">One of our most advanced health checks, designed for women. Private GP consultation and 6-month repeat test included.</p>
-        <div class="half__buy">
-          <p class="price"><span class="price__now">£995</span><span class="price__sub"><s>RRP £2,112</s> · Save <b>£1,117</b></span></p>
-          <button class="btn btn--light" type="button" data-book="womens">Book Women’s test</button>
-        </div>
-        <details>
-          <summary>Explore details</summary>
-          <div class="half__more">
-            <p>From hormone balance and heart health to stress, nutrition, tumour markers and more. Results in 4 working days, with full clinical specialist review before delivery.</p>
-            <ul>
-              <li>Private remote GP consultation to help you understand your results and plan next steps</li>
-              <li>6-month repeat test to track your progress</li>
-              <li>Personalised health report with recommendations for your results and goals</li>
-            </ul>
-            <a href="testing.html#womens">See the 27 health areas</a>
-          </div>
-        </details>
-      </section>
-    </div>
-    <div class="wrap">
-      <p class="choose__note">Submitting an enquiry does not confirm a booking. Payment is due on confirmation; see our <a href="terms.html">Terms &amp; Conditions</a> for cancellation and refunds. From time to time there may be temporary changes to the test menu, so please contact us to confirm availability for specific tests.</p>
+      <div class="stage" role="group" aria-label="Choose a health check">
+        <button class="sheet sheet--mens" type="button" data-details="mens" aria-haspopup="dialog" aria-label="Men’s Health Check, 300 plus biomarkers, £995. Explore details">
+          <span class="sheet__name">Men’s<small>Health Check</small></span>
+          <span class="sheet__count">300+<small>biomarkers</small></span>
+          <span class="sheet__price">£995 <s>£2,112</s></span>
+          <span class="sheet__go">Explore</span>
+        </button>
+        <button class="sheet sheet--womens" type="button" data-details="womens" aria-haspopup="dialog" aria-label="Women’s Health Check, up to 350 biomarkers, £995. Explore details">
+          <span class="sheet__name">Women’s<small>Health Check</small></span>
+          <span class="sheet__count">Up to 350<small>biomarkers</small></span>
+          <span class="sheet__price">£995 <s>£2,112</s></span>
+          <span class="sheet__go">Explore</span>
+        </button>
+        <p class="stage__caption">Both tests £995 · RRP £2,112 · <b>Save £1,117</b></p>
+      </div>
     </div>
   </section>
 
   <section class="why" id="why" aria-labelledby="why-title">
-    <div class="wrap">
-      <div class="why__grid">
-        <div class="why__media">
-          <div class="photo why__image">
-            <img src="assets/images/report-review.webp" width="900" height="600" loading="lazy" decoding="async" alt="A clinician explaining results to a colleague on a computer screen">
-          </div>
-          <blockquote class="why__quote"><p>Every result reviewed by a clinical specialist, not an algorithm.</p></blockquote>
+    <div class="wrap why__grid">
+      <figure class="why__media">
+        <div class="photo why__photo">
+          <img src="assets/images/report-review.webp" width="900" height="600" loading="lazy" decoding="async" alt="A clinician explaining results to a colleague on a computer screen">
         </div>
-        <div class="why__points">
-          <div>
-            <h2 id="why-title">Far beyond a routine blood test.</h2>
-            <p>A routine NHS blood test covers around 15–20 basic markers. Our health checks analyse 300+ biomarkers for men and up to 350 for women: metabolic health, hormonal balance, nutritional status and early disease risk.</p>
-            <a class="link link--u" href="testing.html">Browse every biomarker</a>
-          </div>
-          <div>
-            <h3>A report you can read.</h3>
-            <p>Plain-English commentary explains what each reading means and whether anything needs further attention. It is formatted to a clinical standard, so you can share it with your GP.</p>
-          </div>
-          <div>
-            <h3>No referral. No waiting list.</h3>
-            <p>Book directly, on any day that suits you, at a clinic near you.</p>
-          </div>
+        <div class="report" aria-hidden="true">
+          <p class="report__title">Your report</p>
+          <p><mark>Reviewed by a clinical specialist</mark></p>
+          <p>Plain-English commentary on every reading</p>
+          <p>Formatted to a clinical standard</p>
+        </div>
+      </figure>
+      <div>
+        <h2 id="why-title">Far beyond a routine blood test.</h2>
+        <div class="why__text">
+          <p>A routine NHS blood test covers around 15–20 basic markers. Our health checks analyse <strong>300+ biomarkers for men and up to 350 for women</strong>, from metabolic health and hormonal balance to nutritional status and early disease risk.</p>
+          <p>Every result is <mark>reviewed by a clinical specialist, not an algorithm</mark>. Your report explains in plain English what each reading means and whether anything needs further attention, and it is formatted to a clinical standard so you can share it with your GP.</p>
+          <p>Book directly, on any day that suits you. No referral, no waiting list.</p>
+          <a class="link link--u" href="testing.html">Browse every biomarker</a>
         </div>
       </div>
     </div>
@@ -260,25 +210,23 @@
     </div>
   </section>
 
-  <section class="close on-deep" aria-labelledby="close-title">
-  <div class="wrap">
-    <h2 id="close-title">Book your health check.</h2>
-    <div class="close__row">
-      <button class="btn btn--light" type="button" data-book="mens">Men’s Health Check</button>
-      <button class="btn btn--ghost-light" type="button" data-book="womens">Women’s Health Check</button>
-      <p>£995 each · RRP £2,112 · Save £1,117</p>
-    </div>
-  </div>
-</section>
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
+    <div class="close">
+      <h2>Book your health check.</h2>
+      <div class="close__row">
+        <button class="btn btn--light" type="button" data-book="mens">Men’s Health Check</button>
+        <button class="btn btn--ghost-light" type="button" data-book="womens">Women’s Health Check</button>
+        <p>£995 each · RRP £2,112 · Save £1,117</p>
+      </div>
+    </div>
     <div class="footer__row">
       <!-- Logo slot: typographic stand-in until the official logo file is supplied; replace the link content with an <img> of the logo. -->
     <a class="brand" href="index.html" aria-label="Quantum BioTesting — home">Quantum&nbsp;<span>Bio</span>Testing</a>
       <nav class="footer__nav" aria-label="Footer">
-        <a href="index.html#tests">Health checks</a>
+        <a href="index.html#top">Health checks</a>
         <a href="testing.html">Biomarkers</a>
         <a href="index.html#experience">The experience</a>
         <a href="index.html#faq">FAQs</a>
@@ -292,6 +240,48 @@
     </div>
   </div>
 </footer>
+<dialog class="dialog drawer" id="details-mens" aria-labelledby="dt-mens">
+  <div class="dialog__head">
+    <h2 id="dt-mens">Men’s Health Check</h2>
+    <button class="dialog__close" type="button" data-close aria-label="Close details"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 4l12 12M16 4L4 16"/></svg></button>
+  </div>
+  <div class="dialog__body">
+    <div class="detail">
+      <p class="detail__meta"><span>300+ biomarkers</span><span>11 clinical categories</span><span>Results in 2–5 working days</span></p>
+      <p>Comprehensive men’s health panel, built for fast clinical insight.</p>
+      <p>A full-body health audit covering every major system, from cardiac and hormonal health to organ function, nutrition, immune markers and cancer screening indicators. Every result is reviewed by a clinical specialist, not an algorithm.</p>
+      <h3>Included</h3>
+      <ul><li>In-clinic blood draw by a trained phlebotomist</li><li>Detailed digital report with plain-English commentary</li><li>Optional follow-up telephone consultation</li><li>Express results option, from as little as 2 hours</li></ul>
+      <a class="link link--u" href="testing.html#mens" style="justify-self:start">See all 11 categories</a>
+      <p class="note" style="margin-top:0">From time to time there may be temporary changes to the test menu. Please contact us to confirm availability for specific tests.</p>
+    </div>
+  </div>
+  <div class="dialog__foot">
+    <p class="detail__price" style="flex-basis:100%"><b>£995</b><s>RRP £2,112</s><span>Save £1,117</span></p>
+    <button class="btn" type="button" data-book="mens">Book Men’s Health Check</button>
+  </div>
+</dialog>
+<dialog class="dialog drawer" id="details-womens" aria-labelledby="dt-womens">
+  <div class="dialog__head">
+    <h2 id="dt-womens">Women’s Health Check</h2>
+    <button class="dialog__close" type="button" data-close aria-label="Close details"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 4l12 12M16 4L4 16"/></svg></button>
+  </div>
+  <div class="dialog__body">
+    <div class="detail">
+      <p class="detail__meta"><span>Up to 350 biomarkers</span><span>27 health areas</span><span>Results in 4 working days</span></p>
+      <p>One of our most advanced health checks, designed specifically for women.</p>
+      <p>From hormone balance and heart health to stress, nutrition, tumour markers and more, with full clinical specialist review before delivery.</p>
+      <h3>Included</h3>
+      <ul><li>Private remote GP consultation to help you understand your results and plan next steps</li><li>6-month repeat test to track your progress</li><li>Personalised health report with recommendations for your results and goals</li></ul>
+      <a class="link link--u" href="testing.html#womens" style="justify-self:start">See the 27 health areas</a>
+      <p class="note" style="margin-top:0">From time to time there may be temporary changes to the test menu. Please contact us to confirm availability for specific tests.</p>
+    </div>
+  </div>
+  <div class="dialog__foot">
+    <p class="detail__price" style="flex-basis:100%"><b>£995</b><s>RRP £2,112</s><span>Save £1,117</span></p>
+    <button class="btn" type="button" data-book="womens">Book Women’s Health Check</button>
+  </div>
+</dialog>
 <dialog class="dialog" id="booking" aria-labelledby="bk-title">
   <div class="dialog__head" data-chrome>
     <div>
