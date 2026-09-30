@@ -14,10 +14,9 @@
 <meta property="og:url" content="https://quantumbt.co.uk/">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#0b1f3a">
+<meta name="theme-color" content="#0a1d3d">
 <link rel="icon" href="data:,">
-<link rel="preload" href="assets/fonts/literata-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/albert-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">
@@ -101,14 +100,13 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap site-header__row">
-    <!-- Wordmark placeholder: swap for the official logo asset once supplied -->
+    <!-- Logo slot: typographic stand-in until the official logo file is supplied; replace the link content with an <img> of the logo. -->
     <a class="brand" href="#top" aria-label="Quantum BioTesting — home">Quantum&nbsp;<span>Bio</span>Testing</a>
     <nav class="nav" aria-label="Main" data-spy>
       <ul>
-        <li><a href="#health-checks">Health checks</a></li>
-        <li><a href="#process">How it works</a></li>
+        <li><a href="#tests">Health checks</a></li>
+        <li><a href="#experience">The experience</a></li>
         <li><a href="testing.html">Biomarkers</a></li>
-        <li><a href="#clinics">Clinics</a></li>
         <li><a href="#faq">FAQs</a></li>
       </ul>
     </nav>
@@ -120,399 +118,175 @@
 </header>
 <div class="menu-panel" id="menu-panel">
   <nav aria-label="Main">
-    <a href="#health-checks">Health checks<svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-    <a href="#process">How it works<svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-    <a href="testing.html">Biomarkers<svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-    <a href="#clinics">Clinics<svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-    <a href="#faq">FAQs<svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    <a href="#tests">Health checks</a>
+    <a href="#experience">The experience</a>
+    <a href="testing.html">Biomarkers</a>
+    <a href="#faq">FAQs</a>
   </nav>
-  <button class="btn btn--block" type="button" data-book>Book a test</button>
+  <button class="btn btn--light btn--block" type="button" data-book>Book a test</button>
 </div>
 
 <main id="main">
   <section class="hero" id="top" aria-labelledby="hero-title">
-    <div class="wrap hero__grid">
-      <div>
-        <h1 id="hero-title">Know your health, completely.</h1>
-        <p class="hero__lead">Private blood tests for men and women. Up to 350 biomarkers, individually reviewed by a clinical specialist, from a single clinic appointment. No GP referral required.</p>
+    <div class="wrap">
+      <div class="hero__copy">
+        <h1 id="hero-title">Know your health, <em>completely.</em></h1>
+        <p class="hero__lead">Private blood tests for men and women. Up to 350 biomarkers, every result reviewed by a clinical specialist.</p>
         <div class="hero__actions">
-          <a class="btn" href="#health-checks">Choose your health check</a>
-          <a class="link" href="testing.html">View the biomarker list <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a class="btn" href="#tests">Choose your test</a>
+          <p class="hero__price"><strong>£995</strong><s>RRP £2,112</s></p>
         </div>
-        <p class="hero__price">Men’s and Women’s Health Checks: <strong>£995</strong> each &middot; RRP <s>£2,112</s></p>
+        <p class="hero__foot"><span>No GP referral</span><span>Results in 2–5 working days</span></p>
       </div>
-      <aside class="measure" aria-labelledby="measure-title">
-        <h2 class="measure__title" id="measure-title">Biomarkers per test</h2>
-        <div class="measure__row">
-          <p class="measure__label"><span>Men’s Health Check</span><b>300+</b></p>
-          <div class="measure__track" role="img" aria-label="Men’s Health Check: 300 plus biomarkers on a scale to 350"><div class="measure__bar measure__bar--open" style="--w:85.7%"></div></div>
-        </div>
-        <div class="measure__row">
-          <p class="measure__label"><span>Women’s Health Check</span><b>Up to 350</b></p>
-          <div class="measure__track" role="img" aria-label="Women’s Health Check: up to 350 biomarkers on a scale to 350"><div class="measure__bar" style="--w:100%"></div></div>
-        </div>
-        <div class="measure__axis" aria-hidden="true"><span style="left:0%">0</span><span style="left:14.285714285714285%">50</span><span style="left:28.57142857142857%">100</span><span style="left:42.857142857142854%">150</span><span style="left:57.14285714285714%">200</span><span style="left:71.42857142857143%">250</span><span style="left:85.71428571428571%">300</span><span style="left:100%">350</span></div>
-        <p class="measure__note">Men’s: 11 clinical categories. Women’s: 27 health areas.</p>
-      </aside>
+    </div>
+    <div class="photo hero__photo">
+      <img src="assets/images/sample-collection.webp" width="1200" height="801" fetchpriority="high" decoding="async" alt="A clinician applying a plaster to a patient’s arm after a blood sample">
     </div>
   </section>
 
-  <div class="strip">
-    <div class="wrap">
-      <ul aria-label="At a glance">
-        <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6.25"/><path d="M5.2 8.2l2 2 3.6-4"/></svg>Reviewed by a clinical specialist</li>
-        <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6.25"/><path d="M5.2 8.2l2 2 3.6-4"/></svg>Results in 2–5 working days</li>
-        <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6.25"/><path d="M5.2 8.2l2 2 3.6-4"/></svg>No GP referral required</li>
-        <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6.25"/><path d="M5.2 8.2l2 2 3.6-4"/></svg>Appointments 7 days a week</li>
-      </ul>
+  <section class="choose" id="tests" aria-labelledby="tests-title">
+    <div class="wrap choose__head">
+      <h2 id="tests-title">Choose your test.</h2>
+      <p>Two health checks, one appointment each. Both <strong>£995</strong> (RRP £2,112, save £1,117).</p>
     </div>
-  </div>
-
-  <section class="section" id="health-checks" aria-labelledby="hc-title">
-    <div class="wrap">
-      <div class="mark"><b>01</b> Health checks</div>
-      <div class="sec-head" data-reveal>
-        <h2 id="hc-title">Two health checks, each built around the body it tests.</h2>
-        <p>Choose the test designed for you. Each is a single appointment, reviewed by a clinical specialist and delivered as a detailed digital report.</p>
-      </div>
-      <div class="tests">
-        <article class="test" aria-labelledby="t-mens" data-reveal>
-          <div class="test__head">
-            <p class="test__tag">Men’s</p>
-            <h3 id="t-mens">Men’s Health Check</h3>
-            <p class="test__pos">Comprehensive men’s health panel, built for fast clinical insight.</p>
-          </div>
-          <dl class="test__spec">
-            <div><dt>Biomarkers</dt><dd>300+</dd></div>
-            <div><dt>Categories</dt><dd>11</dd></div>
-            <div><dt>Results</dt><dd>2–5<small>working days</small></dd></div>
-          </dl>
-          <div class="test__body">
+    <div class="switch" role="tablist" aria-label="Choose a health check">
+      <button type="button" role="tab" id="tab-mens" aria-selected="true" aria-controls="half-mens">Men’s</button>
+      <button type="button" role="tab" id="tab-womens" aria-selected="false" aria-controls="half-womens" tabindex="-1">Women’s</button>
+    </div>
+    <div class="canvas" data-active="mens">
+      <section class="half half--mens" id="half-mens" aria-labelledby="t-mens">
+        <h3 class="half__name" id="t-mens">Men’s<small>Health Check</small></h3>
+        <p class="half__count">300+ biomarkers</p>
+        <p class="half__line">Comprehensive men’s health panel, built for fast clinical insight. Results in 2–5 working days.</p>
+        <div class="half__buy">
+          <p class="price"><span class="price__now">£995</span><span class="price__sub"><s>RRP £2,112</s> · Save <b>£1,117</b></span></p>
+          <button class="btn btn--light" type="button" data-book="mens">Book Men’s test</button>
+        </div>
+        <details>
+          <summary>Explore details</summary>
+          <div class="half__more">
             <p>A full-body health audit covering every major system, from cardiac and hormonal health to organ function, nutrition, immune markers and cancer screening indicators. Every result is reviewed by a clinical specialist, not an algorithm.</p>
-            <ul class="test__list">
+            <ul>
               <li>In-clinic blood draw by a trained phlebotomist</li>
-              <li>Every result individually reviewed by a clinical specialist</li>
               <li>Detailed digital report with plain-English commentary</li>
               <li>Optional follow-up telephone consultation</li>
+              <li>Express results option, from as little as 2 hours</li>
             </ul>
+            <a href="testing.html#mens">See all 11 categories</a>
           </div>
-          <div class="test__foot">
-            <p class="price"><span class="price__now">£995</span><span class="price__rrp">RRP <s>£2,112</s></span><span class="price__save">Save £1,117</span><span class="price__inc">All-inclusive — no hidden fees</span></p>
-            <div class="test__actions">
-              <button class="btn" type="button" data-book="mens">Book Men’s Health Check</button>
-              <a class="link" href="testing.html#mens">Full biomarker list <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-            </div>
-          </div>
-        </article>
-
-        <article class="test" aria-labelledby="t-womens" data-reveal>
-          <div class="test__head">
-            <p class="test__tag">Women’s</p>
-            <h3 id="t-womens">Women’s Health Check</h3>
-            <p class="test__pos">One of our most advanced health checks, designed specifically for women.</p>
-          </div>
-          <dl class="test__spec">
-            <div><dt>Biomarkers</dt><dd>Up to 350</dd></div>
-            <div><dt>Health areas</dt><dd>27</dd></div>
-            <div><dt>Results</dt><dd>4<small>working days</small></dd></div>
-          </dl>
-          <div class="test__body">
-            <p>From hormone balance and heart health to stress, nutrition, tumour markers and more, with a private GP consultation and a 6-month repeat test included as standard.</p>
-            <ul class="test__list">
+        </details>
+      </section>
+      <section class="half half--womens" id="half-womens" aria-labelledby="t-womens">
+        <h3 class="half__name" id="t-womens">Women’s<small>Health Check</small></h3>
+        <p class="half__count">Up to 350 biomarkers</p>
+        <p class="half__line">One of our most advanced health checks, designed for women. Private GP consultation and 6-month repeat test included.</p>
+        <div class="half__buy">
+          <p class="price"><span class="price__now">£995</span><span class="price__sub"><s>RRP £2,112</s> · Save <b>£1,117</b></span></p>
+          <button class="btn btn--light" type="button" data-book="womens">Book Women’s test</button>
+        </div>
+        <details>
+          <summary>Explore details</summary>
+          <div class="half__more">
+            <p>From hormone balance and heart health to stress, nutrition, tumour markers and more. Results in 4 working days, with full clinical specialist review before delivery.</p>
+            <ul>
               <li>Private remote GP consultation to help you understand your results and plan next steps</li>
               <li>6-month repeat test to track your progress</li>
               <li>Personalised health report with recommendations for your results and goals</li>
-              <li>Full clinical specialist review before delivery</li>
             </ul>
+            <a href="testing.html#womens">See the 27 health areas</a>
           </div>
-          <div class="test__foot">
-            <p class="price"><span class="price__now">£995</span><span class="price__rrp">RRP <s>£2,112</s></span><span class="price__save">Save £1,117</span><span class="price__inc">Includes private GP consultation</span></p>
-            <div class="test__actions">
-              <button class="btn" type="button" data-book="womens">Book Women’s Health Check</button>
-              <a class="link" href="testing.html#womens">Health areas covered <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-            </div>
-          </div>
-        </article>
-      </div>
-      <p class="note">From time to time there may be temporary changes to the test menu. Please contact us to confirm availability for specific tests.</p>
+        </details>
+      </section>
+    </div>
+    <div class="wrap">
+      <p class="choose__note">Submitting an enquiry does not confirm a booking. Payment is due on confirmation; see our <a href="terms.html">Terms &amp; Conditions</a> for cancellation and refunds. From time to time there may be temporary changes to the test menu, so please contact us to confirm availability for specific tests.</p>
     </div>
   </section>
 
-  <section class="section section--muted" id="why" aria-labelledby="why-title">
+  <section class="why" id="why" aria-labelledby="why-title">
     <div class="wrap">
-      <div class="mark"><b>02</b> Why comprehensive</div>
-      <div class="split">
-        <div class="prose" data-reveal>
-          <h2 id="why-title">Why routine tests aren’t enough.</h2>
-          <p>Standard NHS blood tests typically screen for a handful of basic markers. That is enough to flag obvious illness, but not enough to give a complete picture of your metabolic health, hormonal balance, nutritional status or early disease risk.</p>
-          <p>Our health checks analyse 300+ biomarkers for men and up to 350 for women, giving you and your doctor a far fuller view from a single blood test.</p>
-          <p>Every result is reviewed by a clinical specialist. Your report includes plain-English commentary explaining what each reading means and whether any further attention is warranted.</p>
+      <div class="why__grid">
+        <div class="why__media">
+          <div class="photo why__image">
+            <img src="assets/images/report-review.webp" width="900" height="600" loading="lazy" decoding="async" alt="A clinician explaining results to a colleague on a computer screen">
+          </div>
+          <blockquote class="why__quote"><p>Every result reviewed by a clinical specialist, not an algorithm.</p></blockquote>
         </div>
-        <div class="table-wrap" data-reveal>
-          <table class="compare">
-            <caption>Standard NHS test compared with a Quantum health check</caption>
-            <thead><tr><th scope="col"><span class="sr-only">Measure</span></th><th scope="col">Standard NHS test</th><th scope="col" class="is-q">Quantum health check</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Markers</th><td data-label="Standard NHS test">Around 15–20 basic markers</td><td data-label="Quantum health check" class="is-q">300+ for men, up to 350 for women</td></tr>
-              <tr><th scope="row">Hormones</th><td data-label="Standard NHS test">No hormonal panel</td><td data-label="Quantum health check" class="is-q">Full hormonal panel</td></tr>
-              <tr><th scope="row">Thyroid</th><td data-label="Standard NHS test">Limited (TSH only)</td><td data-label="Quantum health check" class="is-q">Advanced (TSH, T3, T4 &amp; TPO)</td></tr>
-              <tr><th scope="row">Cancer screening</th><td data-label="Standard NHS test">No screening markers</td><td data-label="Quantum health check" class="is-q">Screening indicators included</td></tr>
-              <tr><th scope="row">Vitamins &amp; minerals</th><td data-label="Standard NHS test">Limited testing</td><td data-label="Quantum health check" class="is-q">Extensive vitamin &amp; mineral testing</td></tr>
-              <tr><th scope="row">Results</th><td data-label="Standard NHS test">1–3 weeks</td><td data-label="Quantum health check" class="is-q">2–5 working days</td></tr>
-              <tr><th scope="row">GP referral</th><td data-label="Standard NHS test">Required</td><td data-label="Quantum health check" class="is-q">Not required</td></tr>
-              <tr><th scope="row">Commentary</th><td data-label="Standard NHS test">No clinical specialist commentary</td><td data-label="Quantum health check" class="is-q">Full clinical specialist review &amp; commentary</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="coverage" aria-labelledby="cov-title">
-    <div class="wrap">
-      <div class="mark"><b>03</b> Coverage</div>
-      <div class="split">
-        <div class="prose prose--sticky" data-reveal>
-          <h2 id="cov-title">Broad by design. Organised by system.</h2>
-          <p>The Men’s Health Check organises 300+ biomarkers into 11 clinical categories. The Women’s Health Check spans 27 health areas and up to 350 biomarkers.</p>
-          <p>Every marker is listed by name, with advanced and specialist analyses identified.</p>
-          <a class="link" href="testing.html">Explore the full biomarker list <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-        </div>
-        <div data-reveal>
-          <h3 class="sr-only">Men’s Health Check categories and biomarker counts</h3>
-          <ol class="index">
-        <li><span class="index__n">01</span><span class="index__t">Cardiovascular &amp; Lipid</span><span class="index__c">38</span><span class="index__bar" aria-hidden="true"><i style="--w:82.6%"></i></span></li>
-        <li><span class="index__n">02</span><span class="index__t">Full Blood Count</span><span class="index__c">32</span><span class="index__bar" aria-hidden="true"><i style="--w:69.6%"></i></span></li>
-        <li><span class="index__n">03</span><span class="index__t">Metabolic &amp; Glucose</span><span class="index__c">28</span><span class="index__bar" aria-hidden="true"><i style="--w:60.9%"></i></span></li>
-        <li><span class="index__n">04</span><span class="index__t">Liver &amp; Kidney Function</span><span class="index__c">26</span><span class="index__bar" aria-hidden="true"><i style="--w:56.5%"></i></span></li>
-        <li><span class="index__n">05</span><span class="index__t">Thyroid Function</span><span class="index__c">24</span><span class="index__bar" aria-hidden="true"><i style="--w:52.2%"></i></span></li>
-        <li><span class="index__n">06</span><span class="index__t">Hormones</span><span class="index__c">30</span><span class="index__bar" aria-hidden="true"><i style="--w:65.2%"></i></span></li>
-        <li><span class="index__n">07</span><span class="index__t">Inflammation &amp; Immune</span><span class="index__c">22</span><span class="index__bar" aria-hidden="true"><i style="--w:47.8%"></i></span></li>
-        <li><span class="index__n">08</span><span class="index__t">Vitamins &amp; Minerals</span><span class="index__c">20</span><span class="index__bar" aria-hidden="true"><i style="--w:43.5%"></i></span></li>
-        <li><span class="index__n">09</span><span class="index__t">Cancer Screening Markers</span><span class="index__c">18</span><span class="index__bar" aria-hidden="true"><i style="--w:39.1%"></i></span></li>
-        <li><span class="index__n">10</span><span class="index__t">Cognitive &amp; Neurological</span><span class="index__c">16</span><span class="index__bar" aria-hidden="true"><i style="--w:34.8%"></i></span></li>
-        <li><span class="index__n">11</span><span class="index__t">Autoimmune &amp; Genetic Risk</span><span class="index__c">46</span><span class="index__bar" aria-hidden="true"><i style="--w:100.0%"></i></span></li>
-          </ol>
-          <div class="areas">
-            <h3>Women’s Health Check: 27 health areas</h3>
-            <ul>
-              <li>Allergy Evaluation</li>
-              <li>Autoimmune</li>
-              <li>Bone Health</li>
-              <li>Diabetes Health</li>
-              <li>Digestive Health</li>
-              <li>Epstein-Barr Virus</li>
-              <li>Female Hormone</li>
-              <li>Full Blood Count</li>
-              <li>Heart Health</li>
-              <li>Infection &amp; Inflammation</li>
-              <li>Iron Status</li>
-              <li>Kidney Health</li>
-              <li>Liver Health</li>
-              <li>Male Hormone</li>
-              <li>Metabolic Syndrome</li>
-              <li>Muscle &amp; Joint Health</li>
-              <li>Nutritional Health</li>
-              <li>Pancreatic Health</li>
-              <li>Personal Health Measurements</li>
-              <li>Pituitary &amp; Adrenal</li>
-              <li>Digestive &amp; Bowel Health</li>
-              <li>Stress</li>
-              <li>Thyroid Health</li>
-              <li>Tumour Markers</li>
-              <li>Urinalysis</li>
-              <li>UTI</li>
-              <li>Genetic Risk Assessment</li>
-            </ul>
+        <div class="why__points">
+          <div>
+            <h2 id="why-title">Far beyond a routine blood test.</h2>
+            <p>A routine NHS blood test covers around 15–20 basic markers. Our health checks analyse 300+ biomarkers for men and up to 350 for women: metabolic health, hormonal balance, nutritional status and early disease risk.</p>
+            <a class="link link--u" href="testing.html">Browse every biomarker</a>
+          </div>
+          <div>
+            <h3>A report you can read.</h3>
+            <p>Plain-English commentary explains what each reading means and whether anything needs further attention. It is formatted to a clinical standard, so you can share it with your GP.</p>
+          </div>
+          <div>
+            <h3>No referral. No waiting list.</h3>
+            <p>Book directly, on any day that suits you, at a clinic near you.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section section--muted" id="process" aria-labelledby="proc-title">
+  <section class="flow" id="experience" aria-labelledby="flow-title">
     <div class="wrap">
-      <div class="mark"><b>04</b> How it works</div>
-      <div class="sec-head" data-reveal>
-        <h2 id="proc-title">From booking to report in four steps.</h2>
-        <p>The clinic appointment itself takes around 15 minutes.</p>
+      <div class="flow__head">
+        <h2 id="flow-title">From booking to results.</h2>
+        <p>The clinic appointment takes about 15 minutes.</p>
       </div>
-      <ol class="steps" data-reveal>
-        <li class="step"><span class="step__n" aria-hidden="true">01</span><h3>Book online</h3><p>Choose your health check, clinic location and date. No GP referral or waiting list.</p><p class="step__meta">7 days a week</p></li>
-        <li class="step"><span class="step__n" aria-hidden="true">02</span><h3>Attend your clinic</h3><p>A trained phlebotomist takes your blood sample in a quick, comfortable appointment.</p><p class="step__meta">About 15 minutes</p></li>
-        <li class="step"><span class="step__n" aria-hidden="true">03</span><h3>Laboratory analysis</h3><p>Your sample is analysed in the laboratory, with each biomarker measured on advanced automated platforms.</p><p class="step__meta">Every marker measured</p></li>
-        <li class="step"><span class="step__n" aria-hidden="true">04</span><h3>Receive your report</h3><p>Your digital report, reviewed by a clinical specialist, is delivered to your inbox with commentary on every result.</p><p class="step__meta">2–5 working days</p></li>
+      <ol class="steps">
+        <li class="step"><h3>Book</h3><p>Choose your test, clinic and date online, on any day of the week.</p></li>
+        <li class="step"><h3>Attend</h3><p>A trained phlebotomist takes your sample in a quick, comfortable appointment.</p></li>
+        <li class="step"><h3>Analysis</h3><p>Every biomarker is measured in the laboratory on automated platforms.</p></li>
+        <li class="step"><h3>Report</h3><p>Your specialist-reviewed digital report arrives in 2–5 working days.</p></li>
       </ol>
+      <p class="flow__more">Fast for 8–12 hours beforehand, stay hydrated and keep taking prescribed medication. <a href="testing.html#appointment">Preparation guide and clinic addresses</a></p>
     </div>
   </section>
 
-  <section class="section" id="preparation" aria-labelledby="prep-title">
-    <div class="wrap">
-      <div class="mark"><b>05</b> Preparation</div>
-      <div class="split split--even split--flip">
-        <div class="media" style="--ratio:4 / 5;--pos:40% 30%" data-reveal>
-          <img src="assets/images/sample-collection.webp" width="1200" height="801" loading="lazy" decoding="async" alt="A clinician applying a plaster to a patient’s arm after a blood sample">
-        </div>
-        <div data-reveal>
-          <div class="sec-head" style="margin-bottom:var(--s-5)">
-            <h2 id="prep-title">Simple steps for accurate results.</h2>
-            <p>Following these guidelines helps your results be as accurate and clinically meaningful as possible.</p>
-          </div>
-          <ol class="numbered">
-            <li><span class="numbered__n" aria-hidden="true">1</span><div><h3>Fast for 8–12 hours</h3><p>Fast for at least 8 hours, ideally 10–12, before your appointment. Water is permitted and encouraged. A morning appointment after an overnight fast is simplest for most people.</p></div></li>
-            <li><span class="numbered__n" aria-hidden="true">2</span><div><h3>Stay well hydrated</h3><p>Drink plenty of water in the 24 hours before and on the morning of your test. Good hydration makes the draw more comfortable and improves the accuracy of certain markers.</p></div></li>
-            <li><span class="numbered__n" aria-hidden="true">3</span><div><h3>Continue all medications</h3><p>Take prescribed medication as normal unless your doctor has advised otherwise. Where possible, take vitamin and mineral supplements after your blood draw.</p></div></li>
-            <li><span class="numbered__n" aria-hidden="true">4</span><div><h3>Avoid strenuous exercise</h3><p>Avoid intense exercise for 24 hours beforehand. Heavy exercise can temporarily raise inflammatory markers, creatine kinase and certain enzymes.</p></div></li>
-          </ol>
-          <p class="callout" style="margin-top:var(--s-5)"><strong>Specific medical requirements?</strong> If you take regular medication, have a health condition or are unsure about preparation, please contact our team before your appointment.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--muted" id="report" aria-labelledby="rep-title">
-    <div class="wrap">
-      <div class="mark"><b>06</b> Your report</div>
-      <div class="split split--even">
-        <div data-reveal>
-          <div class="sec-head" style="margin-bottom:var(--s-5)">
-            <h2 id="rep-title">Results you can read, and act on.</h2>
-            <p>Every reading is reviewed by a clinical specialist and explained in plain English, with a clear view of whether anything needs further attention.</p>
-          </div>
-          <ul class="test__list" style="margin-top:0">
-            <li>A detailed digital report delivered to your inbox in 2–5 working days (4 working days for the Women’s Health Check)</li>
-            <li>Formatted to a clinical standard, so it can be shared with your GP or any other healthcare provider</li>
-            <li>An optional telephone consultation with the Men’s Health Check; a private GP consultation is included with the Women’s Health Check</li>
-            <li>An express results option, from as little as 2 hours from laboratory sample receipt. Ask about availability when booking</li>
-          </ul>
-        </div>
-        <div class="media" style="--ratio:3 / 2" data-reveal>
-          <img src="assets/images/report-review.webp" width="900" height="600" loading="lazy" decoding="async" alt="A clinician explaining results to a colleague on a computer screen">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="clinics" aria-labelledby="cl-title">
-    <div class="wrap">
-      <div class="mark"><b>07</b> Clinics</div>
-      <div class="sec-head" data-reveal>
-        <h2 id="cl-title">Clinics across the UK.</h2>
-        <p>Convenient locations, from high-street health suites to dedicated clinic sites, with appointments available 7 days a week.</p>
-      </div>
-      <ul class="clinics" data-reveal>
-        <li><span class="clinics__city">London</span><strong>Fulham</strong><address>9–13 Fulham High Street, London SW6 3JH</address></li>
-        <li><span class="clinics__city">London</span><strong>Canary Wharf</strong><address>Street Level 0, Cabot Place, Canary Wharf E14 4QT</address></li>
-        <li><span class="clinics__city">London</span><strong>Chiswick</strong><address>149 Chiswick High Road, London W4 2DT</address></li>
-        <li><span class="clinics__city">London</span><strong>Westfield Stratford</strong><address>122, The Street, Westfield Stratford City, London E20 1EN</address></li>
-        <li><span class="clinics__city">Birmingham</span><strong>Birmingham</strong><address>39–40 High Street, Birmingham, West Midlands B4 7SL</address></li>
-        <li class="clinics__more"><span class="clinics__city">Also available in</span><p>Manchester, Leeds, Liverpool, Glasgow, Belfast, High Wycombe, Edinburgh, Bristol, Sheffield and Newcastle. Available locations are shown when you book.</p></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section section--muted" id="pricing" aria-labelledby="price-title">
-    <div class="wrap">
-      <div class="mark"><b>08</b> Pricing</div>
-      <div class="sec-head" data-reveal>
-        <h2 id="price-title">One price. Everything included.</h2>
-        <p>No hidden laboratory fees and no compulsory add-ons. A single all-inclusive price covers every element, from blood draw to digital report.</p>
-      </div>
-      <div class="table-wrap" data-reveal>
-        <table class="compare">
-          <caption>The two health checks compared</caption>
-          <thead><tr><th scope="col"><span class="sr-only">Detail</span></th><th scope="col">Men’s Health Check</th><th scope="col">Women’s Health Check</th></tr></thead>
-          <tbody>
-            <tr><th scope="row">RRP</th><td data-label="Men’s"><s>£2,112</s></td><td data-label="Women’s"><s>£2,112</s></td></tr>
-            <tr><th scope="row">Current price</th><td data-label="Men’s"><b>£995</b></td><td data-label="Women’s"><b>£995</b></td></tr>
-            <tr><th scope="row">You save</th><td data-label="Men’s">£1,117</td><td data-label="Women’s">£1,117</td></tr>
-            <tr><th scope="row">Biomarkers</th><td data-label="Men’s">300+ across 11 clinical categories</td><td data-label="Women’s">Up to 350 across 27 health areas</td></tr>
-            <tr><th scope="row">In-clinic blood draw</th><td data-label="Men’s">Included</td><td data-label="Women’s">Included</td></tr>
-            <tr><th scope="row">Clinical specialist review</th><td data-label="Men’s">Included</td><td data-label="Women’s">Included</td></tr>
-            <tr><th scope="row">Digital results report</th><td data-label="Men’s">2–5 working days</td><td data-label="Women’s">4 working days</td></tr>
-            <tr><th scope="row">Consultation</th><td data-label="Men’s">Optional telephone consultation</td><td data-label="Women’s">Private GP consultation included</td></tr>
-            <tr><th scope="row">Also</th><td data-label="Men’s">Express results option, from 2 hours</td><td data-label="Women’s">6-month repeat test included</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="hero__actions">
-        <button class="btn" type="button" data-book="mens">Book Men’s Health Check</button>
-        <button class="btn btn--ghost" type="button" data-book="womens">Book Women’s Health Check</button>
-      </div>
-      <p class="note">Submitting an enquiry does not confirm a booking. Payment is due on confirmation, as set out in your confirmation email. See our <a href="terms.html">Terms &amp; Conditions</a> for cancellation and refunds.</p>
-    </div>
-  </section>
-
-  <section class="section" id="faq" aria-labelledby="faq-title">
-    <div class="wrap">
-      <div class="mark"><b>09</b> Questions</div>
-      <div class="sec-head" data-reveal>
-        <h2 id="faq-title">Everything you need to know.</h2>
-      </div>
-      <div class="faq" data-reveal>
+  <section class="ask" id="faq" aria-labelledby="faq-title">
+    <div class="wrap ask__grid">
+      <h2 id="faq-title">Before you book.</h2>
+      <div class="faq">
         <details name="faq"><summary>Do I need a GP referral?</summary><div class="faq__a"><p>No. You can book directly online without a GP referral. Choose your preferred clinic location and appointment date, and we will handle the rest.</p></div></details>
-        <details name="faq"><summary>How should I prepare for my appointment?</summary><div class="faq__a"><p>Fast for 8–12 hours beforehand (water is fine), stay well hydrated, continue prescription medication as normal and avoid strenuous exercise for 24 hours. Wear a short-sleeved or loose-fitting top for easy access to your arm. Full guidance is in the <a href="#preparation">preparation section</a>.</p></div></details>
-        <details name="faq"><summary>How long will my results take?</summary><div class="faq__a"><p>Standard results are delivered in 2–5 working days from sample receipt at the laboratory (4 working days for the Women’s Health Check). An express service can return results in as little as 2 hours. Please ask our team about availability when booking.</p></div></details>
-        <details name="faq"><summary>Can I share my results with my GP?</summary><div class="faq__a"><p>Yes. Your digital report is formatted to a clinical standard and can be shared with your GP or any other healthcare provider. Many clients use their results to start more informed conversations with their doctor.</p></div></details>
-        <details name="faq"><summary>Where are the clinics?</summary><div class="faq__a"><p>We have clinic locations across the United Kingdom, including sites in London, Manchester, Birmingham, Leeds, Liverpool, Glasgow, Edinburgh, Bristol, Belfast, Sheffield, Newcastle and High Wycombe. Available locations are shown during the booking process.</p></div></details>
-        <details name="faq"><summary>What happens after I send an enquiry?</summary><div class="faq__a"><p>Our team confirms your appointment details by email. An enquiry alone does not confirm a booking, and payment is due on confirmation. See our <a href="terms.html">Terms &amp; Conditions</a> for details.</p></div></details>
+        <details name="faq"><summary>How should I prepare?</summary><div class="faq__a"><p>Fast for 8–12 hours beforehand (water is fine), stay well hydrated, continue prescription medication as normal and avoid strenuous exercise for 24 hours. Wear a short-sleeved or loose-fitting top. <a href="testing.html#appointment">Read the full guide</a>.</p></div></details>
+        <details name="faq"><summary>How long will results take?</summary><div class="faq__a"><p>Standard results arrive in 2–5 working days from sample receipt at the laboratory (4 working days for the Women’s Health Check). An express service can return results in as little as 2 hours; please ask our team about availability when booking.</p></div></details>
+        <details name="faq"><summary>Can I share my results with my GP?</summary><div class="faq__a"><p>Yes. Your digital report is formatted to a clinical standard and can be shared with your GP or any other healthcare provider.</p></div></details>
+        <details name="faq"><summary>What happens after I send an enquiry?</summary><div class="faq__a"><p>Our team confirms your appointment details by email. An enquiry alone does not confirm a booking, and payment is due on confirmation. Clinics are available across the UK; available locations are shown as you book.</p></div></details>
       </div>
     </div>
   </section>
 
-  <section class="section on-deep cta" aria-labelledby="cta-title">
+  <section class="close on-deep" aria-labelledby="close-title">
   <div class="wrap">
-    <div class="cta__grid">
-      <div>
-        <h2 id="cta-title">Book your health check.</h2>
-        <p>Choose the Men’s or Women’s Health Check, pick a clinic and a date, and our team will confirm your appointment.</p>
-      </div>
-      <div class="cta__actions">
-        <button class="btn btn--light" type="button" data-book="mens">Book Men’s Health Check</button>
-        <button class="btn btn--ghost-light" type="button" data-book="womens">Book Women’s Health Check</button>
-        <p style="margin:0;font-size:.875rem">£995 each · RRP £2,112 · Save £1,117</p>
-      </div>
+    <h2 id="close-title">Book your health check.</h2>
+    <div class="close__row">
+      <button class="btn btn--light" type="button" data-book="mens">Men’s Health Check</button>
+      <button class="btn btn--ghost-light" type="button" data-book="womens">Women’s Health Check</button>
+      <p>£995 each · RRP £2,112 · Save £1,117</p>
     </div>
   </div>
 </section>
 </main>
 
-<footer class="site-footer on-deep">
+<footer class="site-footer">
   <div class="wrap">
-    <div class="footer__grid">
-      <div class="footer__brand">
-        <a class="brand" href="index.html" aria-label="Quantum BioTesting — home">Quantum&nbsp;<span>Bio</span>Testing</a>
-        <p>Private blood testing for men and women, clinically reviewed.</p>
-      </div>
-      <div class="footer__cols">
-        <div>
-          <h2>Health checks</h2>
-          <ul>
-            <li><a href="index.html#health-checks">Men’s Health Check</a></li>
-            <li><a href="index.html#health-checks">Women’s Health Check</a></li>
-            <li><a href="index.html#pricing">Pricing</a></li>
-          </ul>
-        </div>
-        <div>
-          <h2>Learn</h2>
-          <ul>
-            <li><a href="testing.html">Biomarker list</a></li>
-            <li><a href="index.html#process">How it works</a></li>
-            <li><a href="index.html#preparation">Preparing</a></li>
-            <li><a href="index.html#clinics">Clinics</a></li>
-            <li><a href="index.html#faq">FAQs</a></li>
-          </ul>
-        </div>
-        <div>
-          <h2>Legal</h2>
-          <ul>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="terms.html">Terms &amp; Conditions</a></li>
-          </ul>
-        </div>
-      </div>
+    <div class="footer__row">
+      <!-- Logo slot: typographic stand-in until the official logo file is supplied; replace the link content with an <img> of the logo. -->
+    <a class="brand" href="index.html" aria-label="Quantum BioTesting — home">Quantum&nbsp;<span>Bio</span>Testing</a>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="index.html#tests">Health checks</a>
+        <a href="testing.html">Biomarkers</a>
+        <a href="index.html#experience">The experience</a>
+        <a href="index.html#faq">FAQs</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
     </div>
-    <div class="footer__legal">
+    <div class="footer__fine">
       <p>Quantum BioTesting health checks are private health information services. They are not a substitute for NHS services and do not constitute a diagnosis. In a medical emergency, call 999.</p>
       <p>&copy; 2026 Quantum BioTesting Ltd. All rights reserved. Registered in England &amp; Wales.</p>
     </div>

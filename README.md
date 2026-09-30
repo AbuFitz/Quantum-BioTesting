@@ -3,13 +3,13 @@
 Static marketing and booking-enquiry site for Quantum BioTesting's Men's and Women's Health Checks. Plain HTML, one stylesheet, one script. No build step; deploy the repository root.
 
 ```
-index.html      Home: hero, health checks, coverage, process, preparation, report, clinics, pricing, FAQ
-testing.html    Full biomarker list (Men's categories, Women's health areas)
+index.html      Home: hero, choose-your-test canvas, why Quantum, experience, FAQ, close
+testing.html    Depth: Men's biomarker categories, Women's health areas, preparation, clinics
 privacy.html    Privacy Policy
 terms.html      Terms & Conditions
-assets/css/site.css   Design system ("Precision Clinic"): tokens → base → layout → components → pages → motion
-assets/js/site.js     Menu, booking dialog, cookie notice, reveal, biomarker tools, scroll spy
-assets/fonts/         Literata + Albert Sans (Latin, variable, self-hosted, SIL OFL; see LICENSES.txt)
+assets/css/site.css   All styles. Tokens at the top, then header, home sections, dialog, inner pages. No global section padding: spacing is set per section.
+assets/js/site.js     Menu, test switcher, booking dialog, cookie notice, biomarker tools, scroll spy
+assets/fonts/         Schibsted Grotesk (Latin, variable, self-hosted, SIL OFL; see LICENSES.txt)
 assets/images/        Temporary photography; replace freely (each sits in a fixed-ratio `.media` frame)
 robots.txt, sitemap.xml
 ```
@@ -17,9 +17,10 @@ robots.txt, sitemap.xml
 ## Working on it
 
 - Serve locally with any static server, e.g. `python3 -m http.server`.
-- Colours, type, spacing and motion are CSS custom properties at the top of `site.css`. The brand blues are carried over from the previous site; re-derive them from the official logo when it is supplied.
+- Colours and type are CSS custom properties at the top of `site.css`. The palette (navy, cobalt, paper) is carried over from the previous site because no logo file has reached the repository; re-derive the `--c-deep`, `--c-brand` and `--c-sky` values from the logo when it is supplied.
+- Photography is tinted to the brand blue in CSS (`.photo`), so any replacement image picks up the treatment. Use `.photo--plain` for untinted images.
 - Header, footer and booking dialog markup is repeated on each page. Change it in all four files.
-- Prices appear in the two product panels, the pricing table, the hero line, the CTA bands and the JSON-LD on `index.html`, and in the CTA of `testing.html`. Current values: RRP £2,112, offer £995, saving £1,117.
+- Prices appear in the hero, the choose-your-test canvas, the closing call and the JSON-LD on `index.html`, and on `testing.html`. Current values: RRP £2,112, offer £995, saving £1,117.
 
 ## Booking enquiry
 
@@ -29,7 +30,7 @@ It has no backend yet. Set `data-endpoint="https://…"` on `#booking-form` and 
 
 ## Logo
 
-The official logo file has not been added to the repository. The header and footer use a typographic wordmark marked `Wordmark placeholder` in the HTML. When the logo is supplied: replace the `.brand` content, add a favicon (`<link rel="icon">` currently points at an empty data URI), add `og:image`, and add `logo` to the Organization JSON-LD.
+The official logo file has not been added to the repository. The header and footer use a typographic wordmark, marked `Logo slot` in the HTML. When the logo is supplied: replace the `.brand` content, add a favicon (`<link rel="icon">` currently points at an empty data URI), add `og:image`, and add `logo` to the Organization JSON-LD.
 
 ## Client facts still to confirm
 

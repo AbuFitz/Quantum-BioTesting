@@ -1,5 +1,5 @@
 /* Quantum BioTesting — site behaviour
-   Menu · booking dialog · cookie notice · reveal · testing-page tools · scroll spy */
+   Menu · test switcher · booking dialog · cookie notice · testing-page tools · scroll spy */
 (function () {
   'use strict';
 
@@ -217,21 +217,41 @@
     });
   })();
 
-  /* ---- Reveal on scroll ---------------------------------------------- */
-  (function reveal() {
-    var targets = $$('[data-reveal], .measure');
-    if (!targets.length) return;
-    if (reduceMotion || !('IntersectionObserver' in window)) {
-      targets.forEach(function (el) { el.classList.add('is-in'); });
-      return;
-    }
-    targets.forEach(function (el) { if (el.hasAttribute('data-reveal')) el.classList.add('reveal'); });
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
+  /* ---- Test switcher (phones: one test at a time) --------------------- */
+  (function choose() {
+    var canvas = $('.canvas');
+    var tabs = $$('.switch [role="tab"]');
+    if (!canvas || !tabs.length) return;
+    var mq = window.matchMedia('(max-width: 51.99em)');
+    var keys = ['mens', 'womens'];
+
+    function select(key, focus) {
+      canvas.setAttribute('data-active', key);
+      tabs.forEach(function (t) {
+        var on = t.id === 'tab-' + key;
+        t.setAttribute('aria-selected', String(on));
+        t.tabIndex = on ? 0 : -1;
+        if (on && focus) t.focus();
       });
-    }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
-    targets.forEach(function (el) { io.observe(el); });
+    }
+    function roles() {
+      keys.forEach(function (k) {
+        var panel = document.getElementById('half-' + k);
+        if (mq.matches) { panel.setAttribute('role', 'tabpanel'); panel.setAttribute('aria-labelledby', 'tab-' + k); }
+        else { panel.removeAttribute('role'); panel.setAttribute('aria-labelledby', 't-' + k); }
+      });
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { select(keys[i]); });
+      t.addEventListener('keydown', function (e) {
+        var next = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (!next) return;
+        e.preventDefault();
+        select(keys[(i + next + keys.length) % keys.length], true);
+      });
+    });
+    if (mq.addEventListener) mq.addEventListener('change', roles); else mq.addListener(roles);
+    roles();
   })();
 
   /* ---- Testing page: open anchored category, expand all --------------- */
